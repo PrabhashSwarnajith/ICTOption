@@ -15,7 +15,7 @@ import {
 function App() {
   return (
     <Router>
-      <div className="font-sans min-h-screen bg-gradient-to-b from-[#eef4fb] via-white to-[#d0eaff] relative overflow-hidden">
+      <div className="font-body min-h-screen bg-primary relative overflow-hidden">
         {/* Background Branding Text */}
         <h1 className="absolute text-[22vw] font-extrabold text-gray-200 opacity-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 select-none pointer-events-none">
           ICT
