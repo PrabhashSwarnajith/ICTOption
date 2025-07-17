@@ -59,7 +59,7 @@ const FullPageServiceCard = ({
 
   return (
     <motion.section
-      className="min-h-screen flex items-center py-20 px-6 overflow-hidden bg-gray-900"
+      className="min-h-screen flex items-center py-20 px-6 overflow-hidden bg-primary"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -79,17 +79,15 @@ const FullPageServiceCard = ({
               className="flex items-center space-x-4"
               variants={itemVariants}
             >
-              <div
-                className={`${bgColor} text-white px-6 py-3 rounded-full font-bold text-lg shadow-2xl`}
-              >
+              <div className="text-green-500 bg-accent px-6 py-3 rounded-full font-bold text-lg shadow-2xl border border-gray-300">
                 {number.toString().padStart(2, '0')}
               </div>
-              <div className="h-px bg-gradient-to-r from-purple-400 to-transparent flex-1"></div>
+              <div className="h-px bg-gray-300 flex-1"></div>
             </motion.div>
 
             {/* Title */}
             <motion.h1
-              className="text-5xl lg:text-6xl font-bold text-white leading-tight bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent"
+              className="text-4xl lg:text-5xl font-bold text-accent leading-tight"
               variants={itemVariants}
             >
               {title}
@@ -97,7 +95,7 @@ const FullPageServiceCard = ({
 
             {/* Description */}
             <motion.p
-              className="text-xl text-gray-300 leading-relaxed max-w-2xl"
+              className="text-lg text-accent leading-relaxed max-w-2xl"
               variants={itemVariants}
             >
               {description}
@@ -114,8 +112,8 @@ const FullPageServiceCard = ({
                     whileHover={{ x: 10 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <div className="w-2 h-2 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"></div>
-                    <span className="text-gray-300 text-lg">{feature}</span>
+                    <div className="w-2 h-2 bg-secondary rounded-full"></div>
+                    <span className="text-accent text-base">{feature}</span>
                   </motion.div>
                 ))}
               </motion.div>
@@ -128,7 +126,7 @@ const FullPageServiceCard = ({
             >
               <Link
                 to={link}
-                className={`${bgColor} text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 text-center group transform hover:scale-105`}
+                className="bg-secondary text-accent px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300 text-center group transform hover:scale-105"
               >
                 <span className="flex items-center justify-center space-x-2">
                   <span>Explore Service</span>
@@ -150,7 +148,7 @@ const FullPageServiceCard = ({
 
               <Link
                 to="/contact"
-                className="border-2 border-purple-400 text-purple-400 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-purple-400 hover:text-white transition-all duration-300 text-center"
+                className="border-2 border-secondary text-secondary px-8 py-4 rounded-xl font-semibold text-lg hover:bg-secondary hover:text-accent transition-all duration-300 text-center"
               >
                 Get Quote
               </Link>
@@ -169,24 +167,21 @@ const FullPageServiceCard = ({
                 alt={title}
                 className="w-full h-96 lg:h-[500px] object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent"></div>
-
               {/* Overlay Content */}
               <div className="absolute bottom-6 left-6 right-6">
-                <div className="bg-black/40 backdrop-blur-sm p-6 rounded-xl border border-white/10">
-                  <h3 className="text-2xl font-bold text-white mb-2">
+                <div className="bg-neutral-light/10 p-6 rounded-xl border border-neutral-light shadow-lg">
+                  <h3 className="text-2xl font-bold text-accent mb-2">
                     {title}
                   </h3>
-                  <p className="text-gray-300 text-sm leading-relaxed">
+                  <p className="text-accent text-base leading-relaxed">
                     {description.substring(0, 120)}...
                   </p>
                 </div>
               </div>
             </div>
-
             {/* Floating Number Badge */}
             <motion.div
-              className={`absolute -top-6 -right-6 ${bgColor} text-white p-8 rounded-2xl shadow-2xl border-4 border-gray-800`}
+              className="absolute -top-6 -right-6 bg-secondary text-accent p-8 rounded-2xl shadow-2xl border-4 border-secondary/40"
               initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
               whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
               transition={{ delay: 1.2, duration: 0.6 }}
@@ -195,13 +190,10 @@ const FullPageServiceCard = ({
               <div className="text-4xl font-bold">
                 {number.toString().padStart(2, '0')}
               </div>
-              <div className="text-sm opacity-90 text-center">Service</div>
+              <div className="text-sm opacity-90 text-center text-accent">
+                Service
+              </div>
             </motion.div>
-
-            {/* Background Glow Effect */}
-            <div
-              className={`absolute inset-0 ${bgColor} opacity-20 blur-3xl rounded-2xl -z-10 transform scale-110`}
-            ></div>
           </motion.div>
         </div>
       </div>
