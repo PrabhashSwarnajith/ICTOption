@@ -142,7 +142,7 @@ const MobileAppDevelopment = () => {
             Android platforms.
           </span>
         }
-        backgroundImage="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1200&q=80"
+        backgroundImage={mobile3}
         gradient="from-primary via-black to-neutral-dark"
         className="brightness-110"
       >
