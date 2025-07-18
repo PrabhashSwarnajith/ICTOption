@@ -1,53 +1,69 @@
 import React, { useEffect } from 'react';
-import CSRProjectCarousel from './CSRProjectCarousel';
+import CSRProjectCarousel from '../components/CSRProjectCarousel';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+
 import { Hero } from '../components';
 
+import boss from '../assets/team/boss.jpeg';
+
+import gayan from '../assets/team/gayan.jpeg';
+
+import rachi from '../assets/team/rachi.JPG';
+
+import ks from '../assets/team/ks.jpeg';
+
+import kavi from '../assets/team/kavi.jpeg';
+
+import isuru from '../assets/team/isuru.jpeg';
+
+import harini from '../assets/team/harini.jpeg';
+
 // Replaced local image imports with placeholder URLs for broader compatibility
+
 const team = [
   {
     name: 'Sahan Dushmantha De Silva',
     role: 'CEO & Founder',
-    image: 'https://placehold.co/100x100/2a2a2a/f0f0f0?text=Sahan',
+    image: boss,
     description: 'Visionary leader with 15+ years in technology innovation.',
   },
   {
     name: 'Rachithra Pahansith Jayasinghe',
     role: 'Company Secretary',
-    image: 'https://placehold.co/100x100/2a2a2a/f0f0f0?text=Rachithra',
+    image: rachi,
     description: 'Ensures smooth company operations and compliance.',
   },
   {
     name: 'Kuruwitage Saveendra Perera',
     role: 'Head of Research Projects',
-    image: 'https://placehold.co/100x100/2a2a2a/f0f0f0?text=Saveendra',
+    image: ks,
     description: 'Leads research and innovation initiatives.',
   },
   {
     name: 'Kavinda Gayan Bandara',
     role: 'Head of Project Management',
-    image: 'https://placehold.co/100x100/2a2a2a/f0f0f0?text=Gayan',
+    image: gayan,
     description: 'Expert in project delivery and client success.',
   },
   {
     name: 'Kavindya Piyumanthi Opatha',
     role: 'Head of Human Resources',
-    image: 'https://placehold.co/100x100/2a2a2a/f0f0f0?text=Kavindya',
+    image: kavi,
     description: 'Drives people strategy and team culture.',
   },
   {
     name: 'Harini Kularathne',
     role: 'Head of Finance',
-    image: 'https://placehold.co/100x100/2a2a2a/f0f0f0?text=Harini',
+    image: harini,
     description: 'Manages financial planning and analysis.',
   },
   {
     name: 'Isuru Nimeshwara Kularathne',
     role: 'Head of Marketing',
-    image: 'https://placehold.co/100x100/2a2a2a/f0f0f0?text=Isuru',
+    image: isuru,
     description: 'Leads marketing and brand strategy.',
   },
 ];
@@ -73,8 +89,6 @@ const AboutUs = () => {
         }
         description={
           <span className="text-gray-200 font-body">
-            {' '}
-            {/* Refined text color */}
             Dedicated to delivering excellence and digital transformation.
           </span>
         }
@@ -82,17 +96,15 @@ const AboutUs = () => {
         gradient="from-primary via-black to-neutral-dark"
       >
         <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8">
-          {' '}
-          {/* Added margin top */}
           <Link
             to="/contact"
-            className="bg-secondary text-primary px-8 py-4 rounded-full font-semibold text-lg shadow-glow-md hover:bg-accent hover:text-white hover:scale-105 transition-all duration-300 transform-gpu font-body" // Refined button style
+            className="bg-secondary text-primary px-8 py-4 rounded-full font-semibold text-lg shadow-glow-md hover:bg-accent hover:text-white hover:scale-105 transition-all duration-300 transform-gpu font-body"
           >
             Get Quote
           </Link>
           <Link
             to="/services"
-            className="border-2 border-accent text-accent px-8 py-4 rounded-full font-semibold text-lg hover:bg-accent hover:text-primary hover:scale-105 transition-all duration-300 transform-gpu font-body" // Refined button style
+            className="border-2 border-accent text-accent px-8 py-4 rounded-full font-semibold text-lg hover:bg-accent hover:text-primary hover:scale-105 transition-all duration-300 transform-gpu font-body"
           >
             Our Services
           </Link>
@@ -101,7 +113,7 @@ const AboutUs = () => {
 
       {/* Company Introduction Section */}
       <section
-        className="py-20 bg-primary relative overflow-hidden" // Added relative & overflow-hidden
+        className="py-20 bg-primary relative overflow-hidden"
         data-aos="fade-up"
         data-aos-delay="200"
       >
@@ -116,17 +128,12 @@ const AboutUs = () => {
         ></div>
 
         <div className="container mx-auto px-6 relative z-10">
-          {' '}
-          {/* Ensure content is above pattern */}
           <div className="text-center mb-14">
             <h2 className="text-3xl font-bold text-accent mb-4 font-heading tracking-wide uppercase">
               Who We Are
             </h2>
-            <div className="w-24 h-1 bg-secondary mx-auto mb-6 rounded-full"></div>{' '}
-            {/* Added separator */}
+            <div className="w-24 h-1 bg-secondary mx-auto mb-6 rounded-full"></div>
             <p className="text-lg text-gray-300 font-body max-w-2xl mx-auto leading-relaxed">
-              {' '}
-              {/* Refined text color and line height */}
               ICT Option is a leading technology solutions provider based in Sri
               Lanka, dedicated to empowering organizations through digital
               transformation. With a passionate team of experts, we deliver
@@ -141,7 +148,7 @@ const AboutUs = () => {
 
       {/* Core Values Section */}
       <section
-        className="py-20 bg-neutral-dark relative overflow-hidden" // Added relative & overflow-hidden
+        className="py-20 bg-neutral-dark relative overflow-hidden"
         data-aos="fade-up"
         data-aos-delay="300"
       >
@@ -160,31 +167,27 @@ const AboutUs = () => {
             <h2 className="text-3xl font-bold text-secondary mb-4 font-heading tracking-wide uppercase">
               Our Core Values
             </h2>
-            <div className="w-24 h-1 bg-accent mx-auto mb-6 rounded-full"></div>{' '}
-            {/* Accent separator */}
+            <div className="w-24 h-1 bg-accent mx-auto mb-6 rounded-full"></div>
             <p className="text-lg text-gray-300 font-body max-w-2xl mx-auto">
-              {' '}
-              {/* Refined text color */}
               The principles that guide our work and partnerships.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-10">
             <motion.div
-              className="bg-primary p-6 rounded-2xl text-gray-300 border border-neutral-700 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300" // Refined card style
+              className="bg-primary p-6 rounded-2xl text-gray-300 border border-neutral-700 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
               data-aos="zoom-in"
               data-aos-delay="0"
             >
               <h3 className="font-bold text-secondary text-xl mb-2 font-heading">
                 Innovation
-              </h3>{' '}
-              {/* Larger text, consistent font */}
+              </h3>
               <p className="font-body">
                 We embrace creativity and forward-thinking to deliver
                 cutting-edge solutions for our clients.
               </p>
             </motion.div>
             <motion.div
-              className="bg-neutral-800 p-6 rounded-2xl shadow-glow border-2 border-secondary text-gray-300 hover:shadow-2xl hover:scale-105 transition-all duration-300" // Refined card style
+              className="bg-neutral-800 p-6 rounded-2xl shadow-glow border-2 border-secondary text-gray-300 hover:shadow-2xl hover:scale-105 transition-all duration-300"
               data-aos="zoom-in"
               data-aos-delay="100"
             >
@@ -197,7 +200,7 @@ const AboutUs = () => {
               </p>
             </motion.div>
             <motion.div
-              className="bg-primary p-6 rounded-2xl text-gray-300 border border-neutral-700 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300" // Refined card style
+              className="bg-primary p-6 rounded-2xl text-gray-300 border border-neutral-700 shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
               data-aos="zoom-in"
               data-aos-delay="200"
             >
@@ -213,9 +216,9 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* Team Section - Card Style Like Attachment */}
       <section
-        className="py-20 bg-primary relative overflow-hidden" // Added relative & overflow-hidden
+        className="py-20 bg-primary relative overflow-hidden"
         data-aos="fade-up"
         data-aos-delay="400"
       >
@@ -236,47 +239,63 @@ const AboutUs = () => {
             </h2>
             <div className="w-24 h-1 bg-secondary mx-auto mb-6 rounded-full"></div>
             <p className="text-lg text-gray-300 font-body max-w-2xl mx-auto">
-              {' '}
-              {/* Refined text color */}
               Over 5 years of experience delivering innovative solutions.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
-            {' '}
-            {/* Adjusted grid for more members */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {team.map((member, idx) => (
               <motion.div
                 key={member.name}
-                className="bg-neutral-dark rounded-2xl flex flex-col items-center p-6 relative overflow-hidden group border border-neutral-700 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300" // Added border, shadow, hover effects
+                className="bg-neutral-dark rounded-2xl shadow-lg flex flex-col p-0 overflow-hidden border border-neutral-800 relative group hover:scale-[1.02] transition-all duration-300"
                 data-aos="zoom-in"
                 data-aos-delay={idx * 100}
-                whileHover={{ y: -5 }} // Subtle lift on hover
               >
-                <div className="w-32 h-32 rounded-full overflow-hidden mb-4 border-4 border-secondary/50 group-hover:border-accent/70 transition-colors duration-300 relative z-10">
-                  {' '}
-                  {/* Styled image container */}
+                {/* Image Top */}
+                <div className="relative w-full h-60 overflow-hidden">
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" // Grayscale effect
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                   />
+                  {/* Overlay content (repurposed for team card aesthetic) */}
+                  <div className="absolute bottom-3 left-3 flex items-center gap-2">
+                    <span className="bg-secondary text-primary text-xs px-3 py-1 rounded-full font-semibold shadow-md font-body">
+                      {idx % 2 === 0 ? 'Leadership' : 'Expert'}{' '}
+                      {/* Dynamic tag */}
+                    </span>
+                    <span className="w-8 h-8 bg-accent rounded-full flex items-center justify-center shadow-lg text-primary">
+                      {/* Placeholder icon, could be replaced with actual icon if needed */}
+                      <svg
+                        className="w-4 h-4"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                  </div>
                 </div>
-                <div className="z-10 text-center">
-                  <h3 className="text-xl font-bold text-secondary mb-1 font-heading">
+                {/* Card Content */}
+                <div className="flex flex-col justify-between flex-1 p-5">
+                  <h3 className="text-lg font-bold text-accent mb-1 font-heading">
+                    {' '}
+                    {/* Changed text color */}
                     {member.name}
                   </h3>
-                  <p className="text-accent text-sm font-body mb-2">
+                  <p className="text-secondary text-sm font-semibold mb-2 font-body">
+                    {' '}
+                    {/* Changed text color */}
                     {member.role}
                   </p>
-                  <p className="text-gray-300 text-xs font-body">
-                    {' '}
-                    {/* Refined text color */}
+                  <p className="text-gray-300 text-xs font-body mb-2">
                     {member.description}
                   </p>
                 </div>
-                {/* Accent corner, now more integrated */}
-                <div className="absolute top-0 right-0 w-16 h-16 bg-secondary rounded-bl-2xl opacity-10 group-hover:opacity-20 transition-opacity duration-300 z-0"></div>
-                <div className="absolute bottom-0 left-0 w-12 h-12 bg-accent rounded-tr-2xl opacity-10 group-hover:opacity-20 transition-opacity duration-300 z-0"></div>
               </motion.div>
             ))}
           </div>
@@ -285,7 +304,7 @@ const AboutUs = () => {
 
       {/* Vision & Mission Section */}
       <section
-        className="py-20 bg-neutral-dark relative overflow-hidden" // Added relative & overflow-hidden
+        className="py-20 bg-neutral-dark relative overflow-hidden"
         data-aos="fade-up"
         data-aos-delay="500"
       >
@@ -304,7 +323,7 @@ const AboutUs = () => {
             {['Vision', 'Mission'].map((label, index) => (
               <motion.div
                 key={label}
-                className="bg-primary p-6 rounded-2xl text-gray-300 border border-neutral-700 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300" // Refined card style
+                className="bg-primary p-6 rounded-2xl text-gray-300 border border-neutral-700 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -328,7 +347,7 @@ const AboutUs = () => {
 
       {/* CSR Project Image Carousel */}
       <section
-        className="py-20 bg-primary relative overflow-hidden" // Added relative & overflow-hidden
+        className="py-20 bg-primary relative overflow-hidden"
         data-aos="fade-up"
         data-aos-delay="600"
       >
@@ -336,7 +355,7 @@ const AboutUs = () => {
         <div
           className="absolute inset-0 z-0 opacity-05"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='5' cy='5' r='2' fill='%236B7280' fill-opacity='0.1'/%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='5' cy='5' r='2' fill='%236B7280' fill-opacity='0.1'/%3E%3C/circle%3E%3C/svg%3E")`,
             backgroundRepeat: 'repeat',
           }}
         ></div>
@@ -358,7 +377,7 @@ const AboutUs = () => {
 
       {/* Testimonials Section */}
       <section
-        className="py-20 bg-black relative overflow-hidden" // bg-black retained for distinct background image effect
+        className="py-20 bg-black relative overflow-hidden"
         data-aos="fade-up"
         data-aos-delay="700"
       >
@@ -368,38 +387,29 @@ const AboutUs = () => {
             alt="Testimonials Background"
             className="w-full h-full object-cover opacity-20"
           />
-          <div className="absolute inset-0 bg-neutral-900/80" />{' '}
-          {/* Darker, more integrated overlay */}
+          <div className="absolute inset-0 bg-neutral-900/80" />
         </div>
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-12">
             <span className="text-secondary font-bold uppercase tracking-wider text-sm font-body">
-              {' '}
-              {/* Changed to secondary */}
               Testimonials
             </span>
             <h2 className="text-4xl font-extrabold text-accent mb-2 font-heading tracking-wide uppercase">
-              {' '}
-              {/* Changed to accent */}
               Our Clients Reviews
             </h2>
             <div className="w-24 h-1 bg-secondary mx-auto mb-6 rounded-full"></div>
-            <p className="text-gray-300/90 opacity-90 max-w-2xl mx-auto mb-6 font-body">
-              {' '}
-              {/* Changed to gray-300 */}
+            <p className="text-gray-300 opacity-90 max-w-2xl mx-auto mb-6 font-body">
               See what our clients say about working with us and how we helped
               them achieve their goals.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             <motion.div
-              className="bg-neutral-800 rounded-xl p-8 shadow-xl flex flex-col items-start border border-neutral-700 relative min-h-[220px] max-w-[370px] mx-auto hover:shadow-2xl hover:scale-[1.02] transition-all duration-300" // Refined card style
+              className="bg-neutral-800 rounded-xl p-8 shadow-xl flex flex-col items-start border border-neutral-700 relative min-h-[220px] max-w-[370px] mx-auto hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
               data-aos="zoom-in"
               data-aos-delay="0"
             >
-              <p className="text-gray-300 text-base mb-8 font-medium font-body">
-                {' '}
-                {/* Changed to gray-300 */}
+              <p className="text-gray-300 text-base mb-8 font-medium font-body leading-relaxed">
                 "ICT Option delivered our project on time and exceeded our
                 expectations. Their team is highly skilled and professional."
               </p>
@@ -407,22 +417,17 @@ const AboutUs = () => {
                 <img
                   src="https://randomuser.me/api/portraits/women/44.jpg"
                   alt="Alish White"
-                  className="w-12 h-12 rounded-full border-2 border-secondary" // Changed border to secondary
+                  className="w-12 h-12 rounded-full border-2 border-secondary"
                 />
                 <div>
                   <div className="font-bold text-secondary text-base font-body">
-                    {' '}
-                    {/* Changed to secondary */}
                     Alish White
                   </div>
                   <div className="text-gray-400 text-xs font-body">
                     Entrepreneur
-                  </div>{' '}
-                  {/* Changed to gray-400 */}
+                  </div>
                 </div>
                 <span className="ml-auto text-accent text-3xl font-bold font-heading">
-                  {' '}
-                  {/* Changed to accent */}
                   “”
                 </span>
               </div>
@@ -476,8 +481,7 @@ const AboutUs = () => {
                   </div>
                   <div className="text-gray-400 text-xs font-body">
                     Operations Manager
-                  </div>{' '}
-                  {/* Changed title */}
+                  </div>
                 </div>
                 <span className="ml-auto text-accent text-3xl font-bold font-heading">
                   “”
@@ -490,7 +494,7 @@ const AboutUs = () => {
 
       {/* FAQ Section */}
       <section
-        className="py-20 bg-neutral-dark relative overflow-hidden" // Added relative & overflow-hidden
+        className="py-20 bg-neutral-dark relative overflow-hidden"
         data-aos="fade-up"
         data-aos-delay="800"
       >
@@ -498,7 +502,7 @@ const AboutUs = () => {
         <div
           className="absolute inset-0 z-0 opacity-05"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='3' fill='%236B7280' fill-opacity='0.1'/%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='3' fill='%236B7280' fill-opacity='0.1'/%3E%3C/circle%3E%3C/svg%3E")`,
             backgroundRepeat: 'repeat',
             transform: 'rotate(-10deg) scale(1.05)',
           }}
@@ -516,7 +520,7 @@ const AboutUs = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-10">
             <motion.div
-              className="bg-primary p-6 rounded-2xl shadow-lg border border-accent text-gray-300 hover:shadow-xl hover:scale-[1.02] transition-all duration-300" // Refined card style
+              className="bg-primary p-6 rounded-2xl shadow-lg border border-accent text-gray-300 hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
               data-aos="zoom-in"
               data-aos-delay="0"
             >
@@ -529,7 +533,7 @@ const AboutUs = () => {
               </p>
             </motion.div>
             <motion.div
-              className="bg-primary p-6 rounded-2xl shadow-lg border border-accent text-gray-300 hover:shadow-xl hover:scale-[1.02] transition-all duration-300" // Refined card style
+              className="bg-primary p-6 rounded-2xl shadow-lg border border-accent text-gray-300 hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
               data-aos="zoom-in"
               data-aos-delay="100"
             >
@@ -542,7 +546,7 @@ const AboutUs = () => {
               </p>
             </motion.div>
             <motion.div
-              className="bg-primary p-6 rounded-2xl shadow-lg border border-accent text-gray-300 hover:shadow-xl hover:scale-[1.02] transition-all duration-300" // Refined card style
+              className="bg-primary p-6 rounded-2xl shadow-lg border border-accent text-gray-300 hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
               data-aos="zoom-in"
               data-aos-delay="200"
             >
@@ -560,7 +564,7 @@ const AboutUs = () => {
 
       {/* Call to Action Section */}
       <section
-        className="py-20 bg-gradient-to-br from-primary via-black to-neutral-dark text-center relative overflow-hidden" // Added relative & overflow-hidden
+        className="py-20 bg-gradient-to-br from-primary via-black to-neutral-dark text-center relative overflow-hidden"
         data-aos="fade-up"
         data-aos-delay="900"
       >
@@ -579,15 +583,13 @@ const AboutUs = () => {
             Ready to Transform Your Business?
           </h2>
           <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto font-body">
-            {' '}
-            {/* Changed to gray-300 */}
             Let's collaborate to bring your vision to life with cutting-edge
             technology solutions that drive growth and innovation.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link
               to="/contact"
-              className="bg-secondary text-primary px-8 py-4 rounded-full font-semibold font-body shadow-glow-md hover:bg-accent hover:text-white hover:scale-105 transition-all duration-300 transform-gpu" // Refined button style
+              className="bg-secondary text-primary px-8 py-4 rounded-full font-semibold font-body shadow-glow-md hover:bg-accent hover:text-white hover:scale-105 transition-all duration-300 transform-gpu"
               data-aos="zoom-in"
               data-aos-delay="1000"
             >
@@ -595,7 +597,7 @@ const AboutUs = () => {
             </Link>
             <Link
               to="/services"
-              className="border-2 border-accent text-accent px-8 py-4 rounded-full font-semibold font-body hover:bg-accent hover:text-primary hover:scale-105 transition-all duration-300 transform-gpu" // Refined button style
+              className="border-2 border-accent text-accent px-8 py-4 rounded-full font-semibold font-body hover:bg-accent hover:text-primary hover:scale-105 transition-all duration-300 transform-gpu"
               data-aos="zoom-in"
               data-aos-delay="1100"
             >
