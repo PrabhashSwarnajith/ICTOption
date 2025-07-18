@@ -3,6 +3,12 @@ import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Hero } from '../components';
+import web2 from '../assets/img/web2.jpeg';
+import mobile3 from '../assets/img/mobile3.jpg';
+import it1 from '../assets/img/it1.jpg';
+import dm1 from '../assets/img/dm1.jpg';
+import cyber1 from '../assets/img/cyber1.jpg';
+import service from '../assets/img/services.jpg';
 
 // --- Data Definitions for easier management ---
 
@@ -10,8 +16,7 @@ const servicesData = [
   {
     name: 'Web Development',
     path: '/services/web-development',
-    image:
-      'https://images.unsplash.com/photo-1542831371-d512640ceb8a?auto=format&fit=crop&w=400&q=80', // More relevant image
+    image: web2,
     label: 'Web',
     icon: (
       <svg
@@ -32,8 +37,7 @@ const servicesData = [
   {
     name: 'Mobile App Development',
     path: '/services/mobile-app-development',
-    image:
-      'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80',
+    image: mobile3,
     label: 'Mobile',
     icon: (
       <svg
@@ -76,8 +80,7 @@ const servicesData = [
   {
     name: 'Digital Marketing',
     path: '/services/digital-marketing',
-    image:
-      'https://images.unsplash.com/photo-1557804506-669a67965da0?auto=format&fit=crop&w=400&q=80', // More relevant image
+    image: dm1,
     label: 'Marketing',
     icon: (
       <svg
@@ -98,8 +101,7 @@ const servicesData = [
   {
     name: 'IT Consulting',
     path: '/services/it-consulting',
-    image:
-      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80', // More relevant image
+    image: it1,
     label: 'Consulting',
     icon: (
       <svg
@@ -120,8 +122,7 @@ const servicesData = [
   {
     name: 'Cybersecurity',
     path: '/services/cybersecurity',
-    image:
-      'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=400&q=80', // More relevant image
+    image: cyber1,
     label: 'Security',
     icon: (
       <svg
@@ -151,15 +152,7 @@ const projectsData = [
       'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=400&q=80',
     link: '#',
   },
-  {
-    category: 'Cloud',
-    title: 'Cloud Migration for Finance',
-    description:
-      'Migrated legacy systems to AWS, improving security and reducing costs for a financial services firm.',
-    image:
-      'https://images.unsplash.com/photo-1587407627257-cd73776589d6?auto=format&fit=crop&w=400&q=80',
-    link: '#',
-  },
+
   {
     category: 'Web',
     title: 'E-Commerce Platform Launch',
@@ -311,7 +304,7 @@ const Services = () => {
             growth** in the dynamic digital landscape.
           </span>
         }
-        backgroundImage="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1920&q=80"
+        backgroundImage={service}
         gradient="from-primary via-black to-neutral-dark"
       >
         <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8 animate-float">
@@ -435,12 +428,6 @@ const Services = () => {
                 projects, delivered for clients across various industries.
               </p>
             </div>
-            <Link
-              to="/portfolio"
-              className="mt-6 md:mt-0 bg-secondary text-primary px-6 py-3 rounded-full font-semibold shadow-glow-md hover:bg-accent hover:text-white transition-all duration-300 transform hover:scale-105"
-            >
-              View All Projects
-            </Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
             {projectsData.map((project, idx) => (
