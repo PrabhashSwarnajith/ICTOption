@@ -8,20 +8,13 @@ import { Link } from 'react-router-dom';
 import { Hero } from '../components';
 
 import boss from '../assets/team/boss.jpeg';
-
 import gayan from '../assets/team/gayan.jpeg';
-
 import rachi from '../assets/team/rachi.JPG';
-
 import ks from '../assets/team/ks.jpeg';
-
 import kavi from '../assets/team/kavi.jpeg';
-
 import isuru from '../assets/team/isuru.jpeg';
-
 import harini from '../assets/team/harini.jpeg';
-
-// Replaced local image imports with placeholder URLs for broader compatibility
+import about from '../assets/img/about.jpg'; // Placeholder for about image
 
 const team = [
   {
@@ -92,7 +85,7 @@ const AboutUs = () => {
             Dedicated to delivering excellence and digital transformation.
           </span>
         }
-        backgroundImage="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+        backgroundImage={about}
         gradient="from-primary via-black to-neutral-dark"
       >
         <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8">
