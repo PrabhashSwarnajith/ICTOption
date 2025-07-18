@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../assets/logo.png';
 
 const Footer = () => {
   // Data for quick links
@@ -44,18 +45,13 @@ const Footer = () => {
         {/* Brand & Contact */}
         <div className="flex flex-col items-start">
           <div className="flex items-center mb-4">
-            {/* Enhanced Brand Logo SVG */}
-            <svg
-              className="w-10 h-10 mr-3 text-secondary"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-            </svg>
+            {/* Company Logo */}
+            <img
+              src={logo}
+              alt="ICT Option Logo"
+              className="w-10 h-10 mr-3 rounded-full shadow-lg bg-white object-contain"
+            />
+
             <span className="text-3xl font-extrabold text-accent tracking-wide">
               ICT <span className="text-secondary">OPTION</span>
             </span>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 const Header = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -37,18 +38,17 @@ const Header = () => {
         <Link to="/" className="flex items-center space-x-3 group">
           {/* Using a placeholder image URL for logo */}
           <img
-            src="https://placehold.co/40x40/secondary/primary?text=LOGO" // Placeholder for logo
-            alt="ICT Option Web Logo"
-            className="h-10 w-auto group-hover:scale-105 transition-transform duration-300 drop-shadow-sm"
+            src={logo}
+            alt="ICT Option"
+            className="h-14 w-auto group-hover:scale-105 transition-transform duration-300 drop-shadow-sm"
           />
           <div className="text-2xl font-bold text-accent font-heading hidden sm:block group-hover:text-secondary transition-colors duration-300">
-            ICT Option Web
+            ICT Option
           </div>
           <div className="text-lg font-bold text-accent font-heading sm:hidden group-hover:text-secondary transition-colors duration-300">
             ICT
           </div>
         </Link>
-
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex space-x-8 text-accent font-medium font-body items-center">
           {navLinks.map((link, index) =>
@@ -126,7 +126,6 @@ const Header = () => {
             Contact Us
           </Link>
         </nav>
-
         {/* Mobile menu button */}
         <button
           className="lg:hidden text-accent p-2 rounded-lg hover:bg-secondary/10 transition-colors duration-300"
