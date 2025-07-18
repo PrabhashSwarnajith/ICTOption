@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Hero } from '../../components';
 import { motion } from 'framer-motion';
+import cyber1 from '../../assets/img/cyber1.jpg';
+import cyber2 from '../../assets/img/cyber2.jpg';
+import cyber3 from '../../assets/img/cyber3.jpg';
 
 // --- Data Definitions for easier management ---
 
@@ -22,7 +25,7 @@ const whyChooseUsPoints = [
     title: 'Proactive Defense',
     description:
       'We go beyond reactive measures, identifying and neutralizing potential threats before they can impact your operations or compromise your data.',
-    icon: ' preemptive strike icon', // Target or a similar icon
+    icon: '🎯', // Target icon
   },
   {
     title: 'Compliance & Governance',
@@ -61,14 +64,34 @@ const ourApproachSteps = [
 
 const coreServices = [
   {
+    title: 'Cybersecurity Awareness Training',
+    description:
+      'Empower your employees to be your first line of defense with engaging and effective cybersecurity awareness programs, covering social engineering, phishing, and password hygiene education.',
+  },
+  {
+    title: 'Phishing Simulation Campaigns',
+    description:
+      'Test employee response to fake phishing emails and assess their susceptibility to social engineering attacks, providing valuable insights for targeted training.',
+  },
+  {
+    title: 'Vulnerability Assessment & Penetration Testing (VAPT)',
+    description:
+      'Identify security weaknesses in your web, mobile, network, or cloud infrastructure through comprehensive vulnerability assessments and simulated attacks to evaluate real-world exploitability.',
+  },
+  {
+    title: 'Web Application Security Testing',
+    description:
+      'Thorough testing focused on OWASP Top 10 vulnerabilities, business logic flaws, and access control issues to secure your web applications.',
+  },
+  {
+    title: 'Mobile Application Security Testing',
+    description:
+      'Comprehensive security testing for both iOS and Android applications, covering code-level vulnerabilities, insecure data storage, and runtime issues.',
+  },
+  {
     title: 'Risk Assessments',
     description:
       'Identify vulnerabilities and assess security risks across your entire digital infrastructure, providing clear actionable insights.',
-  },
-  {
-    title: 'Penetration Testing',
-    description:
-      'Simulate real-world cyber attacks to uncover weaknesses in your systems before malicious actors exploit them.',
   },
   {
     title: 'Managed Security Services (MSSP)',
@@ -84,11 +107,6 @@ const coreServices = [
     title: 'Incident Response & Recovery',
     description:
       'Rapid response teams to contain, eradicate, and recover from cyber incidents, minimizing disruption and data loss.',
-  },
-  {
-    title: 'Security Awareness Training',
-    description:
-      'Empower your employees to be your first line of defense with engaging and effective cybersecurity awareness programs.',
   },
 ];
 
@@ -174,25 +192,26 @@ const Cybersecurity = () => {
             Ensure business continuity and safeguard your reputation.
           </span>
         }
-        backgroundImage="https://images.unsplash.com/photo-1544890258-f9a88887e221?auto=format&fit=crop&w=1600&q=80" // More impactful, defensive-looking image
+        backgroundImage={cyber1}
         gradient="from-primary via-black to-neutral-dark"
+        className="brightness-110"
       >
         <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8 animate-float">
           <Link
-            to="/contact"
-            className="bg-secondary text-accent px-8 py-4 rounded-full font-semibold text-lg shadow-glow hover:scale-105 transition-all duration-300"
+            to="/services"
+            className="bg-secondary text-primary px-8 py-4 rounded-full font-semibold text-lg shadow-glow-md hover:bg-accent hover:text-white hover:scale-105 transition-all duration-300 transform-gpu font-body"
           >
             Get a Security Assessment
           </Link>
           <Link
-            to="/services"
-            className="border-2 border-accent text-accent px-8 py-4 rounded-full font-semibold text-lg hover:bg-accent hover:text-primary transition-all duration-300"
+            to="/contact"
+            className="border-2 border-accent text-accent px-8 py-4 rounded-full font-semibold text-lg hover:bg-accent hover:text-primary hover:scale-105 transition-all duration-300 transform-gpu font-body"
           >
             Explore All Services
           </Link>
         </div>
       </Hero>
-      ---
+
       {/* Intro to Cybersecurity - Enhanced Visual & Text Section */}
       <section className="py-20 bg-neutral-dark relative overflow-hidden">
         {/* Subtle background pattern: circuit board / digital lines */}
@@ -214,7 +233,7 @@ const Cybersecurity = () => {
             viewport={{ once: true, amount: 0.5 }}
           >
             <img
-              src="https://images.unsplash.com/photo-1593642531955-b62e17bbd298?auto=format&fit=crop&w=1200&q=80" // Image: cybersecurity professional at work
+              src={cyber2} // Image: cybersecurity professional at work
               alt="Cybersecurity Strategy"
               className="relative z-10 rounded-2xl shadow-2xl w-full max-w-lg object-cover grayscale transition-all duration-500 hover:grayscale-0 hover:scale-105"
               style={{ aspectRatio: '4/3' }}
@@ -232,13 +251,13 @@ const Cybersecurity = () => {
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
             viewport={{ once: true, amount: 0.5 }}
           >
-            <span className="text-secondary font-bold uppercase tracking-wider text-sm">
+            <span className="text-secondary font-bold uppercase tracking-wider text-sm font-body">
               Your Digital Fortress
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-accent mt-2 mb-4 font-heading leading-tight">
               Proactive Defense in an Unpredictable World
             </h2>
-            <p className="text-accent opacity-80 mb-8 max-w-xl text-lg">
+            <p className="text-gray-300 opacity-80 mb-8 max-w-xl text-lg font-body">
               In today's interconnected world, cyber threats are more
               sophisticated than ever. At ICT Option, we provide **robust
               cybersecurity solutions** designed to protect your valuable data,
@@ -248,18 +267,15 @@ const Cybersecurity = () => {
             </p>
             <Link
               to="/contact"
-              className="inline-block bg-secondary text-accent px-8 py-4 rounded-full font-bold shadow-glow hover:bg-accent hover:text-primary transition-all duration-300"
+              className="inline-block bg-secondary text-primary px-8 py-4 rounded-full font-bold shadow-glow-md hover:bg-accent hover:text-white transition-all duration-300 transform-gpu font-body"
             >
               Consult Our Experts
             </Link>
           </motion.div>
         </div>
       </section>
-      ---
       {/* Why Choose Us Section - Card Grid with motion */}
       <section className="py-20 bg-primary/10">
-        {' '}
-        {/* Different background tint */}
         <div className="container mx-auto px-6">
           <motion.div
             className="text-center mb-16"
@@ -271,8 +287,7 @@ const Cybersecurity = () => {
             <h2 className="text-4xl font-bold text-secondary mb-4 font-heading">
               Why Entrust Your Security to ICT Option?
             </h2>
-            <div className="w-24 h-1 bg-accent mx-auto"></div>{' '}
-            {/* Divider color for contrast */}
+            <div className="w-24 h-1 bg-accent mx-auto mb-4 rounded-full"></div>
             <p className="text-lg text-accent font-body max-w-2xl mx-auto mt-4">
               We provide unparalleled protection through a blend of expert
               knowledge, cutting-edge technology, and unwavering vigilance.
@@ -282,18 +297,17 @@ const Cybersecurity = () => {
             {whyChooseUsPoints.map((point, index) => (
               <motion.div
                 key={point.title}
-                className="bg-primary p-6 rounded-lg text-accent text-center shadow-lg border border-white/10 transition-all duration-300 hover:shadow-2xl hover:scale-[1.03]"
+                className="bg-primary p-6 rounded-lg text-accent text-center shadow-lg border border-neutral-700 transition-all duration-300 hover:shadow-2xl hover:scale-[1.03]"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="text-5xl mb-4">{point.icon}</div>{' '}
-                {/* Icon placeholder */}
+                <div className="text-5xl mb-4">{point.icon}</div>
                 <h3 className="font-bold text-secondary text-xl mb-2 font-heading">
                   {point.title}
                 </h3>
-                <p className="text-base leading-relaxed opacity-90">
+                <p className="text-base leading-relaxed opacity-90 font-body">
                   {point.description}
                 </p>
               </motion.div>
@@ -301,11 +315,8 @@ const Cybersecurity = () => {
           </div>
         </div>
       </section>
-      ---
       {/* Our Approach Section - Process with numbers and motion */}
       <section className="py-20 bg-accent/20 relative overflow-hidden">
-        {' '}
-        {/* New background tint */}
         {/* Background pattern */}
         <div
           className="absolute inset-0 z-0 opacity-05"
@@ -323,11 +334,9 @@ const Cybersecurity = () => {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl font-bold text-primary mb-4 font-heading">
-              {' '}
-              {/* Text color changed for contrast */}
               Our Multi-Layered Cybersecurity Approach
             </h2>
-            <div className="w-24 h-1 bg-secondary mx-auto"></div>
+            <div className="w-24 h-1 bg-secondary mx-auto mb-4 rounded-full"></div>
             <p className="text-lg text-primary font-body max-w-2xl mx-auto mt-4 opacity-90">
               We implement a comprehensive defense-in-depth strategy, securing
               your assets at every potential point of attack.
@@ -336,7 +345,7 @@ const Cybersecurity = () => {
 
           <div className="flex flex-col md:flex-row items-center gap-12">
             <motion.img
-              src="https://images.unsplash.com/photo-1542831371-29b1f74f7139?auto=format&fit=crop&w=1200&q=80" // New image: secure coding/network illustration
+              src={cyber3} // New image: secure coding/network illustration
               alt="Cyber Defense Layers"
               className="w-full max-w-lg rounded-2xl shadow-xl mb-8 md:mb-0 object-cover border-4 border-primary transition-transform duration-500 hover:scale-[1.02]"
               style={{ aspectRatio: '1.5/1' }}
@@ -349,7 +358,7 @@ const Cybersecurity = () => {
               {ourApproachSteps.map((item, index) => (
                 <motion.li
                   key={index}
-                  className="bg-primary/80 p-6 rounded-xl text-accent shadow-md border border-white/10 flex items-start gap-4 transition-all duration-300 hover:bg-primary hover:shadow-lg"
+                  className="bg-primary/80 p-6 rounded-xl text-accent shadow-md border border-neutral-700 flex items-start gap-4 transition-all duration-300 hover:bg-primary hover:shadow-lg"
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.12 }}
@@ -359,10 +368,10 @@ const Cybersecurity = () => {
                     {index + 1}
                   </span>
                   <div>
-                    <span className="font-bold text-secondary text-lg">
+                    <span className="font-bold text-secondary text-lg font-heading">
                       {item.step}:
                     </span>{' '}
-                    <p className="text-base text-accent opacity-90 leading-relaxed">
+                    <p className="text-base text-gray-300 opacity-90 leading-relaxed font-body">
                       {item.description}
                     </p>
                   </div>
@@ -372,7 +381,6 @@ const Cybersecurity = () => {
           </div>
         </div>
       </section>
-      ---
       {/* Core Cybersecurity Services - Detailed cards */}
       <section className="py-20 bg-primary/20">
         <div className="container mx-auto px-6">
@@ -386,7 +394,7 @@ const Cybersecurity = () => {
             <h2 className="text-4xl font-bold text-accent mb-4 font-heading">
               Comprehensive Cybersecurity Services
             </h2>
-            <div className="w-24 h-1 bg-secondary mx-auto"></div>
+            <div className="w-24 h-1 bg-secondary mx-auto mb-4 rounded-full"></div>
             <p className="text-lg text-accent font-body max-w-2xl mx-auto mt-4">
               From proactive threat detection to rapid incident response, our
               services cover every aspect of your digital security needs.
@@ -396,7 +404,7 @@ const Cybersecurity = () => {
             {coreServices.map((service, index) => (
               <motion.div
                 key={index}
-                className="bg-neutral-dark p-6 rounded-lg text-accent shadow-lg border-l-4 border-accent transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl"
+                className="bg-neutral-dark p-6 rounded-lg text-accent shadow-lg border-l-4 border-secondary transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
@@ -405,7 +413,7 @@ const Cybersecurity = () => {
                 <h3 className="font-bold text-secondary text-xl mb-3 font-heading">
                   {service.title}
                 </h3>
-                <p className="text-base leading-relaxed opacity-90">
+                <p className="text-base leading-relaxed opacity-90 font-body">
                   {service.description}
                 </p>
               </motion.div>
@@ -413,7 +421,6 @@ const Cybersecurity = () => {
           </div>
         </div>
       </section>
-      ---
       {/* Success Stories Section - Testimonials with a different visual flair */}
       <section className="py-20 bg-neutral-dark">
         <div className="container mx-auto px-6">
@@ -427,7 +434,7 @@ const Cybersecurity = () => {
             <h2 className="text-4xl font-bold text-secondary mb-4 font-heading">
               Proven Results: Real-World Success
             </h2>
-            <div className="w-24 h-1 bg-accent mx-auto"></div>
+            <div className="w-24 h-1 bg-accent mx-auto mb-4 rounded-full"></div>
             <p className="text-lg text-accent font-body max-w-2xl mx-auto mt-4">
               Discover how ICT Option has successfully protected businesses from
               critical cyber threats and ensured their digital resilience.
@@ -443,16 +450,16 @@ const Cybersecurity = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="text-secondary text-sm font-semibold mb-2">
+                <div className="text-secondary text-sm font-semibold mb-2 font-body">
                   {story.tag}
                 </div>
                 <h3 className="font-bold text-accent text-xl mb-3 font-heading">
                   {story.title}
                 </h3>
-                <p className="text-base leading-relaxed opacity-90 flex-grow">
+                <p className="text-base leading-relaxed opacity-90 flex-grow font-body">
                   {story.description}
                 </p>
-                <div className="mt-4 text-right text-sm italic opacity-80">
+                <div className="mt-4 text-right text-sm italic opacity-80 font-body">
                   — Client Testimonial
                 </div>
               </motion.div>
@@ -460,11 +467,8 @@ const Cybersecurity = () => {
           </div>
         </div>
       </section>
-      ---
       {/* Industries We Serve Section - Icon Grid / Tag Cloud style */}
       <section className="py-20 bg-primary/5 relative overflow-hidden">
-        {' '}
-        {/* Lightest background */}
         {/* Subtle background circles/dots */}
         <div
           className="absolute inset-0 z-0 opacity-05"
@@ -484,7 +488,7 @@ const Cybersecurity = () => {
             <h2 className="text-4xl font-bold text-accent mb-4 font-heading">
               Trusted Across Diverse Industries
             </h2>
-            <div className="w-24 h-1 bg-secondary mx-auto"></div>
+            <div className="w-24 h-1 bg-secondary mx-auto mb-4 rounded-full"></div>
             <p className="text-lg text-accent font-body max-w-2xl mx-auto mt-4">
               Our robust cybersecurity solutions are tailored to meet the unique
               security and compliance demands of various sectors.
@@ -494,7 +498,7 @@ const Cybersecurity = () => {
             {industriesWeServe.map((industry, index) => (
               <motion.div
                 key={index}
-                className="bg-neutral-dark text-accent px-6 py-3 rounded-full text-lg font-medium shadow-md border border-white/10 cursor-default transition-all duration-300 hover:bg-secondary hover:text-primary hover:scale-105"
+                className="bg-neutral-dark text-accent px-6 py-3 rounded-full text-lg font-medium shadow-md border border-neutral-700 cursor-default transition-all duration-300 hover:bg-secondary hover:text-primary hover:scale-105"
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
@@ -506,134 +510,8 @@ const Cybersecurity = () => {
           </div>
         </div>
       </section>
-      ---
-      {/* Certifications & Partnerships */}
-      <section className="py-20 bg-neutral-dark">
-        <div className="container mx-auto px-6">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl font-bold text-secondary mb-4 font-heading">
-              Certified Expertise & Trusted Partnerships
-            </h2>
-            <div className="w-24 h-1 bg-accent mx-auto"></div>
-            <p className="text-lg text-accent font-body max-w-2xl mx-auto mt-4">
-              Our commitment to excellence is backed by industry-leading
-              certifications and strategic alliances with top technology
-              providers.
-            </p>
-          </motion.div>
-          <div className="flex flex-wrap justify-center gap-8">
-            <motion.div
-              className="bg-primary p-6 rounded-lg shadow-glow border border-accent flex flex-col items-center w-56 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              <img
-                src="https://via.placeholder.com/60x60?text=ISO"
-                alt="ISO 27001 Logo"
-                className="mb-3"
-              />{' '}
-              {/* Placeholder */}
-              <span className="text-secondary font-bold text-lg mb-1">
-                ISO 27001
-              </span>
-              <span className="text-accent text-sm text-center">
-                Certified Information Security Management
-              </span>
-            </motion.div>
-            <motion.div
-              className="bg-primary p-6 rounded-lg shadow-glow border border-accent flex flex-col items-center w-56 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <img
-                src="https://via.placeholder.com/60x60?text=CISSP"
-                alt="CISSP Logo"
-                className="mb-3"
-              />{' '}
-              {/* Placeholder */}
-              <span className="text-secondary font-bold text-lg mb-1">
-                CISSP
-              </span>
-              <span className="text-accent text-sm text-center">
-                Certified Information Systems Security Professional
-              </span>
-            </motion.div>
-            <motion.div
-              className="bg-primary p-6 rounded-lg shadow-glow border border-accent flex flex-col items-center w-56 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <img
-                src="https://via.placeholder.com/60x60?text=CEH"
-                alt="CEH Logo"
-                className="mb-3"
-              />{' '}
-              {/* Placeholder */}
-              <span className="text-secondary font-bold text-lg mb-1">CEH</span>
-              <span className="text-accent text-sm text-center">
-                Certified Ethical Hacker
-              </span>
-            </motion.div>
-            <motion.div
-              className="bg-primary p-6 rounded-lg shadow-glow border border-accent flex flex-col items-center w-56 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              <img
-                src="https://via.placeholder.com/60x60?text=MS"
-                alt="Microsoft Partner Logo"
-                className="mb-3"
-              />{' '}
-              {/* Placeholder */}
-              <span className="text-secondary font-bold text-lg mb-1">
-                Microsoft Partner
-              </span>
-              <span className="text-accent text-sm text-center">
-                Advanced Security & Cloud Solutions
-              </span>
-            </motion.div>
-            <motion.div
-              className="bg-primary p-6 rounded-lg shadow-glow border border-accent flex flex-col items-center w-56 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              viewport={{ once: true }}
-            >
-              <img
-                src="https://via.placeholder.com/60x60?text=AWS"
-                alt="AWS Partner Logo"
-                className="mb-3"
-              />{' '}
-              {/* Placeholder */}
-              <span className="text-secondary font-bold text-lg mb-1">
-                AWS Partner
-              </span>
-              <span className="text-accent text-sm text-center">
-                Cloud Security Expertise
-              </span>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-      ---
       {/* FAQ Section - Collapsible (conceptual, using static for now) */}
       <section className="py-20 bg-primary/10">
-        {' '}
-        {/* Lighter background for FAQ */}
         <div className="container mx-auto px-6">
           <motion.div
             className="text-center mb-16"
@@ -645,7 +523,7 @@ const Cybersecurity = () => {
             <h2 className="text-4xl font-bold text-accent mb-4 font-heading">
               Your Cybersecurity Questions, Answered
             </h2>
-            <div className="w-24 h-1 bg-secondary mx-auto"></div>
+            <div className="w-24 h-1 bg-secondary mx-auto mb-4 rounded-full"></div>
             <p className="text-lg text-accent font-body max-w-2xl mx-auto mt-4">
               We've compiled answers to the most common inquiries about securing
               your digital future.
@@ -655,16 +533,16 @@ const Cybersecurity = () => {
             {faqs.map((faq, index) => (
               <motion.div
                 key={index}
-                className="bg-neutral-dark rounded-lg p-6 shadow-md border border-white/10 transition-shadow duration-300 hover:shadow-xl"
+                className="bg-neutral-dark rounded-lg p-6 shadow-md border border-neutral-700 transition-shadow duration-300 hover:shadow-xl"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <h3 className="font-semibold text-secondary mb-2 text-xl cursor-pointer">
+                <h3 className="font-semibold text-secondary mb-2 text-xl cursor-pointer font-heading">
                   {faq.question}
                 </h3>
-                <p className="text-accent text-base leading-relaxed">
+                <p className="text-accent text-base leading-relaxed font-body">
                   {faq.answer}
                 </p>
                 {/* For actual collapsible, you'd add state and click handlers here */}
@@ -673,11 +551,8 @@ const Cybersecurity = () => {
           </div>
         </div>
       </section>
-      ---
       {/* Call to Action Section - Final strong push */}
       <section className="py-20 bg-secondary">
-        {' '}
-        {/* Strong accent background */}
         <div className="container mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -685,25 +560,25 @@ const Cybersecurity = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold text-primary mb-6 drop-shadow-md">
+            <h2 className="text-4xl font-bold text-primary mb-6 drop-shadow-md font-heading">
               Secure Your Future. Protect What Matters.
             </h2>
-            <p className="text-xl text-primary mb-10 max-w-2xl mx-auto opacity-90">
+            <p className="text-xl text-primary mb-10 max-w-2xl mx-auto opacity-90 font-body">
               Don't wait for a breach to act. Partner with ICT Option for
               unyielding cybersecurity that lets you operate with confidence.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link
                 to="/contact"
-                className="bg-primary text-secondary px-10 py-4 rounded-full font-semibold text-lg shadow-glow-secondary hover:scale-105 transition-all duration-300"
+                className="bg-primary text-secondary px-10 py-4 rounded-full font-semibold text-lg shadow-glow-secondary hover:scale-105 transition-all duration-300 transform-gpu font-body"
               >
                 Request a Security Consultation
               </Link>
               <Link
                 to="/portfolio"
-                className="border-2 border-primary text-primary px-10 py-4 rounded-full font-semibold text-lg hover:bg-primary hover:text-secondary transition-all duration-300"
+                className="border-2 border-primary text-primary px-10 py-4 rounded-full font-semibold text-lg hover:bg-primary hover:text-secondary hover:scale-105 transition-all duration-300 transform-gpu font-body"
               >
-                View Our Security Case Studies
+                View Our Portfolio
               </Link>
             </div>
           </motion.div>
