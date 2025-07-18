@@ -1,41 +1,42 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+// Link is no longer needed as buttons are remove
+import csr1 from '../assets/csr/csr1.jpeg';
 
-// Data for CSR Projects
+import csr2 from '../assets/csr/csr2.jpeg';
+
+import csr3 from '../assets/csr/csr3.jpeg';
+
+import csr4 from '../assets/csr/csr4.jpeg';
+
+// Data for CSR Projects - Replaced local image imports with placeholder URLs
 const csrProjects = [
   {
-    image:
-      'https://placehold.co/1200x600/1a1a1a/f0f0f0?text=Community+Outreach',
+    image: csr1,
     title: 'Empowering Local Communities',
     description:
       'Providing educational resources and technology access to underserved areas, fostering growth and digital inclusion.',
-    buttonText: 'Learn More',
-    buttonLink: '/csr/community-outreach',
+    // buttonText and buttonLink removed
   },
   {
-    image:
-      'https://placehold.co/1200x600/1a1a1a/f0f0f0?text=Environmental+Initiatives',
+    image: csr2,
     title: 'Sustainable Environmental Projects',
     description:
       'Supporting reforestation and clean energy initiatives for a greener future and a healthier planet.',
-    buttonText: 'View Details',
-    buttonLink: '/csr/environmental-initiatives',
+    // buttonText and buttonLink removed
   },
   {
-    image: 'https://placehold.co/1200x600/1a1a1a/f0f0f0?text=Digital+Literacy',
+    image: csr3,
     title: 'Promoting Digital Literacy',
     description:
       'Hosting workshops and providing tools to enhance digital skills for all ages, bridging the digital divide.',
-    buttonText: 'Join Us',
-    buttonLink: '/csr/digital-literacy',
+    // buttonText and buttonLink removed
   },
   {
-    image: 'https://placehold.co/1200x600/1a1a1a/f0f0f0?text=Youth+Development',
+    image: csr4,
     title: 'Investing in Youth Development',
     description:
       'Mentoring programs and scholarships for aspiring young tech professionals, shaping future leaders.',
-    buttonText: 'Discover Impact',
-    buttonLink: '/csr/youth-development',
+    // buttonText and buttonLink removed
   },
 ];
 
@@ -112,44 +113,14 @@ function CSRProjectCarousel() {
       </button>
       {/* Centered Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center z-20 text-center px-4 md:px-8">
-        {/* Play/View Icon (Re-purposed for 'View Project') */}
-        <Link
-          to={csrProjects[current].buttonLink} // Link to project details
-          className="mb-6 w-20 h-20 flex items-center justify-center rounded-full bg-secondary/20 border-2 border-secondary hover:bg-secondary/40 transition-all duration-300 transform hover:scale-110 shadow-lg focus:outline-none focus:ring-4 focus:ring-secondary/50"
-          aria-label="View Project Details"
-        >
-          <svg
-            className="w-10 h-10 text-secondary"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-            />
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-            />
-          </svg>
-        </Link>
+        {/* Removed Play/View Icon Link */}
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-accent mb-3 tracking-wide font-heading">
           {csrProjects[current].title}
         </h2>
         <p className="text-lg md:text-xl text-gray-300 font-semibold mb-8 max-w-3xl font-body leading-relaxed">
           {csrProjects[current].description}
         </p>
-        <Link
-          to={csrProjects[current].buttonLink}
-          className="bg-secondary hover:bg-accent text-primary font-bold px-8 py-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-secondary/50 font-body"
-        >
-          {csrProjects[current].buttonText}
-        </Link>
+        {/* Removed CTA Button Link */}
       </div>
       {/* Carousel Dots */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-30">
