@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Hero } from '../components';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import contact from '../assets/img/contact.jpg';
 
 const ContactUs = () => {
   useEffect(() => {
@@ -180,7 +181,7 @@ const ContactUs = () => {
             transform your ideas into reality.
           </span>
         }
-        backgroundImage="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=1920&q=80" // Changed to a more abstract, tech-y background
+        backgroundImage={contact}
         gradient="from-primary via-black to-neutral-dark"
       >
         <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8 animate-float">
