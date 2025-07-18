@@ -11,6 +11,8 @@ import it1 from '../assets/img/it1.jpg';
 import dm1 from '../assets/img/dm1.jpg';
 import cyber1 from '../assets/img/cyber1.jpg';
 import ml1 from '../assets/img/ml1.jpg';
+import home1 from '../assets/img/home1.jpg';
+import home2 from '../assets/img/home2.jpg';
 
 // --- Data Definitions for cleaner JSX ---
 
@@ -172,7 +174,7 @@ const clientReviews = [
       'ICT Option delivered our project on time and exceeded our expectations. Their team is highly skilled and professional, truly transforming our digital presence.',
     name: 'Alish White',
     title: 'Entrepreneur',
-    image: 'https://randomuser.me/api/portraits/women/44.jpg',
+    image: 'https://randomuser.me/api/portraits/women/44.jp',
   },
   {
     quote:
@@ -273,7 +275,7 @@ const Home = () => {
           >
             <div className="absolute -top-8 -left-8 w-24 h-24 bg-secondary rounded-xl z-0 shadow-lg"></div>
             <img
-              src="https://images.unsplash.com/photo-1552588365-b77054231885?auto=format&fit=crop&w=600&q=80" // More relevant image
+              src={home1}
               alt="About ICT Option"
               className="relative z-10 rounded-2xl shadow-2xl w-full max-w-lg object-cover grayscale hover:grayscale-0 transition-all duration-500"
               style={{ aspectRatio: '4/3' }}
@@ -393,7 +395,7 @@ const Home = () => {
           >
             <div className="absolute -top-8 -left-8 w-24 h-24 bg-secondary rounded-xl z-0 shadow-lg"></div>
             <img
-              src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80" // More relevant image
+              src={home2}
               alt="Team Collaboration"
               className="relative z-10 rounded-2xl shadow-2xl w-full max-w-lg object-cover hover:scale-105 transition-transform duration-500"
               style={{ aspectRatio: '4/3' }}

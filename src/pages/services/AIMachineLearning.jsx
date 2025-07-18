@@ -4,6 +4,10 @@ import { Hero } from '../../components';
 import { motion } from 'framer-motion';
 import ml1 from '../../assets/img/ml1.jpg';
 import ml2 from '../../assets/img/ml2.jpg';
+import finance from '../../assets/img/finance.jpg';
+import healthcare from '../../assets/img/health.jpg';
+import retail from '../../assets/img/retail.jpg';
+import manufacturing from '../../assets/img/manufacturing.jpg';
 
 // --- Data Definitions for easier management ---
 
@@ -127,29 +131,25 @@ const successStories = [
     title: 'Retail: Personalized Shopping',
     description:
       'Implemented a cutting-edge recommendation engine for a leading e-commerce client, resulting in a **25% increase in conversion rates** and higher average order value.',
-    image:
-      'https://images.unsplash.com/photo-1542838117-268846c435bb?auto=format&fit=crop&w=600&q=80',
+    image: retail,
   },
   {
     title: 'Healthcare: Faster Diagnoses',
     description:
       'Developed and deployed a computer vision model for medical imaging analysis, which **reduced diagnosis time by 40%** and improved early detection rates for a healthcare provider.',
-    image:
-      'https://images.unsplash.com/photo-1576091160550-fd428e56729a?auto=format&fit=crop&w=600&q=80',
+    image: healthcare,
   },
   {
     title: 'Finance: Advanced Fraud Detection',
     description:
       'Built a real-time, AI-powered fraud detection system for a major financial institution, leading to a **reduction in fraudulent transactions by millions** annually.',
-    image:
-      'https://images.unsplash.com/photo-1563986768605-da4d148e7a17?auto=format&fit=crop&w=600&q=80',
+    image: finance,
   },
   {
     title: 'Manufacturing: Predictive Maintenance',
     description:
       'Implemented an ML-driven predictive maintenance solution for a manufacturing giant, **reducing equipment downtime by 30%** and saving significant operational costs.',
-    image:
-      'https://images.unsplash.com/photo-1506748687786-8a0339d675b3?auto=format&fit=crop&w=600&q=80',
+    image: manufacturing,
   },
 ];
 
