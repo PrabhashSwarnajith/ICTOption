@@ -5,7 +5,6 @@ import { Home, Services, Products, AboutUs, Blog, ContactUs } from './pages';
 import {
   WebDevelopment,
   MobileAppDevelopment,
-  CloudSolutions,
   DigitalMarketing,
   ITConsulting,
   Cybersecurity,
@@ -37,10 +36,7 @@ function App() {
               path="/services/mobile-app-development"
               element={<MobileAppDevelopment />}
             />
-            <Route
-              path="/services/cloud-solutions"
-              element={<CloudSolutions />}
-            />
+
             <Route
               path="/services/digital-marketing"
               element={<DigitalMarketing />}
