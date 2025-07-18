@@ -32,7 +32,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 px-6 py-4 bg-primary/90 backdrop-blur-md shadow-lg transition-all duration-300">
+    <header className="fixed top-0 left-0 w-full z-50 px-6 py-4 bg-primary/50 backdrop-blur-xl shadow-xl transition-all duration-300">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo and Brand */}
         <Link to="/" className="flex items-center space-x-3 group">
@@ -83,7 +83,7 @@ const Header = () => {
 
                 {/* Dropdown Menu */}
                 <div
-                  className={`absolute top-full left-0 mt-2 w-80 bg-primary rounded-xl shadow-2xl border border-neutral-700 py-3 transition-all duration-300 ${
+                  className={`absolute top-full left-0 mt-2 w-80 bg-primary/60 backdrop-blur-xl rounded-3xl shadow-3xl py-4 transition-all duration-300 ${
                     isServicesOpen
                       ? 'opacity-100 translate-y-0 visible'
                       : 'opacity-0 translate-y-2 invisible'

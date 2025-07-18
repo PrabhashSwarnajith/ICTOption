@@ -6,7 +6,7 @@ const Hero = ({
   subtitle,
   description,
   backgroundImage,
-  gradient = 'from-gray-900 via-gray-800 to-purple-900',
+  gradient = 'from-primary via-black to-secondary',
   height = 'min-h-screen',
   children,
 }) => {
@@ -24,14 +24,14 @@ const Hero = ({
     >
       {/* Gradient Overlay */}
       <div
-        className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-80`}
+        className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-50`}
       ></div>
 
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-600 rounded-full filter blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-32 right-20 w-96 h-96 bg-pink-600 rounded-full filter blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-blue-600 rounded-full filter blur-3xl animate-pulse delay-500"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-secondary rounded-full filter blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-32 right-20 w-96 h-96 bg-accent rounded-full filter blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-primary rounded-full filter blur-3xl animate-pulse delay-500"></div>
       </div>
 
       <div className="container mx-auto px-6 text-center relative z-10">
@@ -44,12 +44,12 @@ const Hero = ({
             {title}
           </h1>
           {subtitle && (
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-gray-300 mb-8">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-secondary mb-8">
               {subtitle}
             </h2>
           )}
           {description && (
-            <p className="text-lg md:text-xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-accent mb-12 max-w-3xl mx-auto leading-relaxed">
               {description}
             </p>
           )}
@@ -63,8 +63,8 @@ const Hero = ({
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <div className="w-6 h-10 border-2 border-purple-400 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-purple-400 rounded-full mt-2"></div>
+        <div className="w-6 h-10 border-2 border-secondary rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-secondary rounded-full mt-2"></div>
         </div>
       </motion.div>
     </section>
