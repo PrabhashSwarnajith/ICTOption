@@ -10,7 +10,7 @@ import mobile3 from '../assets/img/mobile3.jpg';
 import it1 from '../assets/img/it1.jpg';
 import dm1 from '../assets/img/dm1.jpg';
 import cyber1 from '../assets/img/cyber1.jpg';
-import service from '../assets/img/services.jpg';
+import ml1 from '../assets/img/ml1.jpg';
 
 // --- Data Definitions for cleaner JSX ---
 
@@ -122,7 +122,7 @@ const featuredServices = [
       'Predictive analytics',
       'AI integration with existing systems',
     ],
-    image: it1,
+    image: ml1,
     number: 4,
     link: '/services/ai-machine-learning',
     bgColor: 'bg-gradient-to-br from-primary to-secondary',
