@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Hero } from '../../components';
 import { motion } from 'framer-motion';
+import ml1 from '../../assets/img/ml1.jpg';
+import ml2 from '../../assets/img/ml2.jpg';
 
 // --- Data Definitions for easier management ---
 
@@ -364,7 +366,7 @@ const AIMachineLearning = () => {
             intelligent action.
           </span>
         }
-        backgroundImage="https://images.unsplash.com/photo-1555949963-aa79dce8b620?auto=format&fit=crop&w=1600&q=80" // Modern AI-themed image
+        backgroundImage={ml1}
         gradient="from-primary via-neutral-dark to-neutral-dark"
       >
         <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8 animate-float">
@@ -402,7 +404,7 @@ const AIMachineLearning = () => {
             viewport={{ once: true, amount: 0.5 }}
           >
             <img
-              src="https://images.unsplash.com/photo-1531297593122-ce5378772242?auto=format&fit=crop&w=1200&q=80" // Image: AI brain or data flow
+              src={ml2}
               alt="The Future of AI"
               className="relative z-10 rounded-2xl shadow-2xl w-full max-w-lg object-cover border-4 border-secondary/30 transition-all duration-500 hover:scale-[1.02]"
               style={{ aspectRatio: '4/3' }}

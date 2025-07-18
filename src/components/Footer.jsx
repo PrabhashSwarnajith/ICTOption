@@ -83,7 +83,7 @@ const Footer = () => {
                 d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
               />
             </svg>
-            123 Technology Drive, Tech City, TC 12345
+            No: 59/E, Horana Road, Kesbewa, Piliyandala, postcode: 10300,
           </div>
           <div className="text-gray-400 text-sm opacity-90 mb-1 flex items-center">
             <svg

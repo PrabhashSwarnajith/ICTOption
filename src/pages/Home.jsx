@@ -5,6 +5,12 @@ import AOS from 'aos'; // Import AOS
 import 'aos/dist/aos.css'; // Import AOS styles
 import { FullPageServiceCard, Hero } from '../components'; // Assuming Hero is in a 'components' folder
 import home from '../assets/img/home.jpg'; // Dynamic hero image
+import web2 from '../assets/img/web2.jpeg';
+import mobile3 from '../assets/img/mobile3.jpg';
+import it1 from '../assets/img/it1.jpg';
+import dm1 from '../assets/img/dm1.jpg';
+import cyber1 from '../assets/img/cyber1.jpg';
+import service from '../assets/img/services.jpg';
 
 // --- Data Definitions for cleaner JSX ---
 
@@ -62,8 +68,7 @@ const featuredServices = [
       'SEO optimization and performance tuning',
       'API development and third-party integrations',
     ],
-    image:
-      'https://images.unsplash.com/photo-1542831371-d512640ceb8a?auto=format&fit=crop&w=1200&q=80', // Updated image
+    image: web2,
     number: 1,
     link: '/services/web-development',
     bgColor: 'bg-gradient-to-br from-primary to-neutral-dark',
@@ -81,8 +86,7 @@ const featuredServices = [
       'Push notifications and real-time features',
       'Offline functionality and data sync',
     ],
-    image:
-      'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1200&q=80', // Updated image
+    image: mobile3,
     number: 2,
     link: '/services/mobile-app-development',
     bgColor: 'bg-gradient-to-br from-primary to-secondary',
@@ -100,8 +104,7 @@ const featuredServices = [
       'Process optimization',
       'Change management and training',
     ],
-    image:
-      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80', // Updated image
+    image: it1,
     number: 3,
     link: '/services/it-consulting',
     bgColor: 'bg-gradient-to-br from-primary to-neutral-dark',
@@ -119,8 +122,7 @@ const featuredServices = [
       'Predictive analytics',
       'AI integration with existing systems',
     ],
-    image:
-      'https://images.unsplash.com/photo-1620712948383-f3680e0c1f21?auto=format&fit=crop&w=1200&q=80', // Updated image
+    image: it1,
     number: 4,
     link: '/services/ai-machine-learning',
     bgColor: 'bg-gradient-to-br from-primary to-secondary',
@@ -138,8 +140,7 @@ const featuredServices = [
       'Analytics and performance tracking',
       'Branding and creative design',
     ],
-    image:
-      'https://images.unsplash.com/photo-1557804506-669a67965da0?auto=format&fit=crop&w=1200&q=80', // Updated image
+    image: dm1,
     number: 5,
     link: '/services/digital-marketing',
     bgColor: 'bg-gradient-to-br from-primary to-neutral-dark',
@@ -157,8 +158,7 @@ const featuredServices = [
       'Compliance and risk management',
       '24/7 monitoring and support',
     ],
-    image:
-      'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80', // Updated image
+    image: cyber1,
     number: 6,
     link: '/services/cybersecurity',
     bgColor: 'bg-gradient-to-br from-primary to-secondary',

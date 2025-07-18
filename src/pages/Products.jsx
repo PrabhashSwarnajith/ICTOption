@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { Hero } from '../components'; // Assuming Hero component exists
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import pos from '../assets/img/pos.jpg';
+import product from '../assets/img/product.jpg';
+import power from '../assets/img/power.jpg';
 
 const Products = () => {
   useEffect(() => {
@@ -14,7 +17,7 @@ const Products = () => {
     {
       name: 'ICT Option Power Apps',
       subtitle: 'Empowering Businesses Through Intelligent, Low-Code Solutions',
-      image: 'https://placehold.co/400x400/2a2a2a/f0f0f0?text=Power+Apps', // Replaced with placeholder
+      image: power,
       description:
         'Build, automate, and optimize business processes with our intuitive low-code platform. Enable rapid innovation and empower your teams to create custom solutions with minimal IT involvement.',
       cta: 'Discover More',
@@ -23,7 +26,7 @@ const Products = () => {
     {
       name: 'ICT Option POS System',
       subtitle: 'The Ultimate Point of Sale & Business Management Solution',
-      image: 'https://placehold.co/400x400/2a2a2a/f0f0f0?text=POS+System', // Replaced with placeholder
+      image: pos,
       description:
         'Streamline sales, inventory, and customer management with our all-in-one POS system. Designed for modern businesses seeking efficiency, reliability, and actionable insights.',
       cta: 'Discover More',
@@ -133,7 +136,7 @@ const Products = () => {
             technology.
           </span>
         }
-        backgroundImage="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+        backgroundImage={product}
         gradient="from-primary via-black to-neutral-dark"
       >
         <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8 animate-float">
