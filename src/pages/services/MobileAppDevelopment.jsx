@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import { Hero } from '../../components';
 import { motion } from 'framer-motion';
 
+import mobile1 from '../../assets/img/mobile1.jpg';
+import mobile2 from '../../assets/img/mobile2.jpg';
+import mobile3 from '../../assets/img/mobile3.jpg';
+
 // --- Data Definitions (Moved for clarity) ---
 
 const features = [
@@ -121,18 +125,18 @@ const MobileAppDevelopment = () => {
       {/* Hero Section */}
       <Hero
         title={
-          <span className="text-accent">
+          <span className="text-accent font-heading">
             Mobile <span className="text-secondary">App Development</span>
           </span>
         }
         subtitle={
-          <span className="text-accent">
+          <span className="text-accent font-heading">
             Build Powerful{' '}
             <span className="text-secondary">Mobile Experiences</span>
           </span>
         }
         description={
-          <span className="text-accent">
+          <span className="text-gray-200 font-body">
             From concept to deployment, we deliver seamless, high-performance
             custom mobile apps tailored to your business needs for both iOS and
             Android platforms.
@@ -140,17 +144,18 @@ const MobileAppDevelopment = () => {
         }
         backgroundImage="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1200&q=80"
         gradient="from-primary via-black to-neutral-dark"
+        className="brightness-110"
       >
         <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8 animate-float">
           <Link
             to="/services"
-            className="bg-secondary text-accent px-8 py-4 rounded-full font-semibold text-lg shadow-glow hover:scale-105 transition-all duration-300"
+            className="bg-secondary text-primary px-8 py-4 rounded-full font-semibold text-lg shadow-glow-md hover:bg-accent hover:text-white hover:scale-105 transition-all duration-300 transform-gpu font-body"
           >
             Explore Services
           </Link>
           <Link
             to="/contact"
-            className="border-2 border-accent text-accent px-8 py-4 rounded-full font-semibold text-lg hover:bg-accent hover:text-primary transition-all duration-300"
+            className="border-2 border-accent text-accent px-8 py-4 rounded-full font-semibold text-lg hover:bg-accent hover:text-primary hover:scale-105 transition-all duration-300 transform-gpu font-body"
           >
             Get In Touch
           </Link>
@@ -176,7 +181,7 @@ const MobileAppDevelopment = () => {
             <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-accent-light rounded-full mix-blend-multiply opacity-20 animate-pulse-slow delay-200"></div>
 
             <img
-              src="https://images.unsplash.com/photo-1576153192468-b7787320b12a?auto=format&fit=crop&q=80&w=1200" // A more dynamic mobile app development image
+              src={mobile1} // A more dynamic mobile app development image
               alt="Our Mobile App Development Expertise"
               className="relative z-10 rounded-2xl shadow-3xl w-full max-w-lg object-cover transform rotate-1 transition-transform duration-500 hover:rotate-0 hover:scale-105"
               style={{
@@ -291,7 +296,7 @@ const MobileAppDevelopment = () => {
           <div className="relative flex justify-center items-center min-h-[320px]">
             <div className="absolute -top-8 -left-8 w-24 h-24 bg-secondary rounded-xl z-0"></div>
             <img
-              src="https://images.unsplash.com/photo-1542435503-956c469947f6?auto=format&fit=crop&w=1200&q=80" // Changed image for variety
+              src={mobile2} // Changed image for variety
               alt="Mobile App Team"
               className="relative z-10 rounded-2xl shadow-2xl w-full max-w-lg object-cover"
               style={{ aspectRatio: '4/3' }}

@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import gayanImg from '../../assets/team/gayan.jpeg';
 import hariniImg from '../../assets/team/harini.jpeg';
 import isuruImg from '../../assets/team/isuru.jpeg';
+import web from '../../assets/img/web.jpg';
 
 // --- Data Definitions ---
 
@@ -327,7 +328,7 @@ const WebDevelopment = () => {
           <div className="relative flex justify-center items-center min-h-[320px]">
             <div className="absolute -top-8 -left-8 w-24 h-24 bg-secondary rounded-xl z-0"></div>
             <img
-              src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1200&q=80" // Changed image for variety
+              src={web}
               alt="Web Development Process"
               className="relative z-10 rounded-2xl shadow-2xl w-full max-w-lg object-cover"
               style={{ aspectRatio: '4/3' }}

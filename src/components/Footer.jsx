@@ -10,12 +10,19 @@ const Footer = () => {
   ];
 
   // Data for useful links
-  const usefulLinks = [
-    { name: 'Privacy Policy', href: '/privacy' },
-    { name: 'Terms and Conditions', href: '/terms' },
-    { name: 'Disclaimer', href: '/disclaimer' },
-    { name: 'Support', href: '/support' },
-    { name: 'FAQ', href: '/faq' },
+  const servicesLinks = [
+    { name: 'Web Development', path: '/services/web-development' },
+    {
+      name: 'Mobile App Development',
+      path: '/services/mobile-app-development',
+    },
+    {
+      name: 'AI & Machine Learning',
+      path: '/services/ai-machine-learning',
+    },
+    { name: 'Digital Marketing', path: '/services/digital-marketing' },
+    { name: 'IT Consulting', path: '/services/it-consulting' },
+    { name: 'Cybersecurity', path: '/services/cybersecurity' },
   ];
 
   return (
@@ -92,7 +99,7 @@ const Footer = () => {
                 d="M3 8l7.89 7.89a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
               />
             </svg>
-            support@ictoptionweb.com
+            ictoption321@gmail.com
           </div>
           <div className="text-gray-400 text-sm opacity-90 mb-1 flex items-center">
             <svg
@@ -108,7 +115,23 @@ const Footer = () => {
                 d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
               />
             </svg>
-            +1 (555) 123-4567
+            +94 76 346 5329
+          </div>
+          <div className="text-gray-400 text-sm opacity-90 mb-1 flex items-center">
+            <svg
+              className="w-4 h-4 mr-2 text-secondary"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+              />
+            </svg>
+            +94 71 115 2255
           </div>
         </div>
 
@@ -131,13 +154,13 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Useful Links */}
+        {/* Services Links */}
         <div>
           <h4 className="font-bold text-secondary mb-4 uppercase tracking-wide text-lg">
-            Useful Links
+            Services
           </h4>
           <ul className="space-y-3">
-            {usefulLinks.map((link, index) => (
+            {servicesLinks.map((link, index) => (
               <li key={index}>
                 <a
                   href={link.href}

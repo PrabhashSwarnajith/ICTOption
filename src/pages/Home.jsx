@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import AOS from 'aos'; // Import AOS
+import 'aos/dist/aos.css'; // Import AOS styles
 import { FullPageServiceCard, Hero } from '../components'; // Assuming Hero is in a 'components' folder
+import home from '../assets/img/home.jpg'; // Dynamic hero image
 
 // --- Data Definitions for cleaner JSX ---
 
@@ -59,29 +62,12 @@ const featuredServices = [
       'SEO optimization and performance tuning',
       'API development and third-party integrations',
     ],
-    image: 'https://placehold.co/1200x800/2a2a2a/f0f0f0?text=Web+Development',
+    image:
+      'https://images.unsplash.com/photo-1542831371-d512640ceb8a?auto=format&fit=crop&w=1200&q=80', // Updated image
     number: 1,
     link: '/services/web-development',
     bgColor: 'bg-gradient-to-br from-primary to-neutral-dark',
     reverse: false,
-  },
-  {
-    title: 'Cloud Solutions',
-    description:
-      'Scale your business with secure, reliable, and cost-effective cloud solutions. We design, deploy, and manage cloud infrastructure tailored to your needs, ensuring flexibility, security, and performance.',
-    features: [
-      'Cloud migration and deployment',
-      'Infrastructure as a Service (IaaS)',
-      'Platform as a Service (PaaS)',
-      'Cloud security and compliance',
-      'Disaster recovery and backup',
-      'Managed cloud services',
-    ],
-    image: 'https://placehold.co/1200x800/2a2a2a/f0f0f0?text=Cloud+Solutions',
-    number: 2,
-    link: '/services/cloud-solutions',
-    bgColor: 'bg-gradient-to-br from-secondary to-primary',
-    reverse: true,
   },
   {
     title: 'Mobile App Development',
@@ -96,11 +82,11 @@ const featuredServices = [
       'Offline functionality and data sync',
     ],
     image:
-      'https://placehold.co/1200x800/2a2a2a/f0f0f0?text=Mobile+App+Development',
-    number: 3,
+      'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1200&q=80', // Updated image
+    number: 2,
     link: '/services/mobile-app-development',
     bgColor: 'bg-gradient-to-br from-primary to-secondary',
-    reverse: false,
+    reverse: true, // Changed to true for alternating layout
   },
   {
     title: 'IT Consulting',
@@ -114,11 +100,31 @@ const featuredServices = [
       'Process optimization',
       'Change management and training',
     ],
-    image: 'https://placehold.co/1200x800/2a2a2a/f0f0f0?text=IT+Consulting',
-    number: 4,
+    image:
+      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80', // Updated image
+    number: 3,
     link: '/services/it-consulting',
     bgColor: 'bg-gradient-to-br from-primary to-neutral-dark',
     reverse: false,
+  },
+  {
+    title: 'AI & Machine Learning',
+    description:
+      'Unlock the power of artificial intelligence and machine learning to automate processes, gain insights, and drive innovation. Our solutions help you leverage data for smarter decision-making and business growth.',
+    features: [
+      'Custom AI model development',
+      'Machine learning and deep learning solutions',
+      'Natural language processing (NLP)',
+      'Computer vision applications',
+      'Predictive analytics',
+      'AI integration with existing systems',
+    ],
+    image:
+      'https://images.unsplash.com/photo-1620712948383-f3680e0c1f21?auto=format&fit=crop&w=1200&q=80', // Updated image
+    number: 4,
+    link: '/services/ai-machine-learning',
+    bgColor: 'bg-gradient-to-br from-primary to-secondary',
+    reverse: true, // Changed to true for alternating layout
   },
   {
     title: 'Digital Marketing',
@@ -132,11 +138,12 @@ const featuredServices = [
       'Analytics and performance tracking',
       'Branding and creative design',
     ],
-    image: 'https://placehold.co/1200x800/2a2a2a/f0f0f0?text=Digital+Marketing',
+    image:
+      'https://images.unsplash.com/photo-1557804506-669a67965da0?auto=format&fit=crop&w=1200&q=80', // Updated image
     number: 5,
     link: '/services/digital-marketing',
-    bgColor: 'bg-gradient-to-br from-secondary to-primary',
-    reverse: true,
+    bgColor: 'bg-gradient-to-br from-primary to-neutral-dark',
+    reverse: false,
   },
   {
     title: 'Cybersecurity',
@@ -150,11 +157,12 @@ const featuredServices = [
       'Compliance and risk management',
       '24/7 monitoring and support',
     ],
-    image: 'https://placehold.co/1200x800/2a2a2a/f0f0f0?text=Cybersecurity',
+    image:
+      'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80', // Updated image
     number: 6,
     link: '/services/cybersecurity',
     bgColor: 'bg-gradient-to-br from-primary to-secondary',
-    reverse: false,
+    reverse: true, // Changed to true for alternating layout
   },
 ];
 
@@ -172,13 +180,6 @@ const clientReviews = [
     name: 'Devin Mueller',
     title: 'Marketing Director',
     image: 'https://randomuser.me/api/portraits/men/32.jpg',
-  },
-  {
-    quote:
-      'Their cloud solutions helped us scale quickly and securely, providing a robust and reliable infrastructure. Great experience working with ICT Option.',
-    name: 'Dave Beech',
-    title: 'Operations Manager',
-    image: 'https://randomuser.me/api/portraits/men/36.jpg',
   },
 ];
 
@@ -203,6 +204,11 @@ const faqs = [
 // --- Home Component ---
 
 const Home = () => {
+  // Initialize AOS on component mount
+  useEffect(() => {
+    AOS.init({ once: true, duration: 900, offset: 80 });
+  }, []);
+
   return (
     <div className="min-h-screen bg-primary text-white">
       {/* Hero Section */}
@@ -225,8 +231,9 @@ const Home = () => {
             modern digital landscape.
           </span>
         }
-        backgroundImage="https://placehold.co/1920x1080/2a2a2a/f0f0f0?text=Digital+Transformation" // Placeholder image
+        backgroundImage={home}
         gradient="from-primary via-black to-neutral-dark"
+        className="brightness-110"
       >
         <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8 animate-float">
           <Link
@@ -243,16 +250,15 @@ const Home = () => {
           </Link>
         </div>
       </Hero>
-
       {/* About Us Section - Modern Split Layout */}
       <section className="py-20 bg-neutral-dark relative overflow-hidden">
-        {/* Subtle background pattern: diagonal lines */}
+        {/* Unique background pattern: wavy lines */}
         <div
-          className="absolute inset-0 z-0 opacity-05"
+          className="absolute inset-0 z-0 opacity-10"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.08' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20V40zm20 0L40 20V0H20L0 20h20z'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='120' height='60' viewBox='0 0 120 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30 Q30 0 60 30 T120 30' stroke='%239C92AC' stroke-width='4' fill='none' opacity='0.12'/%3E%3C/svg%3E")`,
             backgroundRepeat: 'repeat',
-            transform: 'rotate(-10deg) scale(1.3)',
+            transform: 'rotate(-8deg) scale(1.2)',
           }}
         ></div>
 
@@ -267,7 +273,7 @@ const Home = () => {
           >
             <div className="absolute -top-8 -left-8 w-24 h-24 bg-secondary rounded-xl z-0 shadow-lg"></div>
             <img
-              src="https://placehold.co/600x450/2a2a2a/f0f0f0?text=About+Us" // Placeholder image
+              src="https://images.unsplash.com/photo-1552588365-b77054231885?auto=format&fit=crop&w=600&q=80" // More relevant image
               alt="About ICT Option"
               className="relative z-10 rounded-2xl shadow-2xl w-full max-w-lg object-cover grayscale hover:grayscale-0 transition-all duration-500"
               style={{ aspectRatio: '4/3' }}
@@ -319,16 +325,15 @@ const Home = () => {
           </motion.div>
         </div>
       </section>
-
       {/* Why Choose Us Section */}
       <section className="py-20 bg-primary relative overflow-hidden">
-        {/* Subtle background pattern: hexagonal grid */}
+        {/* Unique background pattern: grid dots */}
         <div
           className="absolute inset-0 z-0 opacity-10"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.15' fill-rule='evenodd'%3E%3Cpath d='M0 20L20 0L40 20L20 40L0 20zM20 0L0 20L20 40L40 20L20 0z'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='16' cy='16' r='2' fill='%239C92AC' fill-opacity='0.18'/%3E%3C/svg%3E")`,
             backgroundRepeat: 'repeat',
-            transform: 'rotate(5deg) scale(1.1)',
+            transform: 'scale(1.1)',
           }}
         ></div>
 
@@ -388,7 +393,7 @@ const Home = () => {
           >
             <div className="absolute -top-8 -left-8 w-24 h-24 bg-secondary rounded-xl z-0 shadow-lg"></div>
             <img
-              src="https://placehold.co/600x450/2a2a2a/f0f0f0?text=Team+Collaboration" // Placeholder image
+              src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80" // More relevant image
               alt="Team Collaboration"
               className="relative z-10 rounded-2xl shadow-2xl w-full max-w-lg object-cover hover:scale-105 transition-transform duration-500"
               style={{ aspectRatio: '4/3' }}
@@ -397,14 +402,13 @@ const Home = () => {
           </motion.div>
         </div>
       </section>
-
       {/* Partners and Statistics Section */}
       <section className="py-20 bg-neutral-dark relative overflow-hidden">
-        {/* Subtle background pattern: dots */}
+        {/* Unique background pattern: triangles */}
         <div
-          className="absolute inset-0 z-0 opacity-05"
+          className="absolute inset-0 z-0 opacity-10"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='5' cy='5' r='2' fill='%239C92AC' fill-opacity='0.15'/%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='20,0 40,40 0,40' fill='%239C92AC' fill-opacity='0.10'/%3E%3C/svg%3E")`,
             backgroundRepeat: 'repeat',
           }}
         ></div>
@@ -490,7 +494,6 @@ const Home = () => {
           </motion.div>
         </div>
       </section>
-
       {/* Featured Services (FullPageServiceCard instances) */}
       {featuredServices.map((service, index) => (
         <FullPageServiceCard
@@ -505,16 +508,15 @@ const Home = () => {
           reverse={service.reverse}
         />
       ))}
-
       {/* Client Reviews Section */}
       <section className="py-20 bg-neutral-dark relative overflow-hidden">
-        {/* Subtle background pattern: abstract lines */}
+        {/* Unique background pattern: concentric circles */}
         <div
-          className="absolute inset-0 z-0 opacity-05"
+          className="absolute inset-0 z-0 opacity-10"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 0h20v20H0V0zm20 20h20v20H20V20zm20 20h20v20H40V40zm20 20h20v20H60V60z'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='28' stroke='%239C92AC' stroke-width='2' fill='none' opacity='0.10'/%3E%3Ccircle cx='30' cy='30' r='18' stroke='%239C92AC' stroke-width='2' fill='none' opacity='0.10'/%3E%3C/svg%3E")`,
             backgroundRepeat: 'repeat',
-            transform: 'rotate(20deg) scale(1.1)',
+            transform: 'scale(1.1)',
           }}
         ></div>
 
@@ -559,20 +561,22 @@ const Home = () => {
                       {review.title}
                     </div>
                   </div>
+                  <span className="ml-auto text-secondary text-3xl font-bold">
+                    “”
+                  </span>
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
-
       {/* FAQ Section */}
       <section className="py-20 bg-primary relative overflow-hidden">
-        {/* Subtle background pattern: small circles */}
+        {/* Unique background pattern: zigzag lines */}
         <div
-          className="absolute inset-0 z-0 opacity-05"
+          className="absolute inset-0 z-0 opacity-10"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='3' fill='%239C92AC' fill-opacity='0.1'/%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='20' viewBox='0 0 60 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='0,10 10,0 20,20 30,0 40,20 50,0 60,10' stroke='%239C92AC' stroke-width='2' fill='none' opacity='0.12'/%3E%3C/svg%3E")`,
             backgroundRepeat: 'repeat',
             transform: 'rotate(-5deg) scale(1.05)',
           }}
@@ -616,16 +620,15 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       {/* Call to Action Section */}
       <section className="py-20 bg-gradient-to-br from-primary via-black to-neutral-dark text-center relative overflow-hidden">
-        {/* Subtle background pattern: abstract shapes */}
+        {/* Unique background pattern: grid waves */}
         <div
-          className="absolute inset-0 z-0 opacity-05"
+          className="absolute inset-0 z-0 opacity-10"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.08' fill-rule='evenodd'%3E%3Cpath d='M0 0h50v50H0V0zm50 50h50v50H50V50z'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='120' height='60' viewBox='0 0 120 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30 Q30 0 60 30 T120 30' stroke='%239C92AC' stroke-width='2' fill='none' opacity='0.10'/%3E%3C/svg%3E")`,
             backgroundRepeat: 'repeat',
-            transform: 'rotate(30deg) scale(1.5)',
+            transform: 'rotate(10deg) scale(1.2)',
           }}
         ></div>
 

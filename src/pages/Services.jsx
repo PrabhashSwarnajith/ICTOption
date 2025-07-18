@@ -361,7 +361,9 @@ const Services = () => {
             {servicesData.map((service, idx) => (
               <div
                 key={service.name}
-                className="relative rounded-2xl overflow-hidden bg-primary shadow-xl border border-neutral-700 flex flex-col group hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02]"
+                className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-primary to-neutral-dark shadow-xl border border-neutral-700 flex flex-col group
+                           hover:shadow-glow-md hover:border-secondary transition-all duration-300 transform hover:scale-[1.03]
+                           before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-br before:from-transparent before:via-secondary/10 before:to-transparent before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:duration-500" // Added gradient, hover glow, and pseudo-element for subtle animation
                 data-aos="zoom-in"
                 data-aos-delay={100 + idx * 70}
               >
@@ -381,7 +383,10 @@ const Services = () => {
                 {/* Card content */}
                 <div className="flex-1 flex flex-col justify-between p-6">
                   <div className="flex items-center gap-3 mb-3">
-                    {service.icon}
+                    {/* Icon with enhanced styling */}
+                    <div className="p-2 rounded-full bg-secondary/20 group-hover:bg-secondary/40 transition-colors duration-300">
+                      {service.icon}
+                    </div>
                     <span className="text-secondary text-lg font-bold font-heading">
                       {service.name}
                     </span>
@@ -424,7 +429,7 @@ const Services = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-2 font-heading tracking-wide uppercase">
                 Our Latest Projects
               </h2>
-              <div className="w-24 h-1 bg-accent mb-4"></div>
+              <div className="w-24 h-1 bg-accent mx-auto mb-4"></div>
               <p className="text-gray-300 text-lg font-body max-w-xl">
                 Explore some of our most recent and impactful technology
                 projects, delivered for clients across various industries.
@@ -519,7 +524,7 @@ const Services = () => {
         <div
           className="absolute inset-0 z-0 opacity-05"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='5' cy='5' r='2' fill='%239C92AC' fill-opacity='0.15'/%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='5' cy='5' r='2' fill='%239C92AC' fill-opacity='0.15'/%3E%3C/circle%3E%3C/svg%3E")`,
             backgroundRepeat: 'repeat',
           }}
         ></div>
@@ -627,7 +632,7 @@ const Services = () => {
         <div
           className="absolute inset-0 z-0 opacity-05"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='3' fill='%239C92AC' fill-opacity='0.1'/%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='3' fill='%239C92AC' fill-opacity='0.1'/%3E%3C/circle%3E%3C/svg%3E")`,
             backgroundRepeat: 'repeat',
             transform: 'rotate(-5deg) scale(1.05)',
           }}
