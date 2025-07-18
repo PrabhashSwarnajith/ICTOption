@@ -6,6 +6,7 @@ import 'aos/dist/aos.css';
 import pos from '../assets/img/pos.jpg';
 import product from '../assets/img/product.jpg';
 import power from '../assets/img/power.jpg';
+import ps from '../assets/team/p1.jpg'; // Assuming this is the correct path for the image
 
 const Products = () => {
   useEffect(() => {
@@ -217,7 +218,7 @@ const Products = () => {
             {/* Right: Image */}
             <div className="flex-1 flex justify-center" data-aos="fade-left">
               <img
-                src="https://placehold.co/600x750/2a2a2a/f0f0f0?text=Project+Specialist" // Placeholder image
+                src={ps} // Use the imported image
                 alt="Project Specialist"
                 className="rounded-2xl object-cover w-full max-w-md shadow-2xl border-4 border-secondary hover:scale-105 transition-transform duration-500" // Added hover effect
                 style={{ aspectRatio: '4/5' }}
