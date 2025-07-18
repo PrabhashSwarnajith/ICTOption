@@ -8,6 +8,8 @@ import gayanImg from '../../assets/team/gayan.jpeg';
 import hariniImg from '../../assets/team/harini.jpeg';
 import isuruImg from '../../assets/team/isuru.jpeg';
 import web from '../../assets/img/web.jpg';
+import web1 from '../../assets/img/web1.jpeg';
+import web2 from '../../assets/img/web2.jpeg';
 
 // --- Data Definitions ---
 
@@ -163,7 +165,7 @@ const WebDevelopment = () => {
             digital landscape.
           </span>
         }
-        backgroundImage="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1200&q=80"
+        backgroundImage={web2}
         gradient="from-primary via-black to-neutral-dark"
       >
         <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8 animate-float">
@@ -214,7 +216,7 @@ const WebDevelopment = () => {
             ></motion.div>
 
             <motion.img
-              src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=1200" // Image related to web coding/development
+              src={web1}
               alt="Advanced Web Development"
               className="relative z-10 rounded-2xl shadow-3xl w-full max-w-lg object-cover transform transition-transform duration-500 hover:scale-105"
               style={{
