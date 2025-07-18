@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import { Hero } from '../../components';
 import { motion } from 'framer-motion';
 
+import it1 from '../../assets/img/it1.jpg';
+import it2 from '../../assets/img/it2.jpg';
+import it3 from '../../assets/img/it3.jpg';
+
 // --- Data Definitions for easier management ---
 
 const coreServices = [
@@ -231,41 +235,42 @@ const faqs = [
 const ITConsulting = () => {
   return (
     <div className="min-h-screen bg-primary text-white">
-      {/* Hero Section */}
+      {/* Hero Section - Home Style, IT Consulting Details */}
       <Hero
         title={
-          <span className="text-accent">
+          <span className="text-accent font-heading">
             IT <span className="text-secondary">Consulting</span>
           </span>
         }
         subtitle={
-          <span className="text-white">
+          <span className="text-accent font-heading">
             Strategic{' '}
             <span className="text-secondary">Technology Guidance</span>
           </span>
         }
         description={
-          <span className="text-gray-200">
+          <span className="text-gray-200 font-body">
             Navigate the complexities of the digital landscape with expert IT
             consulting. We align technology with your business goals, driving
             innovation and sustainable growth.
           </span>
         }
-        backgroundImage="https://images.unsplash.com/photo-1556761175-5973dd3474d7?auto=format&fit=crop&w=1600&q=80" // New, more relevant image
+        backgroundImage={it1} // Image: IT consulting team meeting
         gradient="from-primary via-black to-neutral-dark"
+        className="brightness-110"
       >
         <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8 animate-float">
           <Link
-            to="/contact"
-            className="bg-secondary text-accent px-8 py-4 rounded-full font-semibold text-lg shadow-glow hover:scale-105 transition-all duration-300"
+            to="/services"
+            className="bg-secondary text-primary px-8 py-4 rounded-full font-semibold text-lg shadow-glow-md hover:bg-accent hover:text-white hover:scale-105 transition-all duration-300 transform-gpu font-body"
           >
-            Get a Custom IT Strategy
+            Explore Services
           </Link>
           <Link
-            to="/services"
-            className="border-2 border-accent text-accent px-8 py-4 rounded-full font-semibold text-lg hover:bg-accent hover:text-primary transition-all duration-300"
+            to="/contact"
+            className="border-2 border-accent text-accent px-8 py-4 rounded-full font-semibold text-lg hover:bg-accent hover:text-primary hover:scale-105 transition-all duration-300 transform-gpu font-body"
           >
-            Explore All Services
+            Get In Touch
           </Link>
         </div>
       </Hero>
@@ -289,7 +294,7 @@ const ITConsulting = () => {
             viewport={{ once: true, amount: 0.5 }}
           >
             <img
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" // Image: diverse team collaborating
+              src={it2} // Image: diverse team collaborating
               alt="Strategic IT Planning"
               className="relative z-10 rounded-2xl shadow-2xl w-full max-w-lg object-cover grayscale transition-all duration-500 hover:grayscale-0 hover:scale-105"
               style={{ aspectRatio: '4/3' }}
@@ -446,7 +451,7 @@ const ITConsulting = () => {
 
           <div className="flex flex-col md:flex-row items-center gap-12">
             <motion.img
-              src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80" // Image: people discussing business strategy
+              src={it3} // Image: people discussing business strategy
               alt="IT Consulting Process"
               className="w-full max-w-lg rounded-2xl shadow-xl mb-8 md:mb-0 object-cover border-4 border-primary transition-transform duration-500 hover:scale-[1.02]"
               style={{ aspectRatio: '1.5/1' }}
