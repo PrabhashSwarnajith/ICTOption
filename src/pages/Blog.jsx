@@ -92,25 +92,39 @@ const Blog = () => {
   const featuredPost = blogPosts.find(post => post.featured);
   const regularPosts = blogPosts.filter(post => !post.featured);
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-primary">
       {/* Hero Section */}{' '}
       <Hero
-        title="ICT Blog"
-        subtitle="Insights, Trends & Best Practices"
-        description="Stay updated with the latest insights, trends, and best practices in technology and business from our team of experts."
+        title={
+          <span className="text-accent">
+            ICT <span className="text-secondary">Blog</span>
+          </span>
+        }
+        subtitle={
+          <span className="text-accent">
+            Insights, Trends &{' '}
+            <span className="text-secondary">Best Practices</span>
+          </span>
+        }
+        description={
+          <span className="text-accent">
+            Stay updated with the latest insights, trends, and best practices in
+            technology and business from our team of experts.
+          </span>
+        }
         backgroundImage="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
-        gradient="from-slate-900 via-purple-900 to-slate-900"
+        gradient="from-primary via-black to-neutral-dark"
       >
-        <div className="flex flex-col sm:flex-row gap-6 justify-center">
+        <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8 animate-float">
           <Link
             to="/contact"
-            className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105"
+            className="bg-secondary text-accent px-8 py-4 rounded-full font-semibold text-lg shadow-glow hover:scale-105 transition-all duration-300"
           >
             Subscribe
           </Link>
           <Link
             to="/services"
-            className="border-2 border-purple-400 text-purple-400 px-8 py-4 rounded-full font-semibold text-lg hover:bg-purple-400 hover:text-white transition-all duration-300"
+            className="border-2 border-accent text-accent px-8 py-4 rounded-full font-semibold text-lg hover:bg-accent hover:text-primary transition-all duration-300"
           >
             Our Services
           </Link>
@@ -118,17 +132,17 @@ const Blog = () => {
       </Hero>
       {/* Featured Post */}
       {featuredPost && (
-        <section className="py-16">
+        <section className="py-16 bg-neutral-dark">
           <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto">
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="bg-primary rounded-lg shadow-lg overflow-hidden border border-neutral-light">
                 <div className="md:flex">
                   <div className="md:w-1/2">
-                    <div className="h-64 md:h-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
+                    <div className="h-64 md:h-full bg-secondary/10 flex items-center justify-center">
                       <div className="text-center">
-                        <div className="w-24 h-24 bg-white rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <div className="w-24 h-24 bg-accent rounded-lg flex items-center justify-center mx-auto mb-4">
                           <svg
-                            className="w-12 h-12 text-primary"
+                            className="w-12 h-12 text-secondary"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -141,7 +155,7 @@ const Blog = () => {
                             />
                           </svg>
                         </div>
-                        <span className="bg-accent text-neutral-dark px-3 py-1 rounded-full text-sm font-semibold">
+                        <span className="bg-secondary text-accent px-3 py-1 rounded-full text-sm font-semibold">
                           Featured Post
                         </span>
                       </div>
@@ -149,20 +163,20 @@ const Blog = () => {
                   </div>
                   <div className="md:w-1/2 p-8">
                     <div className="flex items-center mb-4">
-                      <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">
+                      <span className="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm font-medium">
                         {featuredPost.category}
                       </span>
                       <span className="text-accent px-3 py-1 text-sm font-medium">
                         Featured
                       </span>
                     </div>
-                    <h2 className="text-2xl font-bold text-neutral-dark mb-4 font-heading">
+                    <h2 className="text-2xl font-bold text-accent mb-4 font-heading">
                       {featuredPost.title}
                     </h2>
-                    <p className="text-neutral-dark mb-6 font-body">
+                    <p className="text-accent mb-6 font-body">
                       {featuredPost.excerpt}
                     </p>
-                    <div className="flex items-center justify-between text-sm text-neutral-dark font-body">
+                    <div className="flex items-center justify-between text-sm text-accent font-body">
                       <div className="flex items-center">
                         <span>By {featuredPost.author}</span>
                         <span className="mx-2">•</span>
@@ -170,7 +184,7 @@ const Blog = () => {
                       </div>
                       <span>{featuredPost.readTime}</span>
                     </div>
-                    <button className="mt-6 bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors font-body">
+                    <button className="mt-6 bg-secondary text-accent px-6 py-3 rounded-lg hover:bg-secondary/90 transition-colors font-body">
                       Read More
                     </button>
                   </div>
@@ -181,7 +195,7 @@ const Blog = () => {
         </section>
       )}
       {/* Category Filter */}
-      <section className="py-8 bg-neutral-light">
+      <section className="py-8 bg-primary">
         <div className="container mx-auto px-6">
           <div className="flex flex-wrap justify-center gap-4">
             {categories.map(category => (
@@ -190,8 +204,8 @@ const Blog = () => {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-6 py-2 rounded-full font-medium font-body transition-colors ${
                   selectedCategory === category
-                    ? 'bg-primary text-white'
-                    : 'bg-white text-neutral-dark hover:bg-primary/10'
+                    ? 'bg-secondary text-accent'
+                    : 'bg-neutral-dark text-accent hover:bg-secondary/10'
                 }`}
               >
                 {category}
@@ -201,7 +215,7 @@ const Blog = () => {
         </div>
       </section>
       {/* Blog Posts Grid */}
-      <section className="py-16">
+      <section className="py-16 bg-neutral-dark">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPosts
@@ -209,12 +223,12 @@ const Blog = () => {
               .map((post, index) => (
                 <article
                   key={index}
-                  className="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden"
+                  className="bg-primary rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden border border-neutral-light"
                 >
-                  <div className="h-48 bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
-                    <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center">
+                  <div className="h-48 bg-secondary/10 flex items-center justify-center">
+                    <div className="w-16 h-16 bg-accent rounded-lg flex items-center justify-center">
                       <svg
-                        className="w-8 h-8 text-primary"
+                        className="w-8 h-8 text-secondary"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -234,13 +248,11 @@ const Blog = () => {
                         {post.category}
                       </span>
                     </div>
-                    <h3 className="text-xl font-semibold text-neutral-dark mb-3 font-heading">
+                    <h3 className="text-xl font-semibold text-accent mb-3 font-heading">
                       {post.title}
                     </h3>
-                    <p className="text-neutral-dark mb-4 font-body">
-                      {post.excerpt}
-                    </p>
-                    <div className="flex items-center justify-between text-sm text-neutral-dark font-body mb-4">
+                    <p className="text-accent mb-4 font-body">{post.excerpt}</p>
+                    <div className="flex items-center justify-between text-sm text-accent font-body mb-4">
                       <div className="flex items-center">
                         <span>By {post.author}</span>
                         <span className="mx-2">•</span>
@@ -248,7 +260,7 @@ const Blog = () => {
                       </div>
                       <span>{post.readTime}</span>
                     </div>
-                    <button className="text-primary font-medium hover:text-primary/80 transition-colors font-body">
+                    <button className="text-secondary font-medium hover:text-secondary/80 transition-colors font-body">
                       Read More →
                     </button>
                   </div>
@@ -260,10 +272,10 @@ const Blog = () => {
       {/* Newsletter Subscription */}
       <section className="py-16 bg-primary">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4 font-heading">
+          <h2 className="text-3xl font-bold text-accent mb-4 font-heading">
             Stay Updated
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto font-body">
+          <p className="text-xl text-accent/90 mb-8 max-w-2xl mx-auto font-body">
             Subscribe to our newsletter and never miss our latest insights and
             updates.
           </p>
@@ -271,9 +283,9 @@ const Blog = () => {
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-lg border border-white/20 bg-white/10 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-accent font-body"
+              className="flex-1 px-4 py-3 rounded-lg border border-accent/20 bg-accent/10 text-accent placeholder-accent/70 focus:outline-none focus:ring-2 focus:ring-secondary font-body"
             />
-            <button className="bg-accent text-neutral-dark px-6 py-3 rounded-lg font-semibold hover:shadow-glow transition-all duration-300 font-body">
+            <button className="bg-secondary text-accent px-6 py-3 rounded-lg font-semibold hover:shadow-glow transition-all duration-300 font-body">
               Subscribe
             </button>
           </div>

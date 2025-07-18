@@ -8,6 +8,7 @@ const ContactUs = () => {
   useEffect(() => {
     AOS.init({ once: true, duration: 900, offset: 80 });
   }, []);
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -25,10 +26,13 @@ const ContactUs = () => {
     }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = e => {
+    e.preventDefault(); // Prevent default form submission behavior
     // Handle form submission here
     console.log('Form submitted:', formData);
     // Typically, send this data to your backend
+    // Example: fetch('/api/contact', { method: 'POST', body: JSON.stringify(formData) })
+    // You might also want to show a success/error message to the user
   };
 
   const contactInfo = [
@@ -134,6 +138,51 @@ const ContactUs = () => {
     'Other',
   ];
 
+  const socialMediaLinks = [
+    {
+      href: '#',
+      icon: (
+        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+        </svg>
+      ),
+    },
+    {
+      href: '#',
+      icon: (
+        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+        </svg>
+      ),
+    },
+    {
+      href: '#',
+      icon: (
+        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z" />
+        </svg>
+      ),
+    },
+  ];
+
+  const faqs = [
+    {
+      question: 'How long does a typical project take?',
+      answer:
+        'Project timelines vary based on scope. Simple websites take 2-4 weeks, while complex web applications may require 3-6 months. We provide detailed timelines during consultation.',
+    },
+    {
+      question: 'Do you provide ongoing support and maintenance?',
+      answer:
+        'Yes, we offer comprehensive support packages, including regular updates, security patches, and 24/7 technical support.',
+    },
+    {
+      question: 'What’s your approach to project management?',
+      answer:
+        'We use agile methodologies with regular check-ins and transparent communication, ensuring you stay informed and can provide feedback throughout development.',
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-primary">
       {/* Hero Section */}
@@ -155,7 +204,7 @@ const ContactUs = () => {
             transform your ideas into reality.
           </span>
         }
-        backgroundImage="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+        backgroundImage="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=1920&q=80" // Changed to a more abstract, tech-y background
         gradient="from-primary via-black to-neutral-dark"
       >
         <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8 animate-float">
@@ -180,11 +229,23 @@ const ContactUs = () => {
 
       {/* Contact Form & Info */}
       <section
-        className="py-16 bg-neutral-dark"
+        className="py-16 bg-neutral-dark relative overflow-hidden" // Added relative and overflow-hidden for background pattern
         data-aos="fade-up"
         data-aos-delay="100"
       >
-        <div className="container mx-auto px-6">
+        {/* Subtle background pattern: circuit board / digital lines */}
+        <div
+          className="absolute inset-0 z-0 opacity-10"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20V40zm20 0L40 20V0H20L0 20h20z'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundRepeat: 'repeat',
+            transform: 'rotate(15deg) scale(1.2)',
+          }}
+        ></div>
+
+        <div className="container mx-auto px-6 relative z-10">
+          {' '}
+          {/* Ensure content is above pattern */}
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div
@@ -195,7 +256,9 @@ const ContactUs = () => {
               <h2 className="text-2xl font-bold text-accent mb-6 font-heading uppercase tracking-wide">
                 Send Us a Message
               </h2>
-              <div className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {' '}
+                {/* Changed to form element */}
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label
@@ -234,7 +297,6 @@ const ContactUs = () => {
                     />
                   </div>
                 </div>
-
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label
@@ -276,7 +338,6 @@ const ContactUs = () => {
                     </select>
                   </div>
                 </div>
-
                 <div>
                   <label
                     htmlFor="subject"
@@ -295,7 +356,6 @@ const ContactUs = () => {
                     placeholder="How can we help you?"
                   />
                 </div>
-
                 <div>
                   <label
                     htmlFor="message"
@@ -314,16 +374,15 @@ const ContactUs = () => {
                     placeholder="Tell us about your project..."
                   ></textarea>
                 </div>
-
                 <button
-                  onClick={handleSubmit}
+                  type="submit" // Changed to type="submit"
                   className="w-full bg-secondary text-primary py-3 px-6 rounded-full font-semibold text-base uppercase tracking-wider shadow-md hover:scale-105 transition-all duration-300 animate-pulse"
                   data-aos="zoom-in"
                   data-aos-delay="300"
                 >
                   Send Message
                 </button>
-              </div>
+              </form>
             </div>
 
             {/* Contact Information */}
@@ -365,44 +424,7 @@ const ContactUs = () => {
                   Follow Us
                 </h3>
                 <div className="flex space-x-4">
-                  {[
-                    {
-                      href: '#',
-                      icon: (
-                        <svg
-                          className="w-5 h-5"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-                        </svg>
-                      ),
-                    },
-                    {
-                      href: '#',
-                      icon: (
-                        <svg
-                          className="w-5 h-5"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                        </svg>
-                      ),
-                    },
-                    {
-                      href: '#',
-                      icon: (
-                        <svg
-                          className="w-5 h-5"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z" />
-                        </svg>
-                      ),
-                    },
-                  ].map((social, index) => (
+                  {socialMediaLinks.map((social, index) => (
                     <a
                       key={index}
                       href={social.href}
@@ -420,11 +442,21 @@ const ContactUs = () => {
 
       {/* Map Section */}
       <section
-        className="py-16 bg-neutral-dark"
+        className="py-16 bg-primary relative overflow-hidden" // Changed background and added relative/overflow for pattern
         data-aos="fade-up"
         data-aos-delay="200"
       >
-        <div className="container mx-auto px-6">
+        {/* Subtle background pattern: hexagonal grid */}
+        <div
+          className="absolute inset-0 z-0 opacity-10"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.15' fill-rule='evenodd'%3E%3Cpath d='M0 20L20 0L40 20L20 40L0 20zM20 0L0 20L20 40L40 20L20 0z'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundRepeat: 'repeat',
+            transform: 'rotate(5deg) scale(1.1)',
+          }}
+        ></div>
+
+        <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-accent mb-4 font-heading uppercase tracking-wide animate-fade-in">
               Visit Our Office
@@ -434,7 +466,9 @@ const ContactUs = () => {
             </p>
           </div>
           <div className="bg-black/90 rounded-2xl shadow-xl p-4 border border-neutral-700 animate-slide-up">
-            <div className="h-96 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg flex items-center justify-center">
+            <div className="h-96 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg flex items-center justify-center">
+              {' '}
+              {/* Slightly stronger gradient */}
               <div className="text-center">
                 <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg
@@ -468,11 +502,20 @@ const ContactUs = () => {
 
       {/* FAQ Section */}
       <section
-        className="py-16 bg-neutral-dark"
+        className="py-16 bg-neutral-dark relative overflow-hidden" // Added relative and overflow-hidden for background pattern
         data-aos="fade-up"
         data-aos-delay="300"
       >
-        <div className="container mx-auto px-6">
+        {/* Subtle background pattern: dots */}
+        <div
+          className="absolute inset-0 z-0 opacity-05"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='5' cy='5' r='2' fill='%239C92AC' fill-opacity='0.15'/%3E%3C/svg%3E")`,
+            backgroundRepeat: 'repeat',
+          }}
+        ></div>
+
+        <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-accent mb-4 font-heading uppercase tracking-wide animate-fade-in">
               Frequently Asked Questions
@@ -483,23 +526,7 @@ const ContactUs = () => {
           </div>
 
           <div className="max-w-3xl mx-auto space-y-6">
-            {[
-              {
-                question: 'How long does a typical project take?',
-                answer:
-                  'Project timelines vary based on scope. Simple websites take 2-4 weeks, while complex web applications may require 3-6 months. We provide detailed timelines during consultation.',
-              },
-              {
-                question: 'Do you provide ongoing support and maintenance?',
-                answer:
-                  'Yes, we offer comprehensive support packages, including regular updates, security patches, and 24/7 technical support.',
-              },
-              {
-                question: 'What’s your approach to project management?',
-                answer:
-                  'We use agile methodologies with regular check-ins and transparent communication, ensuring you stay informed and can provide feedback throughout development.',
-              },
-            ].map((faq, index) => (
+            {faqs.map((faq, index) => (
               <div
                 key={index}
                 className="bg-black/90 rounded-lg p-6 border border-neutral-700 transform hover:scale-105 transition-all duration-300"
