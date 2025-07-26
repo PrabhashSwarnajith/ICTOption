@@ -154,25 +154,25 @@ const WebDevelopment = () => {
       {/* Hero Section */}
       <Hero
         title={
-          <span className="text-accent">
+          <span className="text-accent  font-heading">
             Web <span className="text-secondary">Development</span>
           </span>
         }
         subtitle={
-          <span className="text-accent">
+          <span className="text-accent  font-heading">
             Transforming Ideas into{' '}
             <span className="text-secondary">Digital Reality</span>
           </span>
         }
         description={
-          <span className="text-neutral-300">
+          <span className="text-neutral-300 font-body">
             We build cutting-edge web solutions that drive innovation, enhance
             user experiences, and accelerate business growth in the modern
             digital landscape.
           </span>
         }
         backgroundImage={web2}
-        gradient="from-primary via-neutral-900 to-secondary"
+        gradient="from-primary via-black/80 to-neutral-900"
         className="brightness-110"
       >
         <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8">
