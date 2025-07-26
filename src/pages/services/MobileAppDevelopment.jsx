@@ -152,7 +152,7 @@ const MobileAppDevelopment = () => {
         gradient="from-primary via-black/80 to-neutral-900"
         className="brightness-110"
       >
-        <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8">
+        <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8 animate-float">
           <Link
             to="/contact"
             className="bg-secondary text-primary px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:bg-secondary-light hover:text-primary hover:scale-105 transition-all duration-300 transform-gpu font-body"

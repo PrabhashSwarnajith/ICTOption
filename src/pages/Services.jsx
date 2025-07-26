@@ -313,7 +313,7 @@ const Services = () => {
         gradient="from-primary via-black/80 to-neutral-900"
         className="brightness-110"
       >
-        <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8">
+        <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8 animate-float">
           {' '}
           {/* Removed animate-float */}
           <Link
