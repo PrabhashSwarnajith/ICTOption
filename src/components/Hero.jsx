@@ -6,13 +6,13 @@ const Hero = ({
   subtitle,
   description,
   backgroundImage,
-  gradient = 'from-primary via-black to-secondary',
+  gradient = 'from-primary via-neutral-900 to-secondary', // Updated to use neutral-900 for consistency
   height = 'min-h-screen',
   children,
 }) => {
   return (
     <section
-      className={`relative ${height} flex items-center justify-center overflow-hidden`}
+      className={`relative ${height} flex items-center justify-center overflow-hidden font-body`} // Added font-body for general text
       style={{
         background: backgroundImage
           ? `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${backgroundImage})`
@@ -27,29 +27,52 @@ const Hero = ({
         className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-50`}
       ></div>
 
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-secondary rounded-full filter blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-32 right-20 w-96 h-96 bg-accent rounded-full filter blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-primary rounded-full filter blur-3xl animate-pulse delay-500"></div>
+      {/* Background Pattern - Refined for subtlety and theme integration */}
+      <div
+        className="absolute inset-0 z-0 opacity-[0.05]" // Adjusted opacity for subtlety
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23374151' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20V40zm20 0L40 20V0H20L0 20h20z'/%3E%3C/g%3E%3C/svg%3E")`, // Using the neutral-700 pattern from FullPageServiceCard
+          backgroundRepeat: 'repeat',
+          transform: 'rotate(10deg) scale(1.2)', // Matches FullPageServiceCard's background
+        }}
+      ></div>
+
+      {/* Animated Glowing Blobs - Refined positions, sizes, and blur for a more cohesive feel */}
+      <div className="absolute inset-0 opacity-20">
+        {' '}
+        {/* Slightly increased overall blob opacity */}
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-secondary rounded-full filter blur-2xl opacity-70 animate-blob-bounce-1"></div>{' '}
+        {/* Reduced size and blur */}
+        <div className="absolute bottom-1/3 right-1/4 w-72 h-72 bg-accent rounded-full filter blur-2xl opacity-70 animate-blob-bounce-2"></div>{' '}
+        {/* Reduced size and blur */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-primary rounded-full filter blur-2xl opacity-70 animate-blob-bounce-3"></div>{' '}
+        {/* Reduced size and blur */}
       </div>
 
-      <div className="container mx-auto px-6 text-center relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 w-full">
+        {' '}
+        {/* Standardized padding and added w-full */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary font-heading mb-6">
+            {' '}
+            {/* Changed gradient to accent and secondary, added font-heading */}
             {title}
           </h1>
           {subtitle && (
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-secondary mb-8">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-secondary font-heading mb-8">
+              {' '}
+              {/* Added font-heading */}
               {subtitle}
             </h2>
           )}
           {description && (
-            <p className="text-lg md:text-xl text-accent mb-12 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-neutral-300 mb-12 max-w-3xl mx-auto leading-relaxed font-body">
+              {' '}
+              {/* Changed text-accent to text-neutral-300, added font-body */}
               {description}
             </p>
           )}
