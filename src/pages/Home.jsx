@@ -13,6 +13,13 @@ import cyber1 from '../assets/img/cyber1.jpg';
 import ml1 from '../assets/img/ml1.jpg';
 import home1 from '../assets/img/home1.jpg';
 import home2 from '../assets/img/home2.jpg';
+// Example partner image
+import partner1 from '../assets/partners/partner1.png';
+import partner2 from '../assets/partners/partner2.png';
+import partner3 from '../assets/partners/partner3.jpg';
+import partner4 from '../assets/partners/partner4.jpg';
+import partner5 from '../assets/partners/partner5.jpg';
+import partner6 from '../assets/partners/partner6.jpg';
 
 // --- Data Definitions for cleaner JSX ---
 
@@ -43,12 +50,12 @@ const whyChooseUsPoints = [
 ];
 
 const partnersData = [
-  { name: 'TechCorp', bgColor: 'from-blue-600 to-purple-600' },
-  { name: 'InnovateLab', bgColor: 'from-green-600 to-blue-600' },
-  { name: 'CloudSync', bgColor: 'from-cyan-600 to-blue-800' },
-  { name: 'DataFlow', bgColor: 'from-purple-600 to-pink-600' },
-  { name: 'SecureNet', bgColor: 'from-red-600 to-purple-600' },
-  { name: 'AIVision', bgColor: 'from-orange-600 to-red-600' },
+  { name: 'UrbanLabs', image: partner1 },
+  { name: 'LaLa Land', image: partner3 },
+  { name: 'EROS', image: partner5 },
+  { name: 'VGO', image: partner4 },
+  { name: 'KSztacK', image: partner6 },
+  { name: 'MASK D TEC', image: partner2 },
 ];
 
 const statsData = [
@@ -451,8 +458,8 @@ const Home = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
             {partnersData.map((partner, index) => (
               <motion.div
-                key={partner.name}
-                className="group cursor-pointer"
+                key={partner.image}
+                className="group cursor-pointer flex flex-col items-center"
                 initial={{ opacity: 0, y: 20, scale: 0.8 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{
@@ -468,16 +475,12 @@ const Home = () => {
                   transition: { duration: 0.3 },
                 }}
               >
-                <div
-                  className={`w-full h-20 ${partner.bgColor} rounded-lg flex items-center justify-center shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:brightness-125`}
-                >
-                  <span className="text-white font-bold text-lg font-heading">
-                    {partner.name}
-                  </span>
-                </div>
-                <p className="text-center text-sm text-neutral-400 mt-3 group-hover:text-secondary transition-colors font-body">
-                  {partner.name}
-                </p>
+                <img
+                  src={partner.image}
+                  alt={partner.name}
+                  className="w-30 h-28 object-contain rounded-lg shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:brightness-125"
+                  style={{ background: 'black' }}
+                />
               </motion.div>
             ))}
           </div>
