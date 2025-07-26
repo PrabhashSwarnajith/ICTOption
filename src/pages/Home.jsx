@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import AOS from 'aos'; // Import AOS
 import 'aos/dist/aos.css'; // Import AOS styles
-import { FullPageServiceCard, Hero } from '../components'; // Assuming Hero is in a 'components' folder
+import { ServiceCard, Hero } from '../components'; // Assuming Hero is in a 'components' folder
 import home from '../assets/img/home.jpg'; // Dynamic hero image
 import web2 from '../assets/img/web2.jpeg';
 import mobile3 from '../assets/img/mobile3.jpg';
@@ -509,9 +509,9 @@ const Home = () => {
           </motion.div>
         </div>
       </section>
-      {/* Featured Services (FullPageServiceCard instances) */}
+      {/* Featured Services (ServiceCard instances) */}
       {featuredServices.map((service, index) => (
-        <FullPageServiceCard
+        <ServiceCard
           key={index}
           title={service.title}
           description={service.description}
