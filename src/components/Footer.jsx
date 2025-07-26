@@ -1,16 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link
 import logo from '../assets/logo.png';
 
 const Footer = () => {
   // Data for quick links
   const quickLinks = [
-    { name: 'About Us', href: '/about' },
-    { name: 'Services', href: '/services' },
-    { name: 'Products', href: '/products' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'About Us', path: '/about' }, // Changed href to path for Link component
+    { name: 'Services', path: '/services' },
+    { name: 'Products', path: '/products' },
+    { name: 'Contact', path: '/contact' },
   ];
 
-  // Data for useful links
+  // Data for service links (already using path)
   const servicesLinks = [
     { name: 'Web Development', path: '/services/web-development' },
     {
@@ -27,21 +28,25 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-neutral-dark text-accent py-12 relative overflow-hidden">
+    <footer className="bg-neutral-900 text-accent py-12 relative overflow-hidden font-body">
+      {' '}
+      {/* Changed neutral-dark to neutral-900, added font-body */}
       {/* Top Accent Divider - Enhanced with more vibrant gradient and shadow */}
-      <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-secondary via-accent to-secondary rounded-t-xl shadow-2xl animate-gradient-shift"></div>
-
+      <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-secondary via-accent to-secondary rounded-t-lg shadow-xl animate-gradient-shift"></div>{' '}
+      {/* Changed rounded-t-xl to rounded-t-lg, shadow-2xl to shadow-xl */}
       {/* Subtle Background Pattern - Geometric dots */}
       <div
-        className="absolute inset-0 z-0 opacity-5"
+        className="absolute inset-0 z-0 opacity-[0.05]" // Slightly adjusted opacity
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='2' cy='2' r='1' fill='%239C92AC' fill-opacity='0.1'/%3E%3C/svg%3E")`,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='2' cy='2' r='1' fill='%23374151' fill-opacity='0.1'/%3E%3C/svg%3E")`, // Used neutral-700 color for dots
           backgroundRepeat: 'repeat',
-          transform: 'rotate(10deg) scale(1.2)',
+          transform: 'rotate(5deg) scale(1.1)', // Subtle rotation and scale
         }}
       ></div>
-
-      <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pt-8 relative z-10">
+      {/* Main Footer Content Grid */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pt-8 relative z-10">
+        {' '}
+        {/* Standardized padding, changed container to max-w-7xl */}
         {/* Brand & Contact */}
         <div className="flex flex-col items-start">
           <div className="flex items-center mb-4">
@@ -49,19 +54,25 @@ const Footer = () => {
             <img
               src={logo}
               alt="ICT Option Logo"
-              className="w-10 h-10 mr-3 rounded-full shadow-lg bg-white object-contain"
+              className="w-10 h-10 mr-3 rounded-full shadow-lg bg-white object-contain p-1" // Added p-1 for slight internal padding
             />
 
-            <span className="text-3xl font-extrabold text-accent tracking-wide">
+            <span className="text-3xl font-extrabold text-accent tracking-wide font-heading">
+              {' '}
+              {/* Added font-heading */}
               ICT <span className="text-secondary">OPTION</span>
             </span>
           </div>
-          <p className="text-gray-300 mb-3 text-base leading-relaxed opacity-90">
+          <p className="text-neutral-300 mb-3 text-base leading-relaxed opacity-90">
+            {' '}
+            {/* Changed gray-300 to neutral-300 */}
             Empowering your digital future with smart, connected solutions.
           </p>
-          <div className="text-gray-400 text-sm opacity-90 mb-1 flex items-center">
+          <div className="text-neutral-400 text-sm opacity-90 mb-1 flex items-center">
+            {' '}
+            {/* Changed gray-400 to neutral-400 */}
             <svg
-              className="w-4 h-4 mr-2 text-secondary"
+              className="w-4 h-4 mr-2 text-secondary flex-shrink-0" // Added flex-shrink-0
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -79,11 +90,14 @@ const Footer = () => {
                 d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
               />
             </svg>
-            No: 59/E, Horana Road, Kesbewa, Piliyandala, postcode: 10300,
+            No: 59/E, Horana Road, Kesbewa, Piliyandala, postcode: 10300, Sri
+            Lanka
           </div>
-          <div className="text-gray-400 text-sm opacity-90 mb-1 flex items-center">
+          <div className="text-neutral-400 text-sm opacity-90 mb-1 flex items-center">
+            {' '}
+            {/* Changed gray-400 to neutral-400 */}
             <svg
-              className="w-4 h-4 mr-2 text-secondary"
+              className="w-4 h-4 mr-2 text-secondary flex-shrink-0" // Added flex-shrink-0
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -97,9 +111,11 @@ const Footer = () => {
             </svg>
             ictoption321@gmail.com
           </div>
-          <div className="text-gray-400 text-sm opacity-90 mb-1 flex items-center">
+          <div className="text-neutral-400 text-sm opacity-90 mb-1 flex items-center">
+            {' '}
+            {/* Changed gray-400 to neutral-400 */}
             <svg
-              className="w-4 h-4 mr-2 text-secondary"
+              className="w-4 h-4 mr-2 text-secondary flex-shrink-0" // Added flex-shrink-0
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -113,9 +129,11 @@ const Footer = () => {
             </svg>
             +94 76 346 5329
           </div>
-          <div className="text-gray-400 text-sm opacity-90 mb-1 flex items-center">
+          <div className="text-neutral-400 text-sm opacity-90 mb-1 flex items-center">
+            {' '}
+            {/* Changed gray-400 to neutral-400 */}
             <svg
-              className="w-4 h-4 mr-2 text-secondary"
+              className="w-4 h-4 mr-2 text-secondary flex-shrink-0" // Added flex-shrink-0
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -130,68 +148,73 @@ const Footer = () => {
             +94 71 115 2255
           </div>
         </div>
-
         {/* Quick Links */}
         <div>
-          <h4 className="font-bold text-secondary mb-4 uppercase tracking-wide text-lg">
+          <h4 className="font-bold text-secondary mb-4 uppercase tracking-wide text-lg font-heading">
+            {' '}
+            {/* Added font-heading */}
             Quick Links
           </h4>
           <ul className="space-y-3">
             {quickLinks.map((link, index) => (
               <li key={index}>
-                <a
-                  href={link.href}
-                  className="text-gray-300 hover:text-accent transition-colors duration-200 ease-in-out hover:underline underline-offset-4 text-base"
+                <Link // Using Link component
+                  to={link.path}
+                  className="text-neutral-300 hover:text-accent transition-colors duration-200 ease-in-out hover:underline underline-offset-4 text-base"
                 >
                   {link.name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
         </div>
-
         {/* Services Links */}
         <div>
-          <h4 className="font-bold text-secondary mb-4 uppercase tracking-wide text-lg">
+          <h4 className="font-bold text-secondary mb-4 uppercase tracking-wide text-lg font-heading">
+            {' '}
+            {/* Added font-heading */}
             Services
           </h4>
           <ul className="space-y-3">
             {servicesLinks.map((link, index) => (
               <li key={index}>
-                <a
-                  href={link.href}
-                  className="text-gray-300 hover:text-accent transition-colors duration-200 ease-in-out hover:underline underline-offset-4 text-base"
+                <Link // Using Link component
+                  to={link.path}
+                  className="text-neutral-300 hover:text-accent transition-colors duration-200 ease-in-out hover:underline underline-offset-4 text-base"
                 >
                   {link.name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
         </div>
-
         {/* Work Hours & CTA */}
         <div className="flex flex-col items-start">
-          <h4 className="font-bold text-secondary mb-4 uppercase tracking-wide text-lg">
+          <h4 className="font-bold text-secondary mb-4 uppercase tracking-wide text-lg font-heading">
+            {' '}
+            {/* Added font-heading */}
             Work Hours
           </h4>
           <div className="text-accent text-base mb-2 font-semibold">
             9 AM - 10 PM,{' '}
             <span className="text-secondary">Monday - Saturday</span>
           </div>
-          <p className="text-gray-300 text-sm mb-6 opacity-90">
+          <p className="text-neutral-300 text-sm mb-6 opacity-90">
+            {' '}
+            {/* Changed gray-300 to neutral-300 */}
             Get in touch with us for your next project or support needs.
           </p>
-          <a
-            href="/contact"
-            className="inline-block bg-secondary text-primary px-8 py-3 rounded-full font-bold shadow-lg hover:bg-accent hover:text-white transition-all duration-300 hover:scale-105 focus:scale-105 active:scale-100 transform uppercase tracking-wider"
-            style={{ transitionProperty: 'background, color, transform' }}
+          <Link // Using Link component
+            to="/contact"
+            className="inline-block bg-secondary text-primary px-8 py-3 rounded-full font-bold shadow-lg hover:bg-secondary-light transition-all duration-300 hover:scale-105 focus:scale-105 active:scale-100 transform uppercase tracking-wider" // Matched hover effect
           >
             JOIN WITH US
-          </a>
+          </Link>
         </div>
       </div>
-
-      <div className="text-center text-xs text-gray-400 mt-12 opacity-70 border-t border-neutral-700 pt-6">
+      <div className="text-center text-xs text-neutral-400 mt-12 opacity-70 border-t border-neutral-700 pt-6">
+        {' '}
+        {/* Changed gray-400 to neutral-400 */}
         &copy; {new Date().getFullYear()} ICT Option. All rights reserved.
       </div>
     </footer>
