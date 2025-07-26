@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <!-- Example: Replace with your actual logo paths -->
+  <rect width="180" height="180" rx="36" fill="none"/>
+  <g fill="#B13A18">
+    <!-- Only ICT and OPTION text -->
+    <text x="50%" y="45%" text-anchor="middle" dominant-baseline="middle" font-size="70" font-family="Arial Black, Arial, sans-serif" font-weight="bold">ICT</text>
+    <text x="50%" y="80%" text-anchor="middle" dominant-baseline="middle" font-size="40" font-family="Arial Black, Arial, sans-serif" font-weight="bold">OPTION</text>
+  </g>
+</svg>
