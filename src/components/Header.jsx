@@ -32,11 +32,14 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 px-6 py-4 bg-primary/50 backdrop-blur-xl shadow-xl transition-all duration-300">
-      <div className="container mx-auto flex justify-between items-center">
+    <header className="fixed top-0 left-0 w-full z-50 px-6 py-4 bg-primary/50 backdrop-blur-xl shadow-xl transition-all duration-300 font-body">
+      {' '}
+      {/* Added font-body */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+        {' '}
+        {/* Standardized padding */}
         {/* Logo and Brand */}
         <Link to="/" className="flex items-center space-x-3 group">
-          {/* Using a placeholder image URL for logo */}
           <img
             src={logo}
             alt="ICT Option"
@@ -50,7 +53,7 @@ const Header = () => {
           </div>
         </Link>
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex space-x-8 text-accent font-medium font-body items-center">
+        <nav className="hidden lg:flex space-x-8 text-accent font-medium items-center">
           {navLinks.map((link, index) =>
             link.dropdown ? (
               // Services Dropdown
@@ -82,20 +85,23 @@ const Header = () => {
 
                 {/* Dropdown Menu */}
                 <div
-                  className={`absolute top-full left-0 mt-2 w-80 bg-primary/60 backdrop-blur-xl rounded-3xl shadow-3xl py-4 transition-all duration-300 ${
+                  className={`absolute top-full left-0 mt-2 w-80 bg-primary/80 backdrop-blur-xl rounded-2xl shadow-2xl py-4 transition-all duration-300 ${
+                    // Changed bg-primary/60 to /80, rounded-3xl to 2xl, shadow-3xl to 2xl
                     isServicesOpen
                       ? 'opacity-100 translate-y-0 visible'
                       : 'opacity-0 translate-y-2 invisible'
                   }`}
                 >
-                  <div className="px-6 py-3 text-sm font-semibold text-secondary border-b border-neutral-700 bg-neutral-dark">
+                  <div className="px-6 py-3 text-sm font-semibold text-secondary border-b border-neutral-700 bg-neutral-900 rounded-t-2xl">
+                    {' '}
+                    {/* Changed bg-neutral-dark to bg-neutral-900, added rounded-t-2xl */}
                     Our Services
                   </div>
                   {link.dropdown.map((dropdownItem, dropdownIndex) => (
                     <Link
                       key={dropdownIndex}
                       to={dropdownItem.path}
-                      className="block px-6 py-4 text-sm text-accent hover:bg-secondary/20 hover:text-secondary transition-all duration-300 border-b border-neutral-700 last:border-b-0 group"
+                      className="block px-6 py-4 text-sm text-accent hover:bg-secondary/10 hover:text-secondary transition-all duration-300 border-b border-neutral-700 last:border-b-0 group" // Changed hover:bg-secondary/20 to /10
                     >
                       <div className="flex items-center space-x-3">
                         <span className="text-secondary transition-transform duration-300 group-hover:translate-x-1">
@@ -121,7 +127,7 @@ const Header = () => {
           {/* Contact Button for Desktop */}
           <Link
             to="/contact"
-            className="ml-4 bg-secondary text-primary px-6 py-2 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+            className="ml-4 bg-secondary text-primary px-6 py-2 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 hover:bg-secondary-light" // Added hover:bg-secondary-light
           >
             Contact Us
           </Link>
@@ -157,7 +163,6 @@ const Header = () => {
           </svg>
         </button>
       </div>
-
       {/* Mobile Navigation Menu */}
       <div
         id="mobile-menu"
@@ -167,13 +172,15 @@ const Header = () => {
             : 'max-h-0 opacity-0'
         }`}
       >
-        <nav className="container mx-auto px-6 space-y-2 bg-primary border-t border-neutral-700 rounded-b-lg shadow-inner">
+        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-2 bg-primary border-t border-neutral-700 rounded-b-lg shadow-inner">
+          {' '}
+          {/* Standardized padding */}
           {navLinks.map((link, index) =>
             link.dropdown ? (
               // Mobile Services Section
               <div key={index} className="py-2">
                 <div
-                  className="flex justify-between items-center px-4 py-2 text-base font-semibold text-secondary bg-neutral-dark rounded-lg cursor-pointer"
+                  className="flex justify-between items-center px-4 py-2 text-base font-semibold text-secondary bg-neutral-800 rounded-lg cursor-pointer" // Changed bg-neutral-dark to bg-neutral-800
                   onClick={() => setIsServicesOpen(!isServicesOpen)} // Toggle mobile services dropdown
                 >
                   <span>{link.name}</span>
@@ -230,7 +237,7 @@ const Header = () => {
           {/* Contact Button for Mobile */}
           <Link
             to="/contact"
-            className="block mt-4 bg-secondary text-primary text-center py-3 px-6 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+            className="block mt-4 bg-secondary text-primary text-center py-3 px-6 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 hover:bg-secondary-light" // Added hover:bg-secondary-light
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Contact Us
