@@ -27,14 +27,8 @@ const Hero = ({
         className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-50`}
       ></div>
 
-      {/* Background Pattern - Refined for subtlety and theme integration */}
       <div
         className="absolute inset-0 z-0 opacity-[0.05]" // Adjusted opacity for subtlety
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23374151' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20V40zm20 0L40 20V0H20L0 20h20z'/%3E%3C/g%3E%3C/svg%3E")`, // Using the neutral-700 pattern from FullPageServiceCard
-          backgroundRepeat: 'repeat',
-          transform: 'rotate(10deg) scale(1.2)', // Matches FullPageServiceCard's background
-        }}
       ></div>
 
       {/* Animated Glowing Blobs - Refined positions, sizes, and blur for a more cohesive feel */}
