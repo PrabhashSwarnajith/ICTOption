@@ -166,24 +166,25 @@ const ContactUs = () => {
       {/* Hero Section */}
       <Hero
         title={
-          <span className="text-accent">
+          <span className="text-accent font-heading">
             Contact <span className="text-secondary">Us</span>
           </span>
         }
         subtitle={
-          <span className="text-accent">
+          <span className="text-accent font-heading">
             Let's Create Something{' '}
             <span className="text-secondary">Extraordinary</span> Together
           </span>
         }
         description={
-          <span className="text-accent">
+          <span className="text-neutral-300 font-body">
             Ready to bring your vision to life? Connect with our expert team to
             transform your ideas into reality.
           </span>
         }
         backgroundImage={contact}
-        gradient="from-primary via-neutral-900 to-secondary"
+        gradient="from-primary via-black/80 to-neutral-900"
+        className="brightness-110"
       >
         <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8">
           <a

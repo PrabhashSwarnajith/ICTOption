@@ -90,9 +90,10 @@ const AboutUs = () => {
           </span>
         }
         backgroundImage={about}
-        gradient="from-primary via-neutral-900 to-secondary" // Changed via-black to via-neutral-900 for consistency
+        gradient="from-primary via-black/80 to-neutral-900"
+        className="brightness-110"
       >
-        <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8">
+        <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8 animate-float">
           <Link
             to="/contact"
             className="bg-secondary text-primary px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:bg-secondary-light hover:scale-105 transition-all duration-300 transform-gpu font-body" // Replaced shadow-glow-md with shadow-lg, changed hover:bg-accent hover:text-white to hover:bg-secondary-light

@@ -639,7 +639,11 @@ const Home = () => {
       </section>
       {/* Call to Action Section */}
       ---
-      <section className="py-20 bg-gradient-to-br from-primary via-black to-neutral-900 text-center relative overflow-hidden">
+      <section
+        className="py-20 bg-gradient-to-br from-primary via-neutral-900 to-accent text-center relative overflow-hidden" // Changed via-black to via-neutral-900, to-neutral-dark to to-accent for a stronger gradient
+        data-aos="fade-up"
+        data-aos-delay="900"
+      >
         <div
           className="absolute inset-0 z-0 opacity-10"
           style={{
