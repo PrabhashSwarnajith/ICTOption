@@ -125,7 +125,7 @@ const Blog = () => {
         backgroundImage="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
         gradient="from-primary via-neutral-900 to-secondary" // Changed via-black to via-neutral-900, to-neutral-dark to to-secondary
       >
-        <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8">
+        <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8 animate-float">
           {' '}
           {/* Removed animate-float */}
           <Link
