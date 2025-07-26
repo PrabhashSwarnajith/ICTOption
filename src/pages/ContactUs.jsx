@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Hero } from '../components';
+import { Hero } from '../components'; // Assuming you have a Hero component
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import contact from '../assets/img/contact.jpg';
+import contact from '../assets/img/contact.jpg'; // Ensure this path is correct
 
 const ContactUs = () => {
   useEffect(() => {
     AOS.init({ once: true, duration: 900, offset: 80 });
   }, []);
-
-  // No local state or JS handler needed for formsubmit.co
 
   const contactInfo = [
     {
@@ -18,7 +16,7 @@ const ContactUs = () => {
       details: [
         'No: 59/E, Horana Road',
         'Kesbewa, Piliyandala',
-        'postcode: 10300',
+        'Postcode: 10300',
       ],
       icon: (
         <svg
@@ -118,6 +116,7 @@ const ContactUs = () => {
   const socialMediaLinks = [
     {
       href: 'https://www.tiktok.com/@ict_option?_t=ZS-8y7hfMuvgFG&_r=1',
+      label: 'TikTok page', // Added for accessibility
       icon: (
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
           <path d="M9.5 3.5v13.5a3.5 3.5 0 1 1-3.5-3.5h.5V12a2.5 2.5 0 1 0 2.5 2.5V3.5h1zm5.5 0v7.5c0 2.485 2.015 4.5 4.5 4.5v2a6.5 6.5 0 0 1-6.5-6.5V3.5h2z" />
@@ -126,6 +125,7 @@ const ContactUs = () => {
     },
     {
       href: 'https://www.instagram.com/ict_option?igsh=MWM2ZTNweXJoZDh3Yg==&utm_source=ig_contact_invite',
+      label: 'Instagram page', // Added for accessibility
       icon: (
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
           <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm4.25 3.25a5.25 5.25 0 1 1 0 10.5 5.25 5.25 0 0 1 0-10.5zm0 1.5a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5zm6.25 1.25a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
@@ -134,6 +134,7 @@ const ContactUs = () => {
     },
     {
       href: 'https://www.facebook.com/share/16YqcKMBNp/?mibextid=wwXIfr',
+      label: 'Facebook page', // Added for accessibility
       icon: (
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
           <path d="M22.675 0h-21.35C.6 0 0 .6 0 1.326v21.348C0 23.4.6 24 1.326 24h11.495v-9.294H9.691v-3.622h3.13V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.104C23.4 24 24 23.4 24 22.674V1.326C24 .6 23.4 0 22.675 0z" />
@@ -161,7 +162,7 @@ const ContactUs = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-primary">
+    <div className="min-h-screen bg-primary font-body">
       {/* Hero Section */}
       <Hero
         title={
@@ -182,31 +183,26 @@ const ContactUs = () => {
           </span>
         }
         backgroundImage={contact}
-        gradient="from-primary via-black to-neutral-dark"
+        gradient="from-primary via-neutral-900 to-secondary"
       >
-        <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8 animate-float">
+        <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8">
           <a
-            href="tel:+1234567890"
-            className="bg-secondary text-primary px-8 py-4 rounded-full font-semibold text-lg shadow-glow hover:scale-105 transition-all duration-300 animate-pulse"
-            data-aos="fade-up"
-            data-aos-delay="100"
+            href="tel:+94763465329"
+            className="bg-secondary text-primary px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:bg-secondary-light hover:scale-105 transition-all duration-300 transform-gpu font-body"
           >
             Call Now
           </a>
           <Link
             to="/services"
-            className="border-2 border-accent text-accent px-8 py-4 rounded-full font-semibold text-lg hover:bg-accent hover:text-primary transition-all duration-300 animate-pulse"
-            data-aos="fade-up"
-            data-aos-delay="200"
+            className="border-2 border-accent text-accent px-8 py-4 rounded-full font-semibold text-lg hover:bg-accent hover:text-primary hover:scale-105 transition-all duration-300 transform-gpu font-body"
           >
             Explore Services
           </Link>
         </div>
       </Hero>
-
       {/* Contact Form & Info */}
       <section
-        className="py-16 bg-neutral-dark relative overflow-hidden" // Added relative and overflow-hidden for background pattern
+        className="py-20 bg-neutral-900 relative overflow-hidden"
         data-aos="fade-up"
         data-aos-delay="100"
       >
@@ -220,17 +216,15 @@ const ContactUs = () => {
           }}
         ></div>
 
-        <div className="container mx-auto px-6 relative z-10">
-          {' '}
-          {/* Ensure content is above pattern */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div
-              className="bg-black/90 rounded-2xl shadow-xl p-8 border border-neutral-700"
+              className="bg-neutral-800 rounded-2xl shadow-xl p-8 border border-neutral-700"
               data-aos="fade-right"
               data-aos-delay="100"
             >
-              <h2 className="text-2xl font-bold text-accent mb-6 font-heading uppercase tracking-wide">
+              <h2 className="text-2xl md:text-4xl font-bold text-accent mb-6 font-heading uppercase tracking-wide">
                 Send Us a Message
               </h2>
               <form
@@ -238,8 +232,6 @@ const ContactUs = () => {
                 method="POST"
                 className="space-y-6"
               >
-                {' '}
-                {/* Changed to form element */}
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label
@@ -253,7 +245,7 @@ const ContactUs = () => {
                       id="name"
                       name="name"
                       required
-                      className="w-full px-4 py-3 border border-neutral-700 rounded-lg bg-black/80 text-accent placeholder-accent/50 focus:outline-none focus:ring-2 focus:ring-secondary font-body transition-all duration-300"
+                      className="w-full px-4 py-3 border border-neutral-700 rounded-lg bg-neutral-800 text-neutral-300 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-secondary font-body transition-all duration-300"
                       placeholder="John Doe"
                     />
                   </div>
@@ -269,7 +261,7 @@ const ContactUs = () => {
                       id="email"
                       name="email"
                       required
-                      className="w-full px-4 py-3 border border-neutral-700 rounded-lg bg-black/80 text-accent placeholder-accent/50 focus:outline-none focus:ring-2 focus:ring-secondary font-body transition-all duration-300"
+                      className="w-full px-4 py-3 border border-neutral-700 rounded-lg bg-neutral-800 text-neutral-300 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-secondary font-body transition-all duration-300"
                       placeholder="john@example.com"
                     />
                   </div>
@@ -286,7 +278,7 @@ const ContactUs = () => {
                       type="text"
                       id="company"
                       name="company"
-                      className="w-full px-4 py-3 border border-neutral-700 rounded-lg bg-black/80 text-accent placeholder-accent/50 focus:outline-none focus:ring-2 focus:ring-secondary font-body transition-all duration-300"
+                      className="w-full px-4 py-3 border border-neutral-700 rounded-lg bg-neutral-800 text-neutral-300 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-secondary font-body transition-all duration-300"
                       placeholder="Your Company"
                     />
                   </div>
@@ -300,7 +292,7 @@ const ContactUs = () => {
                     <select
                       id="service"
                       name="service"
-                      className="w-full px-4 py-3 border border-neutral-700 rounded-lg bg-black/80 text-accent focus:outline-none focus:ring-2 focus:ring-secondary font-body transition-all duration-300"
+                      className="w-full px-4 py-3 border border-neutral-700 rounded-lg bg-neutral-800 text-neutral-300 focus:outline-none focus:ring-2 focus:ring-secondary font-body transition-all duration-300"
                     >
                       <option value="">Select a service</option>
                       {services.map(service => (
@@ -323,7 +315,7 @@ const ContactUs = () => {
                     id="subject"
                     name="subject"
                     required
-                    className="w-full px-4 py-3 border border-neutral-700 rounded-lg bg-black/80 text-accent placeholder-accent/50 focus:outline-none focus:ring-2 focus:ring-secondary font-body transition-all duration-300"
+                    className="w-full px-4 py-3 border border-neutral-700 rounded-lg bg-neutral-800 text-neutral-300 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-secondary font-body transition-all duration-300"
                     placeholder="How can we help you?"
                   />
                 </div>
@@ -339,13 +331,13 @@ const ContactUs = () => {
                     name="message"
                     required
                     rows="6"
-                    className="w-full px-4 py-3 border border-neutral-700 rounded-lg bg-black/80 text-accent placeholder-accent/50 focus:outline-none focus:ring-2 focus:ring-secondary font-body transition-all duration-300"
+                    className="w-full px-4 py-3 border border-neutral-700 rounded-lg bg-neutral-800 text-neutral-300 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-secondary font-body transition-all duration-300"
                     placeholder="Tell us about your project..."
                   ></textarea>
                 </div>
                 <button
-                  type="submit" // Changed to type="submit"
-                  className="w-full bg-secondary text-primary py-3 px-6 rounded-full font-semibold text-base uppercase tracking-wider shadow-md hover:scale-105 transition-all duration-300 animate-pulse"
+                  type="submit"
+                  className="w-full bg-secondary text-primary py-3 px-6 rounded-full font-semibold text-base uppercase tracking-wider shadow-lg hover:scale-105 transition-all duration-300 animate-pulse"
                   data-aos="zoom-in"
                   data-aos-delay="300"
                 >
@@ -356,10 +348,10 @@ const ContactUs = () => {
 
             {/* Contact Information */}
             <div data-aos="fade-left" data-aos-delay="200">
-              <h2 className="text-2xl font-bold text-accent mb-6 font-heading uppercase tracking-wide">
+              <h2 className="text-2xl md:text-4xl font-bold text-accent mb-6 font-heading uppercase tracking-wide">
                 Get in Touch
               </h2>
-              <p className="text-accent mb-8 font-body">
+              <p className="text-neutral-300 mb-8 font-body">
                 We're here to help. Choose your preferred way to reach us, and
                 we'll respond promptly.
               </p>
@@ -378,7 +370,10 @@ const ContactUs = () => {
                         {info.title}
                       </h3>
                       {info.details.map((detail, detailIndex) => (
-                        <p key={detailIndex} className="text-accent font-body">
+                        <p
+                          key={detailIndex}
+                          className="text-neutral-300 font-body"
+                        >
                           {detail}
                         </p>
                       ))}
@@ -398,6 +393,9 @@ const ContactUs = () => {
                       key={index}
                       href={social.href}
                       className="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center text-secondary hover:bg-secondary hover:text-primary transition-all duration-300 transform hover:scale-110"
+                      aria-label={social.label}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       {social.icon}
                     </a>
@@ -408,10 +406,9 @@ const ContactUs = () => {
           </div>
         </div>
       </section>
-
       {/* Map Section */}
       <section
-        className="py-16 bg-primary relative overflow-hidden"
+        className="py-20 bg-primary relative overflow-hidden"
         data-aos="fade-up"
         data-aos-delay="200"
       >
@@ -425,22 +422,23 @@ const ContactUs = () => {
           }}
         ></div>
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-accent mb-4 font-heading uppercase tracking-wide animate-fade-in">
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading uppercase tracking-wide animate-fade-in">
               Visit Our Office
             </h2>
-            <p className="text-lg text-accent font-body animate-fade-in">
+            <p className="text-lg text-neutral-300 font-body animate-fade-in">
               Located in the heart of the technology district
             </p>
           </div>
-          <div className="bg-black/90 rounded-2xl shadow-xl p-4 border border-neutral-700 animate-slide-up">
+          <div className="bg-neutral-800 rounded-2xl shadow-xl p-4 border border-neutral-700 animate-slide-up">
             <div className="h-96 w-full rounded-lg overflow-hidden flex items-center justify-center">
               <iframe
-                title="Google Map"
-                src="https://www.google.com/maps/embed/v1/place?q=No:+59/E,+Horana+Road,+Kesbewa,+Piliyandala&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+                title="Google Map of ICT Option Office"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.8020583489814!2d79.92348397441558!3d6.86178871958444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25a52a20b72f1%3A0x7d2b638c4b2b2a63!2s59%2FE%2C%20Horana%20Rd%2C%20Kesbewa%2C%20Piliyandala!5e0!3m2!1sen!2slk!4v1721919780000!5m2!1sen!2slk"
                 allowFullScreen
                 loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
                 style={{ border: 0, width: '100%', height: '100%' }}
                 className="min-h-[350px] w-full"
               ></iframe>
@@ -448,28 +446,31 @@ const ContactUs = () => {
           </div>
         </div>
       </section>
-
       {/* FAQ Section */}
       <section
-        className="py-16 bg-neutral-dark relative overflow-hidden" // Added relative and overflow-hidden for background pattern
+        className="py-20 bg-neutral-900 relative overflow-hidden"
         data-aos="fade-up"
         data-aos-delay="300"
       >
         {/* Subtle background pattern: dots */}
         <div
-          className="absolute inset-0 z-0 opacity-05"
+          className="absolute inset-0 z-0 opacity-10"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='5' cy='5' r='2' fill='%239C92AC' fill-opacity='0.15'/%3E%3C/svg%3E")`,
             backgroundRepeat: 'repeat',
           }}
         ></div>
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-accent mb-4 font-heading uppercase tracking-wide animate-fade-in">
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading uppercase tracking-wide animate-fade-in">
+              {' '}
+              {/* Added md:text-4xl and tracking-wide uppercase */}
               Frequently Asked Questions
             </h2>
-            <p className="text-lg text-accent font-body max-w-2xl mx-auto animate-fade-in">
+            <p className="text-lg text-neutral-300 font-body max-w-2xl mx-auto animate-fade-in">
+              {' '}
+              {/* Changed text-accent to text-neutral-300 */}
               Answers to common questions about our services and process.
             </p>
           </div>
@@ -478,12 +479,12 @@ const ContactUs = () => {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-black/90 rounded-lg p-6 border border-neutral-700 transform hover:scale-105 transition-all duration-300"
+                className="bg-neutral-800 rounded-lg p-6 border border-neutral-700 transform hover:scale-105 transition-all duration-300"
               >
                 <h3 className="text-lg font-semibold text-secondary mb-3 font-heading">
                   {faq.question}
                 </h3>
-                <p className="text-accent font-body">{faq.answer}</p>
+                <p className="text-neutral-300 font-body">{faq.answer}</p>
               </div>
             ))}
           </div>
