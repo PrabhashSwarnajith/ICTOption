@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Hero } from '../../components';
 import { motion } from 'framer-motion';
+import AOS from 'aos'; // Import AOS
+import 'aos/dist/aos.css'; // Import AOS CSS
 
 import mobile1 from '../../assets/img/mobile1.jpg';
 import mobile2 from '../../assets/img/mobile2.jpg';
@@ -120,50 +122,54 @@ const faqs = [
 // --- MobileAppDevelopment Component ---
 
 const MobileAppDevelopment = () => {
+  useEffect(() => {
+    AOS.init({ once: true, duration: 900, offset: 80 }); // Initialize AOS
+  }, []);
+
   return (
-    <div className="min-h-screen bg-primary">
+    <div className="min-h-screen bg-primary text-white font-body">
       {/* Hero Section */}
       <Hero
         title={
-          <span className="text-accent font-heading">
+          <span className="text-accent  font-heading">
             Mobile <span className="text-secondary">App Development</span>
           </span>
         }
         subtitle={
-          <span className="text-accent font-heading">
+          <span className="text-accent  font-heading">
             Build Powerful{' '}
             <span className="text-secondary">Mobile Experiences</span>
           </span>
         }
         description={
-          <span className="text-gray-200 font-body">
+          <span className="text-neutral-300 font-body">
             From concept to deployment, we deliver seamless, high-performance
             custom mobile apps tailored to your business needs for both iOS and
             Android platforms.
           </span>
         }
         backgroundImage={mobile3}
-        gradient="from-primary via-black to-neutral-dark"
+        gradient="from-primary via-black/80 to-neutral-900"
         className="brightness-110"
       >
-        <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8 animate-float">
-          <Link
-            to="/services"
-            className="bg-secondary text-primary px-8 py-4 rounded-full font-semibold text-lg shadow-glow-md hover:bg-accent hover:text-white hover:scale-105 transition-all duration-300 transform-gpu font-body"
-          >
-            Explore Services
-          </Link>
+        <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8">
           <Link
             to="/contact"
+            className="bg-secondary text-primary px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:bg-secondary-light hover:text-primary hover:scale-105 transition-all duration-300 transform-gpu font-body"
+          >
+            Get a Free Consultation
+          </Link>
+          <Link
+            to="/services"
             className="border-2 border-accent text-accent px-8 py-4 rounded-full font-semibold text-lg hover:bg-accent hover:text-primary hover:scale-105 transition-all duration-300 transform-gpu font-body"
           >
-            Get In Touch
+            Explore All Services
           </Link>
         </div>
       </Hero>
       ---
       {/* About Our Expertise Section */}
-      <section className="py-20 bg-accent/10 relative overflow-hidden">
+      <section className="py-20 bg-neutral-900 relative overflow-hidden">
         {/* Subtle background pattern */}
         <div
           className="absolute inset-0 z-0 opacity-10"
@@ -173,33 +179,44 @@ const MobileAppDevelopment = () => {
           }}
         ></div>
 
-        <div className="max-w-7xl mx-auto px-4 md:px-8 grid md:grid-cols-2 gap-16 items-center relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-16 items-center relative z-10">
           {/* Left: Enhanced Image with Modern Styling */}
-          <div className="relative flex justify-center items-center min-h-[320px] p-4">
+          <div
+            className="relative flex justify-center items-center min-h-[350px] p-4"
+            data-aos="fade-right"
+            data-aos-delay="100"
+          >
             {/* Decorative elements */}
-            <div className="absolute -top-4 -left-4 w-32 h-32 bg-secondary rounded-full mix-blend-multiply opacity-30 animate-pulse-slow"></div>
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-accent-light rounded-full mix-blend-multiply opacity-20 animate-pulse-slow delay-200"></div>
+            <div className="absolute -top-6 -left-6 w-36 h-36 bg-secondary rounded-full mix-blend-screen opacity-20 animate-spin-slow"></div>
+            <div className="absolute -bottom-6 -right-6 w-28 h-28 bg-accent rounded-xl mix-blend-screen opacity-15 transform rotate-45"></div>
 
-            <img
-              src={mobile1} // A more dynamic mobile app development image
+            <motion.img
+              src={mobile1}
               alt="Our Mobile App Development Expertise"
-              className="relative z-10 rounded-2xl shadow-3xl w-full max-w-lg object-cover transform rotate-1 transition-transform duration-500 hover:rotate-0 hover:scale-105"
+              className="relative z-10 rounded-2xl shadow-xl w-full max-w-lg object-cover transform rotate-1 transition-transform duration-500 hover:rotate-0 hover:scale-105 border border-neutral-700"
               style={{
                 aspectRatio: '4/3',
-                border: '3px solid rgba(255, 255, 255, 0.2)',
               }}
+              initial={{ rotateY: -10, opacity: 0 }}
+              whileInView={{ rotateY: 0, opacity: 1 }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+              viewport={{ once: true, amount: 0.5 }}
             />
           </div>
 
           {/* Right: Focused Text and Features */}
-          <div className="pl-0 md:pl-8">
+          <div
+            className="pl-0 md:pl-8"
+            data-aos="fade-left"
+            data-aos-delay="200"
+          >
             <span className="text-secondary font-bold uppercase tracking-wider text-sm">
               Our Expertise in Action
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-accent mt-2 mb-4 font-heading leading-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mt-2 mb-4 font-heading leading-tight tracking-wide uppercase">
               Transforming Ideas into Intuitive Mobile Apps
             </h2>
-            <p className="text-accent opacity-80 mb-8 max-w-xl text-lg">
+            <p className="text-neutral-300 opacity-90 mb-8 max-w-xl text-lg font-body">
               At the core of our service is a commitment to turning your
               innovative concepts into **powerful, user-centric mobile
               applications**. We leverage deep industry knowledge and the latest
@@ -207,37 +224,33 @@ const MobileAppDevelopment = () => {
               perform flawlessly, driving engagement and delivering tangible
               business value.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-              {' '}
-              {/* Reduced gap for a tighter look */}
-              {features.slice(0, 6).map(
-                (
-                  feature,
-                  idx // Displaying only the first 6 for visual balance
-                ) => (
-                  <motion.div
-                    key={feature.text}
-                    className="rounded-xl p-4 flex flex-col items-center text-center shadow-xl border border-white/10 bg-gradient-to-br from-white/5 to-neutral-dark/50 backdrop-blur-sm transition-all duration-300 hover:scale-[1.03] hover:shadow-glow"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.4, delay: idx * 0.08 }} // Slightly faster staggered animation
-                    viewport={{ once: true, amount: 0.5 }}
-                  >
-                    <span className="w-12 h-12 flex items-center justify-center text-3xl mb-4 bg-gradient-to-br from-secondary to-primary text-white rounded-full shadow-md">
-                      {feature.icon}
-                    </span>
-                    <span className="font-semibold text-accent text-base mb-1">
-                      {feature.text}
-                    </span>
-                    {/* Removed desc from here for cleaner card, can be shown on hover/detail if needed */}
-                  </motion.div>
-                )
-              )}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+              {features.slice(0, 6).map((feature, idx) => (
+                <motion.div
+                  key={feature.text}
+                  className="rounded-xl p-4 flex flex-col items-center text-center shadow-lg border border-neutral-700 bg-neutral-800 transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.4, delay: idx * 0.08 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  data-aos="fade-up"
+                  data-aos-delay={300 + idx * 50}
+                >
+                  <span className="w-12 h-12 flex items-center justify-center text-3xl mb-4 bg-secondary text-primary rounded-full shadow-lg">
+                    {feature.icon}
+                  </span>
+                  <span className="font-semibold text-accent text-base mb-1 font-heading">
+                    {feature.text}
+                  </span>
+                </motion.div>
+              ))}
             </div>
             <Link
               to="/contact"
-              className="inline-block bg-secondary text-accent px-8 py-4 rounded-full font-bold shadow-glow hover:bg-accent hover:text-primary transition-all duration-300"
+              className="inline-block bg-secondary text-primary px-8 py-4 rounded-full font-bold shadow-lg hover:bg-secondary-light hover:text-primary transition-all duration-300"
+              data-aos="fade-up"
+              data-aos-delay="600"
             >
               Discover Our Approach
             </Link>
@@ -246,18 +259,31 @@ const MobileAppDevelopment = () => {
       </section>
       ---
       {/* Process Section - Progress Bars */}
-      <section className="py-20 bg-secondary/10">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 grid md:grid-cols-2 gap-16 items-center">
+      <section className="py-20 bg-primary relative overflow-hidden">
+        {/* Subtle background pattern: hexagonal grid */}
+        <div
+          className="absolute inset-0 z-0 opacity-10"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.15' fill-rule='evenodd'%3E%3Cpath d='M0 20L20 0L40 20L20 40L0 20zM20 0L0 20L20 40L40 20L20 0z'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundRepeat: 'repeat',
+            transform: 'rotate(5deg) scale(1.1)',
+          }}
+        ></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-16 items-center relative z-10">
           {/* Left: Text and Progress Bars */}
-          <div className="pr-0 md:pr-8">
+          <div
+            className="pr-0 md:pr-8"
+            data-aos="fade-right"
+            data-aos-delay="100"
+          >
             <div className="mb-6">
               <span className="text-secondary font-bold uppercase tracking-wider text-sm">
                 Our Proven Methodology
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-accent mt-2 mb-4 font-heading">
+              <h2 className="text-3xl md:text-4xl font-bold text-accent mt-2 mb-4 font-heading tracking-wide uppercase">
                 A Transparent Path to Your App's Success
               </h2>
-              <p className="text-accent opacity-80 mb-8 max-w-xl">
+              <p className="text-neutral-300 opacity-90 mb-8 max-w-xl font-body">
                 We believe in a structured yet flexible development process that
                 keeps you informed every step of the way. From initial ideation
                 to post-launch support, our methodology ensures efficiency,
@@ -266,16 +292,20 @@ const MobileAppDevelopment = () => {
             </div>
             <div className="space-y-6">
               {processSteps.map((item, idx) => (
-                <div key={item.label}>
+                <div
+                  key={item.label}
+                  data-aos="fade-up"
+                  data-aos-delay={200 + idx * 80}
+                >
                   <div className="flex justify-between mb-1">
-                    <span className="text-accent font-semibold">
+                    <span className="text-accent font-semibold font-heading">
                       {item.label}
                     </span>
-                    <span className="text-secondary font-bold">
+                    <span className="text-secondary font-bold font-heading">
                       {item.value}%
                     </span>
                   </div>
-                  <div className="w-full h-3 bg-neutral-light rounded-full overflow-hidden">
+                  <div className="w-full h-3 bg-neutral-800 rounded-full overflow-hidden shadow-inner">
                     <motion.div
                       className="h-full bg-secondary rounded-full"
                       initial={{ width: 0 }}
@@ -293,44 +323,58 @@ const MobileAppDevelopment = () => {
             </div>
           </div>
           {/* Right: Modern Image with Accent Corners */}
-          <div className="relative flex justify-center items-center min-h-[320px]">
-            <div className="absolute -top-8 -left-8 w-24 h-24 bg-secondary rounded-xl z-0"></div>
+          <div
+            className="relative flex justify-center items-center min-h-[320px]"
+            data-aos="fade-left"
+            data-aos-delay="100"
+          >
+            <div className="absolute -top-8 -left-8 w-24 h-24 bg-secondary rounded-xl z-0 shadow-lg"></div>
             <img
-              src={mobile2} // Changed image for variety
+              src={mobile2}
               alt="Mobile App Team"
-              className="relative z-10 rounded-2xl shadow-2xl w-full max-w-lg object-cover"
+              className="relative z-10 rounded-2xl shadow-xl w-full max-w-lg object-cover border border-neutral-700"
               style={{ aspectRatio: '4/3' }}
             />
-            <div className="absolute -bottom-8 -right-8 w-16 h-16 bg-secondary rounded-xl z-0"></div>
+            <div className="absolute -bottom-8 -right-8 w-16 h-16 bg-accent rounded-xl z-0 shadow-lg"></div>
           </div>
         </div>
       </section>
       ---
       {/* Technologies Section - Logos Grid */}
-      <section className="py-20 bg-primary/10">
-        <div className="container mx-auto px-6">
+      <section className="py-20 bg-neutral-900 relative overflow-hidden">
+        {/* Subtle grid pattern background */}
+        <div
+          className="absolute inset-0 z-0 opacity-10"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundRepeat: 'repeat',
+          }}
+        ></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-14"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.5 }}
+            data-aos="fade-up"
+            data-aos-delay="100"
           >
-            <h2 className="text-4xl font-bold text-accent mb-4 font-heading">
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading tracking-wide uppercase">
               Our Preferred Platforms & Technologies
             </h2>
-            <div className="w-24 h-1 bg-secondary mx-auto"></div>
-            <p className="text-accent opacity-80 max-w-2xl mx-auto mt-4">
+            <div className="w-24 h-1 bg-secondary mx-auto mb-4"></div>
+            <p className="text-neutral-300 opacity-90 max-w-2xl mx-auto mt-4 font-body">
               We leverage the latest and most effective technologies to build
               high-quality, scalable mobile applications for all major
               platforms.
             </p>
           </motion.div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
             {technologies.map((tech, index) => (
               <motion.div
                 key={tech.name}
-                className="group cursor-pointer"
+                className="group cursor-pointer rounded-lg bg-neutral-800 p-4 shadow-xl border border-neutral-700 hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.03]"
                 initial={{ opacity: 0, y: 20, scale: 0.8 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{
@@ -339,21 +383,23 @@ const MobileAppDevelopment = () => {
                   type: 'spring',
                   stiffness: 100,
                 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.5 }}
                 whileHover={{
-                  scale: 1.1,
-                  y: -10,
+                  scale: 1.05,
+                  y: -5,
                   transition: { duration: 0.3 },
                 }}
+                data-aos="zoom-in"
+                data-aos-delay={200 + index * 70}
               >
-                <div className="w-full h-20 bg-gradient-to-br from-primary to-neutral-dark rounded-lg flex items-center justify-center shadow-lg transition-all duration-300 group-hover:shadow-2xl">
+                <div className="w-full h-20 flex items-center justify-center">
                   <img
                     src={tech.logo}
                     alt={tech.name}
                     className="h-12 object-contain"
                   />
                 </div>
-                <p className="text-center text-sm text-accent mt-3 group-hover:text-secondary transition-colors font-medium">
+                <p className="text-center text-sm text-neutral-300 mt-3 group-hover:text-secondary transition-colors font-medium font-body">
                   {tech.name}
                 </p>
               </motion.div>
@@ -363,23 +409,29 @@ const MobileAppDevelopment = () => {
       </section>
       ---
       {/* Testimonials Section */}
-      <section className="py-20 bg-accent/20 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1549688425-41e97d433215?auto=format&fit=crop&w=1200&q=80"
-            alt="Background"
-            className="w-full h-full object-cover opacity-20"
-          />
-        </div>
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="text-center mb-12">
+      <section className="py-20 bg-primary relative overflow-hidden">
+        {/* Subtle abstract pattern background */}
+        <div
+          className="absolute inset-0 z-0 opacity-10"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 0h20v20H0V0zm20 20h20v20H20V20zm20 20h20v20H40V40zm20 20h20v20H60V60z'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundRepeat: 'repeat',
+            transform: 'rotate(20deg) scale(1.1)',
+          }}
+        ></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div
+            className="text-center mb-12"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
             <span className="text-secondary font-bold uppercase tracking-wider text-sm">
               Client Feedback
             </span>
-            <h2 className="text-4xl font-bold text-accent mb-4 font-heading">
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading tracking-wide uppercase">
               What Our Clients Say
             </h2>
-            <p className="text-accent opacity-80 max-w-2xl mx-auto">
+            <p className="text-neutral-300 opacity-90 max-w-2xl mx-auto font-body">
               Read testimonials from our satisfied clients and discover how our
               expertise in mobile app development has helped them achieve their
               business goals.
@@ -389,29 +441,34 @@ const MobileAppDevelopment = () => {
             {testimonials.map((testimonial, idx) => (
               <motion.div
                 key={idx}
-                className="bg-primary rounded-xl p-8 shadow-lg flex flex-col items-center border-t-4 border-secondary mb-8 md:mb-0"
+                className="bg-neutral-800 rounded-xl p-8 shadow-xl flex flex-col items-center border border-neutral-700 relative group hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02]"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: idx * 0.15 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.5 }}
+                data-aos="fade-up"
+                data-aos-delay={200 + idx * 80}
               >
-                <p className="text-accent text-base mb-6 text-center">
+                <p className="text-neutral-300 text-base mb-6 text-center italic font-body leading-relaxed">
                   "{testimonial.quote}"
                 </p>
-                <div className="flex items-center gap-4 mt-auto">
+                <div className="flex items-center gap-4 mt-auto w-full justify-center">
                   <img
                     src={testimonial.avatar}
                     alt={testimonial.name}
-                    className="w-12 h-12 rounded-full border-2 border-secondary"
+                    className="w-12 h-12 rounded-full border-2 border-secondary object-cover"
                   />
                   <div>
-                    <div className="font-bold text-secondary">
+                    <div className="font-bold text-secondary-light font-heading text-base">
                       {testimonial.name}
                     </div>
-                    <div className="text-accent text-xs">
+                    <div className="text-neutral-400 text-xs font-body">
                       {testimonial.title}
                     </div>
                   </div>
+                  <span className="ml-auto text-secondary text-3xl font-bold">
+                    “”
+                  </span>
                 </div>
               </motion.div>
             ))}
@@ -420,34 +477,49 @@ const MobileAppDevelopment = () => {
       </section>
       ---
       {/* FAQ Section */}
-      <section className="py-20 bg-primary/10">
-        <div className="container mx-auto px-6">
+      <section className="py-20 bg-neutral-900 relative overflow-hidden">
+        {/* Subtle background pattern: small circles */}
+        <div
+          className="absolute inset-0 z-0 opacity-10"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='3' fill='%239C92AC' fill-opacity='0.1'/%3E%3C/circle%3E%3C/svg%3E")`,
+            backgroundRepeat: 'repeat',
+            transform: 'rotate(-5deg) scale(1.05)',
+          }}
+        ></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
-            className="text-center mb-12"
+            className="text-center mb-14"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.5 }}
+            data-aos="fade-up"
+            data-aos-delay="100"
           >
-            <h2 className="text-4xl font-bold text-accent mb-4 font-heading">
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading tracking-wide uppercase">
               Frequently Asked Questions
             </h2>
-            <div className="w-24 h-1 bg-secondary mx-auto"></div>
+            <div className="w-24 h-1 bg-secondary mx-auto mb-4"></div>
           </motion.div>
           <div className="max-w-3xl mx-auto space-y-8">
             {faqs.map((faq, idx) => (
               <motion.div
                 key={idx}
-                className="bg-primary rounded-lg p-6 shadow-md"
+                className="bg-neutral-800 rounded-lg p-6 shadow-xl border border-neutral-700 hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.01]"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.5 }}
+                data-aos="fade-up"
+                data-aos-delay={200 + idx * 70}
               >
-                <div className="font-bold text-secondary mb-2">
+                <div className="font-bold text-secondary text-xl mb-2 font-heading">
                   {faq.question}
                 </div>
-                <div className="text-accent">{faq.answer}</div>
+                <div className="text-neutral-300 leading-relaxed opacity-90 font-body">
+                  {faq.answer}
+                </div>
               </motion.div>
             ))}
           </div>
@@ -455,18 +527,29 @@ const MobileAppDevelopment = () => {
       </section>
       ---
       {/* Call to Action Section */}
-      <section className="py-20 bg-secondary">
-        <div className="container mx-auto px-6 text-center">
+      <section className="py-20 bg-gradient-to-br from-primary via-neutral-900 to-secondary text-center relative overflow-hidden">
+        {/* Subtle background pattern: abstract shapes */}
+        <div
+          className="absolute inset-0 z-0 opacity-10"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.08' fill-rule='evenodd'%3E%3Cpath d='M0 0h50v50H0V0zm50 50h50v50H50V50z'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundRepeat: 'repeat',
+            transform: 'rotate(30deg) scale(1.5)',
+          }}
+        ></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: 0.5 }}
+            data-aos="fade-up"
+            data-aos-delay="100"
           >
-            <h2 className="text-4xl font-bold text-accent mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6 font-heading tracking-wide uppercase">
               Ready to Build Your Mobile App?
             </h2>
-            <p className="text-xl text-accent mb-10 max-w-2xl mx-auto">
+            <p className="text-lg text-neutral-300 mb-8 max-w-2xl mx-auto font-body opacity-90">
               Let's transform your innovative mobile app idea into a reality
               with cutting-edge technology and expert guidance. Your success is
               our mission.
@@ -474,13 +557,17 @@ const MobileAppDevelopment = () => {
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link
                 to="/contact"
-                className="bg-secondary text-accent px-10 py-4 rounded-full font-semibold text-lg shadow-glow hover:scale-105 transition-all duration-300"
+                className="bg-secondary text-primary px-10 py-4 rounded-full font-semibold text-lg shadow-lg hover:bg-secondary-light hover:text-primary hover:scale-105 transition-all duration-300"
+                data-aos="zoom-in"
+                data-aos-delay="200"
               >
                 Start Your App Project
               </Link>
               <Link
                 to="/services"
                 className="border-2 border-accent text-accent px-10 py-4 rounded-full font-semibold text-lg hover:bg-accent hover:text-primary transition-all duration-300"
+                data-aos="zoom-in"
+                data-aos-delay="300"
               >
                 View All Services
               </Link>
