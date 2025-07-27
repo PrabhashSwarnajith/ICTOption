@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import csr1 from '../assets/csr/csr1.jpeg';
-import csr2 from '../assets/csr/csr2.jpeg';
-import csr3 from '../assets/csr/csr3.jpeg';
-import csr4 from '../assets/csr/csr4.jpeg';
+import csr1 from '../assets/csr/csr1.webp';
+import csr2 from '../assets/csr/csr2.webp';
+import csr3 from '../assets/csr/csr3.webp';
+import csr4 from '../assets/csr/csr4.webp';
 
 // Data for CSR Projects
 const csrProjects = [
