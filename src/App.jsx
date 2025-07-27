@@ -1,15 +1,29 @@
 import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { Header, Footer } from './components';
-import { Home, Services, Products, AboutUs, Blog, ContactUs } from './pages';
-import {
-  WebDevelopment,
-  MobileAppDevelopment,
-  DigitalMarketing,
-  ITConsulting,
-  Cybersecurity,
-  AIMachineLearning,
-} from './pages/services/index';
+const Home = React.lazy(() => import('./pages/Home'));
+const Services = React.lazy(() => import('./pages/Services'));
+const Products = React.lazy(() => import('./pages/Products'));
+const AboutUs = React.lazy(() => import('./pages/AboutUs'));
+const Blog = React.lazy(() => import('./pages/Blog'));
+const ContactUs = React.lazy(() => import('./pages/ContactUs'));
+
+const WebDevelopment = React.lazy(
+  () => import('./pages/services/WebDevelopment')
+);
+const MobileAppDevelopment = React.lazy(
+  () => import('./pages/services/MobileAppDevelopment')
+);
+const DigitalMarketing = React.lazy(
+  () => import('./pages/services/DigitalMarketing')
+);
+const ITConsulting = React.lazy(() => import('./pages/services/ITConsulting'));
+const Cybersecurity = React.lazy(
+  () => import('./pages/services/Cybersecurity')
+);
+const AIMachineLearning = React.lazy(
+  () => import('./pages/services/AIMachineLearning')
+);
 
 function App() {
   return (
@@ -25,33 +39,42 @@ function App() {
 
         {/* Main Content */}
         <main className="relative z-10">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/services" element={<Services />} />
-            <Route
-              path="/services/web-development"
-              element={<WebDevelopment />}
-            />
-            <Route
-              path="/services/mobile-app-development"
-              element={<MobileAppDevelopment />}
-            />
-
-            <Route
-              path="/services/digital-marketing"
-              element={<DigitalMarketing />}
-            />
-            <Route path="/services/it-consulting" element={<ITConsulting />} />
-            <Route path="/services/cybersecurity" element={<Cybersecurity />} />
-            <Route
-              path="/services/ai-machine-learning"
-              element={<AIMachineLearning />}
-            />
-            <Route path="/products" element={<Products />} />
-            <Route path="/about" element={<AboutUs />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/contact" element={<ContactUs />} />
-          </Routes>
+          <React.Suspense
+            fallback={<div className="text-center py-20">Loading...</div>}
+          >
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/services" element={<Services />} />
+              <Route
+                path="/services/web-development"
+                element={<WebDevelopment />}
+              />
+              <Route
+                path="/services/mobile-app-development"
+                element={<MobileAppDevelopment />}
+              />
+              <Route
+                path="/services/digital-marketing"
+                element={<DigitalMarketing />}
+              />
+              <Route
+                path="/services/it-consulting"
+                element={<ITConsulting />}
+              />
+              <Route
+                path="/services/cybersecurity"
+                element={<Cybersecurity />}
+              />
+              <Route
+                path="/services/ai-machine-learning"
+                element={<AIMachineLearning />}
+              />
+              <Route path="/products" element={<Products />} />
+              <Route path="/about" element={<AboutUs />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/contact" element={<ContactUs />} />
+            </Routes>
+          </React.Suspense>
         </main>
 
         {/* Footer */}
