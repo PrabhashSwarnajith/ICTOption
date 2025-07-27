@@ -1,4 +1,5 @@
 import React from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { Header, Footer } from './components';
 const Home = React.lazy(() => import('./pages/Home'));
@@ -80,6 +81,7 @@ function App() {
         {/* Footer */}
         <Footer />
       </div>
+      <SpeedInsights />
     </Router>
   );
 }
