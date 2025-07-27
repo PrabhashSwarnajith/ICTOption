@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom';
 import AOS from 'aos'; // Import AOS
 import 'aos/dist/aos.css'; // Import AOS styles
 import { ServiceCard, Hero } from '../components'; // Assuming Hero is in a 'components' folder
-import home from '../assets/img/home.jpg'; // Dynamic hero image
-import web2 from '../assets/img/web2.jpeg';
-import mobile3 from '../assets/img/mobile3.jpg';
-import it1 from '../assets/img/it1.jpg';
-import dm1 from '../assets/img/dm1.jpg';
-import cyber1 from '../assets/img/cyber1.jpg';
-import ml1 from '../assets/img/ml1.jpg';
-import home1 from '../assets/img/home1.jpg';
-import home2 from '../assets/img/home2.jpg';
+import home from '../assets/img/home.webp'; // Dynamic hero image
+import web2 from '../assets/img/web2.webp';
+import mobile3 from '../assets/img/mobile3.webp';
+import it1 from '../assets/img/it1.webp';
+import dm1 from '../assets/img/dm1.webp';
+import cyber1 from '../assets/img/cyber1.webp';
+import ml1 from '../assets/img/ml1.webp';
+import home1 from '../assets/img/home1.webp';
+import home2 from '../assets/img/home2.webp';
 // Example partner image
 import partner1 from '../assets/partners/partner1.png';
 import partner2 from '../assets/partners/partner2.png';

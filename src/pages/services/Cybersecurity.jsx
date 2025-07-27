@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 import AOS from 'aos'; // Import AOS
 import 'aos/dist/aos.css'; // Import AOS CSS
 
-import cyber1 from '../../assets/img/cyber1.jpg';
-import cyber2 from '../../assets/img/cyber2.jpg';
-import cyber3 from '../../assets/img/cyber3.jpg';
+import cyber1 from '../../assets/img/cyber1.webp';
+import cyber2 from '../../assets/img/cyber2.webp';
+import cyber3 from '../../assets/img/cyber3.webp';
 
 // --- Data Definitions for easier management ---
 

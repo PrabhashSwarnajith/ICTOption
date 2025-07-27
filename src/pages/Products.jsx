@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { Hero } from '../components'; // Assuming Hero component exists
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import pos from '../assets/img/pos.jpg';
-import product from '../assets/img/product.jpg';
-import power from '../assets/img/power.jpg';
-import ps from '../assets/team/p1.jpg'; // Assuming this is the correct path for the image
+import pos from '../assets/img/pos.webp';
+import product from '../assets/img/product.webp';
+import power from '../assets/img/power.webp';
+import ps from '../assets/team/p1.webp'; // Assuming this is the correct path for the image
 
 const Products = () => {
   useEffect(() => {

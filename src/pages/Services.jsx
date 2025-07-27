@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Hero } from '../components';
-import web2 from '../assets/img/web2.jpeg';
-import mobile3 from '../assets/img/mobile3.jpg';
-import it1 from '../assets/img/it1.jpg';
-import dm1 from '../assets/img/dm1.jpg';
-import cyber1 from '../assets/img/cyber1.jpg';
-import service from '../assets/img/services.jpg';
-import ml from '../assets/img/ml1.jpg';
-import finance from '../assets/img/finance.jpg';
-import health from '../assets/img/health.jpg';
-import retail from '../assets/img/retail.jpg';
+import web2 from '../assets/img/web2.webp';
+import mobile3 from '../assets/img/mobile3.webp';
+import it1 from '../assets/img/it1.webp';
+import dm1 from '../assets/img/dm1.webp';
+import cyber1 from '../assets/img/cyber1.webp';
+import service from '../assets/img/services.webp';
+import ml from '../assets/img/ml1.webp';
+import finance from '../assets/img/finance.webp';
+import health from '../assets/img/health.webp';
+import retail from '../assets/img/retail.webp';
 
 // --- Data Definitions for easier management ---
 
