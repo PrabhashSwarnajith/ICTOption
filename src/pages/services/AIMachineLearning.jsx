@@ -5,12 +5,12 @@ import { motion } from 'framer-motion';
 import AOS from 'aos'; // Import AOS
 import 'aos/dist/aos.css'; // Import AOS CSS
 
-import ml1 from '../../assets/img/ml1.jpg';
-import ml2 from '../../assets/img/ml2.jpg';
-import finance from '../../assets/img/finance.jpg';
-import healthcare from '../../assets/img/health.jpg';
-import retail from '../../assets/img/retail.jpg';
-import manufacturing from '../../assets/img/manufacturing.jpg';
+import ml1 from '../../assets/img/ml1.webp';
+import ml2 from '../../assets/img/ml2.webp';
+import finance from '../../assets/img/finance.webp';
+import healthcare from '../../assets/img/health.webp';
+import retail from '../../assets/img/retail.webp';
+import manufacturing from '../../assets/img/manufacturing.webp';
 
 // --- Data Definitions for easier management ---
 

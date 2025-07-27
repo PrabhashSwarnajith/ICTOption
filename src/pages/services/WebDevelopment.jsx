@@ -6,12 +6,12 @@ import AOS from 'aos'; // Import AOS
 import 'aos/dist/aos.css'; // Import AOS CSS
 
 // Import local images
-import gayanImg from '../../assets/team/gayan.jpeg';
-import hariniImg from '../../assets/team/harini.jpeg';
-import isuruImg from '../../assets/team/isuru.jpeg';
-import web from '../../assets/img/web.jpg';
-import web1 from '../../assets/img/web1.jpeg';
-import web2 from '../../assets/img/web2.jpeg';
+import gayanImg from '../../assets/team/gayan.webp';
+import hariniImg from '../../assets/team/harini.webp';
+import isuruImg from '../../assets/team/isuru.webp';
+import web from '../../assets/img/web.webp';
+import web1 from '../../assets/img/web1.webp';
+import web2 from '../../assets/img/web2.webp';
 
 // --- Data Definitions ---
 

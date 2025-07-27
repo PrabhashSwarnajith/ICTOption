@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-import it1 from '../../assets/img/it1.jpg';
-import it2 from '../../assets/img/it2.jpg';
-import it3 from '../../assets/img/it3.jpg';
+import it1 from '../../assets/img/it1.webp';
+import it2 from '../../assets/img/it2.webp';
+import it3 from '../../assets/img/it3.webp';
 
 // --- Data Definitions for easier management ---
 

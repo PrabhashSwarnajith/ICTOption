@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 import AOS from 'aos'; // Import AOS
 import 'aos/dist/aos.css'; // Import AOS CSS
 
-import mobile1 from '../../assets/img/mobile1.jpg';
-import mobile2 from '../../assets/img/mobile2.jpg';
-import mobile3 from '../../assets/img/mobile3.jpg';
+import mobile1 from '../../assets/img/mobile1.webp';
+import mobile2 from '../../assets/img/mobile2.webp';
+import mobile3 from '../../assets/img/mobile3.webp';
 
 // --- Data Definitions (Moved for clarity) ---
 
