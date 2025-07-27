@@ -14,7 +14,7 @@ import ks from '../assets/team/ks.jpeg';
 import kavi from '../assets/team/kavi.jpeg';
 import isuru from '../assets/team/isuru.jpeg';
 import harini from '../assets/team/harini.jpeg';
-import about from '../assets/img/about.jpg'; // Placeholder for about image
+import about from '../assets/img/about.webp'; // Placeholder for about image
 
 const team = [
   {

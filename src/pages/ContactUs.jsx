@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Hero } from '../components'; // Assuming you have a Hero component
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import contact from '../assets/img/contact.jpg'; // Ensure this path is correct
+import contact from '../assets/img/contact.webp'; // Ensure this path is correct
 
 const ContactUs = () => {
   useEffect(() => {
