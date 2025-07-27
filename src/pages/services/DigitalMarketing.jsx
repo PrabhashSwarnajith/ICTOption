@@ -9,7 +9,7 @@ import dm1 from '../../assets/img/dm1.webp';
 import dm2 from '../../assets/img/dm2.webp';
 import dm3 from '../../assets/img/dm3.webp';
 
-// --- Data Definitions for easier management ---
+//  Data Definitions for easier management
 
 const whyChooseUsPoints = [
   {
@@ -117,7 +117,7 @@ const faqs = [
   },
 ];
 
-// --- Digital Marketing Component ---
+//  Digital Marketing Component
 
 const DigitalMarketing = () => {
   useEffect(() => {
@@ -165,7 +165,7 @@ const DigitalMarketing = () => {
           </Link>
         </div>
       </Hero>
-      ---
+
       {/* About Digital Marketing - Enhanced Visual & Text Section */}
       <section className="py-20 bg-neutral-900 relative overflow-hidden">
         {/* Subtle geometric pattern in the background */}
@@ -243,7 +243,7 @@ const DigitalMarketing = () => {
           </motion.div>
         </div>
       </section>
-      ---
+
       {/* Why Choose Us Section - Card Grid with motion */}
       <section className="py-20 bg-primary relative overflow-hidden">
         {' '}
@@ -312,7 +312,7 @@ const DigitalMarketing = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* How We Grow Your Brand Section - Process with numbers and motion */}
       <section className="py-20 bg-neutral-900 relative overflow-hidden">
         {' '}
@@ -399,7 +399,7 @@ const DigitalMarketing = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* Success Stories Section - Testimonials with a different visual flair */}
       <section className="py-20 bg-primary relative overflow-hidden">
         {' '}
@@ -477,7 +477,7 @@ const DigitalMarketing = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* Industries We Serve Section - Icon Grid / Tag Cloud style */}
       <section className="py-20 bg-primary relative overflow-hidden">
         {' '}
@@ -534,7 +534,7 @@ const DigitalMarketing = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* FAQ Section - Collapsible (conceptual, using static for now) */}
       <section className="py-20 bg-neutral-900 relative overflow-hidden">
         {' '}
@@ -602,7 +602,7 @@ const DigitalMarketing = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* Call to Action Section - Final strong push */}
       <section className="py-20 bg-gradient-to-br from-primary via-neutral-900 to-secondary text-center relative overflow-hidden">
         {/* Added relative overflow-hidden for consistency */}

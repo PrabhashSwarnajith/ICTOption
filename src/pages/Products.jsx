@@ -6,7 +6,7 @@ import 'aos/dist/aos.css';
 import pos from '../assets/img/pos.webp';
 import product from '../assets/img/product.webp';
 import power from '../assets/img/power.webp';
-import ps from '../assets/team/p1.webp'; // Assuming this is the correct path for the image
+import ps from '../assets/team/p1.jpg'; // Assuming this is the correct path for the image
 
 const Products = () => {
   useEffect(() => {

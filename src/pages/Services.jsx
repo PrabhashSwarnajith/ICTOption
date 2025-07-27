@@ -14,7 +14,7 @@ import finance from '../assets/img/finance.webp';
 import health from '../assets/img/health.webp';
 import retail from '../assets/img/retail.webp';
 
-// --- Data Definitions for easier management ---
+//  Data Definitions for easier management
 
 const servicesData = [
   {
@@ -278,7 +278,7 @@ const faqsData = [
   },
 ];
 
-// --- Services Component ---
+//  Services Component
 
 const Services = () => {
   useEffect(() => {

@@ -21,7 +21,7 @@ import partner4 from '../assets/partners/partner4.jpg';
 import partner5 from '../assets/partners/partner5.jpg';
 import partner6 from '../assets/partners/partner6.jpg';
 
-// --- Data Definitions for cleaner JSX ---
+//  Data Definitions for cleaner JSX
 
 const aboutFeatures = [
   {
@@ -222,7 +222,7 @@ const faqs = [
   },
 ];
 
-// --- Home Component ---
+//  Home Component
 
 const Home = () => {
   // Initialize AOS on component mount
@@ -273,7 +273,7 @@ const Home = () => {
         </div>
       </Hero>
       {/* About Us Section - Modern Split Layout */}
-      ---
+
       <section className="py-20 bg-neutral-900 relative overflow-hidden">
         <div
           className="absolute inset-0 z-0 opacity-10"
@@ -348,7 +348,7 @@ const Home = () => {
         </div>
       </section>
       {/* Why Choose Us Section */}
-      ---
+
       <section className="py-20 bg-primary relative overflow-hidden">
         <div
           className="absolute inset-0 z-0 opacity-10"
@@ -426,7 +426,7 @@ const Home = () => {
         </div>
       </section>
       {/* Partners and Statistics Section */}
-      ---
+
       <section className="py-20 bg-neutral-900 relative overflow-hidden">
         <div
           className="absolute inset-0 z-0 opacity-10"
@@ -527,7 +527,7 @@ const Home = () => {
         />
       ))}
       {/* Client Reviews Section */}
-      ---
+
       <section className="py-20 bg-neutral-900 relative overflow-hidden">
         <div
           className="absolute inset-0 z-0 opacity-10"
@@ -590,7 +590,7 @@ const Home = () => {
         </div>
       </section>
       {/* FAQ Section */}
-      ---
+
       <section className="py-20 bg-primary relative overflow-hidden">
         <div
           className="absolute inset-0 z-0 opacity-10"
@@ -641,7 +641,7 @@ const Home = () => {
         </div>
       </section>
       {/* Call to Action Section */}
-      ---
+
       <section
         className="py-20 bg-gradient-to-br from-primary via-neutral-900 to-accent text-center relative overflow-hidden" // Changed via-black to via-neutral-900, to-neutral-dark to to-accent for a stronger gradient
         data-aos="fade-up"

@@ -12,7 +12,7 @@ import healthcare from '../../assets/img/health.webp';
 import retail from '../../assets/img/retail.webp';
 import manufacturing from '../../assets/img/manufacturing.webp';
 
-// --- Data Definitions for easier management ---
+//  Data Definitions for easier management
 
 const whyChooseUsPoints = [
   {
@@ -343,7 +343,7 @@ const keySolutions = [
   },
 ];
 
-// --- AIMachineLearning Component ---
+//  AIMachineLearning Component
 
 const AIMachineLearning = () => {
   useEffect(() => {
@@ -398,7 +398,7 @@ const AIMachineLearning = () => {
           </Link>
         </div>
       </Hero>
-      ---
+
       {/* Introduction to AI/ML */}
       <section className="py-20 bg-neutral-900 relative overflow-hidden">
         {' '}
@@ -475,7 +475,7 @@ const AIMachineLearning = () => {
           </motion.div>
         </div>
       </section>
-      ---
+
       {/* Key AI/ML Solutions */}
       <section className="py-20 bg-primary relative overflow-hidden">
         {' '}
@@ -548,7 +548,7 @@ const AIMachineLearning = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* Why Choose Us Section */}
       <section className="py-20 bg-neutral-900 relative overflow-hidden">
         {' '}
@@ -618,7 +618,7 @@ const AIMachineLearning = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* Our AI/ML Process Section */}
       <section className="py-20 bg-primary relative overflow-hidden">
         {' '}
@@ -688,7 +688,7 @@ const AIMachineLearning = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* Client Success Stories */}
       <section className="py-20 bg-neutral-900 relative overflow-hidden">
         {' '}
@@ -764,7 +764,7 @@ const AIMachineLearning = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* Emerging AI Applications Section */}
       <section className="py-20 bg-primary relative overflow-hidden">
         {' '}
@@ -833,7 +833,7 @@ const AIMachineLearning = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* Industries We Serve */}
       <section className="py-20 bg-primary relative overflow-hidden">
         {' '}
@@ -890,7 +890,7 @@ const AIMachineLearning = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* CTA */}
       <section className="py-20 bg-gradient-to-br from-primary via-neutral-900 to-secondary text-center relative overflow-hidden">
         {/* Subtle background pattern: abstract shapes */}

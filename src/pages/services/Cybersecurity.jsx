@@ -9,7 +9,7 @@ import cyber1 from '../../assets/img/cyber1.webp';
 import cyber2 from '../../assets/img/cyber2.webp';
 import cyber3 from '../../assets/img/cyber3.webp';
 
-// --- Data Definitions for easier management ---
+//  Data Definitions for easier management
 
 const whyChooseUsPoints = [
   {
@@ -170,7 +170,7 @@ const faqs = [
   },
 ];
 
-// --- Cybersecurity Component ---
+//  Cybersecurity Component
 
 const Cybersecurity = () => {
   useEffect(() => {
@@ -218,7 +218,7 @@ const Cybersecurity = () => {
           </Link>
         </div>
       </Hero>
-      ---
+
       {/* Intro to Cybersecurity - Enhanced Visual & Text Section */}
       <section className="py-20 bg-neutral-900 relative overflow-hidden">
         {' '}
@@ -296,7 +296,7 @@ const Cybersecurity = () => {
           </motion.div>
         </div>
       </section>
-      ---
+
       {/* Why Choose Us Section - Card Grid with motion */}
       <section className="py-20 bg-primary relative overflow-hidden">
         {' '}
@@ -365,7 +365,7 @@ const Cybersecurity = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* Our Approach Section - Process with numbers and motion */}
       <section className="py-20 bg-neutral-900 relative overflow-hidden">
         {' '}
@@ -450,7 +450,7 @@ const Cybersecurity = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* Core Cybersecurity Services - Detailed cards */}
       <section className="py-20 bg-primary relative overflow-hidden">
         {' '}
@@ -515,7 +515,7 @@ const Cybersecurity = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* Success Stories Section - Testimonials with a different visual flair */}
       <section className="py-20 bg-neutral-900 relative overflow-hidden">
         {' '}
@@ -590,7 +590,7 @@ const Cybersecurity = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* Industries We Serve Section - Icon Grid / Tag Cloud style */}
       <section className="py-20 bg-primary relative overflow-hidden">
         {' '}
@@ -646,7 +646,7 @@ const Cybersecurity = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* FAQ Section - Collapsible (conceptual, using static for now) */}
       <section className="py-20 bg-neutral-900 relative overflow-hidden">
         {' '}
@@ -715,7 +715,7 @@ const Cybersecurity = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* Call to Action Section - Final strong push */}
       <section className="py-20 bg-gradient-to-br from-primary via-neutral-900 to-secondary text-center relative overflow-hidden">
         {' '}

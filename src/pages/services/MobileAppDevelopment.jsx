@@ -9,7 +9,7 @@ import mobile1 from '../../assets/img/mobile1.webp';
 import mobile2 from '../../assets/img/mobile2.webp';
 import mobile3 from '../../assets/img/mobile3.webp';
 
-// --- Data Definitions (Moved for clarity) ---
+//  Data Definitions (Moved for clarity)
 
 const features = [
   {
@@ -119,7 +119,7 @@ const faqs = [
   },
 ];
 
-// --- MobileAppDevelopment Component ---
+//  MobileAppDevelopment Component
 
 const MobileAppDevelopment = () => {
   useEffect(() => {
@@ -167,7 +167,7 @@ const MobileAppDevelopment = () => {
           </Link>
         </div>
       </Hero>
-      ---
+
       {/* About Our Expertise Section */}
       <section className="py-20 bg-neutral-900 relative overflow-hidden">
         {/* Subtle background pattern */}
@@ -257,7 +257,7 @@ const MobileAppDevelopment = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* Process Section - Progress Bars */}
       <section className="py-20 bg-primary relative overflow-hidden">
         {/* Subtle background pattern: hexagonal grid */}
@@ -339,7 +339,7 @@ const MobileAppDevelopment = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* Technologies Section - Logos Grid */}
       <section className="py-20 bg-neutral-900 relative overflow-hidden">
         {/* Subtle grid pattern background */}
@@ -407,7 +407,7 @@ const MobileAppDevelopment = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* Testimonials Section */}
       <section className="py-20 bg-primary relative overflow-hidden">
         {/* Subtle abstract pattern background */}
@@ -475,7 +475,7 @@ const MobileAppDevelopment = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* FAQ Section */}
       <section className="py-20 bg-neutral-900 relative overflow-hidden">
         {/* Subtle background pattern: small circles */}
@@ -525,7 +525,7 @@ const MobileAppDevelopment = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* Call to Action Section */}
       <section className="py-20 bg-gradient-to-br from-primary via-neutral-900 to-secondary text-center relative overflow-hidden">
         {/* Subtle background pattern: abstract shapes */}

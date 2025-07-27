@@ -9,7 +9,7 @@ import it1 from '../../assets/img/it1.webp';
 import it2 from '../../assets/img/it2.webp';
 import it3 from '../../assets/img/it3.webp';
 
-// --- Data Definitions for easier management ---
+//  Data Definitions for easier management
 
 const coreServices = [
   {
@@ -232,7 +232,7 @@ const faqs = [
   },
 ];
 
-// --- ITConsulting Component ---
+//  ITConsulting Component
 
 const ITConsulting = () => {
   useEffect(() => {
@@ -280,7 +280,7 @@ const ITConsulting = () => {
           </Link>
         </div>
       </Hero>
-      ---
+
       {/* Introduction to IT Consulting */}
       <section className="py-20 bg-neutral-900 relative overflow-hidden">
         {/* Subtle background pattern: circuit board */}
@@ -347,7 +347,7 @@ const ITConsulting = () => {
           </motion.div>
         </div>
       </section>
-      ---
+
       {/* Core IT Consulting Services */}
       <section className="py-20 bg-primary relative overflow-hidden">
         {/* Subtle background pattern: dots */}
@@ -403,7 +403,7 @@ const ITConsulting = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* Why Choose Us Section */}
       <section className="py-20 bg-neutral-900 relative overflow-hidden">
         {/* Subtle background pattern: hexagonal grid */}
@@ -458,7 +458,7 @@ const ITConsulting = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* Our Consulting Process */}
       <section className="py-20 bg-primary relative overflow-hidden">
         {/* Subtle background pattern: abstract shapes */}
@@ -532,7 +532,7 @@ const ITConsulting = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* Client Success Stories */}
       <section className="py-20 bg-neutral-900 relative overflow-hidden">
         {/* Subtle background pattern: small circles */}
@@ -592,7 +592,7 @@ const ITConsulting = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* Industries We Serve */}
       <section className="py-20 bg-primary relative overflow-hidden">
         {/* Subtle background pattern: grid lines */}
@@ -651,7 +651,7 @@ const ITConsulting = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* FAQ Section */}
       <section className="py-20 bg-neutral-900 relative overflow-hidden">
         {/* Subtle background pattern: dots */}
@@ -704,7 +704,7 @@ const ITConsulting = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* CTA */}
       <section className="py-20 bg-gradient-to-br from-primary via-neutral-900 to-secondary text-center relative overflow-hidden">
         {/* Subtle background pattern: circuit board */}

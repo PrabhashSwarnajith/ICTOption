@@ -13,7 +13,7 @@ import web from '../../assets/img/web.webp';
 import web1 from '../../assets/img/web1.webp';
 import web2 from '../../assets/img/web2.webp';
 
-// --- Data Definitions ---
+//  Data Definitions
 
 const webFeatures = [
   {
@@ -142,7 +142,7 @@ const faqs = [
   },
 ];
 
-// --- WebDevelopment Component ---
+//  WebDevelopment Component
 
 const WebDevelopment = () => {
   useEffect(() => {
@@ -190,7 +190,7 @@ const WebDevelopment = () => {
           </Link>
         </div>
       </Hero>
-      ---
+
       {/* Section 1: About Our Web Solutions - Enhanced Split Layout */}
       <section className="py-20 bg-neutral-900 relative overflow-hidden">
         {/* Pattern Background */}
@@ -293,7 +293,7 @@ const WebDevelopment = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* Process Section - Progress Bars with consistent background */}
       <section className="py-20 bg-primary relative overflow-hidden">
         {/* Subtle background pattern: hexagonal grid */}
@@ -374,7 +374,7 @@ const WebDevelopment = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* Technologies Section - Logos Grid with consistent background */}
       <section className="py-20 bg-neutral-900 relative overflow-hidden">
         {/* Subtle grid pattern background */}
@@ -442,7 +442,7 @@ const WebDevelopment = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* Statistics Section - Consistent background */}
       <section className="py-20 bg-primary relative overflow-hidden">
         {/* Subtle abstract pattern background */}
@@ -484,7 +484,7 @@ const WebDevelopment = () => {
           </motion.div>
         </div>
       </section>
-      ---
+
       {/* Testimonials Section - Consistent background with subtle pattern */}
       <section className="py-20 bg-neutral-900 relative overflow-hidden">
         {/* Subtle dot pattern */}
@@ -552,7 +552,7 @@ const WebDevelopment = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* FAQ Section - Consistent background */}
       <section className="py-20 bg-primary relative overflow-hidden">
         {/* Subtle background pattern: small circles */}
@@ -602,7 +602,7 @@ const WebDevelopment = () => {
           </div>
         </div>
       </section>
-      ---
+
       {/* Call to Action Section - Strongest background */}
       <section className="py-20 bg-gradient-to-br from-primary via-neutral-900 to-secondary text-center relative overflow-hidden">
         {/* Subtle background pattern: abstract shapes */}
