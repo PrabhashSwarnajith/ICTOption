@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ict-option.vercel.app/sitemap.xml
