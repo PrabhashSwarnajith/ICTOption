@@ -7,13 +7,13 @@ import { Link } from 'react-router-dom';
 
 import { Hero } from '../components';
 
-import boss from '../assets/team/boss.jpeg';
-import gayan from '../assets/team/gayan.jpeg';
-import rachi from '../assets/team/rachi.JPG';
-import ks from '../assets/team/ks.jpeg';
-import kavi from '../assets/team/kavi.jpeg';
-import isuru from '../assets/team/isuru.jpeg';
-import harini from '../assets/team/harini.jpeg';
+import boss from '../assets/team/boss.webp';
+import gayan from '../assets/team/gayan.webp';
+import rachi from '../assets/team/rachi.webp';
+import ks from '../assets/team/ks.webp';
+import kavi from '../assets/team/kavi.webp';
+import isuru from '../assets/team/isuru.webp';
+import harini from '../assets/team/harini.webp';
 import about from '../assets/img/about.webp'; // Placeholder for about image
 
 const team = [
