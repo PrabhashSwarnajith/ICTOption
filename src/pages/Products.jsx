@@ -1,119 +1,30 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Hero } from '../components'; // Assuming Hero component exists
+import {
+  ProductCard,
+  PricingPlanCard,
+  TestimonialCard,
+  FAQCard,
+} from '../components';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import pos from '../assets/img/pos.webp';
+
 import product from '../assets/img/product.webp';
-import power from '../assets/img/power.webp';
+
 import ps from '../assets/team/p1.webp'; // Assuming this is the correct path for the image
+
+import {
+  products,
+  pricingPlans,
+  testimonials,
+  faqs,
+} from '../data/productsData';
 
 const Products = () => {
   useEffect(() => {
     AOS.init({ once: true, duration: 900, offset: 80 });
   }, []);
-
-  // Product data with consistent styling
-  const products = [
-    {
-      name: 'ICT Option Power Apps',
-      subtitle: 'Empowering Businesses Through Intelligent, Low-Code Solutions',
-      image: power,
-      description:
-        'Build, automate, and optimize business processes with our intuitive low-code platform. Enable rapid innovation and empower your teams to create custom solutions with minimal IT involvement.',
-      cta: 'Discover More',
-      ctaLink: '/contact',
-    },
-    {
-      name: 'ICT Option POS System',
-      subtitle: 'The Ultimate Point of Sale & Business Management Solution',
-      image: pos,
-      description:
-        'Streamline sales, inventory, and customer management with our all-in-one POS system. Designed for modern businesses seeking efficiency, reliability, and actionable insights.',
-      cta: 'Discover More',
-      ctaLink: '/contact',
-    },
-  ];
-
-  // Dynamic data for Pricing Plans
-  const pricingPlans = [
-    {
-      name: 'Premium Plan',
-      price: '$199.90',
-      frequency: '/month',
-      features: [
-        'All Features Included',
-        'Unlimited Users',
-        'Priority Support',
-        'Free Upgrades',
-        'Advanced Analytics',
-      ],
-      cta: 'Get Started',
-      ctaLink: '/contact',
-    },
-    {
-      name: 'Basic Plan',
-      price: '$89.90',
-      frequency: '/month',
-      features: [
-        'Core Features',
-        'Up to 5 Users',
-        'Email Support',
-        'Free Updates',
-        'Basic Analytics',
-      ],
-      cta: 'Get Started',
-      ctaLink: '/contact',
-    },
-  ];
-
-  // Dynamic data for Testimonials
-  const testimonials = [
-    {
-      quote:
-        'The ICT Option POS System revolutionized our retail operations, streamlining sales and inventory with ease.',
-      name: 'Alish White',
-      title: 'Retail Owner',
-      image: 'https://randomuser.me/api/portraits/women/44.jpg',
-    },
-    {
-      quote:
-        'Power Apps enabled our team to build custom solutions quickly, boosting productivity across departments.',
-      name: 'Devin Mueller',
-      title: 'IT Manager',
-      image: 'https://randomuser.me/api/portraits/men/32.jpg',
-    },
-    {
-      quote:
-        'The support and expertise from ICT Option have been phenomenal, delivering results beyond our expectations.',
-      name: 'Dave Beech',
-      title: 'Business Owner',
-      image: 'https://randomuser.me/api/portraits/men/36.jpg',
-    },
-  ];
-
-  // Dynamic data for FAQs
-  const faqs = [
-    {
-      question: 'Can I try your products before purchasing?',
-      answer: 'Yes! Reach out to schedule a free demo or trial of any product.',
-    },
-    {
-      question: 'What kind of support and training do you offer?',
-      answer:
-        'We provide comprehensive onboarding, training, and 24/7 support for all our clients.',
-    },
-    {
-      question: 'Are your solutions secure?',
-      answer:
-        'Our products adhere to enterprise-grade security and compliance standards.',
-    },
-    {
-      question: 'Can I integrate your products with my existing systems?',
-      answer:
-        'Absolutely, our solutions are built for seamless integration with your current tools.',
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-primary text-white font-body">
@@ -280,46 +191,7 @@ const Products = () => {
           {/* Our Products Row (Already dynamic) */}
           <div className="grid md:grid-cols-2 gap-10 mt-16">
             {products.map((product, idx) => (
-              <div
-                key={idx}
-                className="bg-neutral-800 rounded-2xl p-8 flex flex-col md:flex-row items-center shadow-xl border border-neutral-700 relative min-h-[260px] hover:shadow-2xl hover:scale-[1.02] transition-all duration-300" // Refined background (bg-primary/70 to bg-neutral-800) and hover
-                data-aos="zoom-in-up"
-                data-aos-delay={idx * 150}
-              >
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-32 h-32 md:w-40 md:h-40 rounded-xl object-cover border-2 border-secondary mr-0 md:mr-8 mb-6 md:mb-0 group-hover:border-accent transition-colors duration-300" // Added hover effect
-                  style={{ aspectRatio: '1/1' }}
-                  data-aos="fade-right"
-                  data-aos-delay={idx * 150 + 100}
-                />
-                <div
-                  className="flex-1 flex flex-col justify-center"
-                  data-aos="fade-left"
-                  data-aos-delay={idx * 150 + 200}
-                >
-                  <h3 className="text-2xl font-extrabold text-accent font-heading mb-2 uppercase tracking-wide">
-                    {product.name}
-                  </h3>
-                  <p className="text-base text-secondary font-heading mb-2 uppercase tracking-wide">
-                    {product.subtitle}
-                  </p>
-                  <p className="text-neutral-300 text-base font-body mb-4">
-                    {' '}
-                    {/* Adjusted text color */}
-                    {product.description}
-                  </p>
-                  <Link
-                    to={product.ctaLink}
-                    className="bg-secondary text-primary px-6 py-2 rounded-full font-semibold text-base w-fit shadow-lg hover:scale-105 transition-all duration-300 hover:bg-secondary-light hover:text-primary font-body" // Refined button style (shadow-md to shadow-lg, hover colors)
-                    data-aos="zoom-in"
-                    data-aos-delay={idx * 150 + 300}
-                  >
-                    {product.cta}
-                  </Link>
-                </div>
-              </div>
+              <ProductCard key={idx} product={product} aosDelay={idx * 150} />
             ))}
           </div>
         </div>
@@ -361,7 +233,7 @@ const Products = () => {
           <div className="grid md:grid-cols-3 gap-10 items-stretch">
             {/* Introductory Pricing Card */}
             <div
-              className="flex flex-col justify-between bg-neutral-800 rounded-2xl p-8 shadow-xl border border-neutral-700 min-h-[370px] hover:shadow-2xl hover:scale-[1.02] transition-all duration-300" // Refined background (bg-neutral-dark to bg-neutral-800) and hover
+              className="flex flex-col justify-between bg-neutral-800 rounded-2xl p-8 shadow-xl border border-neutral-700 min-h-[370px] hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
               data-aos="fade-up"
               data-aos-delay="200"
             >
@@ -373,14 +245,10 @@ const Products = () => {
                   Flexible Plans for Your Needs
                 </h2>
                 <p className="text-neutral-300 text-base mb-6 font-body">
-                  {' '}
-                  {/* Adjusted text color */}
                   Select a plan tailored to your business. All plans include
                   full support and seamless onboarding.
                 </p>
                 <ul className="text-neutral-300 text-sm space-y-2 pl-4 list-disc font-body">
-                  {' '}
-                  {/* Adjusted text color */}
                   <li>Flexible monthly or annual billing</li>
                   <li>No hidden fees, fully transparent</li>
                   <li>Upgrade or downgrade anytime</li>
@@ -388,47 +256,18 @@ const Products = () => {
               </div>
               <Link
                 to="/contact"
-                className="mt-8 bg-secondary text-primary px-6 py-3 rounded-full font-bold text-sm tracking-widest uppercase shadow-lg hover:scale-105 transition-all duration-300 w-fit hover:bg-secondary-light hover:text-primary font-body" // Refined button style (shadow-md to shadow-lg, hover colors)
+                className="mt-8 bg-secondary text-primary px-6 py-3 rounded-full font-bold text-sm tracking-widest uppercase shadow-lg hover:scale-105 transition-all duration-300 w-fit hover:bg-secondary-light hover:text-primary font-body"
               >
                 View All Plans
               </Link>
             </div>
-
             {/* Dynamic Pricing Plans */}
             {pricingPlans.map((plan, idx) => (
-              <div
+              <PricingPlanCard
                 key={idx}
-                className="flex flex-col bg-neutral-800 rounded-2xl p-8 shadow-xl border border-neutral-700 min-h-[370px] justify-between hover:shadow-2xl hover:scale-[1.02] transition-all duration-300" // Refined background (bg-neutral-dark to bg-neutral-800) and hover
-                data-aos="fade-up"
-                data-aos-delay={300 + idx * 100}
-              >
-                <div>
-                  <h3 className="text-xl font-bold text-accent mb-2 font-heading uppercase">
-                    {plan.name}
-                  </h3>
-                  <div className="text-3xl font-extrabold text-secondary mb-2 font-heading">
-                    {plan.price}
-                    <span className="text-neutral-300 text-base font-medium font-body">
-                      {' '}
-                      {/* Adjusted text color */}
-                      {plan.frequency}
-                    </span>
-                  </div>
-                  <ul className="text-neutral-300 text-sm space-y-2 mb-6 pl-4 list-disc font-body">
-                    {' '}
-                    {/* Adjusted text color */}
-                    {plan.features.map((feature, featureIdx) => (
-                      <li key={featureIdx}>{feature}</li>
-                    ))}
-                  </ul>
-                </div>
-                <Link
-                  to={plan.ctaLink}
-                  className="bg-secondary text-primary px-6 py-3 rounded-full font-bold text-sm tracking-widest uppercase shadow-lg hover:scale-105 transition-all duration-300 w-fit hover:bg-secondary-light hover:text-primary font-body" // Refined button style (shadow-md to shadow-lg, hover colors)
-                >
-                  {plan.cta}
-                </Link>
-              </div>
+                plan={plan}
+                aosDelay={300 + idx * 100}
+              />
             ))}
           </div>
         </div>
@@ -469,40 +308,7 @@ const Products = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, idx) => (
-              <div
-                key={idx}
-                className="bg-neutral-800 rounded-xl p-8 shadow-xl flex flex-col items-start border border-neutral-700 relative min-h-[260px] max-w-[370px] mx-auto hover:shadow-2xl hover:scale-[1.02] transition-all duration-300" // Refined card style (bg-neutral-800)
-                data-aos="zoom-in"
-                data-aos-delay={idx * 150}
-              >
-                <p className="text-neutral-300 text-base mb-8 font-medium font-body leading-relaxed">
-                  {' '}
-                  {/* Changed text-gray-300 to text-neutral-300 */}"
-                  {testimonial.quote}"
-                </p>
-                <div className="flex items-center gap-4 mt-auto w-full">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full border-2 border-secondary"
-                  />
-                  <div>
-                    <div className="font-bold text-secondary-light text-base font-body">
-                      {' '}
-                      {/* Changed text-secondary to text-secondary-light */}
-                      {testimonial.name}
-                    </div>
-                    <div className="text-neutral-400 text-xs font-body">
-                      {' '}
-                      {/* Changed text-gray-400 to text-neutral-400 */}
-                      {testimonial.title}
-                    </div>
-                  </div>
-                  <span className="ml-auto text-accent text-3xl font-bold font-heading">
-                    “”
-                  </span>
-                </div>
-              </div>
+              <TestimonialCard key={idx} testimonial={testimonial} />
             ))}
           </div>
         </div>
@@ -542,23 +348,7 @@ const Products = () => {
           </div>
           <div className="max-w-3xl mx-auto space-y-6">
             {faqs.map((faq, idx) => (
-              <div
-                key={idx}
-                className="bg-neutral-800 p-6 rounded-2xl border border-neutral-700 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300" // Refined background (bg-primary/70 to bg-neutral-800) and hover (shadow-lg to shadow-xl)
-                data-aos="fade-up"
-                data-aos-delay={idx * 100}
-              >
-                <h3 className="font-bold text-secondary text-xl mb-2 font-heading">
-                  {' '}
-                  {/* Adjusted font size and family */}
-                  {faq.question}
-                </h3>
-                <p className="text-neutral-300 font-body leading-relaxed">
-                  {' '}
-                  {/* Adjusted text color and line height */}
-                  {faq.answer}
-                </p>
-              </div>
+              <FAQCard key={idx} faq={faq} />
             ))}
           </div>
         </div>

@@ -21,7 +21,8 @@ const team = [
     name: 'Sahan Dushmantha De Silva',
     role: 'CEO & Founder',
     image: boss,
-    description: 'Visionary leader with 15+ years in technology innovation.',
+    description:
+      'Empowering Innovation, Leading Vision, Building Business Success',
   },
   {
     name: 'Rachithra Pahansith Jayasinghe',
@@ -252,7 +253,7 @@ const AboutUs = () => {
             <p className="text-lg text-neutral-300 font-body max-w-2xl mx-auto">
               {' '}
               {/* Changed text-gray-300 to text-neutral-300 */}
-              Over 5 years of experience delivering innovative solutions.
+              Over 3 years of experience delivering innovative solutions.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
@@ -440,21 +441,16 @@ const AboutUs = () => {
                 expectations. Their team is highly skilled and professional."
               </p>
               <div className="flex items-center gap-4 mt-auto w-full">
-                <img
-                  src="https://randomuser.me/api/portraits/women/44.jpg"
-                  alt="Alish White"
-                  className="w-12 h-12 rounded-full border-2 border-secondary"
-                />
                 <div>
                   <div className="font-bold text-secondary-light text-base font-body">
                     {' '}
                     {/* Changed text-secondary to text-secondary-light */}
-                    Alish White
+                    Ishan Hewage
                   </div>
                   <div className="text-neutral-400 text-xs font-body">
                     {' '}
                     {/* Changed text-gray-400 to text-neutral-400 */}
-                    Entrepreneur
+                    Foreign Student  🇬🇧
                   </div>
                 </div>
                 <span className="ml-auto text-accent text-3xl font-bold font-heading">
@@ -474,21 +470,16 @@ const AboutUs = () => {
                 before. Highly recommended!"
               </p>
               <div className="flex items-center gap-4 mt-auto w-full">
-                <img
-                  src="https://randomuser.me/api/portraits/men/32.jpg"
-                  alt="Devin Mueller"
-                  className="w-12 h-12 rounded-full border-2 border-secondary"
-                />
                 <div>
                   <div className="font-bold text-secondary-light text-base font-body">
                     {' '}
                     {/* Changed text-secondary to text-secondary-light */}
-                    Devin Mueller
+                    Gayashan Sandaruwan
                   </div>
                   <div className="text-neutral-400 text-xs font-body">
                     {' '}
                     {/* Changed text-gray-400 to text-neutral-400 */}
-                    Marketing Director
+                    Entrepreneur 🇱🇰
                   </div>
                 </div>
                 <span className="ml-auto text-accent text-3xl font-bold font-heading">
@@ -508,21 +499,16 @@ const AboutUs = () => {
                 Great experience working with ICT Option."
               </p>
               <div className="flex items-center gap-4 mt-auto w-full">
-                <img
-                  src="https://randomuser.me/api/portraits/men/36.jpg"
-                  alt="Dave Beech"
-                  className="w-12 h-12 rounded-full border-2 border-secondary"
-                />
                 <div>
                   <div className="font-bold text-secondary-light text-base font-body">
                     {' '}
                     {/* Changed text-secondary to text-secondary-light */}
-                    Dave Beech
+                    Madhushika Jayasundara
                   </div>
                   <div className="text-neutral-400 text-xs font-body">
                     {' '}
                     {/* Changed text-gray-400 to text-neutral-400 */}
-                    Operations Manager
+                    Project coordinator 🇫🇮
                   </div>
                 </div>
                 <span className="ml-auto text-accent text-3xl font-bold font-heading">
