@@ -1,93 +1,12 @@
-# ICT Option Web
+# React + Vite
 
-A modern web application built with React, Vite, and Tailwind CSS.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Project Structure
+Currently, two official plugins are available:
 
-```
-├── public/
-│   ├── logo.svg
-│   ├── robots.txt
-│   └── sitemap.xml
-├── src/
-│   ├── assets/
-│   │   ├── logo.png
-│   │   ├── csr/
-│   │   ├── img/
-│   │   ├── partners/
-│   │   ├── projects/
-│   │   └── team/
-│   ├── components/
-│   │   ├── CSRProjectCarousel.jsx
-│   │   ├── Footer.jsx
-│   │   ├── Header.jsx
-│   │   ├── Hero.jsx
-│   │   ├── ServiceCard.jsx
-│   │   └── index.js
-│   ├── pages/
-│   │   ├── AboutUs.jsx
-│   │   ├── Blog.jsx
-│   │   ├── ContactUs.jsx
-│   │   ├── Home.jsx
-│   │   ├── Products.jsx
-│   │   ├── Services.jsx
-│   │   ├── index.js
-│   │   └── services/
-│   │       ├── AIMachineLearning.jsx
-│   │       ├── Cybersecurity.jsx
-│   │       ├── DigitalMarketing.jsx
-│   │       ├── ITConsulting.jsx
-│   │       ├── MobileAppDevelopment.jsx
-│   │       ├── WebDevelopment.jsx
-│   │       └── index.js
-│   ├── App.jsx
-│   ├── index.css
-│   └── main.jsx
-├── COLOR-GUIDE.md
-├── eslint.config.js
-├── index.html
-├── package.json
-├── postcss.config.js
-├── tailwind.config.js
-├── vite.config.js
-└── README.md
-```
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Features
+## Expanding the ESLint configuration
 
-- ⚡️ Fast development with Vite
-- ⚛️ Built with React
-- 🎨 Styled using Tailwind CSS
-- 📁 Modular folder structure for scalability
-- 🖼️ Organized assets for images, logos, and partners
-- 📝 Linting and formatting with ESLint
-
-## Getting Started
-
-1.  **Install dependencies:**
-    ```sh
-    npm install
-    ```
-2.  **Start the development server:**
-    ```sh
-    npm run dev
-    ```
-3.  **Build for production:**
-    ```sh
-    npm run build
-    ```
-4.  **Preview production build:**
-    ```sh
-    npm run preview
-    ```
-
-## Customization
-
-- Add new pages in `src/pages/` or `src/pages/services/`.
-- Add new components in `src/components/`.
-- Place images and static assets in `src/assets/`.
-- Update Tailwind configuration in `tailwind.config.js`.
-
-## License
-
-This project is licensed under the MIT License.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
