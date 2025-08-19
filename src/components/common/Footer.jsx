@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // Import Link
-import logo from '../assets/logo.png';
+import logo from '../../assets/logo.png';
 
 const Footer = () => {
   // Data for quick links
