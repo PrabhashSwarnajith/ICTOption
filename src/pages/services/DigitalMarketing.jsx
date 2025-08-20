@@ -5,117 +5,15 @@ import { motion } from 'framer-motion';
 import AOS from 'aos'; // Import AOS
 import 'aos/dist/aos.css'; // Import AOS CSS
 
-import dm1 from '../../assets/img/dm1.webp';
-import dm2 from '../../assets/img/dm2.webp';
-import dm3 from '../../assets/img/dm3.webp';
-
-//  Data Definitions for easier management
-
-const whyChooseUsPoints = [
-  {
-    title: 'Certified Experts',
-    description:
-      'Our team holds industry-leading certifications from Google, Meta, and HubSpot, backed by years of practical experience delivering results.',
-    icon: '✨', // Replace with actual icon component/SVG if available
-  },
-  {
-    title: 'Data-Driven Strategies',
-    description:
-      'Every decision is powered by in-depth analytics and performance insights, ensuring maximum ROI for your marketing spend.',
-    icon: '📊',
-  },
-  {
-    title: 'Innovative Creativity',
-    description:
-      "We don't just follow trends; we set them. Our creative team crafts compelling campaigns and content that truly captivate your audience.",
-    icon: '💡',
-  },
-  {
-    title: 'Measurable Growth',
-    description:
-      'Our focus is on tangible outcomes. We provide clear reporting on KPIs that matter, demonstrating real business growth for brands of all sizes.',
-    icon: '📈',
-  },
-];
-
-const howWeGrowSteps = [
-  {
-    step: 'Audit & Analysis',
-    description:
-      'A deep dive into your current digital footprint, target audience, and competitive landscape to pinpoint opportunities.',
-  },
-  {
-    step: 'Strategic Blueprint',
-    description:
-      'Developing a bespoke, omnichannel digital marketing strategy meticulously tailored to your unique business goals.',
-  },
-  {
-    step: 'Agile Execution',
-    description:
-      'Seamlessly launching and managing campaigns across all chosen channels, ensuring continuous optimization and responsiveness.',
-  },
-  {
-    step: 'Performance Optimization',
-    description:
-      'Constant monitoring, A/B testing, and refinement based on real-time data to maximize conversions and overall ROI.',
-  },
-];
-
-const successStories = [
-  {
-    title: 'E-commerce: 3x Sales Growth',
-    description:
-      'We orchestrated a comprehensive multi-channel digital campaign that directly led to a threefold increase in online sales for a prominent retail client.',
-    tag: 'Retail',
-  },
-  {
-    title: 'Local Business: #1 on Google',
-    description:
-      'Through an expert blend of local SEO and targeted content strategy, we elevated a local service business to the coveted top position in search results.',
-    tag: 'Local SEO',
-  },
-  {
-    title: 'SaaS: 5x Lead Generation',
-    description:
-      'Our optimized paid advertising strategies, combined with high-converting landing pages, drastically boosted lead generation by five times for a cutting-edge SaaS startup.',
-    tag: 'B2B SaaS',
-  },
-];
-
-const industries = [
-  'Retail & E-commerce',
-  'Healthcare',
-  'Education',
-  'Finance & Fintech',
-  'Tech Startups',
-  'Hospitality',
-  'Real Estate',
-  'Automotive',
-  'Professional Services',
-];
-
-const faqs = [
-  {
-    question: 'How quickly can I expect to see results from digital marketing?',
-    answer:
-      'While results vary depending on the strategy and industry, most of our clients start observing measurable improvements in key metrics within 1 to 3 months of campaign launch.',
-  },
-  {
-    question: 'Do you manage paid advertising campaigns (PPC)?',
-    answer:
-      'Yes, absolutely. We specialize in managing highly effective paid ad campaigns across major platforms including Google Ads, Facebook Ads, Instagram Ads, and LinkedIn Ads, ensuring optimal budget utilization.',
-  },
-  {
-    question: 'Can your team assist with content creation for my campaigns?',
-    answer:
-      'Definitely! Our content specialists are adept at creating a wide range of engaging content, including SEO-optimized blog posts, captivating social media content, compelling video scripts, and more.',
-  },
-  {
-    question: 'What are your contract terms and pricing models?',
-    answer:
-      'We offer flexible engagement models, including both month-to-month retainers and customized long-term project-based agreements, designed to fit various business needs and budgets. We’re happy to discuss options in a consultation.',
-  },
-];
+// Import all static content from the data file
+import {
+  heroData,
+  whyChooseUsPoints,
+  howWeGrowSteps,
+  successStories,
+  industries,
+  faqs,
+} from '../../data/digitalMarketingData';
 
 //  Digital Marketing Component
 
@@ -127,29 +25,7 @@ const DigitalMarketing = () => {
   return (
     <div className="min-h-screen bg-primary text-white font-body">
       {/* Hero Section */}
-      <Hero
-        title={
-          <span className="text-accent font-heading">
-            Digital <span className="text-secondary">Marketing</span>
-          </span>
-        }
-        subtitle={
-          <span className="text-accent font-heading">
-            Supercharge Your{' '}
-            <span className="text-secondary">Online Presence</span>
-          </span>
-        }
-        description={
-          <span className="text-neutral-300 font-body">
-            Unleash the full potential of your brand online with comprehensive,
-            data-driven digital marketing strategies that deliver measurable
-            growth and strong ROI.
-          </span>
-        }
-        backgroundImage={dm1}
-        gradient="from-primary via-black/80 to-neutral-900" // Adjusted gradient for consistency
-        className="brightness-110"
-      >
+      <Hero {...heroData}>
         <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8 animate-float">
           <Link
             to="/services"
@@ -191,7 +67,7 @@ const DigitalMarketing = () => {
             data-aos-delay="100" // Added AOS delay
           >
             <img
-              src={dm2}
+              src={heroData.dm2}
               alt="Strategic Digital Marketing"
               className="relative z-10 rounded-2xl shadow-xl w-full max-w-lg object-cover grayscale transition-all duration-500 hover:grayscale-0 hover:scale-105 border border-neutral-700" // Adjusted shadow and added border for consistency
               style={{ aspectRatio: '4/3' }}
@@ -355,7 +231,7 @@ const DigitalMarketing = () => {
           </motion.div>
           <div className="flex flex-col md:flex-row items-center gap-12">
             <motion.img
-              src={dm3}
+              src={heroData.dm3}
               alt="Digital Marketing Process"
               className="w-full max-w-lg rounded-2xl shadow-xl mb-8 md:mb-0 object-cover border border-neutral-700 transition-transform duration-500 hover:scale-[1.02]" // Adjusted border for consistency
               style={{ aspectRatio: '1.5/1' }}
