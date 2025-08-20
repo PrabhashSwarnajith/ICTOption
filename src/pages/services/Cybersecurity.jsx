@@ -5,170 +5,16 @@ import { motion } from 'framer-motion';
 import AOS from 'aos'; // Import AOS
 import 'aos/dist/aos.css'; // Import AOS CSS
 
-import cyber1 from '../../assets/img/cyber1.webp';
-import cyber2 from '../../assets/img/cyber2.webp';
-import cyber3 from '../../assets/img/cyber3.webp';
-
-//  Data Definitions for easier management
-
-const whyChooseUsPoints = [
-  {
-    title: 'Certified Experts',
-    description:
-      'Our elite team holds top industry certifications (CISSP, CEH, CompTIA Security+) and boasts years of hands-on experience in defending complex digital infrastructures.',
-    icon: '🛡️', // Shield icon
-  },
-  {
-    title: '24/7 Vigilance',
-    description:
-      'We provide round-the-clock monitoring and rapid incident response, ensuring constant protection and peace of mind against emerging threats.',
-    icon: '👀', // Eye icon
-  },
-  {
-    title: 'Proactive Defense',
-    description:
-      'We go beyond reactive measures, identifying and neutralizing potential threats before they can impact your operations or compromise your data.',
-    icon: '🎯', // Target icon
-  },
-  {
-    title: 'Compliance & Governance',
-    description:
-      'Navigate complex regulatory landscapes with ease. We help you achieve and maintain compliance with industry standards like HIPAA, GDPR, ISO 27001, and more.',
-    icon: '📜', // Scroll or document icon
-  },
-];
-
-const ourApproachSteps = [
-  {
-    step: 'Prevention', // Removed '1.' as index can provide the number
-    description:
-      'Implementing robust firewalls, advanced endpoint protection, secure configurations, and comprehensive employee cybersecurity training.',
-    icon: '🔒',
-  },
-  {
-    step: 'Detection',
-    description:
-      'Leveraging 24/7 Security Operations Center (SOC) monitoring, cutting-edge threat intelligence, and AI-driven anomaly detection systems.',
-    icon: '🔍',
-  },
-  {
-    step: 'Response',
-    description:
-      'Executing rapid, coordinated incident response plans, forensic analysis, and efficient recovery procedures to minimize downtime and damage.',
-    icon: '⚡',
-  },
-  {
-    step: 'Compliance',
-    description:
-      'Conducting ongoing security audits, risk assessments, and ensuring strict adherence to industry-specific regulatory requirements.',
-    icon: '✅',
-  },
-];
-
-const coreServices = [
-  {
-    title: 'Cybersecurity Awareness Training',
-    description:
-      'Empower your employees to be your first line of defense with engaging and effective cybersecurity awareness programs, covering social engineering, phishing, and password hygiene education.',
-  },
-  {
-    title: 'Phishing Simulation Campaigns',
-    description:
-      'Test employee response to fake phishing emails and assess their susceptibility to social engineering attacks, providing valuable insights for targeted training.',
-  },
-  {
-    title: 'Vulnerability Assessment & Penetration Testing (VAPT)',
-    description:
-      'Identify security weaknesses in your web, mobile, network, or cloud infrastructure through comprehensive vulnerability assessments and simulated attacks to evaluate real-world exploitability.',
-  },
-  {
-    title: 'Web Application Security Testing',
-    description:
-      'Thorough testing focused on OWASP Top 10 vulnerabilities, business logic flaws, and access control issues to secure your web applications.',
-  },
-  {
-    title: 'Mobile Application Security Testing',
-    description:
-      'Comprehensive security testing for both iOS and Android applications, covering code-level vulnerabilities, insecure data storage, and runtime issues.',
-  },
-  {
-    title: 'Risk Assessments',
-    description:
-      'Identify vulnerabilities and assess security risks across your entire digital infrastructure, providing clear actionable insights.',
-  },
-  {
-    title: 'Managed Security Services (MSSP)',
-    description:
-      'Full-spectrum outsourced security operations including monitoring, threat detection, and incident response, 24/7.',
-  },
-  {
-    title: 'Compliance & Audit',
-    description:
-      'Expert guidance and support to achieve and maintain compliance with critical industry standards and data protection regulations.',
-  },
-  {
-    title: 'Incident Response & Recovery',
-    description:
-      'Rapid response teams to contain, eradicate, and recover from cyber incidents, minimizing disruption and data loss.',
-  },
-];
-
-const successStories = [
-  {
-    title: 'Financial Firm: Major Breach Averted',
-    description:
-      'Through our proactive threat intelligence and rapid incident response, we detected and neutralized a sophisticated ransomware attack, safeguarding millions in assets for a leading financial institution.',
-    tag: 'Finance',
-  },
-  {
-    title: 'Healthcare Provider: Data Secured',
-    description:
-      'Implemented advanced data encryption and access controls, ensuring full HIPAA compliance and protecting sensitive patient medical records for a large hospital network.',
-    tag: 'Healthcare',
-  },
-  {
-    title: 'Global Retailer: DDoS Defense',
-    description:
-      'Deployed scalable cloud-based DDoS mitigation, successfully protecting a major e-commerce platform from multiple, high-volume distributed denial-of-service attacks during peak sales periods.',
-    tag: 'Retail',
-  },
-];
-
-const industriesWeServe = [
-  'Finance & Banking',
-  'Healthcare',
-  'Retail & E-commerce',
-  'Education',
-  'Government & Public Sector',
-  'Manufacturing',
-  'Technology & SaaS',
-  'Legal',
-  'Telecommunications',
-  'Utilities',
-];
-
-const faqs = [
-  {
-    question: 'How do I determine my business’s cybersecurity posture?',
-    answer:
-      'We begin with a comprehensive **Cybersecurity Risk Assessment** to identify your vulnerabilities, evaluate your current defenses, and provide a clear roadmap for improvement. Contact us for a consultation.',
-  },
-  {
-    question: 'What types of cyber threats do you primarily protect against?',
-    answer:
-      'Our solutions are designed to defend against a wide array of threats, including **ransomware, phishing, DDoS attacks, zero-day exploits, insider threats, and advanced persistent threats (APTs)**.',
-  },
-  {
-    question: 'What is your typical incident response time?',
-    answer:
-      'Our **24/7 Security Operations Center (SOC)** ensures rapid response. For critical incidents, our team can engage within **minutes** to contain and address the threat.',
-  },
-  {
-    question: 'Do you offer services to help with regulatory compliance?',
-    answer:
-      'Absolutely. We specialize in helping businesses achieve and maintain compliance with major global and industry-specific regulations such as **GDPR, HIPAA, ISO 27001, PCI DSS, and NIST frameworks**.',
-  },
-];
+// Import all static content from the data file
+import {
+  heroData,
+  whyChooseUsPoints,
+  ourApproachSteps,
+  coreServices,
+  successStories,
+  industriesWeServe,
+  faqs,
+} from '../../data/cybersecurityData';
 
 //  Cybersecurity Component
 
@@ -180,29 +26,7 @@ const Cybersecurity = () => {
   return (
     <div className="min-h-screen bg-primary text-white font-body">
       {/* Hero Section */}
-      <Hero
-        title={
-          <span className="text-accent font-heading">
-            Cyber<span className="text-secondary">security</span> Services
-          </span>
-        }
-        subtitle={
-          <span className="text-accent font-heading">
-            Fortify Your{' '}
-            <span className="text-secondary">Digital Defenses</span>
-          </span>
-        }
-        description={
-          <span className="text-neutral-300 font-body">
-            In an ever-evolving threat landscape, protect your critical digital
-            assets with our comprehensive, proactive cybersecurity solutions.
-            Ensure business continuity and safeguard your reputation.
-          </span>
-        }
-        backgroundImage={cyber1}
-        gradient="from-primary via-black/80 to-neutral-900" // Adjusted gradient for consistency
-        className="brightness-110"
-      >
+      <Hero {...heroData}>
         <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8 animate-float">
           <Link
             to="/services"
@@ -246,9 +70,9 @@ const Cybersecurity = () => {
             data-aos-delay="100" // Added AOS delay
           >
             <img
-              src={cyber2} // Image: cybersecurity professional at work
+              src={heroData.cyber2}
               alt="Cybersecurity Strategy"
-              className="relative z-10 rounded-2xl shadow-xl w-full max-w-lg object-cover grayscale transition-all duration-500 hover:grayscale-0 hover:scale-105 border border-neutral-700" // Adjusted shadow and added border for consistency
+              className="relative z-10 rounded-2xl shadow-xl w-full max-w-lg object-cover grayscale transition-all duration-500 hover:grayscale-0 hover:scale-105 border border-neutral-700"
               style={{ aspectRatio: '4/3' }}
             />
             {/* Decorative elements */}
@@ -406,16 +230,16 @@ const Cybersecurity = () => {
           </motion.div>
           <div className="flex flex-col md:flex-row items-center gap-12">
             <motion.img
-              src={cyber3} // New image: secure coding/network illustration
+              src={heroData.cyber3}
               alt="Cyber Defense Layers"
-              className="w-full max-w-lg rounded-2xl shadow-xl mb-8 md:mb-0 object-cover border border-neutral-700 transition-transform duration-500 hover:scale-[1.02]" // Adjusted border for consistency
+              className="w-full max-w-lg rounded-2xl shadow-xl mb-8 md:mb-0 object-cover border border-neutral-700 transition-transform duration-500 hover:scale-[1.02]"
               style={{ aspectRatio: '1.5/1' }}
               initial={{ opacity: 0, rotateY: 10 }}
               whileInView={{ opacity: 1, rotateY: 0 }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
               viewport={{ once: true, amount: 0.5 }}
-              data-aos="fade-right" // Added AOS
-              data-aos-delay="200" // Added AOS delay
+              data-aos="fade-right"
+              data-aos-delay="200"
             />
             <ul className="space-y-6 text-left max-w-xl mx-auto">
               {ourApproachSteps.map((item, index) => (
