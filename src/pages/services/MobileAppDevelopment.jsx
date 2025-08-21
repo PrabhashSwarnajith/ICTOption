@@ -5,119 +5,15 @@ import { motion } from 'framer-motion';
 import AOS from 'aos'; // Import AOS
 import 'aos/dist/aos.css'; // Import AOS CSS
 
-import mobile1 from '../../assets/img/mobile1.webp';
-import mobile2 from '../../assets/img/mobile2.webp';
-import mobile3 from '../../assets/img/mobile3.webp';
-
-//  Data Definitions (Moved for clarity)
-
-const features = [
-  {
-    text: 'Native iOS and Android Development',
-    icon: '📱',
-    desc: 'Custom applications built specifically for iOS and Android, ensuring optimal performance and a true native experience.',
-  },
-  {
-    text: 'Cross-Platform Solutions (React Native & Flutter)',
-    icon: '🔄',
-    desc: 'Efficient development for multiple platforms using modern frameworks, significantly reducing development time and cost.',
-  },
-  {
-    text: 'Intuitive UI/UX Design',
-    icon: '🎨',
-    desc: 'Crafting beautiful, user-centric designs that enhance user engagement and provide a seamless experience on every device.',
-  },
-  {
-    text: 'App Store & Google Play Deployment',
-    icon: '🚀',
-    desc: 'Comprehensive support for launching your application, including submission, optimization, and maximizing visibility in app stores.',
-  },
-  {
-    text: 'Push Notifications & Real-time Features',
-    icon: '🔔',
-    desc: 'Engage your users with instant updates, timely alerts, and dynamic real-time functionalities.',
-  },
-  {
-    text: 'Offline Functionality & Data Synchronization',
-    icon: '🔗',
-    desc: 'Building robust offline access and seamless data synchronization for an uninterrupted and reliable user experience, even without an internet connection.',
-  },
-];
-
-const technologies = [
-  {
-    name: 'iOS (Swift)',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/3/39/Swift_logo.svg',
-  },
-  {
-    name: 'Android (Kotlin)',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/7/74/Kotlin_Icon.png',
-  },
-  {
-    name: 'React Native',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg',
-  },
-  {
-    name: 'Flutter',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png',
-  },
-  {
-    name: 'Expo',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/6/6e/Expo_Logo.png',
-  },
-  {
-    name: 'Ionic',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Ionic_Logo.svg',
-  },
-];
-
-const processSteps = [
-  { label: 'Strategy & Planning', value: 90 },
-  { label: 'UI/UX Design', value: 92 },
-  { label: 'Development & Testing', value: 90 },
-  { label: 'Deployment & Support', value: 88 },
-];
-
-const testimonials = [
-  {
-    quote:
-      'They built our app quickly and it works flawlessly. Highly recommended!',
-    name: 'Alish White',
-    title: 'Entrepreneur',
-    avatar: 'https://randomuser.me/api/portraits/women/44.jpg',
-  },
-  {
-    quote: 'Our app launch was smooth and support is excellent. Great team!',
-    name: 'Devin Mueller',
-    title: 'Business Owner',
-    avatar: 'https://randomuser.me/api/portraits/men/32.jpg',
-  },
-  {
-    quote:
-      'They helped us design a beautiful, user-friendly app. Will work with them again!',
-    name: 'Dave Beech',
-    title: 'Manager',
-    avatar: 'https://randomuser.me/api/portraits/men/36.jpg',
-  },
-];
-
-const faqs = [
-  {
-    question: 'What platforms do you develop for?',
-    answer:
-      "We build apps for iOS, Android, and cross-platform using React Native, Flutter, and more, depending on your project's specific needs.",
-  },
-  {
-    question: 'How do I start a mobile app project?',
-    answer:
-      "Simply contact us for a free consultation. We'll discuss your innovative idea, understand your requirements, and guide you through our comprehensive development process.",
-  },
-  {
-    question: 'Do you offer ongoing support?',
-    answer:
-      'Yes, we provide flexible maintenance and support packages tailored to ensure your app remains up-to-date, secure, and performs optimally long after launch.',
-  },
-];
+// Import all static content from the data file
+import {
+  heroData,
+  features,
+  technologies,
+  processSteps,
+  testimonials,
+  faqs,
+} from '../../data/mobileAppDevelopmentData';
 
 //  MobileAppDevelopment Component
 
@@ -129,29 +25,7 @@ const MobileAppDevelopment = () => {
   return (
     <div className="min-h-screen bg-primary text-white font-body">
       {/* Hero Section */}
-      <Hero
-        title={
-          <span className="text-accent  font-heading">
-            Mobile <span className="text-secondary">App Development</span>
-          </span>
-        }
-        subtitle={
-          <span className="text-accent  font-heading">
-            Build Powerful{' '}
-            <span className="text-secondary">Mobile Experiences</span>
-          </span>
-        }
-        description={
-          <span className="text-neutral-300 font-body">
-            From concept to deployment, we deliver seamless, high-performance
-            custom mobile apps tailored to your business needs for both iOS and
-            Android platforms.
-          </span>
-        }
-        backgroundImage={mobile3}
-        gradient="from-primary via-black/80 to-neutral-900"
-        className="brightness-110"
-      >
+      <Hero {...heroData}>
         <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8 animate-float">
           <Link
             to="/contact"
@@ -191,7 +65,7 @@ const MobileAppDevelopment = () => {
             <div className="absolute -bottom-6 -right-6 w-28 h-28 bg-accent rounded-xl mix-blend-screen opacity-15 transform rotate-45"></div>
 
             <motion.img
-              src={mobile1}
+              src={heroData.mobile1}
               alt="Our Mobile App Development Expertise"
               className="relative z-10 rounded-2xl shadow-xl w-full max-w-lg object-cover transform rotate-1 transition-transform duration-500 hover:rotate-0 hover:scale-105 border border-neutral-700"
               style={{
@@ -330,7 +204,7 @@ const MobileAppDevelopment = () => {
           >
             <div className="absolute -top-8 -left-8 w-24 h-24 bg-secondary rounded-xl z-0 shadow-lg"></div>
             <img
-              src={mobile2}
+              src={heroData.mobile2}
               alt="Mobile App Team"
               className="relative z-10 rounded-2xl shadow-xl w-full max-w-lg object-cover border border-neutral-700"
               style={{ aspectRatio: '4/3' }}
