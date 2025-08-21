@@ -69,7 +69,7 @@ const AIMachineLearning = () => {
             <img
               src={heroData.ml2}
               alt="The Future of AI"
-              className="relative z-10 rounded-2xl shadow-xl w-full max-w-lg object-cover grayscale transition-all duration-500 hover:grayscale-0 hover:scale-105 border border-neutral-700"
+              className="relative z-10 rounded-2xl shadow-xl w-full max-w-lg object-cover transition-all duration-500 hover:grayscale-0 hover:scale-105 border border-neutral-700"
               style={{ aspectRatio: '4/3' }}
             />
             <div className="absolute -top-6 -left-6 w-36 h-36 bg-accent rounded-full mix-blend-screen opacity-20 animate-pulse-slow"></div>{' '}
@@ -386,7 +386,7 @@ const AIMachineLearning = () => {
                 <img
                   src={story.image}
                   alt={story.title}
-                  className="w-full h-40 object-cover rounded-md mb-4 border border-neutral-700 grayscale transition-all duration-500 hover:grayscale-0" // Adjusted border, added grayscale for consistency
+                  className="w-full h-40 object-cover rounded-md mb-4 border border-neutral-700  transition-all duration-500 hover:grayscale-0" // Adjusted border, added grayscale for consistency
                 />
                 <h3 className="font-bold text-accent text-xl mb-3 font-heading">
                   {' '}

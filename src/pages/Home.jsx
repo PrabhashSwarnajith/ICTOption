@@ -101,7 +101,7 @@ const Home = () => {
             <img
               src={home1}
               alt="About ICT Option"
-              className="relative z-10 rounded-2xl shadow-2xl w-full max-w-lg object-cover grayscale hover:grayscale-0 transition-all duration-500"
+              className="relative z-10 rounded-2xl shadow-2xl w-full max-w-lg object-cover hover:scale-105 transition-transform duration-500"
               style={{ aspectRatio: '4/3' }}
             />
             <div className="absolute -bottom-8 -right-8 w-16 h-16 bg-secondary-dark rounded-xl z-0 shadow-lg"></div>

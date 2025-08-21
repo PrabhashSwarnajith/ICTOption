@@ -72,7 +72,7 @@ const Cybersecurity = () => {
             <img
               src={heroData.cyber2}
               alt="Cybersecurity Strategy"
-              className="relative z-10 rounded-2xl shadow-xl w-full max-w-lg object-cover grayscale transition-all duration-500 hover:grayscale-0 hover:scale-105 border border-neutral-700"
+              className="relative z-10 rounded-2xl shadow-xl w-full max-w-lg object-cover  transition-all duration-500 hover:grayscale-0 hover:scale-105 border border-neutral-700"
               style={{ aspectRatio: '4/3' }}
             />
             {/* Decorative elements */}

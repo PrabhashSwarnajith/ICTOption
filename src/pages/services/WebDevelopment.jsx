@@ -382,11 +382,11 @@ const WebDevelopment = () => {
                   "{testimonial.quote}"
                 </p>
                 <div className="flex items-center gap-4 mt-auto w-full justify-center">
-                  <img
+                  {/* <img
                     src={testimonial.avatar}
                     alt={testimonial.name}
                     className="w-12 h-12 rounded-full border-2 border-secondary object-cover"
-                  />
+                  /> */}
                   <div>
                     <div className="font-bold text-secondary-light font-heading text-base">
                       {testimonial.name}

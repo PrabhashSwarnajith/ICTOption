@@ -69,7 +69,7 @@ const DigitalMarketing = () => {
             <img
               src={heroData.dm2}
               alt="Strategic Digital Marketing"
-              className="relative z-10 rounded-2xl shadow-xl w-full max-w-lg object-cover grayscale transition-all duration-500 hover:grayscale-0 hover:scale-105 border border-neutral-700" // Adjusted shadow and added border for consistency
+              className="relative z-10 rounded-2xl shadow-xl w-full max-w-lg object-cover  transition-all duration-500 hover:grayscale-0 hover:scale-105 border border-neutral-700" // Adjusted shadow and added border for consistency
               style={{ aspectRatio: '4/3' }}
             />
             {/* Decorative elements */}

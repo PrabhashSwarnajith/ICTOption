@@ -65,7 +65,7 @@ const ITConsulting = () => {
             data-aos-delay="100"
           >
             <img
-              src={it2} // Image: diverse team collaborating
+              src={heroData.it2} // Image: diverse team collaborating
               alt="Strategic IT Planning"
               className="relative z-10 rounded-2xl shadow-xl w-full max-w-lg object-cover transition-all duration-500 hover:scale-105 border border-neutral-700"
               style={{ aspectRatio: '4/3' }}
@@ -254,7 +254,7 @@ const ITConsulting = () => {
 
           <div className="flex flex-col md:flex-row items-center gap-12">
             <motion.img
-              src={it3} // Image: people discussing business strategy
+              src={heroData.it3} // Image: people discussing business strategy
               alt="IT Consulting Process"
               className="w-full max-w-lg rounded-2xl shadow-xl mb-8 md:mb-0 object-cover border border-neutral-700 transition-transform duration-500 hover:scale-[1.02]"
               style={{ aspectRatio: '1.5/1' }}
