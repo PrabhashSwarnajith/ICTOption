@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 
 const Header = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   // Consolidated navigation data
   const navLinks = [
@@ -65,7 +66,7 @@ const Header = () => {
               >
                 <Link
                   to={link.path}
-                  className="relative py-2 hover:text-secondary transition-colors duration-300 flex items-center space-x-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-secondary hover:after:w-full after:transition-all after:duration-300"
+                  className={`relative py-2 flex items-center space-x-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-secondary after:transition-all after:duration-300 ${location.pathname.startsWith('/services') ? 'text-secondary after:w-full' : 'hover:text-secondary hover:after:w-full transition-colors duration-300'}`}
                 >
                   <span>{link.name}</span>
                   <svg
@@ -86,22 +87,19 @@ const Header = () => {
                 {/* Dropdown Menu */}
                 <div
                   className={`absolute top-full left-0 mt-2 w-80 bg-primary/80 backdrop-blur-xl rounded-2xl shadow-2xl py-4 transition-all duration-300 ${
-                    // Changed bg-primary/60 to /80, rounded-3xl to 2xl, shadow-3xl to 2xl
                     isServicesOpen
                       ? 'opacity-100 translate-y-0 visible'
                       : 'opacity-0 translate-y-2 invisible'
                   }`}
                 >
                   <div className="px-6 py-3 text-sm font-semibold text-secondary border-b border-neutral-700 bg-neutral-900 rounded-t-2xl">
-                    {' '}
-                    {/* Changed bg-neutral-dark to bg-neutral-900, added rounded-t-2xl */}
                     Our Services
                   </div>
                   {link.dropdown.map((dropdownItem, dropdownIndex) => (
                     <Link
                       key={dropdownIndex}
                       to={dropdownItem.path}
-                      className="block px-6 py-4 text-sm text-accent hover:bg-secondary/10 hover:text-secondary transition-all duration-300 border-b border-neutral-700 last:border-b-0 group" // Changed hover:bg-secondary/20 to /10
+                      className={`block px-6 py-4 text-sm border-b border-neutral-700 last:border-b-0 group transition-all duration-300 ${location.pathname === dropdownItem.path ? 'text-secondary bg-secondary/10' : 'text-accent hover:bg-secondary/10 hover:text-secondary'}`}
                     >
                       <div className="flex items-center space-x-3">
                         <span className="text-secondary transition-transform duration-300 group-hover:translate-x-1">
@@ -118,7 +116,7 @@ const Header = () => {
               <Link
                 key={index}
                 to={link.path}
-                className="relative py-2 hover:text-secondary transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-secondary hover:after:w-full after:transition-all after:duration-300"
+                className={`relative py-2 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-secondary after:transition-all after:duration-300 ${location.pathname === link.path ? 'text-secondary after:w-full' : 'hover:text-secondary hover:after:w-full transition-colors duration-300'}`}
               >
                 {link.name}
               </Link>
@@ -127,7 +125,7 @@ const Header = () => {
           {/* Contact Button for Desktop */}
           <Link
             to="/contact"
-            className="ml-4 bg-secondary text-primary px-6 py-2 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 hover:bg-secondary-light" // Added hover:bg-secondary-light
+            className={`ml-4 bg-secondary text-primary px-6 py-2 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 hover:bg-secondary-light ${location.pathname === '/contact' ? 'ring-2 ring-secondary' : ''}`}
           >
             Contact Us
           </Link>
