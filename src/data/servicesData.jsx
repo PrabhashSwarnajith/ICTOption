@@ -4,6 +4,11 @@ import it1 from '../assets/img/it1.webp';
 import dm1 from '../assets/img/dm1.webp';
 import cyber1 from '../assets/img/cyber1.webp';
 import ml from '../assets/img/ml1.webp';
+import p1 from '../assets/projects/p1.webp';
+import p2 from '../assets/projects/p2.webp';
+import p3 from '../assets/projects/p3.webp';
+import p4 from '../assets/projects/p4.webp';
+import p5 from '../assets/projects/p5.webp';
 
 export const servicesData = [
   {
@@ -140,8 +145,7 @@ export const projectsData = [
     title: 'Full-Stack Digital Marketing for Eros Clothings',
     description:
       'Delivered a complete digital transformation—from website development to a full-fledged social media strategy—for Eros Clothings. Our team executed SEO, paid advertising, and multi-platform content marketing to drive brand engagement and conversions.',
-    image:
-      'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=400&q=80',
+    image: p1,
     link: '#',
   },
   {
@@ -149,8 +153,7 @@ export const projectsData = [
     title: 'Custom Payroll Management System for Team Big Data',
     description:
       'Designed and developed a fully customized web-based payroll management system for Team Big Data. The platform automates salary calculations, tax filings, employee records, and compliance reporting—delivering efficiency, accuracy, and scalability for HR operations.',
-    image:
-      'https://images.unsplash.com/photo-1496171367476-4297a2a72838?auto=format&fit=crop&w=400&q=80',
+    image: p5,
     link: '#',
   },
   {
@@ -158,8 +161,7 @@ export const projectsData = [
     title: 'Predictive Analytics for Milk Supply Estimation',
     description:
       'Developed a web-based predictive analytics solution for a UK-based dairy farm, commissioned by client Ishan Hewage. The platform leverages Machine Learning and AI to forecast milk supply rates using historical and environmental data—improving planning accuracy and operational efficiency.',
-    image:
-      'https://images.unsplash.com/photo-1544006659-bf729608404a?auto=format&fit=crop&w=400&q=80',
+    image: p4,
     link: '#',
   },
   {
@@ -167,8 +169,7 @@ export const projectsData = [
     title: 'Simulation-Based Cryptographic Protocol Analysis for WSNs',
     description:
       'Delivered a research-driven simulation project for a UK client, focusing on secure cryptographic key establishment in wireless sensor networks (WSNs). Using NS-3, we evaluated lightweight and energy-efficient encryption protocols—enhancing security, scalability, and real-world applicability in resource-constrained IoT environments.',
-    image:
-      'https://images.unsplash.com/photo-1544006659-bf729608404a?auto=format&fit=crop&w=400&q=80',
+    image: p3,
     link: '#',
   },
   {
@@ -176,8 +177,7 @@ export const projectsData = [
     title: 'DriveWell – Car Maintenance App for Australian Startup',
     description:
       'Developed a cross-platform mobile app for an Australian startup to simplify vehicle maintenance. DriveWell empowers users to manage multiple vehicles, track service history, receive maintenance reminders, log expenses, and export reports—enhancing vehicle health, safety, and cost-efficiency through a user-friendly digital solution.',
-    image:
-      'https://images.unsplash.com/photo-1544006659-bf729608404a?auto=format&fit=crop&w=400&q=80',
+    image: p2,
     link: '#',
   },
 ];

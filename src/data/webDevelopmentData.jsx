@@ -123,21 +123,18 @@ export const testimonials = [
       'ICT Option delivered our web project on time and exceeded our expectations. Highly skilled and professional team.',
     name: 'Gayan',
     title: 'Entrepreneur',
-    avatar: gayanImg,
   },
   {
     quote:
       'Our new website is fast, secure, and easy to manage. Great experience working with ICT Option!',
     name: 'Harini',
     title: 'Business Owner',
-    avatar: hariniImg,
   },
   {
     quote:
       'Professional, responsive, and creative. Highly recommended for web projects!',
     name: 'Isuru',
     title: 'Manager',
-    avatar: isuruImg,
   },
 ];
 
