@@ -44,7 +44,7 @@ const Header = () => {
         <Link to="/" className="flex items-center space-x-3 group">
           <img
             src={logo}
-            alt="ICT Option"
+            alt="ICT Option Logo"
             className="h-14 w-auto group-hover:scale-105 transition-transform duration-300 drop-shadow-sm"
           />
           <div className="text-2xl font-bold text-accent font-heading hidden sm:block group-hover:text-secondary transition-colors duration-300">
