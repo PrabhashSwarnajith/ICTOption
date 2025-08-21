@@ -39,11 +39,11 @@ const Home = () => {
       {/* Hero Section */}
       {/* Hero component handles its own internal padding and alignment */}
       <Hero
-        title={
-          <span className="text-accent font-heading">
-            ICT <span className="text-secondary">OPTION</span>
-          </span>
-        }
+        // title={
+        //   <span className="text-accent font-heading">
+        //     ICT <span className="text-secondary">OPTION</span>
+        //   </span>
+        // }
         subtitle={
           <span className="text-accent font-heading">
             Transforming Ideas into{' '}
