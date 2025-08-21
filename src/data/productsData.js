@@ -47,11 +47,6 @@ export const pricingPlans = [
     price: 'LKR 60,000 / ~$185 USD',
     frequency: '/One-Time Payment',
     features: [
-      'Core Features',
-      'Up to 5 Users',
-      'Email Support',
-      'Free Updates',
-      'Basic Analytics',
       'Fast & intuitive billing interface',
       'Product & inventory management',
       'Sales and purchase tracking',
