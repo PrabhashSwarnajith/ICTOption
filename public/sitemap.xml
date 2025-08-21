@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ict-option.vercel.app/</loc>
+  <loc>https://www.ictoption.com/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ict-option.vercel.app/services</loc>
+  <loc>https://www.ictoption.com/services</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ict-option.vercel.app/products</loc>
+  <loc>https://www.ictoption.com/products</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ict-option.vercel.app/about</loc>
+  <loc>https://www.ictoption.com/about</loc>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ict-option.vercel.app/blog</loc>
+  <loc>https://www.ictoption.com/blog</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://ict-option.vercel.app/contact</loc>
+  <loc>https://www.ictoption.com/contact</loc>
     <priority>0.6</priority>
   </url>
 </urlset>
