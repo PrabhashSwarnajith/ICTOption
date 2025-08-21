@@ -10,7 +10,8 @@ const Header = () => {
   // Consolidated navigation data
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
+    { name: 'Products', path: '/products' },
+
     {
       name: 'Services',
       path: '/services',
@@ -29,7 +30,7 @@ const Header = () => {
         { name: 'Cybersecurity', path: '/services/cybersecurity' },
       ],
     },
-    { name: 'Products', path: '/products' },
+    { name: 'About', path: '/about' },
   ];
 
   return (
