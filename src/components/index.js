@@ -9,7 +9,7 @@ export { default as ProductCard } from './cards/ProductCard';
 export { default as ServiceCard } from './cards/ServiceCard';
 export { default as TestimonialCard } from './cards/TestimonialCard';
 export { default as PricingPlanCard } from './cards/PricingPlanCard';
-export { default as FullPageServiceCard } from './cards/FullPageServiceCard';
+export { default as ServiceDetailCard } from './cards/ServiceDetailCard';
 export { default as ProjectCard } from './cards/ProjectCard';
 export { default as FAQCard } from './cards/FAQCard';
 export { default as ClientReviewsGrid } from './grids/ClientReviewsGrid';
