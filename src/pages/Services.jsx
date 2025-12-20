@@ -216,37 +216,55 @@ const Services = () => {
 
       {/* Testimonials Section (black, white, accent colors) */}
       <section
-        className="py-12 sm:py-16 md:py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft"
+        className="py-12 sm:py-16 md:py-20 lg:py-24 bg-primary relative overflow-hidden"
         data-aos="fade-up"
         data-aos-delay="600"
       >
-        {/* Subtle background pattern: abstract lines */}
+        <div className="absolute inset-0">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" alt="Testimonials Background" loading="lazy" className="w-full h-full object-cover opacity-10" />
+          <div className="absolute inset-0 bg-neutral-900/80" />
+        </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-6 sm:mb-8 md:mb-10">
-            <span className="text-secondary font-bold uppercase tracking-wider text-xs sm:text-sm">
-              Client Feedback
+          <div className="text-center mb-10 sm:mb-12 md:mb-14">
+            <span className="text-secondary font-bold uppercase tracking-wider text-xs sm:text-sm font-body">
+              Testimonials
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-accent mb-2 font-heading tracking-wide uppercase">
-              What Our Clients Say
+              Our Clients Reviews
             </h2>
-            <p className="text-sm sm:text-base text-neutral-300 opacity-90 max-w-2xl mx-auto mt-4">
-              Hear directly from businesses that have transformed their
-              operations with our innovative and reliable technology solutions.
+            <div className="w-16 sm:w-24 h-1 bg-secondary mx-auto mb-4 sm:mb-6 rounded-full"></div>
+            <p className="text-sm sm:text-base text-neutral-300 opacity-90 max-w-2xl mx-auto font-body">
+              See what our clients say about working with us and how we helped
+              them achieve their goals.
             </p>
           </div>
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-          >
-            {testimonialsData.map((testimonial, idx) => (
-              <motion.div key={idx} variants={itemVariants}>
-                <TestimonialCard testimonial={testimonial} />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+            {testimonialsData.map((t, idx) => (
+              <motion.div
+                key={t.name}
+                className="bg-neutral-800 rounded-xl p-6 sm:p-8 shadow-xl flex flex-col items-start border border-neutral-700 relative max-w-[370px] mx-auto hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+                data-aos="zoom-in"
+                data-aos-delay={idx * 100}
+              >
+                <p className="text-neutral-300 text-sm sm:text-base mb-6 sm:mb-8 font-medium font-body leading-relaxed">
+                  {t.text || t.quote}
+                </p>
+                <div className="flex items-center gap-4 mt-auto w-full">
+                  <div>
+                    <div className="font-bold text-secondary-light text-sm sm:text-base font-body">
+                      {t.name}
+                    </div>
+                    <div className="text-neutral-400 text-xs font-body">
+                      {t.role || t.title}
+                    </div>
+                  </div>
+                  <span className="ml-auto text-accent text-2xl sm:text-3xl font-bold font-heading">
+                    ""
+                  </span>
+                </div>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
