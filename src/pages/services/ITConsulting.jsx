@@ -350,44 +350,25 @@ const ITConsulting = () => {
 
       {/* FAQ Section */}
       <section className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft">
-        {/* Subtle background pattern: dots */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div
-            className="text-center mb-14"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, amount: 0.5 }}
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading tracking-wide uppercase">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4 font-heading tracking-wide uppercase">
               Frequently Asked Questions
             </h2>
-            <div className="w-24 h-1 bg-secondary mx-auto mb-4"></div>
-            <p className="text-lg text-neutral-300 font-body max-w-2xl mx-auto opacity-90">
-              Find quick answers to common questions about our IT consulting
-              services.
-            </p>
-          </motion.div>
-          <div className="max-w-3xl mx-auto space-y-6">
+            <div className="w-24 h-1 bg-accent mx-auto mb-4 rounded-full"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {faqs.map((faq, index) => (
               <motion.div
                 key={index}
-                className="bg-neutral-800 rounded-xl p-6 shadow-xl border border-neutral-700 transition-shadow duration-300 hover:shadow-2xl"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true, amount: 0.5 }}
-                data-aos="fade-up"
-                data-aos-delay={200 + index * 70}
+                className="bg-neutral-800 p-6 sm:p-8 rounded-2xl shadow-xl border border-accent text-neutral-300 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+                data-aos="zoom-in"
+                data-aos-delay={index * 100}
               >
-                <h3 className="font-semibold text-secondary mb-2 text-xl cursor-pointer font-heading">
+                <h3 className="font-bold text-secondary text-lg sm:text-xl mb-2 font-heading">
                   {faq.question}
                 </h3>
-                <p className="text-neutral-300 text-base leading-relaxed font-body opacity-90">
-                  {faq.answer}
-                </p>
+                <p className="font-body text-xs sm:text-sm">{faq.answer}</p>
               </motion.div>
             ))}
           </div>
