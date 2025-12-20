@@ -13,7 +13,8 @@ import p5 from '../assets/projects/p5.webp';
 export const servicesData = [
   {
     name: 'Web Development',
-    description: 'Custom websites and applications built with modern technologies for high performance.',
+    description:
+      'Custom websites and applications built with modern technologies for high performance.',
     path: '/services/web-development',
     image: web2,
     label: 'Web',
@@ -35,7 +36,8 @@ export const servicesData = [
   },
   {
     name: 'Mobile App Development',
-    description: 'iOS and Android apps designed for seamless user experiences and business growth.',
+    description:
+      'iOS and Android apps designed for seamless user experiences and business growth.',
     path: '/services/mobile-app-development',
     image: mobile3,
     label: 'Mobile',
@@ -57,7 +59,8 @@ export const servicesData = [
   },
   {
     name: 'AI & Machine Learning',
-    description: 'Intelligent solutions using cutting-edge AI and ML algorithms for smart automation.',
+    description:
+      'Intelligent solutions using cutting-edge AI and ML algorithms for smart automation.',
     path: '/services/ai-machine-learning',
     image: ml,
     label: 'AI',
@@ -79,7 +82,8 @@ export const servicesData = [
   },
   {
     name: 'Digital Marketing',
-    description: 'Strategic marketing campaigns to boost your online presence and reach target audience.',
+    description:
+      'Strategic marketing campaigns to boost your online presence and reach target audience.',
     path: '/services/digital-marketing',
     image: dm1,
     label: 'Marketing',
@@ -101,7 +105,8 @@ export const servicesData = [
   },
   {
     name: 'IT Consulting',
-    description: 'Expert guidance on technology strategy and digital transformation for your business.',
+    description:
+      'Expert guidance on technology strategy and digital transformation for your business.',
     path: '/services/it-consulting',
     image: it1,
     label: 'Consulting',
@@ -123,7 +128,8 @@ export const servicesData = [
   },
   {
     name: 'Cybersecurity',
-    description: 'Comprehensive security solutions to protect your data and infrastructure from threats.',
+    description:
+      'Comprehensive security solutions to protect your data and infrastructure from threats.',
     path: '/services/cybersecurity',
     image: cyber1,
     label: 'Security',
