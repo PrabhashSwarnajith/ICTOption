@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import { setPageMeta } from '../utils/seoUtils';
+import { containerVariants, itemVariants } from '../utils/animationVariants';
 import {
   Hero,
   ServiceCard,
@@ -13,7 +14,6 @@ import {
 } from '../components';
 import service from '../assets/img/services.webp';
 
-// Import data arrays from the new data file
 import {
   servicesData,
   projectsData,
@@ -23,12 +23,20 @@ import {
   faqsData,
 } from '../data/servicesData.jsx';
 
-//  Services Component
-
 const Services = () => {
+  const [activeProject, setActiveProject] = useState(null);
+
   useEffect(() => {
-    AOS.init({ once: true, duration: 900, offset: 80 });
+    setPageMeta(
+      'Services | Complete Technology Solutions | ICT Option',
+      'Comprehensive technology services including web development, mobile apps, AI/ML, digital marketing, IT consulting, and cybersecurity. Expert solutions for your business.',
+      'technology services, web development, mobile app development, AI machine learning, digital marketing, IT consulting, cybersecurity, software development',
+      '/services'
+    );
   }, []);
+
+  const openProjectModal = project => setActiveProject(project);
+  const closeProjectModal = () => setActiveProject(null);
 
   return (
     <div className="min-h-screen bg-primary text-white font-body">
@@ -58,18 +66,18 @@ const Services = () => {
         gradient="from-primary via-black/80 to-neutral-900"
         className="brightness-110"
       >
-        <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8 animate-float">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mt-6 sm:mt-8 animate-float">
           {' '}
           {/* Removed animate-float */}
           <Link
             to="/contact"
-            className="bg-secondary text-primary px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:bg-secondary-light hover:text-primary hover:scale-105 transition-all duration-300 transform-gpu font-body" // shadow-glow-md to shadow-lg, hover:bg-accent hover:text-white to hover:bg-secondary-light hover:text-primary
+            className="bg-secondary text-primary px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-lg shadow-lg hover:bg-secondary-light hover:text-primary hover:scale-105 transition-all duration-300 transform-gpu font-body text-center"
           >
             Get a Free Consultation
           </Link>
           <Link
             to="/products"
-            className="border-2 border-accent text-accent px-8 py-4 rounded-full font-semibold text-lg hover:bg-accent hover:text-primary transition-all duration-300 transform-gpu font-body"
+            className="border-2 border-accent text-accent px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-lg hover:bg-accent hover:text-primary transition-all duration-300 transform-gpu font-body text-center"
           >
             Explore Our Products
           </Link>
@@ -78,247 +86,200 @@ const Services = () => {
 
       {/* Featured Solutions (modern cards, accent corners) */}
       <section
-        className="py-20 bg-neutral-900 relative overflow-hidden" // Changed bg-neutral-dark to bg-neutral-900, py-16 to py-20
+        className="py-12 sm:py-16 md:py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft"
         data-aos="fade-up"
         data-aos-delay="200"
       >
         {/* Subtle background pattern: circuit board / digital lines */}
-        <div
-          className="absolute inset-0 z-0 opacity-10" // Changed opacity-05 to opacity-10
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20V40zm20 0L40 20V0H20L0 20h20z'/%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            transform: 'rotate(15deg) scale(1.2)',
-          }}
-        ></div>
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {' '}
-          {/* Standardized container */}
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4 font-heading tracking-wide uppercase">
-              {' '}
-              {/* Added md:text-4xl and tracking-wide uppercase */}
               Our Core Technology Services
             </h2>
             <div className="w-24 h-1 bg-accent mx-auto mb-4"></div>
-            <p className="text-lg text-neutral-300 font-body max-w-2xl mx-auto">
-              {' '}
-              {/* Changed text-gray-300 to text-neutral-300 */}
+            <p className="text-sm sm:text-base md:text-lg text-neutral-300 font-body max-w-2xl mx-auto">
               Discover our most innovative and in-demand technology offerings,
               designed to help your business thrive in a digital world.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             {servicesData.map((service, idx) => (
-              <ServiceCard
-                key={service.name}
-                service={service}
-                aosDelay={100 + idx * 70}
-              />
+              <motion.div key={service.name} variants={itemVariants}>
+                <ServiceCard service={service} aosDelay={100 + idx * 70} />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Latest Projects (modern card style) */}
       <section
-        className="py-20 bg-primary relative overflow-hidden" // Changed background to primary, py-16 to py-20
+        className="py-8 sm:py-12 md:py-16 lg:py-20 bg-primary relative overflow-hidden pattern-dots"
         data-aos="fade-up"
         data-aos-delay="400"
       >
         {/* Subtle background pattern: hexagonal grid */}
-        <div
-          className="absolute inset-0 z-0 opacity-10" // Changed opacity-05 to opacity-10
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.15' fill-rule='evenodd'%3E%3Cpath d='M0 20L20 0L40 20L20 40L0 20zM20 0L0 20L20 40L40 20L20 0z'/%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            transform: 'rotate(5deg) scale(1.1)',
-          }}
-        ></div>
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {' '}
-          {/* Standardized container */}
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-10">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-6 sm:mb-8">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-2 font-heading tracking-wide uppercase">
-                {' '}
-                {/* Added md:text-4xl and tracking-wide uppercase */}
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary mb-2 font-heading tracking-wide uppercase">
                 Our Latest Projects
               </h2>
-              <div className="w-24 h-1 bg-accent mx-auto md:mx-0 mb-4"></div>{' '}
-              {/* Adjusted margin for responsiveness */}
-              <p className="text-neutral-300 text-lg font-body max-w-xl">
-                {' '}
-                {/* Changed text-gray-300 to text-neutral-300 */}
+              <div className="w-16 sm:w-24 h-1 bg-accent mx-auto md:mx-0 mb-4"></div>
+              <p className="text-sm sm:text-base md:text-lg text-neutral-300 font-body max-w-xl">
                 Explore some of our most recent and impactful technology
                 projects, delivered for clients across various industries.
               </p>
             </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             {projectsData.map((project, idx) => (
-              <ProjectCard key={idx} project={project} />
+              <motion.div key={idx} variants={itemVariants}>
+                <ProjectCard project={project} onLearnMore={openProjectModal} />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Why Choose Us (modern card style) */}
-      <section className="py-20 bg-neutral-900 relative overflow-hidden">
-        {' '}
-        {/* Changed bg-neutral-dark to bg-neutral-900, py-16 to py-20 */}
+      <section className="py-12 sm:py-16 md:py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft">
         {/* Subtle background pattern: diagonal lines */}
-        <div
-          className="absolute inset-0 z-0 opacity-10" // Changed opacity-05 to opacity-10
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.08' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20V40zm20 0L40 20V0H20L0 20h20z'/%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            transform: 'rotate(-10deg) scale(1.3)',
-          }}
-        ></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {' '}
-          {/* Standardized container */}
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4 font-heading tracking-wide uppercase">
-              {' '}
-              {/* Added md:text-4xl and tracking-wide uppercase */}
+          <div className="text-center mb-6 sm:mb-8 md:mb-10">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary mb-4 font-heading tracking-wide uppercase">
               Why Choose ICT Option?
             </h2>
-            <div className="w-24 h-1 bg-accent mx-auto mb-4"></div>
-            <p className="text-lg text-neutral-300 font-body max-w-2xl mx-auto">
-              {' '}
-              {/* Changed text-gray-300 to text-neutral-300 */}
+            <div className="w-16 sm:w-24 h-1 bg-accent mx-auto mb-4"></div>
+            <p className="text-sm sm:text-base md:text-lg text-neutral-300 font-body max-w-2xl mx-auto">
               We deliver innovative, reliable, and scalable technology solutions
               tailored to your business needs, ensuring your success.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-10"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             {whyChooseUsPoints.map((point, idx) => (
-              <WhyChooseUsCard key={idx} point={point} />
+              <motion.div key={idx} variants={itemVariants}>
+                <WhyChooseUsCard point={point} />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* How We Work (modern card style) */}
-      <section className="py-20 bg-primary relative overflow-hidden">
-        {' '}
-        {/* Changed py-16 to py-20 */}
+      <section className="py-12 sm:py-16 md:py-20 bg-primary relative overflow-hidden pattern-dots">
         {/* Subtle background pattern: dots */}
-        <div
-          className="absolute inset-0 z-0 opacity-10" // Changed opacity-05 to opacity-10
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='5' cy='5' r='2' fill='%239C92AC' fill-opacity='0.15'/%3E%3C/circle%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-          }}
-        ></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {' '}
-          {/* Standardized container */}
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading tracking-wide uppercase">
-              {' '}
-              {/* Added md:text-4xl and tracking-wide uppercase */}
+          <div className="text-center mb-6 sm:mb-8 md:mb-10">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-accent mb-4 font-heading tracking-wide uppercase">
               Our Streamlined Process
             </h2>
-            <div className="w-24 h-1 bg-secondary mx-auto mb-4"></div>
-            <p className="text-lg text-neutral-300 font-body max-w-2xl mx-auto">
-              {' '}
-              {/* Changed text-gray-300 to text-neutral-300 */}
+            <div className="w-16 sm:w-24 h-1 bg-secondary mx-auto mb-4"></div>
+            <p className="text-sm sm:text-base md:text-lg text-neutral-300 font-body max-w-2xl mx-auto">
               Our proven process ensures your project is a success from start to
               finish, with clear milestones and collaborative steps.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-10"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             {howWeWorkSteps.map((step, idx) => (
-              <HowWeWorkStep key={idx} step={step} />
+              <motion.div key={idx} variants={itemVariants}>
+                <HowWeWorkStep step={step} />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Testimonials Section (black, white, accent colors) */}
       <section
-        className="py-20 bg-neutral-900 relative overflow-hidden" // Changed bg-neutral-dark to bg-neutral-900, py-16 to py-20
+        className="py-12 sm:py-16 md:py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft"
         data-aos="fade-up"
         data-aos-delay="600"
       >
         {/* Subtle background pattern: abstract lines */}
-        <div
-          className="absolute inset-0 z-0 opacity-10" // Changed opacity-05 to opacity-10
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 0h20v20H0V0zm20 20h20v20H20V20zm20 20h20v20H40V40zm20 20h20v20H60V60z'/%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            transform: 'rotate(20deg) scale(1.1)',
-          }}
-        ></div>
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {' '}
-          {/* Standardized container */}
-          <div className="text-center mb-12">
-            <span className="text-secondary font-bold uppercase tracking-wider text-sm">
+          <div className="text-center mb-6 sm:mb-8 md:mb-10">
+            <span className="text-secondary font-bold uppercase tracking-wider text-xs sm:text-sm">
               Client Feedback
             </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-accent mb-2 font-heading tracking-wide uppercase">
-              {' '}
-              {/* Changed text-4xl to md:text-4xl for consistency, added tracking-wide uppercase */}
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-accent mb-2 font-heading tracking-wide uppercase">
               What Our Clients Say
             </h2>
-            <p className="text-neutral-300 opacity-90 max-w-2xl mx-auto mb-6">
-              {' '}
-              {/* Changed text-gray-300 to text-neutral-300 */}
+            <p className="text-sm sm:text-base text-neutral-300 opacity-90 max-w-2xl mx-auto mt-4">
               Hear directly from businesses that have transformed their
               operations with our innovative and reliable technology solutions.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             {testimonialsData.map((testimonial, idx) => (
-              <TestimonialCard key={idx} testimonial={testimonial} />
+              <motion.div key={idx} variants={itemVariants}>
+                <TestimonialCard testimonial={testimonial} />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* FAQ Section (modern card style) */}
       <section
-        className="py-20 bg-primary relative overflow-hidden" // Changed py-16 to py-20
+        className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft"
         data-aos="fade-up"
         data-aos-delay="600"
       >
-        {/* Subtle background pattern: small circles */}
-        <div
-          className="absolute inset-0 z-0 opacity-10" // Changed opacity-05 to opacity-10
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='3' fill='%239C92AC' fill-opacity='0.1'/%3E%3C/circle%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            transform: 'rotate(-5deg) scale(1.05)',
-          }}
-        ></div>
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {' '}
-          {/* Standardized container */}
-          <div className="text-center mb-14">
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4 font-heading tracking-wide uppercase">
-              {' '}
-              {/* Added md:text-4xl and tracking-wide uppercase */}
               Frequently Asked Questions
             </h2>
-            <div className="w-24 h-1 bg-accent mx-auto mb-4"></div>
-            <p className="text-lg text-neutral-300 font-body max-w-2xl mx-auto">
-              {' '}
-              {/* Changed text-gray-300 to text-neutral-300 */}
+            <div className="w-24 h-1 bg-accent mx-auto mb-4 rounded-full"></div>
+            <p className="text-neutral-300 font-body max-w-2xl mx-auto">
               Answers to common questions about our services and approach to
               ensure you have all the information you need.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {faqsData.map((faq, idx) => (
-              <FAQCard key={idx} faq={faq} />
+              <motion.div
+                key={faq.question}
+                className="bg-neutral-800 p-6 sm:p-8 rounded-2xl shadow-xl border border-accent text-neutral-300 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+                data-aos="zoom-in"
+                data-aos-delay={idx * 100}
+              >
+                <h3 className="font-bold text-secondary text-lg sm:text-xl mb-2 font-heading">
+                  {faq.question}
+                </h3>
+                <p className="font-body text-xs sm:text-sm">{faq.answer}</p>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -326,37 +287,22 @@ const Services = () => {
 
       {/* CTA Section (modern style) */}
       <section
-        className="py-20 bg-gradient-to-br from-primary via-neutral-900 to-accent text-center relative overflow-hidden" // Changed via-black to via-neutral-900, to-neutral-dark to to-accent for a stronger gradient
+        className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-primary via-neutral-900 to-accent text-center relative overflow-hidden\"
         data-aos="fade-up"
         data-aos-delay="900"
       >
         {/* Subtle background pattern: abstract shapes */}
-        <div
-          className="absolute inset-0 z-0 opacity-10" // Changed opacity-05 to opacity-10
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.08' fill-rule='evenodd'%3E%3Cpath d='M0 0h50v50H0V0zm50 50h50v50H50V50z'/%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            transform: 'rotate(30deg) scale(1.5)',
-          }}
-        ></div>
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {' '}
-          {/* Standardized container */}
-          <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6 font-heading tracking-wide uppercase">
-            {' '}
-            {/* Added md:text-4xl and tracking-wide uppercase */}
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-accent mb-4 sm:mb-6 font-heading tracking-wide uppercase">
             Need a Custom Solution?
           </h2>
-          <p className="text-lg text-neutral-300 mb-8 max-w-2xl mx-auto font-body opacity-90">
-            {' '}
-            {/* Changed text-gray-300 to text-neutral-300 */}
+          <p className="text-sm sm:text-base md:text-lg text-neutral-300 mb-6 sm:mb-8 max-w-2xl mx-auto font-body opacity-90">
             Our expert team can create tailored solutions that perfectly match
             your unique business requirements and drive your success.
           </p>
           <Link
             to="/contact"
-            className="inline-block bg-secondary text-primary px-8 py-4 rounded-full font-semibold shadow-lg hover:bg-secondary-light hover:text-primary transition-all duration-300 transform hover:scale-105" // shadow-glow-md to shadow-lg, hover:bg-accent hover:text-white to hover:bg-secondary-light hover:text-primary
+            className="inline-block bg-secondary text-primary px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-base shadow-lg hover:bg-secondary-light hover:text-primary transition-all duration-300 transform hover:scale-105"
             data-aos="zoom-in"
             data-aos-delay="800"
           >
@@ -364,6 +310,98 @@ const Services = () => {
           </Link>
         </div>
       </section>
+
+      <AnimatePresence>
+        {activeProject && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center px-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            aria-modal="true"
+            role="dialog"
+          >
+            <motion.div
+              className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={closeProjectModal}
+            />
+            <motion.div
+              className="relative max-w-4xl w-full bg-neutral-900 rounded-3xl border border-neutral-700 overflow-hidden shadow-2xl"
+              initial={{ opacity: 0, scale: 0.95, y: 24 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 24 }}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+            >
+              <button
+                onClick={closeProjectModal}
+                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/50 text-white hover:bg-black/70 flex items-center justify-center text-xl"
+                aria-label="Close project details"
+              >
+                ×
+              </button>
+              <div className="grid md:grid-cols-2">
+                <div className="relative h-64 md:h-full">
+                  <img
+                    src={activeProject.image}
+                    alt={activeProject.title}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <span className="absolute top-4 left-4 bg-secondary text-primary text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wide">
+                    {activeProject.category}
+                  </span>
+                </div>
+                <div className="p-6 sm:p-8 flex flex-col gap-5">
+                  <div>
+                    <p className="text-secondary font-semibold uppercase tracking-widest text-xs mb-1">
+                      Featured Project
+                    </p>
+                    <h3 className="text-2xl font-heading text-accent leading-tight">
+                      {activeProject.title}
+                    </h3>
+                  </div>
+                  <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
+                    {activeProject.description}
+                  </p>
+                  <div className="grid sm:grid-cols-2 gap-4 text-sm text-neutral-300">
+                    <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+                      <p className="text-xs uppercase tracking-wider text-secondary/70 mb-1">
+                        Project Timeline
+                      </p>
+                      <p className="font-semibold text-white">4 - 6 Weeks</p>
+                    </div>
+                    <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+                      <p className="text-xs uppercase tracking-wider text-secondary/70 mb-1">
+                        Tech Stack
+                      </p>
+                      <p className="font-semibold text-white">
+                        React · Node · Cloud
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap gap-3 mt-auto">
+                    <Link
+                      to="/contact"
+                      className="bg-secondary text-primary px-6 py-3 rounded-full font-semibold shadow-lg hover:bg-accent transition-all duration-300"
+                    >
+                      Start Similar Project
+                    </Link>
+                    <button
+                      onClick={closeProjectModal}
+                      className="px-6 py-3 rounded-full border border-neutral-600 text-neutral-200 hover:border-accent hover:text-accent transition-all duration-300"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

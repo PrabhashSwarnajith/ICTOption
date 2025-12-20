@@ -159,20 +159,10 @@ const ContactUs = () => {
       </Hero>
       {/* Contact Form & Info */}
       <section
-        className="py-12 sm:py-16 md:py-20 lg:py-24 bg-neutral-900 relative overflow-hidden"
+        className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft"
         data-aos="fade-up"
         data-aos-delay="100"
       >
-        {/* Subtle background pattern: circuit board / digital lines */}
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20V40zm20 0L40 20V0H20L0 20h20z'/%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            transform: 'rotate(15deg) scale(1.2)',
-          }}
-        ></div>
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
@@ -439,22 +429,12 @@ const ContactUs = () => {
       </section>
       {/* Map Section */}
       <section
-        className="py-12 sm:py-16 md:py-20 lg:py-24 bg-primary relative overflow-hidden"
+        className="py-20 bg-primary relative overflow-hidden pattern-dots"
         data-aos="fade-up"
         data-aos-delay="200"
       >
-        {/* Subtle background pattern: hexagonal grid */}
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.15' fill-rule='evenodd'%3E%3Cpath d='M0 20L20 0L40 20L20 40L0 20zM20 0L0 20L20 40L40 20L20 0z'/%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            transform: 'rotate(5deg) scale(1.1)',
-          }}
-        ></div>
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-8">
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading uppercase tracking-wide animate-fade-in">
               Visit Our Office
             </h2>
@@ -479,40 +459,34 @@ const ContactUs = () => {
       </section>
       {/* FAQ Section */}
       <section
-        className="py-12 sm:py-16 md:py-20 lg:py-24 bg-neutral-900 relative overflow-hidden"
+        className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft"
         data-aos="fade-up"
         data-aos-delay="300"
       >
-        {/* Subtle background pattern: dots */}
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='5' cy='5' r='2' fill='%239C92AC' fill-opacity='0.15'/%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-          }}
-        ></div>
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading uppercase tracking-wide animate-fade-in">
-              {' '}
-              {/* Added md:text-4xl and tracking-wide uppercase */}
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4 font-heading uppercase tracking-wide">
               Frequently Asked Questions
             </h2>
-            <p className="text-lg text-neutral-300 font-body max-w-2xl mx-auto animate-fade-in">
-              {' '}
-              {/* Changed text-accent to text-neutral-300 */}
+            <div className="w-24 h-1 bg-accent mx-auto mb-4 rounded-full"></div>
+            <p className="text-neutral-300 font-body max-w-2xl mx-auto">
               Answers to common questions about our services and process.
             </p>
           </div>
 
-          <div className="max-w-3xl mx-auto space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {faqs.map((faq, index) => (
-              <FAQCard
+              <motion.div
                 key={index}
-                question={faq.question}
-                answer={faq.answer}
-              />
+                className="bg-neutral-800 p-6 sm:p-8 rounded-2xl shadow-xl border border-accent text-neutral-300 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+                data-aos="zoom-in"
+                data-aos-delay={index * 100}
+              >
+                <h3 className="font-bold text-secondary text-lg sm:text-xl mb-2 font-heading">
+                  {faq.question}
+                </h3>
+                <p className="font-body text-xs sm:text-sm">{faq.answer}</p>
+              </motion.div>
             ))}
           </div>
         </div>

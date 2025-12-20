@@ -83,18 +83,8 @@ const Home = () => {
       </Hero>
       {/* About Us Section - Modern Split Layout */}
 
-      <section className="py-12 sm:py-16 md:py-20 bg-neutral-900 relative overflow-hidden">
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='120' height='60' viewBox='0 0 120 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30 Q30 0 60 30 T120 30' stroke='%23374151' stroke-width='4' fill='none' opacity='0.12'/%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            transform: 'rotate(-8deg) scale(1.2)',
-          }}
-        ></div>
-
-        {/* Standardized container padding: px-4 sm:px-6 lg:px-8 */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center relative z-10">
+      <section className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8 md:gap-16 items-center relative z-10">
           <motion.div
             className="relative flex justify-center items-center min-h-[280px] sm:min-h-[320px] p-4 sm:p-6 order-2 md:order-1"
             initial={{ opacity: 0, x: -50 }}
@@ -143,7 +133,7 @@ const Home = () => {
       </section>
       {/* Why Choose Us Section */}
 
-      <section className="py-12 sm:py-16 md:py-20 bg-primary relative overflow-hidden">
+      <section className="py-20 bg-primary relative overflow-hidden pattern-dots">
         <div
           className="absolute inset-0 z-0 opacity-10"
           style={{
@@ -166,7 +156,7 @@ const Home = () => {
               <span className="text-secondary font-bold uppercase tracking-wider text-xs sm:text-sm font-body">
                 Why Choose Us
               </span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-accent mt-2 mb-4 font-heading leading-tight">
+              <h2 className="text-3xl md:text-4xl font-bold text-accent mt-2 mb-4 font-heading leading-tight">
                 We Provide the{' '}
                 <span className="text-secondary">Best Solutions</span> for Our
                 Clients
@@ -200,28 +190,19 @@ const Home = () => {
       </section>
       {/* Partners and Statistics Section */}
 
-      <section className="py-12 sm:py-16 md:py-20 bg-neutral-900 relative overflow-hidden">
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='20,0 40,40 0,40' fill='%23374151' fill-opacity='0.10'/%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-          }}
-        ></div>
-
-        {/* Standardized container padding: px-4 sm:px-6 lg:px-8 */}
+      <section className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
-            className="text-center mb-12 sm:mb-16"
+            className="text-center mb-14"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-accent mb-4 font-heading">
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading">
               Our Trusted <span className="text-secondary">Partners</span>
             </h2>
-            <div className="w-16 sm:w-24 h-1 bg-secondary mx-auto mb-4"></div>
+            <div className="w-24 h-1 bg-secondary mx-auto mb-4"></div>
             <p className="text-sm sm:text-lg text-neutral-300 font-body max-w-2xl mx-auto">
               Collaborating with industry leaders to bring you the best
               solutions.
@@ -257,26 +238,16 @@ const Home = () => {
       ))}
       {/* Client Reviews Section */}
 
-      <section className="py-12 sm:py-16 md:py-20 bg-neutral-900 relative overflow-hidden">
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='28' stroke='%23374151' stroke-width='2' fill='none' opacity='0.10'/%3E%3Ccircle cx='30' cy='30' r='18' stroke='%23374151' stroke-width='2' fill='none' opacity='0.10'/%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            transform: 'scale(1.1)',
-          }}
-        ></div>
-
-        {/* Standardized container padding: px-4 sm:px-6 lg:px-8 */}
+      <section className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-10 sm:mb-12">
-            <span className="text-secondary font-bold uppercase tracking-wider text-xs sm:text-sm font-body">
+          <div className="text-center mb-14">
+            <span className="text-secondary font-bold uppercase tracking-wider text-sm font-body">
               Testimonials
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-accent mb-4 font-heading">
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading">
               What Our <span className="text-secondary">Clients Say</span>
             </h2>
-            <div className="w-16 sm:w-24 h-1 bg-secondary mx-auto mb-4"></div>
+            <div className="w-24 h-1 bg-secondary mx-auto mb-4"></div>
             <p className="text-sm sm:text-base text-neutral-300 opacity-90 max-w-2xl mx-auto font-body">
               See what our clients say about working with us and how we helped
               them achieve their goals.
@@ -287,54 +258,45 @@ const Home = () => {
       </section>
       {/* FAQ Section */}
 
-      <section className="py-20 bg-primary relative overflow-hidden">
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='20' viewBox='0 0 60 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='0,10 10,0 20,20 30,0 40,20 50,0 60,10' stroke='%23374151' stroke-width='2' fill='none' opacity='0.12'/%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            transform: 'rotate(-5deg) scale(1.05)',
-          }}
-        ></div>
-
-        {/* Standardized container padding: px-4 sm:px-6 lg:px-8 */}
+      <section
+        className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft"
+        data-aos="fade-up"
+        data-aos-delay="700"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-accent mb-4 font-heading">
-              Frequently Asked <span className="text-secondary">Questions</span>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4 font-heading tracking-wide uppercase">
+              Frequently Asked Questions
             </h2>
-            <div className="w-16 sm:w-24 h-1 bg-secondary mx-auto mb-4"></div>
-            <p className="text-sm sm:text-base text-neutral-300 font-body max-w-2xl mx-auto">
+            <div className="w-24 h-1 bg-accent mx-auto mb-4 rounded-full"></div>
+            <p className="text-neutral-300 font-body max-w-2xl mx-auto">
               Find quick answers to common questions about our services and
               approach.
             </p>
-          </motion.div>
-          <FAQGrid faqs={faqs} />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            {faqs.map((faq, idx) => (
+              <motion.div
+                key={faq.question}
+                className="bg-neutral-800 p-6 sm:p-8 rounded-2xl shadow-xl border border-accent text-neutral-300 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+                data-aos="zoom-in"
+                data-aos-delay={idx * 100}
+              >
+                <h3 className="font-bold text-secondary text-lg sm:text-xl mb-2 font-heading">
+                  {faq.question}
+                </h3>
+                <p className="font-body text-xs sm:text-sm">{faq.answer}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
       {/* Call to Action Section */}
-
       <section
-        className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-primary via-neutral-900 to-accent text-center relative overflow-hidden"
+        className="py-20 bg-gradient-to-br from-primary via-neutral-900 to-accent text-center relative overflow-hidden"
         data-aos="fade-up"
         data-aos-delay="900"
       >
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='120' height='60' viewBox='0 0 120 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 30 Q30 0 60 30 T120 30' stroke='%23374151' stroke-width='2' fill='none' opacity='0.10'/%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            transform: 'rotate(10deg) scale(1.2)',
-          }}
-        ></div>
-
-        {/* Standardized container padding: px-4 sm:px-6 lg:px-8 */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -342,7 +304,7 @@ const Home = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-accent mb-4 sm:mb-6 font-heading">
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6 font-heading">
               Ready to Transform Your{' '}
               <span className="text-secondary">Business</span>?
             </h2>
