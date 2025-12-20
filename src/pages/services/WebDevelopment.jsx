@@ -1,11 +1,8 @@
-import React, { useEffect } from 'react'; // Added useEffect for AOS
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Hero } from '../../components';
 import { motion } from 'framer-motion';
-import AOS from 'aos'; // Import AOS
-import 'aos/dist/aos.css'; // Import AOS CSS
 
-// Import all static content from the data file
 import {
   heroData,
   webFeatures,
@@ -16,13 +13,7 @@ import {
   faqs,
 } from '../../data/webDevelopmentData';
 
-//  WebDevelopment Component
-
 const WebDevelopment = () => {
-  useEffect(() => {
-    AOS.init({ once: true, duration: 900, offset: 80 }); // Initialize AOS
-  }, []);
-
   return (
     <div className="min-h-screen bg-primary text-white font-body">
       {/* Hero Section */}
@@ -38,23 +29,14 @@ const WebDevelopment = () => {
             to="/services"
             className="border-2 border-accent text-accent px-8 py-4 rounded-full font-semibold text-lg hover:bg-accent hover:text-primary hover:scale-105 transition-all duration-300 transform-gpu font-body"
           >
-            Explore All Services
+            View All Services
           </Link>
         </div>
       </Hero>
 
       {/* Section 1: About Our Web Solutions - Enhanced Split Layout */}
-      <section className="py-20 bg-neutral-900 relative overflow-hidden">
+      <section className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft">
         {/* Pattern Background */}
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20V40zm20 0L40 20V0H20L0 20h20z'/%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            transform: 'rotate(10deg) scale(1.2)',
-          }}
-        ></div>
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-16 items-center relative z-10">
           {/* Left: Dynamic Image Showcase */}
           <div
@@ -112,7 +94,7 @@ const WebDevelopment = () => {
               not just functional, but truly transformative for user engagement
               and business efficiency.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-8">
               {webFeatures.map((feature, idx) => (
                 <motion.div
                   key={feature.title}
@@ -128,9 +110,12 @@ const WebDevelopment = () => {
                   <span className="w-12 h-12 flex items-center justify-center text-3xl mb-4 bg-secondary text-primary rounded-full shadow-lg">
                     {feature.icon}
                   </span>
-                  <span className="font-semibold text-accent text-base mb-1 font-heading">
+                  <span className="font-semibold text-accent text-base mb-2 font-heading">
                     {feature.title}
                   </span>
+                  <p className="text-neutral-300 text-sm font-body leading-relaxed">
+                    {feature.desc}
+                  </p>
                 </motion.div>
               ))}
             </div>
@@ -147,16 +132,8 @@ const WebDevelopment = () => {
       </section>
 
       {/* Process Section - Progress Bars with consistent background */}
-      <section className="py-20 bg-primary relative overflow-hidden">
+      <section className="py-20 bg-primary relative overflow-hidden pattern-dots">
         {/* Subtle background pattern: hexagonal grid */}
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.15' fill-rule='evenodd'%3E%3Cpath d='M0 20L20 0L40 20L20 40L0 20zM20 0L0 20L20 40L40 20L20 0z'/%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            transform: 'rotate(5deg) scale(1.1)',
-          }}
-        ></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-16 items-center relative z-10">
           {/* Left: Text and Progress Bars */}
           <div
@@ -228,15 +205,8 @@ const WebDevelopment = () => {
       </section>
 
       {/* Technologies Section - Logos Grid with consistent background */}
-      <section className="py-20 bg-neutral-900 relative overflow-hidden">
+      <section className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft">
         {/* Subtle grid pattern background */}
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-          }}
-        ></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             className="text-center mb-14"
@@ -257,7 +227,7 @@ const WebDevelopment = () => {
               that stand the test of time.
             </p>
           </motion.div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 items-center">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 lg:gap-8 items-center">
             {technologies.map((tech, index) => (
               <motion.div
                 key={tech.name}
@@ -296,16 +266,8 @@ const WebDevelopment = () => {
       </section>
 
       {/* Statistics Section - Consistent background */}
-      <section className="py-20 bg-primary relative overflow-hidden">
+      <section className="py-20 bg-primary relative overflow-hidden pattern-dots">
         {/* Subtle abstract pattern background */}
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 0h20v20H0V0zm20 20h20v20H20V20zm20 20h20v20H40V40zm20 20h20v20H60V60z'/%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            transform: 'rotate(20deg) scale(1.1)',
-          }}
-        ></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             className="grid md:grid-cols-3 gap-8 text-center"
@@ -338,16 +300,8 @@ const WebDevelopment = () => {
       </section>
 
       {/* Testimonials Section - Consistent background with subtle pattern */}
-      <section className="py-20 bg-neutral-900 relative overflow-hidden">
+      <section className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft">
         {/* Subtle dot pattern */}
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='2' cy='2' r='1' fill='%239C92AC' fill-opacity='0.2'/%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-          }}
-        ></div>
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div
             className="text-center mb-12"
@@ -382,11 +336,11 @@ const WebDevelopment = () => {
                   "{testimonial.quote}"
                 </p>
                 <div className="flex items-center gap-4 mt-auto w-full justify-center">
-                  {/* <img
+                  <img
                     src={testimonial.avatar}
                     alt={testimonial.name}
                     className="w-12 h-12 rounded-full border-2 border-secondary object-cover"
-                  /> */}
+                  />
                   <div>
                     <div className="font-bold text-secondary-light font-heading text-base">
                       {testimonial.name}
@@ -396,7 +350,7 @@ const WebDevelopment = () => {
                     </div>
                   </div>
                   <span className="ml-auto text-secondary text-3xl font-bold">
-                    “”
+                    ""
                   </span>
                 </div>
               </motion.div>
@@ -406,49 +360,26 @@ const WebDevelopment = () => {
       </section>
 
       {/* FAQ Section - Consistent background */}
-      <section className="py-20 bg-primary relative overflow-hidden">
-        {/* Subtle background pattern: small circles */}
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='3' fill='%239C92AC' fill-opacity='0.1'/%3E%3C/circle%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            transform: 'rotate(-5deg) scale(1.05)',
-          }}
-        ></div>
+      <section className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div
-            className="text-center mb-14"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, amount: 0.5 }}
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading tracking-wide uppercase">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4 font-heading tracking-wide uppercase">
               Common Questions Answered
             </h2>
-            <div className="w-24 h-1 bg-secondary mx-auto mb-4"></div>
-          </motion.div>
-          <div className="max-w-3xl mx-auto space-y-8">
+            <div className="w-24 h-1 bg-accent mx-auto mb-4 rounded-full"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {faqs.map((faq, idx) => (
               <motion.div
                 key={idx}
-                className="bg-neutral-800 rounded-lg p-6 shadow-xl border border-neutral-700 hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.01]"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                viewport={{ once: true, amount: 0.5 }}
-                data-aos="fade-up"
-                data-aos-delay={200 + idx * 70}
+                className="bg-neutral-800 p-6 sm:p-8 rounded-2xl shadow-xl border border-accent text-neutral-300 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+                data-aos="zoom-in"
+                data-aos-delay={idx * 100}
               >
-                <div className="font-bold text-secondary text-xl mb-2 font-heading">
+                <h3 className="font-bold text-secondary text-lg sm:text-xl mb-2 font-heading">
                   {faq.question}
-                </div>
-                <div className="text-neutral-300 leading-relaxed opacity-90 font-body">
-                  {faq.answer}
-                </div>
+                </h3>
+                <p className="font-body text-xs sm:text-sm">{faq.answer}</p>
               </motion.div>
             ))}
           </div>
@@ -458,14 +389,6 @@ const WebDevelopment = () => {
       {/* Call to Action Section - Strongest background */}
       <section className="py-20 bg-gradient-to-br from-primary via-neutral-900 to-secondary text-center relative overflow-hidden">
         {/* Subtle background pattern: abstract shapes */}
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.08' fill-rule='evenodd'%3E%3Cpath d='M0 0h50v50H0V0zm50 50h50v50H50V50z'/%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            transform: 'rotate(30deg) scale(1.5)',
-          }}
-        ></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

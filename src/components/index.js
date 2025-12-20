@@ -1,11 +1,15 @@
 export { default as Footer } from './common/Footer';
 export { default as Header } from './common/Header';
 export { default as Hero } from './common/Hero';
+export { default as HeroEnhanced } from './common/HeroEnhanced';
+export { default as BackToTop } from './BackToTop';
+export { default as PageLoadingSkeletons } from './PageLoadingSkeletons';
+export { default as PageTransition } from './PageTransition';
 export { default as ProductCard } from './cards/ProductCard';
 export { default as ServiceCard } from './cards/ServiceCard';
 export { default as TestimonialCard } from './cards/TestimonialCard';
 export { default as PricingPlanCard } from './cards/PricingPlanCard';
-export { default as FullPageServiceCard } from './cards/FullPageServiceCard';
+export { default as ServiceDetailCard } from './cards/ServiceDetailCard';
 export { default as ProjectCard } from './cards/ProjectCard';
 export { default as FAQCard } from './cards/FAQCard';
 export { default as ClientReviewsGrid } from './grids/ClientReviewsGrid';

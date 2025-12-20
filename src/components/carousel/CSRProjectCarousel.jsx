@@ -62,15 +62,14 @@ function CSRProjectCarousel() {
       <img
         src={csrProjects[current].image}
         alt={`CSR Project ${current + 1}`}
-        className="absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out z-0 transform group-hover:scale-105" // Added transform and group-hover:scale-105 for subtle zoom on hover
+        className="absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out z-0 transform group-hover:scale-105"
       />
       {/* Overlay */}
-      <div className="absolute inset-0 bg-neutral-900/70 z-10" />{' '}
-      {/* Darker, more thematic overlay, kept as it's effective */}
+      <div className="absolute inset-0 bg-neutral-900/70 z-10" />
       {/* Navigation Arrows */}
       <button
         onClick={goToPrev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-neutral-700/50 p-3 rounded-full text-accent opacity-0 group-hover:opacity-100 translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300 z-30 focus:outline-none focus:ring-2 focus:ring-secondary hover:bg-neutral-600/70" // Changed bg-white/10 to bg-neutral-700/50, added opacity/translate for hover reveal, improved hover bg
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-neutral-700/50 p-3 rounded-full text-accent opacity-0 group-hover:opacity-100 translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300 z-30 focus:outline-none focus:ring-2 focus:ring-secondary hover:bg-neutral-600/70"
         aria-label="Previous slide"
       >
         <svg
@@ -89,7 +88,7 @@ function CSRProjectCarousel() {
       </button>
       <button
         onClick={goToNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-neutral-700/50 p-3 rounded-full text-accent opacity-0 group-hover:opacity-100 translate-x-[10px] group-hover:translate-x-0 transition-all duration-300 z-30 focus:outline-none focus:ring-2 focus:ring-secondary hover:bg-neutral-600/70" // Changed bg-white/10 to bg-neutral-700/50, added opacity/translate for hover reveal, improved hover bg
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-neutral-700/50 p-3 rounded-full text-accent opacity-0 group-hover:opacity-100 translate-x-[10px] group-hover:translate-x-0 transition-all duration-300 z-30 focus:outline-none focus:ring-2 focus:ring-secondary hover:bg-neutral-600/70"
         aria-label="Next slide"
       >
         <svg
@@ -125,7 +124,7 @@ function CSRProjectCarousel() {
           <button
             key={idx}
             onClick={() => setCurrent(idx)}
-            className={`w-3 h-3 rounded-full ${current === idx ? 'bg-secondary scale-125 shadow-md' : 'bg-neutral-500/60'} transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-secondary hover:bg-secondary-light`} // Changed bg-white/40 to bg-neutral-500/60, added shadow-md to active dot, adjusted hover effect
+            className={`w-3 h-3 rounded-full ${current === idx ? 'bg-secondary scale-125 shadow-md' : 'bg-neutral-500/60'} transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-secondary hover:bg-secondary-light`}
             aria-label={`Go to slide ${idx + 1}`}
           />
         ))}

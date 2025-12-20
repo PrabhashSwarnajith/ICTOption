@@ -25,7 +25,7 @@ const Footer = () => {
   return (
     <footer className="bg-neutral-900 text-neutral-300 py-7 relative font-body">
       {/* Top Accent Divider */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-red-600 via-red-500 to-red-600"></div>
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary via-accent to-secondary"></div>
 
       {/* Footer Grid */}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 relative z-10">
@@ -38,7 +38,7 @@ const Footer = () => {
               className="h-14 w-auto mr-3"
             />
             <span className="text-xl font-extrabold text-white tracking-wide font-heading">
-              ICT <span className="text-red-500">OPTION</span>
+              ICT <span className="text-secondary">OPTION</span>
             </span>
           </div>
           <p className="text-neutral-400 mb-4 text-sm leading-relaxed">
@@ -47,25 +47,25 @@ const Footer = () => {
           {/* Contact Info */}
           <ul className="space-y-2 text-sm text-neutral-400">
             <li className="flex items-start">
-              <span className="text-red-500 mr-2">📍</span>
+              <span className="text-secondary mr-2">📍</span>
               No: 59/E, Horana Road, Kesbewa, Piliyandala, 10300, Sri Lanka
             </li>
             <li className="flex items-center">
-              <span className="text-red-500 mr-2">📧</span>
+              <span className="text-secondary mr-2">📧</span>
               ictoption321@gmail.com
             </li>
             <li className="flex items-center">
-              <span className="text-red-500 mr-2">📞</span> +94 76 346 5329
+              <span className="text-secondary mr-2">📞</span> +94 76 346 5329
             </li>
             <li className="flex items-center">
-              <span className="text-red-500 mr-2">📞</span> +94 71 115 2255
+              <span className="text-secondary mr-2">📞</span> +94 71 115 2255
             </li>
           </ul>
         </div>
 
         {/* Quick Links */}
         <div>
-          <h4 className="font-bold text-red-500 mb-4 uppercase tracking-wide text-sm">
+          <h4 className="font-bold text-secondary mb-4 uppercase tracking-wide text-sm">
             Quick Links
           </h4>
           <ul className="space-y-2">
@@ -84,7 +84,7 @@ const Footer = () => {
 
         {/* Services */}
         <div>
-          <h4 className="font-bold text-red-500 mb-4 uppercase tracking-wide text-sm">
+          <h4 className="font-bold text-secondary mb-4 uppercase tracking-wide text-sm">
             Services
           </h4>
           <ul className="space-y-2">
@@ -103,19 +103,19 @@ const Footer = () => {
 
         {/* Work Hours */}
         <div>
-          <h4 className="font-bold text-red-500 mb-4 uppercase tracking-wide text-sm">
+          <h4 className="font-bold text-secondary mb-4 uppercase tracking-wide text-sm">
             Work Hours
           </h4>
           <p className="text-white font-semibold text-sm mb-2">
             9 AM - 10 PM,{' '}
-            <span className="text-red-500">Monday - Saturday</span>
+            <span className="text-secondary">Monday - Saturday</span>
           </p>
           <p className="text-neutral-400 text-sm mb-6">
             Get in touch with us for your next project or support needs.
           </p>
           <Link
             to="/contact"
-            className="inline-block bg-red-600 text-white px-6 py-2 rounded-full font-bold shadow-md hover:bg-red-700 transition-transform duration-300 hover:scale-105 text-sm"
+            className="inline-block bg-secondary text-primary px-6 py-2 rounded-full font-bold shadow-md hover:bg-accent transition-all duration-300 hover:scale-105 hover:shadow-lg text-sm"
           >
             JOIN WITH US
           </Link>

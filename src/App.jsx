@@ -1,32 +1,91 @@
-import React from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Header, Footer } from './components';
-const Home = React.lazy(() => import('./pages/Home'));
-const Services = React.lazy(() => import('./pages/Services'));
-const Products = React.lazy(() => import('./pages/Products'));
-const AboutUs = React.lazy(() => import('./pages/AboutUs'));
-const Blog = React.lazy(() => import('./pages/Blog'));
-const ContactUs = React.lazy(() => import('./pages/ContactUs'));
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from 'react-router-dom';
+import AOS from 'aos';
+import { Header, Footer, BackToTop } from './components';
+import PageLoadingSkeletons from './components/PageLoadingSkeletons';
+import { prefetchPages } from './utils/preloadUtils';
 
-const WebDevelopment = React.lazy(
+// Lazy load pages with preloading capability
+const lazyLoadPage = importFunc => {
+  const Component = React.lazy(importFunc);
+  return Component;
+};
+
+const Home = lazyLoadPage(() => import('./pages/Home'));
+const Services = lazyLoadPage(() => import('./pages/Services'));
+const Products = lazyLoadPage(() => import('./pages/Products'));
+const AboutUs = lazyLoadPage(() => import('./pages/AboutUs'));
+const Blog = lazyLoadPage(() => import('./pages/Blog'));
+const ContactUs = lazyLoadPage(() => import('./pages/ContactUs'));
+
+const WebDevelopment = lazyLoadPage(
   () => import('./pages/services/WebDevelopment')
 );
-const MobileAppDevelopment = React.lazy(
+const MobileAppDevelopment = lazyLoadPage(
   () => import('./pages/services/MobileAppDevelopment')
 );
-const DigitalMarketing = React.lazy(
+const DigitalMarketing = lazyLoadPage(
   () => import('./pages/services/DigitalMarketing')
 );
-const ITConsulting = React.lazy(() => import('./pages/services/ITConsulting'));
-const Cybersecurity = React.lazy(
+const ITConsulting = lazyLoadPage(
+  () => import('./pages/services/ITConsulting')
+);
+const Cybersecurity = lazyLoadPage(
   () => import('./pages/services/Cybersecurity')
 );
-const AIMachineLearning = React.lazy(
+const AIMachineLearning = lazyLoadPage(
   () => import('./pages/services/AIMachineLearning')
 );
 
+function AppRoutes() {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Refresh AOS on route change
+    setTimeout(() => {
+      AOS.refresh();
+    }, 100);
+  }, [location.pathname]);
+
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/services" element={<Services />} />
+      <Route path="/services/web-development" element={<WebDevelopment />} />
+      <Route
+        path="/services/mobile-app-development"
+        element={<MobileAppDevelopment />}
+      />
+      <Route
+        path="/services/digital-marketing"
+        element={<DigitalMarketing />}
+      />
+      <Route path="/services/it-consulting" element={<ITConsulting />} />
+      <Route path="/services/cybersecurity" element={<Cybersecurity />} />
+      <Route
+        path="/services/ai-machine-learning"
+        element={<AIMachineLearning />}
+      />
+      <Route path="/products" element={<Products />} />
+      <Route path="/about" element={<AboutUs />} />
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/contact" element={<ContactUs />} />
+    </Routes>
+  );
+}
+
 function App() {
+  useEffect(() => {
+    // Preload critical pages when app mounts
+    prefetchPages();
+  }, []);
+
   return (
     <Router>
       <div className="font-body min-h-screen bg-primary relative overflow-hidden">
@@ -40,46 +99,16 @@ function App() {
 
         {/* Main Content */}
         <main className="relative z-10">
-          <React.Suspense
-            fallback={<div className="text-center py-20">Loading...</div>}
-          >
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/services" element={<Services />} />
-              <Route
-                path="/services/web-development"
-                element={<WebDevelopment />}
-              />
-              <Route
-                path="/services/mobile-app-development"
-                element={<MobileAppDevelopment />}
-              />
-              <Route
-                path="/services/digital-marketing"
-                element={<DigitalMarketing />}
-              />
-              <Route
-                path="/services/it-consulting"
-                element={<ITConsulting />}
-              />
-              <Route
-                path="/services/cybersecurity"
-                element={<Cybersecurity />}
-              />
-              <Route
-                path="/services/ai-machine-learning"
-                element={<AIMachineLearning />}
-              />
-              <Route path="/products" element={<Products />} />
-              <Route path="/about" element={<AboutUs />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/contact" element={<ContactUs />} />
-            </Routes>
-          </React.Suspense>
+          <Suspense fallback={<PageLoadingSkeletons />}>
+            <AppRoutes />
+          </Suspense>
         </main>
 
         {/* Footer */}
         <Footer />
+
+        {/* Back to Top Button */}
+        <BackToTop />
       </div>
       <SpeedInsights />
     </Router>
