@@ -19,7 +19,7 @@ const Hero = ({
           : `linear-gradient(135deg, var(--tw-gradient-stops))`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
+        backgroundAttachment: 'scroll',
       }}
     >
       {/* Gradient Overlay */}
