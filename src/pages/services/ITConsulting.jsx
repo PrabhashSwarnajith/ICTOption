@@ -1,11 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Hero } from '../../components';
 import { motion } from 'framer-motion';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
-// Import all static content from the data file
 import {
   heroData,
   coreServices,
@@ -16,13 +13,7 @@ import {
   faqs,
 } from '../../data/itConsultingData';
 
-//  ITConsulting Component
-
 const ITConsulting = () => {
-  useEffect(() => {
-    AOS.init({ once: true, duration: 900, offset: 80 });
-  }, []);
-
   return (
     <div className="min-h-screen bg-primary text-white font-body">
       {/* Hero Section */}
@@ -38,22 +29,14 @@ const ITConsulting = () => {
             to="/services"
             className="border-2 border-accent text-accent px-8 py-4 rounded-full font-semibold text-lg hover:bg-accent hover:text-primary hover:scale-105 transition-all duration-300 transform-gpu font-body"
           >
-            Explore All Services
+            View All Services
           </Link>
         </div>
       </Hero>
 
       {/* Introduction to IT Consulting */}
-      <section className="py-20 bg-neutral-900 relative overflow-hidden">
+      <section className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft">
         {/* Subtle background pattern: circuit board */}
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M100 0L0 100H50L100 50V0zM0 0L100 100V50L50 0H0z' fill='%239C92AC' fill-opacity='0.1'/%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            transform: 'rotate(15deg) scale(1.2)',
-          }}
-        ></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-16 items-center relative z-10">
           <motion.div
             className="relative flex justify-center items-center min-h-[350px]"
@@ -111,15 +94,8 @@ const ITConsulting = () => {
       </section>
 
       {/* Core IT Consulting Services */}
-      <section className="py-20 bg-primary relative overflow-hidden">
+      <section className="py-20 bg-primary relative overflow-hidden pattern-dots">
         {/* Subtle background pattern: dots */}
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-          }}
-        ></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             className="text-center mb-14"
@@ -139,7 +115,7 @@ const ITConsulting = () => {
               address your most pressing technology needs.
             </p>
           </motion.div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {coreServices.map((service, index) => (
               <motion.div
                 key={index}
@@ -167,16 +143,8 @@ const ITConsulting = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 bg-neutral-900 relative overflow-hidden">
+      <section className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft">
         {/* Subtle background pattern: hexagonal grid */}
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.15' fill-rule='evenodd'%3E%3Cpath d='M0 20L20 0L40 20L20 40L0 20zM20 0L0 20L20 40L40 20L20 0z'/%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            transform: 'rotate(5deg) scale(1.1)',
-          }}
-        ></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             className="text-center mb-14"
@@ -222,16 +190,8 @@ const ITConsulting = () => {
       </section>
 
       {/* Our Consulting Process */}
-      <section className="py-20 bg-primary relative overflow-hidden">
+      <section className="py-20 bg-primary relative overflow-hidden pattern-dots">
         {/* Subtle background pattern: abstract shapes */}
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.08' fill-rule='evenodd'%3E%3Cpath d='M0 0h50v50H0V0zm50 50h50v50H50V50z'/%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            transform: 'rotate(30deg) scale(1.5)',
-          }}
-        ></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             className="text-center mb-14"
@@ -296,16 +256,8 @@ const ITConsulting = () => {
       </section>
 
       {/* Client Success Stories */}
-      <section className="py-20 bg-neutral-900 relative overflow-hidden">
+      <section className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft">
         {/* Subtle background pattern: small circles */}
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='3' fill='%239C92AC' fill-opacity='0.1'/%3E%3C/circle%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            transform: 'rotate(-5deg) scale(1.05)',
-          }}
-        ></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             className="text-center mb-14"
@@ -356,15 +308,8 @@ const ITConsulting = () => {
       </section>
 
       {/* Industries We Serve */}
-      <section className="py-20 bg-primary relative overflow-hidden">
+      <section className="py-20 bg-primary relative overflow-hidden pattern-dots">
         {/* Subtle background pattern: grid lines */}
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h1v10H0V0zm0 0h10v1H0V0z' fill='%239C92AC' fill-opacity='0.15'/%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-          }}
-        ></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             className="text-center mb-14"
@@ -404,15 +349,8 @@ const ITConsulting = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-neutral-900 relative overflow-hidden">
+      <section className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft">
         {/* Subtle background pattern: dots */}
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-          }}
-        ></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             className="text-center mb-14"
@@ -459,14 +397,6 @@ const ITConsulting = () => {
       {/* CTA */}
       <section className="py-20 bg-gradient-to-br from-primary via-neutral-900 to-secondary text-center relative overflow-hidden">
         {/* Subtle background pattern: circuit board */}
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M100 0L0 100H50L100 50V0zM0 0L100 100V50L50 0H0z' fill='%239C92AC' fill-opacity='0.1'/%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            transform: 'rotate(15deg) scale(1.2)',
-          }}
-        ></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
