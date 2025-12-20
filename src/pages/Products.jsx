@@ -82,7 +82,7 @@ const Products = () => {
       </Hero>
 
       {/* Main Products Section */}
-      <section className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft">
+      <section className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-fine">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
             {/* Left: Text Content */}
@@ -141,7 +141,7 @@ const Products = () => {
           {/* Feature Cards Row */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10 mt-12 sm:mt-16 lg:mt-20">
             <div
-              className="bg-neutral-800 p-6 sm:p-8 rounded-2xl shadow-xl flex flex-col items-start border border-neutral-700 min-h-[220px] hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+              className="bg-neutral-800 p-6 sm:p-8 rounded-2xl shadow-xl flex flex-col items-start border border-neutral-700 min-h-[220px] hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 pattern-grid-fine"
               data-aos="fade-up"
               data-aos-delay="0"
             >
@@ -201,7 +201,7 @@ const Products = () => {
 
       {/* Pricing Section (Now Dynamic) */}
       <section
-        className="py-20 bg-primary relative overflow-hidden pattern-dots"
+        className="py-20 bg-primary relative overflow-hidden pattern-grid-fine"
         data-aos="fade-up"
         data-aos-delay="100"
       >
@@ -292,7 +292,7 @@ const Products = () => {
             {testimonials.map((t, idx) => (
               <motion.div
                 key={t.name}
-                className="bg-neutral-800 rounded-xl p-6 sm:p-8 shadow-xl flex flex-col items-start border border-neutral-700 relative max-w-[370px] mx-auto hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+                className="bg-neutral-800 rounded-xl p-6 sm:p-8 shadow-xl flex flex-col items-start border border-neutral-700 relative max-w-[370px] mx-auto hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 pattern-minimal"
                 data-aos="zoom-in"
                 data-aos-delay={idx * 100}
               >
@@ -319,11 +319,7 @@ const Products = () => {
       </section>
 
       {/* FAQ Section (Now Dynamic) */}
-      <section
-        className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft"
-        data-aos="fade-up"
-        data-aos-delay="300"
-      >
+      <section className="py-20 bg-neutral-900 relative overflow-hidden pattern-minimal">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4 font-heading tracking-wide uppercase">
@@ -338,7 +334,7 @@ const Products = () => {
             {faqs.map((faq, idx) => (
               <motion.div
                 key={faq.question}
-                className="bg-neutral-800 p-6 sm:p-8 rounded-2xl shadow-xl border border-accent text-neutral-300 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+                className="bg-neutral-800 p-6 sm:p-8 rounded-2xl shadow-xl border border-accent text-neutral-300 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 pattern-minimal"
                 data-aos="zoom-in"
                 data-aos-delay={idx * 100}
               >

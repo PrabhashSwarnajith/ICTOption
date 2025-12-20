@@ -158,16 +158,12 @@ const ContactUs = () => {
         </div>
       </Hero>
       {/* Contact Form & Info */}
-      <section
-        className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft"
-        data-aos="fade-up"
-        data-aos-delay="100"
-      >
+      <section className="py-20 bg-neutral-900 relative overflow-hidden pattern-minimal">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div
-              className="bg-neutral-800 rounded-2xl shadow-xl p-6 sm:p-8 border border-neutral-700"
+              className="bg-neutral-800 rounded-2xl shadow-xl p-6 sm:p-8 border border-neutral-700 pattern-minimal"
               data-aos="fade-right"
               data-aos-delay="100"
             >
@@ -428,11 +424,7 @@ const ContactUs = () => {
         </div>
       </section>
       {/* Map Section */}
-      <section
-        className="py-20 bg-primary relative overflow-hidden pattern-dots"
-        data-aos="fade-up"
-        data-aos-delay="200"
-      >
+      <section className="py-20 bg-primary relative overflow-hidden pattern-grid-fine">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading uppercase tracking-wide animate-fade-in">
@@ -442,7 +434,7 @@ const ContactUs = () => {
               Located in the heart of the technology district
             </p>
           </div>
-          <div className="bg-neutral-800 rounded-2xl shadow-xl p-6 sm:p-8 border border-neutral-700 animate-slide-up">
+          <div className="bg-neutral-800 rounded-2xl shadow-xl p-6 sm:p-8 border border-neutral-700 animate-slide-up pattern-grid-fine">
             <div className="h-96 w-full rounded-lg overflow-hidden flex items-center justify-center">
               <iframe
                 title="Google Map of ICT Option Office"
@@ -458,11 +450,7 @@ const ContactUs = () => {
         </div>
       </section>
       {/* FAQ Section */}
-      <section
-        className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft"
-        data-aos="fade-up"
-        data-aos-delay="300"
-      >
+      <section className="py-20 bg-neutral-900 relative overflow-hidden pattern-minimal">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4 font-heading uppercase tracking-wide">
@@ -478,7 +466,7 @@ const ContactUs = () => {
             {faqs.map((faq, index) => (
               <motion.div
                 key={index}
-                className="bg-neutral-800 p-6 sm:p-8 rounded-2xl shadow-xl border border-accent text-neutral-300 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+                className="bg-neutral-800 p-6 sm:p-8 rounded-2xl shadow-xl border border-accent text-neutral-300 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 pattern-minimal"
                 data-aos="zoom-in"
                 data-aos-delay={index * 100}
               >

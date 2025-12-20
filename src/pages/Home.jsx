@@ -83,7 +83,7 @@ const Home = () => {
       </Hero>
       {/* About Us Section - Modern Split Layout */}
 
-      <section className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft">
+      <section className="py-20 bg-neutral-900 relative overflow-hidden pattern-dots-small">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8 md:gap-16 items-center relative z-10">
           <motion.div
             className="relative flex justify-center items-center min-h-[280px] sm:min-h-[320px] p-4 sm:p-6 order-2 md:order-1"
@@ -133,16 +133,7 @@ const Home = () => {
       </section>
       {/* Why Choose Us Section */}
 
-      <section className="py-20 bg-primary relative overflow-hidden pattern-dots">
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='16' cy='16' r='2' fill='%23374151' fill-opacity='0.18'/%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            transform: 'scale(1.1)',
-          }}
-        ></div>
-
+      <section className="py-20 bg-primary relative overflow-hidden pattern-grid-fine">
         {/* Standardized container padding: px-4 sm:px-6 lg:px-8 */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center relative z-10">
           <motion.div
@@ -190,7 +181,7 @@ const Home = () => {
       </section>
       {/* Partners and Statistics Section */}
 
-      <section className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft">
+      <section className="py-20 bg-neutral-900 relative overflow-hidden pattern-diagonal">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             className="text-center mb-14"
@@ -270,7 +261,7 @@ const Home = () => {
             {clientReviews.map((t, idx) => (
               <motion.div
                 key={t.name}
-                className="bg-neutral-800 rounded-xl p-6 sm:p-8 shadow-xl flex flex-col items-start border border-neutral-700 relative max-w-[370px] mx-auto hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+                className="bg-neutral-800 rounded-xl p-6 sm:p-8 shadow-xl flex flex-col items-start border border-neutral-700 relative max-w-[370px] mx-auto hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 pattern-dots-small"
                 data-aos="zoom-in"
                 data-aos-delay={idx * 100}
               >
@@ -298,7 +289,7 @@ const Home = () => {
       {/* FAQ Section */}
 
       <section
-        className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft"
+        className="py-20 bg-neutral-900 relative overflow-hidden pattern-minimal"
         data-aos="fade-up"
         data-aos-delay="700"
       >
@@ -317,7 +308,7 @@ const Home = () => {
             {faqs.map((faq, idx) => (
               <motion.div
                 key={faq.question}
-                className="bg-neutral-800 p-6 sm:p-8 rounded-2xl shadow-xl border border-accent text-neutral-300 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+                className="bg-neutral-800 p-6 sm:p-8 rounded-2xl shadow-xl border border-accent text-neutral-300 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 pattern-minimal"
                 data-aos="zoom-in"
                 data-aos-delay={idx * 100}
               >

@@ -86,11 +86,10 @@ const Services = () => {
 
       {/* Featured Solutions (modern cards, accent corners) */}
       <section
-        className="py-12 sm:py-16 md:py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft"
+        className="py-12 sm:py-16 md:py-20 bg-neutral-900 relative overflow-hidden pattern-dots-small"
         data-aos="fade-up"
         data-aos-delay="200"
       >
-        {/* Subtle background pattern: circuit board / digital lines */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4 font-heading tracking-wide uppercase">
@@ -120,7 +119,7 @@ const Services = () => {
 
       {/* Latest Projects (modern card style) */}
       <section
-        className="py-8 sm:py-12 md:py-16 lg:py-20 bg-primary relative overflow-hidden pattern-dots"
+        className="py-8 sm:py-12 md:py-16 lg:py-20 bg-primary relative overflow-hidden pattern-grid-fine"
         data-aos="fade-up"
         data-aos-delay="400"
       >
@@ -155,7 +154,7 @@ const Services = () => {
       </section>
 
       {/* Why Choose Us (modern card style) */}
-      <section className="py-12 sm:py-16 md:py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft">
+      <section className="py-12 sm:py-16 md:py-20 bg-neutral-900 relative overflow-hidden pattern-diagonal">
         {/* Subtle background pattern: diagonal lines */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-6 sm:mb-8 md:mb-10">
@@ -185,7 +184,7 @@ const Services = () => {
       </section>
 
       {/* How We Work (modern card style) */}
-      <section className="py-12 sm:py-16 md:py-20 bg-primary relative overflow-hidden pattern-dots">
+      <section className="py-12 sm:py-16 md:py-20 bg-primary relative overflow-hidden pattern-grid-fine">
         {/* Subtle background pattern: dots */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-6 sm:mb-8 md:mb-10">
@@ -221,7 +220,12 @@ const Services = () => {
         data-aos-delay="600"
       >
         <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" alt="Testimonials Background" loading="lazy" className="w-full h-full object-cover opacity-10" />
+          <img
+            src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80"
+            alt="Testimonials Background"
+            loading="lazy"
+            className="w-full h-full object-cover opacity-10"
+          />
           <div className="absolute inset-0 bg-neutral-900/80" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -242,7 +246,7 @@ const Services = () => {
             {testimonialsData.map((t, idx) => (
               <motion.div
                 key={t.name}
-                className="bg-neutral-800 rounded-xl p-6 sm:p-8 shadow-xl flex flex-col items-start border border-neutral-700 relative max-w-[370px] mx-auto hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+                className="bg-neutral-800 rounded-xl p-6 sm:p-8 shadow-xl flex flex-col items-start border border-neutral-700 relative max-w-[370px] mx-auto hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 pattern-minimal"
                 data-aos="zoom-in"
                 data-aos-delay={idx * 100}
               >
@@ -270,7 +274,7 @@ const Services = () => {
 
       {/* FAQ Section (modern card style) */}
       <section
-        className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft"
+        className="py-20 bg-neutral-900 relative overflow-hidden pattern-minimal"
         data-aos="fade-up"
         data-aos-delay="600"
       >
@@ -289,7 +293,7 @@ const Services = () => {
             {faqsData.map((faq, idx) => (
               <motion.div
                 key={faq.question}
-                className="bg-neutral-800 p-6 sm:p-8 rounded-2xl shadow-xl border border-accent text-neutral-300 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+                className="bg-neutral-800 p-6 sm:p-8 rounded-2xl shadow-xl border border-accent text-neutral-300 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 pattern-minimal"
                 data-aos="zoom-in"
                 data-aos-delay={idx * 100}
               >

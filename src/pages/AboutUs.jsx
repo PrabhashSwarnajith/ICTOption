@@ -51,7 +51,7 @@ const AboutUs = () => {
       </Hero>
       {/* Company Introduction Section */}
       <section
-        className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft"
+        className="py-20 bg-neutral-900 relative overflow-hidden pattern-dots-small"
         data-aos="fade-up"
         data-aos-delay="200"
       >
@@ -69,7 +69,7 @@ const AboutUs = () => {
       </section>
       {/* Core Values Section */}
       <section
-        className="py-20 bg-primary relative overflow-hidden pattern-dots"
+        className="py-20 bg-primary relative overflow-hidden pattern-grid-fine"
         data-aos="fade-up"
         data-aos-delay="300"
       >
@@ -87,7 +87,7 @@ const AboutUs = () => {
             {coreValues.map((value, idx) => (
               <motion.div
                 key={value.title}
-                className={`bg-neutral-800 p-6 sm:p-8 rounded-2xl text-neutral-300 border border-neutral-700 shadow-xl hover:shadow-2xl transition-all duration-300 ${idx === 1 ? 'shadow-glow border-2 border-secondary hover:scale-[1.05]' : 'hover:scale-[1.02]'}`}
+                className={`bg-neutral-800 p-6 sm:p-8 rounded-2xl text-neutral-300 border border-neutral-700 shadow-xl hover:shadow-2xl transition-all duration-300 pattern-grid-fine ${idx === 1 ? 'shadow-glow border-2 border-secondary hover:scale-[1.05]' : 'hover:scale-[1.02]'}`}
                 data-aos="zoom-in"
                 data-aos-delay={idx * 100}
                 whileHover={{ scale: 1.02 }}
@@ -105,7 +105,7 @@ const AboutUs = () => {
       </section>
       {/* Team Section */}
       <section
-        className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft"
+        className="py-20 bg-neutral-900 relative overflow-hidden pattern-diagonal"
         data-aos="fade-up"
         data-aos-delay="400"
       >
@@ -123,7 +123,7 @@ const AboutUs = () => {
             {team.map((member, idx) => (
               <motion.div
                 key={member.name}
-                className="bg-neutral-800 rounded-2xl shadow-lg flex flex-col overflow-hidden border border-neutral-700 relative group transition-all duration-300 hover:shadow-2xl hover:border-accent"
+                className="bg-neutral-800 rounded-2xl shadow-lg flex flex-col overflow-hidden border border-neutral-700 relative group transition-all duration-300 hover:shadow-2xl hover:border-accent pattern-diagonal"
                 data-aos="zoom-in"
                 data-aos-delay={idx * 100}
                 whileHover={{ scale: 1.02 }}
@@ -250,7 +250,7 @@ const AboutUs = () => {
             {testimonials.map((t, idx) => (
               <motion.div
                 key={t.name}
-                className="bg-neutral-800 rounded-xl p-6 sm:p-8 shadow-xl flex flex-col items-start border border-neutral-700 relative max-w-[370px] mx-auto hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+                className="bg-neutral-800 rounded-xl p-6 sm:p-8 shadow-xl flex flex-col items-start border border-neutral-700 relative max-w-[370px] mx-auto hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 pattern-minimal"
                 data-aos="zoom-in"
                 data-aos-delay={idx * 100}
               >
