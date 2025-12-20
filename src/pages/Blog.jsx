@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Hero } from '../components';
-import { motion } from 'framer-motion'; // Import motion from framer-motion
+import { motion } from 'framer-motion';
 
 const Blog = () => {
   const blogPosts = [
@@ -13,7 +13,7 @@ const Blog = () => {
       date: 'December 15, 2024',
       readTime: '5 min read',
       category: 'Web Development',
-      image: 'https://placehold.co/400x250/2a2a2a/f0f0f0?text=Web+Dev+2025', // Updated placeholder
+      image: 'https://placehold.co/400x250/2a2a2a/f0f0f0?text=Web+Dev+2025',
       featured: true,
     },
     {
@@ -24,7 +24,7 @@ const Blog = () => {
       date: 'December 10, 2024',
       readTime: '8 min read',
       category: 'Cloud Computing',
-      image: 'https://placehold.co/400x250/2a2a2a/f0f0f0?text=Cloud+Migration', // Updated placeholder
+      image: 'https://placehold.co/400x250/2a2a2a/f0f0f0?text=Cloud+Migration',
       featured: false,
     },
     {
@@ -35,7 +35,7 @@ const Blog = () => {
       date: 'December 5, 2024',
       readTime: '6 min read',
       category: 'Cybersecurity',
-      image: 'https://placehold.co/400x250/2a2a2a/f0f0f0?text=Cybersecurity', // Updated placeholder
+      image: 'https://placehold.co/400x250/2a2a2a/f0f0f0?text=Cybersecurity',
       featured: false,
     },
     {
@@ -46,7 +46,7 @@ const Blog = () => {
       date: 'November 28, 2024',
       readTime: '10 min read',
       category: 'Mobile Development',
-      image: 'https://placehold.co/400x250/2a2a2a/f0f0f0?text=Mobile+Apps', // Updated placeholder
+      image: 'https://placehold.co/400x250/2a2a2a/f0f0f0?text=Mobile+Apps',
       featured: false,
     },
     {
@@ -57,7 +57,7 @@ const Blog = () => {
       date: 'November 22, 2024',
       readTime: '7 min read',
       category: 'Artificial Intelligence',
-      image: 'https://placehold.co/400x250/2a2a2a/f0f0f0?text=AI+ML', // Updated placeholder
+      image: 'https://placehold.co/400x250/2a2a2a/f0f0f0?text=AI+ML',
       featured: false,
     },
     {
@@ -69,7 +69,7 @@ const Blog = () => {
       readTime: '12 min read',
       category: 'Digital Transformation',
       image:
-        'https://placehold.co/400x250/2a2a2a/f0f0f0?text=Digital+Transform', // Updated placeholder
+        'https://placehold.co/400x250/2a2a2a/f0f0f0?text=Digital+Transform',
       featured: false,
     },
   ];
@@ -102,7 +102,6 @@ const Blog = () => {
         title={
           <span className="text-accent font-heading">
             {' '}
-            {/* Added font-heading */}
             ICT <span className="text-secondary">Blog</span>
           </span>
         }
@@ -126,11 +125,9 @@ const Blog = () => {
         gradient="from-primary via-neutral-900 to-secondary" // Changed via-black to via-neutral-900, to-neutral-dark to to-secondary
       >
         <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8 animate-float">
-          {' '}
-          {/* Removed animate-float */}
           <Link
             to="/contact"
-            className="bg-secondary text-primary px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:bg-secondary-light hover:scale-105 transition-all duration-300 transform-gpu font-body" // Replaced shadow-glow-md with shadow-lg, adjusted hover colors
+            className="bg-secondary text-primary px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:bg-secondary-light hover:scale-105 transition-all duration-300 transform-gpu font-body"
           >
             Subscribe
           </Link>
