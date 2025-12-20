@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Hero } from '../../components';
 import { motion } from 'framer-motion';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 import {
   heroData,
@@ -14,6 +16,10 @@ import {
 } from '../../data/aiMachineLearningData';
 
 const AIMachineLearning = () => {
+  useEffect(() => {
+    AOS.init({ once: true, duration: 600, offset: 50 });
+  }, []);
+
   return (
     <div className="min-h-screen bg-primary text-white font-body">
       {/* Hero Section */}
