@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
-const FullPageServiceCard = ({
+const ServiceDetailCard = ({
   title,
   description,
   features = [],
@@ -11,6 +11,7 @@ const FullPageServiceCard = ({
   link,
   bgColor = 'bg-gradient-to-br from-primary to-neutral-800', // Adjusted default to neutral-800 for consistency
   reverse = false, // Controls layout order
+  compact = false, // New prop for home page compact mode
 }) => {
   // Framer Motion variants for animations
   const containerVariants = {
@@ -60,17 +61,21 @@ const FullPageServiceCard = ({
 
   return (
     <motion.section
-      className={`min-h-screen flex items-center py-20 px-6 overflow-hidden relative ${bgColor}`} // Added relative and bgColor
+      className={`flex items-center overflow-hidden relative ${
+        compact
+          ? 'py-12 sm:py-14 md:py-16 px-4 sm:px-6'
+          : 'min-h-auto py-16 sm:py-20 md:py-24 px-4 sm:px-6'
+      } ${bgColor}`}
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-100px' }} // Trigger animation when 100px from viewport edge
+      viewport={{ once: true, margin: '-100px' }}
     >
       {/* Subtle Background Pattern (Geometric Grid) - Refined Opacity and Color */}
       <div
-        className="absolute inset-0 z-0 opacity-[0.04]" // Slightly increased opacity from 0.03 to 0.04 for a bit more presence
+        className="absolute inset-0 z-0 opacity-[0.04]"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23374151' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20V40zm20 0L40 20V0H20L0 20h20z'/%3E%3C/g%3E%3C/svg%3E")`, // Used neutral-700 color (#374151) for the pattern
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23374151' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20V40zm20 0L40 20V0H20L0 20h20z'/%3E%3C/g%3E%3C/svg%3E")`,
           backgroundRepeat: 'repeat',
           transform: 'rotate(10deg) scale(1.2)',
         }}
@@ -81,11 +86,11 @@ const FullPageServiceCard = ({
         {' '}
         {/* Added w-full */}
         <div
-          className={`grid lg:grid-cols-2 gap-16 items-center ${reverse ? 'lg:grid-flow-col-dense' : ''}`}
+          className={`grid lg:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center ${reverse ? 'lg:grid-flow-col-dense' : ''}`}
         >
           {/* Content Section */}
           <motion.div
-            className={`space-y-8 ${reverse ? 'lg:col-start-2' : ''}`}
+            className={`space-y-6 sm:space-y-8 ${reverse ? 'lg:col-start-2' : ''}`}
             variants={itemVariants}
           >
             {/* Number Badge */}
@@ -93,7 +98,7 @@ const FullPageServiceCard = ({
               className="flex items-center space-x-4"
               variants={itemVariants}
             >
-              <div className="text-primary bg-secondary px-6 py-3 rounded-full font-bold text-lg shadow-xl border border-secondary/50">
+              <div className="text-primary bg-secondary px-4 sm:px-6 py-2 sm:py-3 rounded-full font-bold text-base sm:text-lg shadow-xl border border-secondary/50">
                 {number.toString().padStart(2, '0')}
               </div>
               <div className="h-px bg-neutral-600 flex-1"></div>{' '}
@@ -102,7 +107,11 @@ const FullPageServiceCard = ({
 
             {/* Title */}
             <motion.h1
-              className="text-4xl lg:text-5xl font-bold text-accent leading-tight font-heading"
+              className={`${
+                compact
+                  ? 'text-2xl sm:text-3xl md:text-4xl'
+                  : 'text-3xl sm:text-4xl md:text-5xl'
+              } font-bold text-accent leading-tight font-heading`}
               variants={itemVariants}
             >
               {title}
@@ -110,7 +119,9 @@ const FullPageServiceCard = ({
 
             {/* Description */}
             <motion.p
-              className="text-lg text-neutral-300 leading-relaxed max-w-2xl font-body" // Changed text color to neutral-300
+              className={`${
+                compact ? 'text-base' : 'text-lg'
+              } text-neutral-300 leading-relaxed max-w-2xl font-body`}
               variants={itemVariants}
             >
               {description}
@@ -122,7 +133,7 @@ const FullPageServiceCard = ({
                 {features.map((feature, index) => (
                   <motion.div
                     key={index}
-                    className="flex items-start space-x-3" // Changed to items-start for better multi-line alignment
+                    className="flex items-start space-x-3"
                     variants={itemVariants}
                     whileHover={{ x: 8 }}
                     transition={{ duration: 0.2 }}
@@ -139,12 +150,14 @@ const FullPageServiceCard = ({
 
             {/* CTA Buttons */}
             <motion.div
-              className="flex flex-col sm:flex-row gap-4 pt-8"
+              className={`flex flex-col sm:flex-row gap-4 ${
+                compact ? 'pt-6' : 'pt-8'
+              }`}
               variants={itemVariants}
             >
               <Link
                 to={link}
-                className="bg-secondary text-primary px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 text-center group transform hover:scale-105 hover:bg-secondary-light" // Consistent hover with Home component
+                className="bg-secondary text-primary px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 text-center group transform hover:scale-105 hover:bg-secondary-light"
               >
                 <span className="flex items-center justify-center space-x-2">
                   <span>Explore Service</span>
@@ -166,7 +179,7 @@ const FullPageServiceCard = ({
 
               <Link
                 to="/contact"
-                className="border-2 border-accent text-accent px-8 py-4 rounded-full font-semibold text-lg hover:bg-accent hover:text-primary transition-all duration-300 text-center transform hover:scale-105" // Consistent hover with Home component
+                className="border-2 border-accent text-accent px-8 py-4 rounded-full font-semibold text-lg hover:bg-accent hover:text-primary transition-all duration-300 text-center transform hover:scale-105"
               >
                 Get Quote
               </Link>
@@ -185,7 +198,12 @@ const FullPageServiceCard = ({
               <img
                 src={image}
                 alt={title}
-                className="w-full h-96 lg:h-[500px] object-cover"
+                className={`w-full object-cover transition-transform duration-500 hover:scale-110 ${
+                  compact
+                    ? 'h-56 sm:h-64 md:h-72'
+                    : 'sm:h-80 md:h-96 lg:h-[450px]'
+                }`}
+                loading="lazy"
               />
               {/* Overlay Content */}
               <div className="absolute bottom-6 left-6 right-6">
@@ -203,7 +221,9 @@ const FullPageServiceCard = ({
             </div>
             {/* Floating Number Badge */}
             <motion.div
-              className="absolute -top-6 -right-6 bg-accent text-primary p-8 rounded-2xl shadow-2xl border-4 border-accent/40"
+              className={`absolute bg-accent text-primary p-8 rounded-2xl shadow-2xl border-4 border-accent/40 ${
+                compact ? '-top-4 -right-4' : '-top-6 -right-6'
+              }`}
               initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
               whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
               transition={{ delay: 1, duration: 0.6 }} // Slightly reduced delay
@@ -223,4 +243,4 @@ const FullPageServiceCard = ({
   );
 };
 
-export default FullPageServiceCard;
+export default ServiceDetailCard;
