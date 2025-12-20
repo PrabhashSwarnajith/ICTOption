@@ -110,9 +110,12 @@ const WebDevelopment = () => {
                   <span className="w-12 h-12 flex items-center justify-center text-3xl mb-4 bg-secondary text-primary rounded-full shadow-lg">
                     {feature.icon}
                   </span>
-                  <span className="font-semibold text-accent text-base mb-1 font-heading">
+                  <span className="font-semibold text-accent text-base mb-2 font-heading">
                     {feature.title}
                   </span>
+                  <p className="text-neutral-300 text-sm font-body leading-relaxed">
+                    {feature.desc}
+                  </p>
                 </motion.div>
               ))}
             </div>
@@ -332,8 +335,13 @@ const WebDevelopment = () => {
                 <p className="text-neutral-300 text-base mb-6 text-center italic font-body leading-relaxed">
                   "{testimonial.quote}"
                 </p>
-                <div className="flex items-center justify-center mt-auto w-full">
-                  <div className="text-center">
+                <div className="flex items-center gap-4 mt-auto w-full justify-center">
+                  <img
+                    src={testimonial.avatar}
+                    alt={testimonial.name}
+                    className="w-12 h-12 rounded-full border-2 border-secondary object-cover"
+                  />
+                  <div>
                     <div className="font-bold text-secondary-light font-heading text-base">
                       {testimonial.name}
                     </div>
@@ -341,6 +349,9 @@ const WebDevelopment = () => {
                       {testimonial.title}
                     </div>
                   </div>
+                  <span className="ml-auto text-secondary text-3xl font-bold">
+                    ""
+                  </span>
                 </div>
               </motion.div>
             ))}

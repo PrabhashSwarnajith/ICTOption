@@ -1,9 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Hero } from '../../components';
 import { motion } from 'framer-motion';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 import {
   heroData,
@@ -16,10 +14,6 @@ import {
 } from '../../data/aiMachineLearningData';
 
 const AIMachineLearning = () => {
-  useEffect(() => {
-    AOS.init({ once: true, duration: 600, offset: 50 });
-  }, []);
-
   return (
     <div className="min-h-screen bg-primary text-white font-body">
       {/* Hero Section */}
@@ -51,8 +45,8 @@ const AIMachineLearning = () => {
             className="relative flex justify-center items-center min-h-[350px] p-4" // Added p-4 for consistency
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            viewport={{ once: true, amount: 0.3 }}
             data-aos="fade-right" // Added AOS
             data-aos-delay="100" // Added AOS delay
           >
@@ -71,8 +65,8 @@ const AIMachineLearning = () => {
             className="pl-0 md:pl-8"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            viewport={{ once: true, amount: 0.3 }}
             data-aos="fade-left" // Added AOS
             data-aos-delay="200" // Added AOS delay
           >
@@ -146,10 +140,10 @@ const AIMachineLearning = () => {
               <motion.div
                 key={index}
                 className="bg-neutral-800 p-6 rounded-xl shadow-lg border border-neutral-700 transition-all duration-300 hover:shadow-2xl hover:scale-[1.03]" // Adjusted background, border for consistency
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
-                viewport={{ once: true, amount: 0.5 }} // Added amount for consistency
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                viewport={{ once: true, amount: 0.2 }} // Added amount for consistency
                 data-aos="fade-up" // Added AOS
                 data-aos-delay={200 + index * 70} // Added AOS delay
               >
@@ -333,32 +327,26 @@ const AIMachineLearning = () => {
             {successStories.map((story, index) => (
               <motion.div
                 key={index}
-                className="bg-neutral-800 p-6 rounded-xl text-white shadow-lg border-t-4 border-secondary flex flex-col transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl overflow-hidden" // Adjusted background, text color for consistency
-                initial={{ opacity: 0, y: 30 }}
+                className="bg-neutral-800 p-6 rounded-xl text-white shadow-lg border-t-4 border-secondary flex flex-col transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl overflow-hidden"
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true, amount: 0.5 }} // Added amount for consistency
-                data-aos="fade-up" // Added AOS
-                data-aos-delay={200 + index * 80} // Added AOS delay
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                viewport={{ once: true, amount: 0.1 }}
               >
                 <img
                   src={story.image}
                   alt={story.title}
-                  className="w-full h-40 object-cover rounded-md mb-4 border border-neutral-700  transition-all duration-500 hover:grayscale-0" // Adjusted border, added grayscale for consistency
+                  className="w-full h-40 object-cover rounded-md mb-4 border border-neutral-700"
+                  loading="lazy"
                 />
                 <h3 className="font-bold text-accent text-xl mb-3 font-heading">
-                  {' '}
-                  {/* Adjusted text color, added font-heading */}
                   {story.title}
                 </h3>
                 <p className="text-neutral-300 text-base leading-relaxed opacity-90 flex-grow font-body">
-                  {' '}
-                  {/* Adjusted text color, opacity, added font-body */}
                   {story.description}
                 </p>
                 <div className="mt-4 text-right text-sm italic opacity-80 text-neutral-400 font-body">
-                  {' '}
-                  {/* Adjusted text color, added font-body */}— Client Success
+                  — Client Success
                 </div>
               </motion.div>
             ))}
@@ -466,8 +454,8 @@ const AIMachineLearning = () => {
                 className="bg-neutral-800 text-neutral-300 px-6 py-3 rounded-full text-lg font-medium shadow-md border border-neutral-700 cursor-default transition-all duration-300 hover:bg-secondary hover:text-primary hover:scale-105" // Adjusted background, text color, and hover for consistency
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                viewport={{ once: true, amount: 0.5 }} // Added amount for consistency
+                transition={{ duration: 0.3, delay: index * 0.03 }}
+                viewport={{ once: true, amount: 0.2 }} // Added amount for consistency
                 data-aos="zoom-in" // Added AOS
                 data-aos-delay={200 + index * 40} // Added AOS delay
               >
@@ -485,8 +473,8 @@ const AIMachineLearning = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true, amount: 0.3 }}
             data-aos="fade-up"
             data-aos-delay="100"
           >

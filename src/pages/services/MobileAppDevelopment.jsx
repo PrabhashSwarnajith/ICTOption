@@ -97,9 +97,12 @@ const MobileAppDevelopment = () => {
                   <span className="w-12 h-12 flex items-center justify-center text-3xl mb-4 bg-secondary text-primary rounded-full shadow-lg">
                     {feature.icon}
                   </span>
-                  <span className="font-semibold text-accent text-base mb-1 font-heading">
+                  <span className="font-semibold text-accent text-base mb-2 font-heading">
                     {feature.text}
                   </span>
+                  <p className="text-neutral-300 text-sm font-body leading-relaxed">
+                    {feature.desc}
+                  </p>
                 </motion.div>
               ))}
             </div>
