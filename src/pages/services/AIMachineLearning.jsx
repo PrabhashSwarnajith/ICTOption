@@ -417,7 +417,7 @@ const AIMachineLearning = () => {
       </section>
 
       {/* Industries We Serve */}
-      <section className="py-20 bg-primary relative overflow-hidden pattern-dots">
+      <section className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft">
         {' '}
         {/* Adjusted background for consistency, added relative overflow-hidden */}
         {/* Subtle background circles/dots */}

@@ -129,13 +129,27 @@ const Products = () => {
               className="flex-1 flex justify-center order-first md:order-last"
               data-aos="fade-left"
             >
-              <img
-                src={ps}
-                alt="Project Specialist"
-                className="rounded-2xl object-cover w-full max-w-xs sm:max-w-sm md:max-w-md shadow-2xl border-4 border-secondary hover:scale-105 transition-transform duration-500"
-                style={{ aspectRatio: '4/5' }}
-                loading="lazy"
-              />
+              <div className="relative max-w-xs sm:max-w-sm md:max-w-md">
+                <img
+                  src={ps}
+                  alt="Project Specialist"
+                  className="rounded-2xl object-cover w-full shadow-2xl border-4 border-secondary hover:scale-105 transition-transform duration-500"
+                  style={{ aspectRatio: '4/5' }}
+                  loading="lazy"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-6 sm:p-8 rounded-b-2xl text-center">
+                  <h3 className="text-lg sm:text-xl font-bold text-secondary mb-1 font-heading">
+                    Mohamed Asfak
+                  </h3>
+                  <p className="text-accent text-sm sm:text-base font-semibold mb-2 font-body">
+                    Senior Software Engineer
+                  </p>
+                  <p className="text-neutral-300 text-xs sm:text-sm font-body">
+                    Expert in software engineering and digital solutions with 3+
+                    years of experience
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
           {/* Feature Cards Row */}
@@ -156,7 +170,7 @@ const Products = () => {
               </p>
             </div>
             <div
-              className="bg-neutral-800 p-6 sm:p-8 rounded-2xl shadow-xl flex flex-col items-start border border-neutral-700 min-h-[220px] hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+              className="bg-neutral-800 p-6 sm:p-8 rounded-2xl shadow-xl flex flex-col items-start border border-neutral-700 min-h-[220px] hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 pattern-grid-fine"
               data-aos="fade-up"
               data-aos-delay="100"
             >
@@ -182,9 +196,28 @@ const Products = () => {
               </p>
             </div>
           </div>
-          {/* Our Products Row (Already dynamic) */}
+        </div>
+      </section>
+
+      {/* Products Section */}
+      <section
+        className="py-20 bg-primary relative overflow-hidden pattern-grid-fine"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading tracking-wide uppercase">
+              Our Products
+            </h2>
+            <div className="w-24 h-1 bg-secondary mx-auto mb-4 rounded-full"></div>
+            <p className="text-neutral-300 font-body max-w-2xl mx-auto">
+              Innovative products designed to accelerate your business growth
+              and streamline operations.
+            </p>
+          </div>
           <motion.div
-            className="grid md:grid-cols-2 gap-10 mt-16"
+            className="grid md:grid-cols-2 gap-10"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -201,7 +234,7 @@ const Products = () => {
 
       {/* Pricing Section (Now Dynamic) */}
       <section
-        className="py-20 bg-primary relative overflow-hidden pattern-grid-fine"
+        className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-fine"
         data-aos="fade-up"
         data-aos-delay="100"
       >
