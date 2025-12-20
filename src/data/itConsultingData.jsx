@@ -180,25 +180,25 @@ export const whyChooseUsPoints = [
 
 export const consultingProcess = [
   {
-    step: '1. Discover & Assess',
+    step: 'Discover & Assess',
     description:
       'In-depth analysis of your current IT landscape, business objectives, challenges, and opportunities.',
     icon: '🔍',
   },
   {
-    step: '2. Strategize & Plan',
+    step: 'Strategize & Plan',
     description:
       'Collaborative development of a tailored IT strategy, detailed roadmap, and actionable implementation plan.',
     icon: '🗺️',
   },
   {
-    step: '3. Design & Implement',
+    step: 'Design & Implement',
     description:
       'Architecting solutions, overseeing technology deployment, and ensuring seamless integration.',
     icon: '🏗️',
   },
   {
-    step: '4. Optimize & Support',
+    step: 'Optimize & Support',
     description:
       'Continuous monitoring, performance optimization, and ongoing support to ensure long-term success.',
     icon: '📈',

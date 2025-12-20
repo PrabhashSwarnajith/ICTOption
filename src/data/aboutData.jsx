@@ -4,7 +4,7 @@ import gayan from '../assets/team/gayan.webp';
 import rachi from '../assets/team/rachi.webp';
 import ks from '../assets/team/ks.webp';
 import kavi from '../assets/team/kavi.webp';
-import isuru from '../assets/team/isuru.webp';
+import chulith from '../assets/team/chulith.webp';
 import harini from '../assets/team/harini.webp';
 import about from '../assets/img/about.webp';
 
@@ -47,9 +47,9 @@ export const team = [
     description: 'Manages financial planning and analysis.',
   },
   {
-    name: 'Isuru Nimeshwara Kularathne',
+    name: 'Chulith Adikari',
     role: 'Head of Marketing',
-    image: isuru,
+    image: chulith,
     description: 'Leads marketing and brand strategy.',
   },
 ];

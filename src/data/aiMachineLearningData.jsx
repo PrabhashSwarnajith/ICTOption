@@ -120,27 +120,27 @@ export const whyChooseUsPoints = [
 
 export const processSteps = [
   {
-    step: '1. Discovery & Strategy',
+    step: 'Discovery & Strategy',
     description:
       'We begin by thoroughly understanding your business objectives, current challenges, available data, and identifying high-impact AI opportunities.',
   },
   {
-    step: '2. Data Engineering & Preparation',
+    step: 'Data Engineering & Preparation',
     description:
       "Our team collects, cleans, transforms, and prepares your data, ensuring it's ready for robust AI model training and deployment.",
   },
   {
-    step: '3. Model Development & Training',
+    step: 'Model Development & Training',
     description:
       'We design, build, and rigorously train custom AI/ML models tailored to your specific use cases, iteratively refining for optimal performance.',
   },
   {
-    step: '4. Deployment & Integration',
+    step: 'Deployment & Integration',
     description:
       'Your AI solution is seamlessly integrated into your existing systems and infrastructure, ensuring smooth operation and minimal disruption.',
   },
   {
-    step: '5. Monitoring & Optimization',
+    step: 'Monitoring & Optimization',
     description:
       'We provide continuous monitoring of model performance, ongoing optimization, and support to ensure long-term value and adaptability.',
   },
