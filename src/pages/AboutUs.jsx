@@ -51,25 +51,17 @@ const AboutUs = () => {
       </Hero>
       {/* Company Introduction Section */}
       <section
-        className="py-12 sm:py-16 md:py-20 lg:py-24 bg-neutral-900 relative overflow-hidden"
+        className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft"
         data-aos="fade-up"
         data-aos-delay="200"
       >
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23374151' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20V40zm20 0L40 20V0H20L0 20h20z'/%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            transform: 'rotate(10deg) scale(1.2)',
-          }}
-        ></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-10 sm:mb-12 md:mb-14">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-accent mb-4 font-heading tracking-wide uppercase">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading tracking-wide uppercase">
               {companyIntro.heading}
             </h2>
-            <div className="w-16 sm:w-24 h-1 bg-secondary mx-auto mb-4 sm:mb-6 rounded-full"></div>
-            <p className="text-sm sm:text-base md:text-lg text-neutral-300 font-body max-w-3xl mx-auto leading-relaxed">
+            <div className="w-24 h-1 bg-secondary mx-auto mb-4 rounded-full"></div>
+            <p className="text-neutral-300 font-body max-w-3xl mx-auto leading-relaxed">
               {companyIntro.description}
             </p>
           </div>
@@ -77,29 +69,21 @@ const AboutUs = () => {
       </section>
       {/* Core Values Section */}
       <section
-        className="py-12 sm:py-16 md:py-20 lg:py-24 bg-primary relative overflow-hidden"
+        className="py-20 bg-primary relative overflow-hidden pattern-dots"
         data-aos="fade-up"
         data-aos-delay="300"
       >
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23374151' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 20L20 0L40 20L20 40L0 20zM20 0L0 20L20 40L40 20L20 0z'/%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            transform: 'rotate(15deg) scale(1.1)',
-          }}
-        ></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-10 sm:mb-12 md:mb-14">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary mb-4 font-heading tracking-wide uppercase">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4 font-heading tracking-wide uppercase">
               Our Core Values
             </h2>
-            <div className="w-16 sm:w-24 h-1 bg-accent mx-auto mb-4 sm:mb-6 rounded-full"></div>
-            <p className="text-sm sm:text-base md:text-lg text-neutral-300 font-body max-w-2xl mx-auto">
+            <div className="w-24 h-1 bg-accent mx-auto mb-4 rounded-full"></div>
+            <p className="text-neutral-300 font-body max-w-2xl mx-auto">
               The principles that guide our work and partnerships.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             {coreValues.map((value, idx) => (
               <motion.div
                 key={value.title}
@@ -121,29 +105,21 @@ const AboutUs = () => {
       </section>
       {/* Team Section */}
       <section
-        className="py-12 sm:py-16 md:py-20 lg:py-24 bg-neutral-900 relative overflow-hidden"
+        className="py-20 bg-neutral-900 relative overflow-hidden pattern-grid-soft"
         data-aos="fade-up"
         data-aos-delay="400"
       >
-        <div
-          className="absolute inset-0 z-0 opacity-10"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23374151' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 0h20v20H0V0zm20 20h20v20H20V20zm20 20h20v20H40V40zm20 20h20v20H60V60z'/%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            transform: 'rotate(-20deg) scale(1.3)',
-          }}
-        ></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-10 sm:mb-12 md:mb-14">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-accent mb-4 font-heading tracking-wide uppercase">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading tracking-wide uppercase">
               Our Team
             </h2>
-            <div className="w-16 sm:w-24 h-1 bg-secondary mx-auto mb-4 sm:mb-6 rounded-full"></div>
-            <p className="text-sm sm:text-base md:text-lg text-neutral-300 font-body max-w-2xl mx-auto">
+            <div className="w-24 h-1 bg-secondary mx-auto mb-4 rounded-full"></div>
+            <p className="text-neutral-300 font-body max-w-2xl mx-auto">
               Over 3 years of experience delivering innovative solutions.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
             {team.map((member, idx) => (
               <motion.div
                 key={member.name}
