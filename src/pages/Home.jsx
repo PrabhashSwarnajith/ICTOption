@@ -1,8 +1,15 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import AOS from 'aos'; // Import AOS
-import 'aos/dist/aos.css'; // Import AOS styles
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { setPageMeta } from '../utils/seoUtils';
+import {
+  containerVariants,
+  itemVariants,
+  slideInLeftVariants,
+  slideInRightVariants,
+} from '../utils/animationVariants';
 import {
   FullPageServiceCard,
   Hero,
@@ -13,7 +20,7 @@ import {
   ClientReviewsGrid,
   FAQGrid,
 } from '../components';
-import home from '../assets/img/home.webp'; // Dynamic hero image
+import home from '../assets/img/home.webp';
 import home1 from '../assets/img/home1.webp';
 import home2 from '../assets/img/home2.webp';
 import {
@@ -26,24 +33,22 @@ import {
   faqs,
 } from '../data/homeData.jsx';
 
-//  Home Component
-
 const Home = () => {
   // Initialize AOS on component mount
   useEffect(() => {
     AOS.init({ once: true, duration: 900, offset: 80 });
+    setPageMeta(
+      'Home | Digital Solutions & Web Development Services',
+      'ICT Option provides cutting-edge digital solutions, web development, mobile apps, AI/ML, digital marketing, and IT consulting services to transform your business.',
+      'web development, mobile app development, digital marketing, AI machine learning, IT consulting, cybersecurity, digital solutions',
+      '/'
+    );
   }, []);
 
   return (
     <div className="min-h-screen bg-primary text-white">
       {/* Hero Section */}
-      {/* Hero component handles its own internal padding and alignment */}
       <Hero
-        // title={
-        //   <span className="text-accent font-heading">
-        //     ICT <span className="text-secondary">OPTION</span>
-        //   </span>
-        // }
         subtitle={
           <span className="text-accent font-heading">
             Transforming Ideas into{' '}
@@ -61,16 +66,16 @@ const Home = () => {
         gradient="from-primary via-black/80 to-neutral-900"
         className="brightness-110"
       >
-        <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8 animate-float">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mt-6 sm:mt-8 animate-float">
           <Link
             to="/services"
-            className="bg-secondary text-primary px-8 py-4 rounded-full font-semibold text-lg shadow-glow-md hover:bg-secondary-light hover:scale-105 transition-all duration-300 transform-gpu font-body"
+            className="bg-secondary text-primary px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-lg shadow-glow-md hover:bg-secondary-light hover:scale-105 transition-all duration-300 transform-gpu font-body text-center"
           >
             Explore Services
           </Link>
           <Link
             to="/contact"
-            className="border-2 border-accent text-accent px-8 py-4 rounded-full font-semibold text-lg hover:bg-accent hover:text-primary hover:scale-105 transition-all duration-300 transform-gpu font-body"
+            className="border-2 border-accent text-accent px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-lg hover:bg-accent hover:text-primary hover:scale-105 transition-all duration-300 transform-gpu font-body text-center"
           >
             Get In Touch
           </Link>
@@ -78,7 +83,7 @@ const Home = () => {
       </Hero>
       {/* About Us Section - Modern Split Layout */}
 
-      <section className="py-20 bg-neutral-900 relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 bg-neutral-900 relative overflow-hidden">
         <div
           className="absolute inset-0 z-0 opacity-10"
           style={{
@@ -89,38 +94,39 @@ const Home = () => {
         ></div>
 
         {/* Standardized container padding: px-4 sm:px-6 lg:px-8 */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-16 items-center relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center relative z-10">
           <motion.div
-            className="relative flex justify-center items-center min-h-[320px] p-4 sm:p-6" /* Added inner padding for image */
+            className="relative flex justify-center items-center min-h-[280px] sm:min-h-[320px] p-4 sm:p-6 order-2 md:order-1"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <div className="absolute -top-8 -left-8 w-24 h-24 bg-secondary rounded-xl z-0 shadow-lg"></div>
+            <div className="absolute -top-6 -left-6 sm:-top-8 sm:-left-8 w-16 sm:w-24 h-16 sm:h-24 bg-secondary rounded-xl z-0 shadow-lg"></div>
             <img
               src={home1}
-              alt="About ICT Option"
-              className="relative z-10 rounded-2xl shadow-2xl w-full max-w-lg object-cover hover:scale-105 transition-transform duration-500"
+              alt="About Us - Innovation and Digital Solutions"
+              className="relative z-10 rounded-2xl shadow-2xl w-full max-w-xs sm:max-w-lg object-cover hover:scale-105 transition-transform duration-500"
               style={{ aspectRatio: '4/3' }}
+              loading="lazy"
             />
-            <div className="absolute -bottom-8 -right-8 w-16 h-16 bg-secondary-dark rounded-xl z-0 shadow-lg"></div>
+            <div className="absolute -bottom-6 -right-6 sm:-bottom-8 sm:-right-8 w-12 sm:w-16 h-12 sm:h-16 bg-secondary-dark rounded-xl z-0 shadow-lg"></div>
           </motion.div>
           <motion.div
-            className="pl-0 md:pl-8" // This padding remains for desktop layout
+            className="pl-0 md:pl-8 order-1 md:order-2" // This padding remains for desktop layout
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <span className="text-secondary font-bold uppercase tracking-wider text-sm font-body">
+            <span className="text-secondary font-bold uppercase tracking-wider text-xs sm:text-sm font-body">
               About Us
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-accent mt-2 mb-4 font-heading leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-accent mt-2 mb-4 font-heading leading-tight">
               Best Tech Solutions & Digital Services Since{' '}
               <span className="text-secondary">2023</span>
             </h2>
-            <p className="text-neutral-300 opacity-90 mb-8 max-w-xl font-body">
+            <p className="text-sm sm:text-base text-neutral-300 opacity-90 mb-6 sm:mb-8 max-w-xl font-body">
               We deliver innovative, reliable, and scalable technology solutions
               for businesses of all sizes. Our team combines deep expertise,
               modern tools, and a passion for client success.
@@ -128,7 +134,7 @@ const Home = () => {
             <AboutFeaturesList features={aboutFeatures} />
             <Link
               to="/about"
-              className="inline-block bg-secondary text-primary px-8 py-4 rounded-full font-semibold shadow-glow-md hover:bg-secondary-light transition-all duration-300 transform hover:scale-105 font-body"
+              className="inline-block bg-secondary text-primary px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold shadow-glow-md hover:bg-secondary-light transition-all duration-300 transform hover:scale-105 font-body text-sm sm:text-base"
             >
               Our Company
             </Link>
@@ -137,7 +143,7 @@ const Home = () => {
       </section>
       {/* Why Choose Us Section */}
 
-      <section className="py-20 bg-primary relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 bg-primary relative overflow-hidden">
         <div
           className="absolute inset-0 z-0 opacity-10"
           style={{
@@ -148,24 +154,24 @@ const Home = () => {
         ></div>
 
         {/* Standardized container padding: px-4 sm:px-6 lg:px-8 */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-16 items-center relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center relative z-10">
           <motion.div
-            className="pr-0 md:pr-8" // This padding remains for desktop layout
+            className="pr-0 md:pr-8 order-2 md:order-1"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <div className="mb-6">
-              <span className="text-secondary font-bold uppercase tracking-wider text-sm font-body">
+            <div className="mb-4 sm:mb-6">
+              <span className="text-secondary font-bold uppercase tracking-wider text-xs sm:text-sm font-body">
                 Why Choose Us
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-accent mt-2 mb-4 font-heading leading-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-accent mt-2 mb-4 font-heading leading-tight">
                 We Provide the{' '}
                 <span className="text-secondary">Best Solutions</span> for Our
                 Clients
               </h2>
-              <p className="text-neutral-300 opacity-90 mb-8 max-w-xl font-body">
+              <p className="text-sm sm:text-base text-neutral-300 opacity-90 mb-6 sm:mb-8 max-w-xl font-body">
                 Our team delivers exceptional results with a focus on
                 experience, expertise, and value. We combine top talent, modern
                 technology, and a client-first approach to help you succeed.
@@ -174,26 +180,27 @@ const Home = () => {
             <WhyChooseUsProgress points={whyChooseUsPoints} />
           </motion.div>
           <motion.div
-            className="relative flex justify-center items-center min-h-[320px] p-4 sm:p-6" /* Added inner padding for image */
+            className="relative flex justify-center items-center min-h-[280px] sm:min-h-[320px] p-4 sm:p-6 order-1 md:order-2"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <div className="absolute -top-8 -left-8 w-24 h-24 bg-secondary rounded-xl z-0 shadow-lg"></div>
+            <div className="absolute -top-6 -left-6 sm:-top-8 sm:-left-8 w-16 sm:w-24 h-16 sm:h-24 bg-secondary rounded-xl z-0 shadow-lg"></div>
             <img
               src={home2}
-              alt="Team Collaboration"
-              className="relative z-10 rounded-2xl shadow-2xl w-full max-w-lg object-cover hover:scale-105 transition-transform duration-500"
+              alt="Team Collaboration and Expertise"
+              className="relative z-10 rounded-2xl shadow-2xl w-full max-w-xs sm:max-w-lg object-cover hover:scale-105 transition-transform duration-500"
               style={{ aspectRatio: '4/3' }}
+              loading="lazy"
             />
-            <div className="absolute -bottom-8 -right-8 w-16 h-16 bg-secondary-dark rounded-xl z-0 shadow-lg"></div>
+            <div className="absolute -bottom-6 -right-6 sm:-bottom-8 sm:-right-8 w-12 sm:w-16 h-12 sm:h-16 bg-secondary-dark rounded-xl z-0 shadow-lg"></div>
           </motion.div>
         </div>
       </section>
       {/* Partners and Statistics Section */}
 
-      <section className="py-20 bg-neutral-900 relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 bg-neutral-900 relative overflow-hidden">
         <div
           className="absolute inset-0 z-0 opacity-10"
           style={{
@@ -205,17 +212,17 @@ const Home = () => {
         {/* Standardized container padding: px-4 sm:px-6 lg:px-8 */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold text-accent mb-4 font-heading">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-accent mb-4 font-heading">
               Our Trusted <span className="text-secondary">Partners</span>
             </h2>
-            <div className="w-24 h-1 bg-secondary mx-auto mb-4"></div>
-            <p className="text-lg text-neutral-300 font-body max-w-2xl mx-auto">
+            <div className="w-16 sm:w-24 h-1 bg-secondary mx-auto mb-4"></div>
+            <p className="text-sm sm:text-lg text-neutral-300 font-body max-w-2xl mx-auto">
               Collaborating with industry leaders to bring you the best
               solutions.
             </p>
@@ -250,7 +257,7 @@ const Home = () => {
       ))}
       {/* Client Reviews Section */}
 
-      <section className="py-20 bg-neutral-900 relative overflow-hidden">
+      <section className="py-12 sm:py-16 md:py-20 bg-neutral-900 relative overflow-hidden">
         <div
           className="absolute inset-0 z-0 opacity-10"
           style={{
@@ -262,15 +269,15 @@ const Home = () => {
 
         {/* Standardized container padding: px-4 sm:px-6 lg:px-8 */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-12">
-            <span className="text-secondary font-bold uppercase tracking-wider text-sm font-body">
+          <div className="text-center mb-10 sm:mb-12">
+            <span className="text-secondary font-bold uppercase tracking-wider text-xs sm:text-sm font-body">
               Testimonials
             </span>
-            <h2 className="text-4xl font-bold text-accent mb-4 font-heading">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-accent mb-4 font-heading">
               What Our <span className="text-secondary">Clients Say</span>
             </h2>
-            <div className="w-24 h-1 bg-secondary mx-auto mb-4"></div>
-            <p className="text-neutral-300 opacity-90 max-w-2xl mx-auto font-body">
+            <div className="w-16 sm:w-24 h-1 bg-secondary mx-auto mb-4"></div>
+            <p className="text-sm sm:text-base text-neutral-300 opacity-90 max-w-2xl mx-auto font-body">
               See what our clients say about working with us and how we helped
               them achieve their goals.
             </p>
@@ -299,11 +306,11 @@ const Home = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold text-accent mb-4 font-heading">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-accent mb-4 font-heading">
               Frequently Asked <span className="text-secondary">Questions</span>
             </h2>
-            <div className="w-24 h-1 bg-secondary mx-auto mb-4"></div>
-            <p className="text-lg text-neutral-300 font-body max-w-2xl mx-auto">
+            <div className="w-16 sm:w-24 h-1 bg-secondary mx-auto mb-4"></div>
+            <p className="text-sm sm:text-base text-neutral-300 font-body max-w-2xl mx-auto">
               Find quick answers to common questions about our services and
               approach.
             </p>
@@ -314,7 +321,7 @@ const Home = () => {
       {/* Call to Action Section */}
 
       <section
-        className="py-20 bg-gradient-to-br from-primary via-neutral-900 to-accent text-center relative overflow-hidden" // Changed via-black to via-neutral-900, to-neutral-dark to to-accent for a stronger gradient
+        className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-primary via-neutral-900 to-accent text-center relative overflow-hidden"
         data-aos="fade-up"
         data-aos-delay="900"
       >
@@ -335,24 +342,24 @@ const Home = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold text-accent mb-6 font-heading">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-accent mb-4 sm:mb-6 font-heading">
               Ready to Transform Your{' '}
               <span className="text-secondary">Business</span>?
             </h2>
-            <p className="text-xl text-neutral-300 mb-10 max-w-2xl mx-auto font-body opacity-90">
+            <p className="text-sm sm:text-base md:text-lg text-neutral-300 mb-8 sm:mb-10 max-w-2xl mx-auto font-body opacity-90">
               Let's collaborate to bring your vision to life with cutting-edge
               technology solutions that drive growth and innovation.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
               <Link
                 to="/contact"
-                className="bg-secondary text-primary px-10 py-4 rounded-full font-semibold text-lg shadow-glow-md hover:scale-105 transition-all duration-300 font-body hover:bg-secondary-light"
+                className="bg-secondary text-primary px-6 sm:px-10 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-lg shadow-glow-md hover:scale-105 transition-all duration-300 font-body hover:bg-secondary-light"
               >
                 Start Your Project
               </Link>
               <Link
                 to="/services"
-                className="border-2 border-accent text-accent px-10 py-4 rounded-full font-semibold text-lg hover:bg-accent hover:text-primary hover:scale-105 transition-all duration-300 font-body"
+                className="border-2 border-accent text-accent px-6 sm:px-10 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-lg hover:bg-accent hover:text-primary hover:scale-105 transition-all duration-300 font-body"
               >
                 View All Services
               </Link>

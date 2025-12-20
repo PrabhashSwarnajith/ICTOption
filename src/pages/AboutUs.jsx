@@ -3,6 +3,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { containerVariants, itemVariants } from '../utils/animationVariants';
+import { setPageMeta } from '../utils/seoUtils';
 
 import { Hero, CSRProjectCarousel } from '../components';
 
@@ -20,22 +22,28 @@ import {
 const AboutUs = () => {
   useEffect(() => {
     AOS.init({ duration: 900, once: true, offset: 80 });
+    setPageMeta(
+      'About Us | ICT Options',
+      'Learn about our team, values, and mission to deliver innovative ICT solutions',
+      'about us, team, company values, ICT solutions, mission, vision',
+      'https://ict-options.com/about'
+    );
   }, []);
 
   return (
     <div className="min-h-screen bg-primary text-white font-body">
       {/* Hero Section */}
       <Hero {...aboutHero}>
-        <div className="flex flex-col sm:flex-row gap-6 justify-center mt-8 animate-float">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mt-6 sm:mt-8 animate-float">
           <Link
             to="/contact"
-            className="bg-secondary text-primary px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:bg-secondary-light hover:scale-105 transition-all duration-300 transform-gpu font-body"
+            className="bg-secondary text-primary px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-lg shadow-lg hover:bg-secondary-light hover:scale-105 transition-all duration-300 transform-gpu font-body text-center"
           >
             Get Quote
           </Link>
           <Link
             to="/services"
-            className="border-2 border-accent text-accent px-8 py-4 rounded-full font-semibold text-lg hover:bg-accent hover:text-primary hover:scale-105 transition-all duration-300 transform-gpu font-body"
+            className="border-2 border-accent text-accent px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-lg hover:bg-accent hover:text-primary hover:scale-105 transition-all duration-300 transform-gpu font-body text-center"
           >
             Our Services
           </Link>
@@ -43,7 +51,7 @@ const AboutUs = () => {
       </Hero>
       {/* Company Introduction Section */}
       <section
-        className="py-20 bg-neutral-900 relative overflow-hidden"
+        className="py-12 sm:py-16 md:py-20 lg:py-24 bg-neutral-900 relative overflow-hidden"
         data-aos="fade-up"
         data-aos-delay="200"
       >
@@ -56,12 +64,12 @@ const AboutUs = () => {
           }}
         ></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading tracking-wide uppercase">
+          <div className="text-center mb-10 sm:mb-12 md:mb-14">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-accent mb-4 font-heading tracking-wide uppercase">
               {companyIntro.heading}
             </h2>
-            <div className="w-24 h-1 bg-secondary mx-auto mb-6 rounded-full"></div>
-            <p className="text-lg text-neutral-300 font-body max-w-3xl mx-auto leading-relaxed">
+            <div className="w-16 sm:w-24 h-1 bg-secondary mx-auto mb-4 sm:mb-6 rounded-full"></div>
+            <p className="text-sm sm:text-base md:text-lg text-neutral-300 font-body max-w-3xl mx-auto leading-relaxed">
               {companyIntro.description}
             </p>
           </div>
@@ -69,7 +77,7 @@ const AboutUs = () => {
       </section>
       {/* Core Values Section */}
       <section
-        className="py-20 bg-primary relative overflow-hidden"
+        className="py-12 sm:py-16 md:py-20 lg:py-24 bg-primary relative overflow-hidden"
         data-aos="fade-up"
         data-aos-delay="300"
       >
@@ -82,27 +90,30 @@ const AboutUs = () => {
           }}
         ></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4 font-heading tracking-wide uppercase">
+          <div className="text-center mb-10 sm:mb-12 md:mb-14">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary mb-4 font-heading tracking-wide uppercase">
               Our Core Values
             </h2>
-            <div className="w-24 h-1 bg-accent mx-auto mb-6 rounded-full"></div>
-            <p className="text-lg text-neutral-300 font-body max-w-2xl mx-auto">
+            <div className="w-16 sm:w-24 h-1 bg-accent mx-auto mb-4 sm:mb-6 rounded-full"></div>
+            <p className="text-sm sm:text-base md:text-lg text-neutral-300 font-body max-w-2xl mx-auto">
               The principles that guide our work and partnerships.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
             {coreValues.map((value, idx) => (
               <motion.div
                 key={value.title}
-                className={`bg-neutral-800 p-6 rounded-2xl text-neutral-300 border border-neutral-700 shadow-xl hover:shadow-2xl transition-all duration-300 ${idx === 1 ? 'shadow-glow border-2 border-secondary hover:scale-[1.05]' : 'hover:scale-[1.02]'}`}
+                className={`bg-neutral-800 p-6 sm:p-8 rounded-2xl text-neutral-300 border border-neutral-700 shadow-xl hover:shadow-2xl transition-all duration-300 ${idx === 1 ? 'shadow-glow border-2 border-secondary hover:scale-[1.05]' : 'hover:scale-[1.02]'}`}
                 data-aos="zoom-in"
                 data-aos-delay={idx * 100}
+                whileHover={{ scale: 1.02 }}
               >
-                <h3 className="font-bold text-secondary text-xl mb-2 font-heading">
+                <h3 className="font-bold text-secondary text-lg sm:text-xl mb-2 font-heading">
                   {value.title}
                 </h3>
-                <p className="font-body">{value.description}</p>
+                <p className="font-body text-xs sm:text-sm">
+                  {value.description}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -110,7 +121,7 @@ const AboutUs = () => {
       </section>
       {/* Team Section */}
       <section
-        className="py-20 bg-neutral-900 relative overflow-hidden"
+        className="py-12 sm:py-16 md:py-20 lg:py-24 bg-neutral-900 relative overflow-hidden"
         data-aos="fade-up"
         data-aos-delay="400"
       >
@@ -123,59 +134,45 @@ const AboutUs = () => {
           }}
         ></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading tracking-wide uppercase">
+          <div className="text-center mb-10 sm:mb-12 md:mb-14">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-accent mb-4 font-heading tracking-wide uppercase">
               Our Team
             </h2>
-            <div className="w-24 h-1 bg-secondary mx-auto mb-6 rounded-full"></div>
-            <p className="text-lg text-neutral-300 font-body max-w-2xl mx-auto">
+            <div className="w-16 sm:w-24 h-1 bg-secondary mx-auto mb-4 sm:mb-6 rounded-full"></div>
+            <p className="text-sm sm:text-base md:text-lg text-neutral-300 font-body max-w-2xl mx-auto">
               Over 3 years of experience delivering innovative solutions.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             {team.map((member, idx) => (
               <motion.div
                 key={member.name}
-                className="bg-neutral-800 rounded-2xl shadow-xl flex flex-col p-0 overflow-hidden border border-neutral-700 relative group hover:scale-[1.02] transition-all duration-300"
+                className="bg-neutral-800 rounded-2xl shadow-lg flex flex-col overflow-hidden border border-neutral-700 relative group transition-all duration-300 hover:shadow-2xl hover:border-accent"
                 data-aos="zoom-in"
                 data-aos-delay={idx * 100}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <div className="relative w-full h-60 overflow-hidden">
+                <div className="relative w-full h-48 sm:h-56 overflow-hidden">
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute bottom-3 left-3 flex items-center gap-2">
-                    <span className="bg-secondary text-primary text-xs px-3 py-1 rounded-full font-semibold shadow-md font-body">
-                      {idx % 2 === 0 ? 'Leadership' : 'Expert'}
-                    </span>
-                    <span className="w-8 h-8 bg-accent rounded-full flex items-center justify-center shadow-lg text-primary">
-                      <svg
-                        className="w-4 h-4"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </span>
-                  </div>
                 </div>
-                <div className="flex flex-col justify-between flex-1 p-5">
-                  <h3 className="text-lg font-bold text-accent mb-1 font-heading">
-                    {member.name}
-                  </h3>
-                  <p className="text-secondary-light text-sm font-semibold mb-2 font-body">
-                    {member.role}
-                  </p>
-                  <p className="text-neutral-300 text-xs font-body mb-2">
-                    {member.description}
-                  </p>
+                <div className="flex flex-col justify-between flex-1 p-3 sm:p-4">
+                  <div>
+                    <h3 className="text-sm sm:text-base font-bold text-secondary mb-1 font-heading line-clamp-2">
+                      {member.name}
+                    </h3>
+                    <p className="text-accent text-xs font-semibold mb-1 font-body line-clamp-1">
+                      {member.role}
+                    </p>
+                    <p className="text-neutral-300 text-xs font-body line-clamp-2">
+                      {member.description}
+                    </p>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -184,7 +181,7 @@ const AboutUs = () => {
       </section>
       {/* Vision & Mission Section */}
       <section
-        className="py-20 bg-primary relative overflow-hidden"
+        className="py-12 sm:py-16 md:py-20 lg:py-24 bg-primary relative overflow-hidden"
         data-aos="fade-up"
         data-aos-delay="500"
       >
@@ -197,11 +194,11 @@ const AboutUs = () => {
           }}
         ></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid md:grid-cols-2 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
             {visionMission.map((item, index) => (
               <motion.div
                 key={item.label}
-                className="bg-neutral-800 p-6 rounded-2xl text-neutral-300 border border-neutral-700 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+                className="bg-neutral-800 p-6 sm:p-8 rounded-2xl text-neutral-300 border border-neutral-700 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -209,10 +206,10 @@ const AboutUs = () => {
                 data-aos="zoom-in"
                 data-aos-delay={index * 100}
               >
-                <h3 className="font-bold text-secondary text-xl mb-2 font-heading">
+                <h3 className="font-bold text-secondary text-lg sm:text-xl mb-2 font-heading">
                   Our {item.label}
                 </h3>
-                <p className="font-body">{item.text}</p>
+                <p className="font-body text-sm sm:text-base">{item.text}</p>
               </motion.div>
             ))}
           </div>
@@ -220,7 +217,7 @@ const AboutUs = () => {
       </section>
       {/* CSR Project Image Carousel */}
       <section
-        className="py-20 bg-neutral-900 relative overflow-hidden"
+        className="py-12 sm:py-16 md:py-20 lg:py-24 bg-neutral-900 relative overflow-hidden"
         data-aos="fade-up"
         data-aos-delay="600"
       >
@@ -232,12 +229,12 @@ const AboutUs = () => {
           }}
         ></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading tracking-wide uppercase">
+          <div className="text-center mb-10 sm:mb-12 md:mb-14">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-accent mb-4 font-heading tracking-wide uppercase">
               {csrDescription.heading}
             </h2>
-            <div className="w-24 h-1 bg-secondary mx-auto mb-6 rounded-full"></div>
-            <p className="text-lg text-neutral-300 font-body max-w-2xl mx-auto">
+            <div className="w-16 sm:w-24 h-1 bg-secondary mx-auto mb-4 sm:mb-6 rounded-full"></div>
+            <p className="text-sm sm:text-base md:text-lg text-neutral-300 font-body max-w-2xl mx-auto">
               {csrDescription.description}
             </p>
           </div>
@@ -246,7 +243,7 @@ const AboutUs = () => {
       </section>
       {/* Testimonials Section */}
       <section
-        className="py-20 bg-primary relative overflow-hidden" // Changed bg-black to bg-primary
+        className="py-12 sm:py-16 md:py-20 lg:py-24 bg-primary relative overflow-hidden"
         data-aos="fade-up"
         data-aos-delay="700"
       >
@@ -254,50 +251,46 @@ const AboutUs = () => {
           <img
             src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80"
             alt="Testimonials Background"
-            className="w-full h-full object-cover opacity-10" // Changed opacity-20 to opacity-10 for subtlety
+            loading="lazy"
+            className="w-full h-full object-cover opacity-10"
           />
-          <div className="absolute inset-0 bg-neutral-900/80" />{' '}
-          {/* Kept bg-neutral-900/80, it works well here */}
+          <div className="absolute inset-0 bg-neutral-900/80" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {' '}
-          {/* Standardized padding */}
-          <div className="text-center mb-12">
-            <span className="text-secondary font-bold uppercase tracking-wider text-sm font-body">
+          <div className="text-center mb-10 sm:mb-12 md:mb-14">
+            <span className="text-secondary font-bold uppercase tracking-wider text-xs sm:text-sm font-body">
               Testimonials
             </span>
-            <h2 className="text-4xl font-extrabold text-accent mb-2 font-heading tracking-wide uppercase">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-accent mb-2 font-heading tracking-wide uppercase">
               Our Clients Reviews
             </h2>
-            <div className="w-24 h-1 bg-secondary mx-auto mb-6 rounded-full"></div>
-            <p className="text-neutral-300 opacity-90 max-w-2xl mx-auto mb-6 font-body">
-              {' '}
-              {/* Changed text-gray-300 to text-neutral-300 */}
+            <div className="w-16 sm:w-24 h-1 bg-secondary mx-auto mb-4 sm:mb-6 rounded-full"></div>
+            <p className="text-sm sm:text-base text-neutral-300 opacity-90 max-w-2xl mx-auto font-body">
               See what our clients say about working with us and how we helped
               them achieve their goals.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {testimonials.map((t, idx) => (
               <motion.div
                 key={t.name}
-                className="bg-neutral-800 rounded-xl p-8 shadow-xl flex flex-col items-start border border-neutral-700 relative min-h-[220px] max-w-[370px] mx-auto hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+                className="bg-neutral-800 rounded-xl p-6 sm:p-8 shadow-xl flex flex-col items-start border border-neutral-700 relative max-w-[370px] mx-auto hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
                 data-aos="zoom-in"
                 data-aos-delay={idx * 100}
               >
-                <p className="text-neutral-300 text-base mb-8 font-medium font-body leading-relaxed">
+                <p className="text-neutral-300 text-sm sm:text-base mb-6 sm:mb-8 font-medium font-body leading-relaxed">
                   {t.text}
                 </p>
                 <div className="flex items-center gap-4 mt-auto w-full">
                   <div>
-                    <div className="font-bold text-secondary-light text-base font-body">
+                    <div className="font-bold text-secondary-light text-sm sm:text-base font-body">
                       {t.name}
                     </div>
                     <div className="text-neutral-400 text-xs font-body">
                       {t.role}
                     </div>
                   </div>
-                  <span className="ml-auto text-accent text-3xl font-bold font-heading">
+                  <span className="ml-auto text-accent text-2xl sm:text-3xl font-bold font-heading">
                     “”
                   </span>
                 </div>
@@ -308,7 +301,7 @@ const AboutUs = () => {
       </section>
       {/* FAQ Section */}
       <section
-        className="py-20 bg-primary relative overflow-hidden"
+        className="py-12 sm:py-16 md:py-20 lg:py-24 bg-primary relative overflow-hidden"
         data-aos="fade-up"
         data-aos-delay="800"
       >
@@ -321,27 +314,27 @@ const AboutUs = () => {
           }}
         ></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4 font-heading tracking-wide uppercase">
+          <div className="text-center mb-10 sm:mb-12 md:mb-14">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary mb-4 font-heading tracking-wide uppercase">
               Frequently Asked Questions
             </h2>
-            <div className="w-24 h-1 bg-accent mx-auto mb-6 rounded-full"></div>
-            <p className="text-lg text-neutral-300 font-body max-w-2xl mx-auto">
+            <div className="w-16 sm:w-24 h-1 bg-accent mx-auto mb-4 sm:mb-6 rounded-full"></div>
+            <p className="text-sm sm:text-base md:text-lg text-neutral-300 font-body max-w-2xl mx-auto">
               Answers to common questions about our company and approach.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
             {faqs.map((faq, idx) => (
               <motion.div
                 key={faq.question}
-                className="bg-neutral-800 p-6 rounded-2xl shadow-xl border border-accent text-neutral-300 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+                className="bg-neutral-800 p-6 sm:p-8 rounded-2xl shadow-xl border border-accent text-neutral-300 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
                 data-aos="zoom-in"
                 data-aos-delay={idx * 100}
               >
-                <h3 className="font-bold text-secondary text-xl mb-2 font-heading">
+                <h3 className="font-bold text-secondary text-lg sm:text-xl mb-2 font-heading">
                   {faq.question}
                 </h3>
-                <p className="font-body">{faq.answer}</p>
+                <p className="font-body text-xs sm:text-sm">{faq.answer}</p>
               </motion.div>
             ))}
           </div>

@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { Hero, ContactInfoCard, FAQCard } from '../components';
+import { setPageMeta } from '../utils/seoUtils';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import contact from '../assets/img/contact.webp';
@@ -12,9 +14,108 @@ import {
 } from '../data/contactData.jsx';
 
 const ContactUs = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    service: '',
+    subject: '',
+    message: '',
+  });
+
+  const [errors, setErrors] = useState({});
+  const [touched, setTouched] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   useEffect(() => {
     AOS.init({ once: true, duration: 900, offset: 80 });
+    setPageMeta(
+      'Contact Us | Get in Touch with ICT Option',
+      'Contact ICT Option for digital solutions, web development, and technology services. Reach out to our expert team today to discuss your project.',
+      'contact us, ICT Option, digital solutions, web development, technology services, customer support',
+      '/contact'
+    );
   }, []);
+
+  const validateField = (name, value) => {
+    let error = '';
+
+    if (name === 'name') {
+      if (!value.trim()) error = 'Name is required';
+      else if (value.trim().length < 2)
+        error = 'Name must be at least 2 characters';
+    }
+
+    if (name === 'email') {
+      if (!value.trim()) error = 'Email is required';
+      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))
+        error = 'Please enter a valid email';
+    }
+
+    if (name === 'subject') {
+      if (!value.trim()) error = 'Subject is required';
+      else if (value.trim().length < 5)
+        error = 'Subject must be at least 5 characters';
+    }
+
+    if (name === 'message') {
+      if (!value.trim()) error = 'Message is required';
+      else if (value.trim().length < 10)
+        error = 'Message must be at least 10 characters';
+    }
+
+    return error;
+  };
+
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+
+    if (touched[name]) {
+      const error = validateField(name, value);
+      setErrors(prev => ({ ...prev, [name]: error }));
+    }
+  };
+
+  const handleBlur = e => {
+    const { name, value } = e.target;
+    setTouched(prev => ({ ...prev, [name]: true }));
+    const error = validateField(name, value);
+    setErrors(prev => ({ ...prev, [name]: error }));
+  };
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+
+    // Validate all fields
+    const newErrors = {};
+    Object.keys(formData).forEach(key => {
+      if (key !== 'company' && key !== 'service') {
+        const error = validateField(key, formData[key]);
+        if (error) newErrors[key] = error;
+      }
+    });
+
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length === 0) {
+      setIsSubmitting(true);
+      // Simulate submission
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          service: '',
+          subject: '',
+          message: '',
+        });
+        setTouched({});
+        alert('Message sent successfully!');
+      }, 1000);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-primary font-body">
@@ -58,7 +159,7 @@ const ContactUs = () => {
       </Hero>
       {/* Contact Form & Info */}
       <section
-        className="py-20 bg-neutral-900 relative overflow-hidden"
+        className="py-12 sm:py-16 md:py-20 lg:py-24 bg-neutral-900 relative overflow-hidden"
         data-aos="fade-up"
         data-aos-delay="100"
       >
@@ -76,19 +177,20 @@ const ContactUs = () => {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div
-              className="bg-neutral-800 rounded-2xl shadow-xl p-8 border border-neutral-700"
+              className="bg-neutral-800 rounded-2xl shadow-xl p-6 sm:p-8 border border-neutral-700"
               data-aos="fade-right"
               data-aos-delay="100"
             >
               <h2 className="text-2xl md:text-4xl font-bold text-accent mb-6 font-heading uppercase tracking-wide">
                 Send Us a Message
               </h2>
-              <form
-                action="https://formsubmit.co/ictoption321@gmail.com"
-                method="POST"
-                className="space-y-6"
-              >
-                <div className="grid md:grid-cols-2 gap-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <motion.div
+                  className="grid md:grid-cols-2 gap-6"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
                   <div>
                     <label
                       htmlFor="name"
@@ -100,10 +202,25 @@ const ContactUs = () => {
                       type="text"
                       id="name"
                       name="name"
-                      required
-                      className="w-full px-4 py-3 border border-neutral-700 rounded-lg bg-neutral-800 text-neutral-300 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-secondary font-body transition-all duration-300"
+                      value={formData.name}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={`w-full px-4 py-3 border rounded-lg bg-neutral-800 text-neutral-300 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-secondary font-body transition-all duration-300 ${
+                        touched.name && errors.name
+                          ? 'border-red-500 ring-2 ring-red-500/20'
+                          : 'border-neutral-700'
+                      }`}
                       placeholder="John Doe"
                     />
+                    {touched.name && errors.name && (
+                      <motion.p
+                        className="text-red-500 text-sm mt-1"
+                        initial={{ opacity: 0, y: -5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                      >
+                        {errors.name}
+                      </motion.p>
+                    )}
                   </div>
                   <div>
                     <label
@@ -116,13 +233,33 @@ const ContactUs = () => {
                       type="email"
                       id="email"
                       name="email"
-                      required
-                      className="w-full px-4 py-3 border border-neutral-700 rounded-lg bg-neutral-800 text-neutral-300 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-secondary font-body transition-all duration-300"
+                      value={formData.email}
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      className={`w-full px-4 py-3 border rounded-lg bg-neutral-800 text-neutral-300 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-secondary font-body transition-all duration-300 ${
+                        touched.email && errors.email
+                          ? 'border-red-500 ring-2 ring-red-500/20'
+                          : 'border-neutral-700'
+                      }`}
                       placeholder="john@example.com"
                     />
+                    {touched.email && errors.email && (
+                      <motion.p
+                        className="text-red-500 text-sm mt-1"
+                        initial={{ opacity: 0, y: -5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                      >
+                        {errors.email}
+                      </motion.p>
+                    )}
                   </div>
-                </div>
-                <div className="grid md:grid-cols-2 gap-6">
+                </motion.div>
+                <motion.div
+                  className="grid md:grid-cols-2 gap-6"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.1 }}
+                >
                   <div>
                     <label
                       htmlFor="company"
@@ -134,7 +271,9 @@ const ContactUs = () => {
                       type="text"
                       id="company"
                       name="company"
-                      className="w-full px-4 py-3 border border-neutral-700 rounded-lg bg-neutral-800 text-neutral-300 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-secondary font-body transition-all duration-300"
+                      value={formData.company}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-neutral-700 rounded-lg bg-neutral-800 text-neutral-300 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-secondary font-body transition-all duration-300 hover:border-neutral-600"
                       placeholder="Your Company"
                     />
                   </div>
@@ -148,7 +287,9 @@ const ContactUs = () => {
                     <select
                       id="service"
                       name="service"
-                      className="w-full px-4 py-3 border border-neutral-700 rounded-lg bg-neutral-800 text-neutral-300 focus:outline-none focus:ring-2 focus:ring-secondary font-body transition-all duration-300"
+                      value={formData.service}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-neutral-700 rounded-lg bg-neutral-800 text-neutral-300 focus:outline-none focus:ring-2 focus:ring-secondary font-body transition-all duration-300 hover:border-neutral-600"
                     >
                       <option value="">Select a service</option>
                       {services.map(service => (
@@ -158,8 +299,12 @@ const ContactUs = () => {
                       ))}
                     </select>
                   </div>
-                </div>
-                <div>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.2 }}
+                >
                   <label
                     htmlFor="subject"
                     className="block text-sm font-medium text-accent mb-2 font-body"
@@ -170,12 +315,31 @@ const ContactUs = () => {
                     type="text"
                     id="subject"
                     name="subject"
-                    required
-                    className="w-full px-4 py-3 border border-neutral-700 rounded-lg bg-neutral-800 text-neutral-300 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-secondary font-body transition-all duration-300"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={`w-full px-4 py-3 border rounded-lg bg-neutral-800 text-neutral-300 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-secondary font-body transition-all duration-300 ${
+                      touched.subject && errors.subject
+                        ? 'border-red-500 ring-2 ring-red-500/20'
+                        : 'border-neutral-700'
+                    }`}
                     placeholder="How can we help you?"
                   />
-                </div>
-                <div>
+                  {touched.subject && errors.subject && (
+                    <motion.p
+                      className="text-red-500 text-sm mt-1"
+                      initial={{ opacity: 0, y: -5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                    >
+                      {errors.subject}
+                    </motion.p>
+                  )}
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.3 }}
+                >
                   <label
                     htmlFor="message"
                     className="block text-sm font-medium text-accent mb-2 font-body"
@@ -185,20 +349,51 @@ const ContactUs = () => {
                   <textarea
                     id="message"
                     name="message"
-                    required
+                    value={formData.message}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
                     rows="6"
-                    className="w-full px-4 py-3 border border-neutral-700 rounded-lg bg-neutral-800 text-neutral-300 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-secondary font-body transition-all duration-300"
+                    className={`w-full px-4 py-3 border rounded-lg bg-neutral-800 text-neutral-300 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-secondary font-body transition-all duration-300 resize-none ${
+                      touched.message && errors.message
+                        ? 'border-red-500 ring-2 ring-red-500/20'
+                        : 'border-neutral-700'
+                    }`}
                     placeholder="Tell us about your project..."
                   ></textarea>
-                </div>
-                <button
+                  {touched.message && errors.message && (
+                    <motion.p
+                      className="text-red-500 text-sm mt-1"
+                      initial={{ opacity: 0, y: -5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                    >
+                      {errors.message}
+                    </motion.p>
+                  )}
+                </motion.div>
+                <motion.button
                   type="submit"
-                  className="w-full bg-secondary text-primary py-3 px-6 rounded-full font-semibold text-base uppercase tracking-wider shadow-lg hover:scale-105 transition-all duration-300 animate-pulse"
-                  data-aos="zoom-in"
-                  data-aos-delay="300"
+                  disabled={isSubmitting || Object.keys(errors).length > 0}
+                  className={`w-full py-3 px-6 rounded-full font-semibold text-base uppercase tracking-wider shadow-lg transition-all duration-300 ${
+                    isSubmitting
+                      ? 'bg-neutral-600 text-neutral-400 cursor-not-allowed'
+                      : 'bg-secondary text-primary hover:bg-accent hover:scale-105 hover:shadow-xl'
+                  }`}
+                  whileHover={!isSubmitting ? { scale: 1.05 } : {}}
+                  whileTap={!isSubmitting ? { scale: 0.98 } : {}}
                 >
-                  Send Message
-                </button>
+                  {isSubmitting ? (
+                    <span className="flex items-center justify-center">
+                      <motion.span
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 1, repeat: Infinity }}
+                        className="inline-block w-5 h-5 border-2 border-transparent border-t-current rounded-full mr-2"
+                      />
+                      Sending...
+                    </span>
+                  ) : (
+                    'Send Message'
+                  )}
+                </motion.button>
               </form>
             </div>
 
@@ -244,7 +439,7 @@ const ContactUs = () => {
       </section>
       {/* Map Section */}
       <section
-        className="py-20 bg-primary relative overflow-hidden"
+        className="py-12 sm:py-16 md:py-20 lg:py-24 bg-primary relative overflow-hidden"
         data-aos="fade-up"
         data-aos-delay="200"
       >
@@ -267,7 +462,7 @@ const ContactUs = () => {
               Located in the heart of the technology district
             </p>
           </div>
-          <div className="bg-neutral-800 rounded-2xl shadow-xl p-4 border border-neutral-700 animate-slide-up">
+          <div className="bg-neutral-800 rounded-2xl shadow-xl p-6 sm:p-8 border border-neutral-700 animate-slide-up">
             <div className="h-96 w-full rounded-lg overflow-hidden flex items-center justify-center">
               <iframe
                 title="Google Map of ICT Option Office"
@@ -284,7 +479,7 @@ const ContactUs = () => {
       </section>
       {/* FAQ Section */}
       <section
-        className="py-20 bg-neutral-900 relative overflow-hidden"
+        className="py-12 sm:py-16 md:py-20 lg:py-24 bg-neutral-900 relative overflow-hidden"
         data-aos="fade-up"
         data-aos-delay="300"
       >
