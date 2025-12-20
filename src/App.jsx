@@ -1,6 +1,12 @@
 import React, { Suspense, useEffect } from 'react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from 'react-router-dom';
+import AOS from 'aos';
 import { Header, Footer, BackToTop } from './components';
 import PageLoadingSkeletons from './components/PageLoadingSkeletons';
 import { prefetchPages } from './utils/preloadUtils';
@@ -37,6 +43,43 @@ const AIMachineLearning = lazyLoadPage(
   () => import('./pages/services/AIMachineLearning')
 );
 
+function AppRoutes() {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Refresh AOS on route change
+    setTimeout(() => {
+      AOS.refresh();
+    }, 100);
+  }, [location.pathname]);
+
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/services" element={<Services />} />
+      <Route path="/services/web-development" element={<WebDevelopment />} />
+      <Route
+        path="/services/mobile-app-development"
+        element={<MobileAppDevelopment />}
+      />
+      <Route
+        path="/services/digital-marketing"
+        element={<DigitalMarketing />}
+      />
+      <Route path="/services/it-consulting" element={<ITConsulting />} />
+      <Route path="/services/cybersecurity" element={<Cybersecurity />} />
+      <Route
+        path="/services/ai-machine-learning"
+        element={<AIMachineLearning />}
+      />
+      <Route path="/products" element={<Products />} />
+      <Route path="/about" element={<AboutUs />} />
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/contact" element={<ContactUs />} />
+    </Routes>
+  );
+}
+
 function App() {
   useEffect(() => {
     // Preload critical pages when app mounts
@@ -57,38 +100,7 @@ function App() {
         {/* Main Content */}
         <main className="relative z-10">
           <Suspense fallback={<PageLoadingSkeletons />}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/services" element={<Services />} />
-              <Route
-                path="/services/web-development"
-                element={<WebDevelopment />}
-              />
-              <Route
-                path="/services/mobile-app-development"
-                element={<MobileAppDevelopment />}
-              />
-              <Route
-                path="/services/digital-marketing"
-                element={<DigitalMarketing />}
-              />
-              <Route
-                path="/services/it-consulting"
-                element={<ITConsulting />}
-              />
-              <Route
-                path="/services/cybersecurity"
-                element={<Cybersecurity />}
-              />
-              <Route
-                path="/services/ai-machine-learning"
-                element={<AIMachineLearning />}
-              />
-              <Route path="/products" element={<Products />} />
-              <Route path="/about" element={<AboutUs />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/contact" element={<ContactUs />} />
-            </Routes>
+            <AppRoutes />
           </Suspense>
         </main>
 
