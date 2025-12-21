@@ -18,8 +18,6 @@ A **modern and responsive web portfolio** for **ICTOption**, showcasing the comp
 ## Technologies Used
 
 - **Frontend:** React.js, TailwindCSS, HTML5, CSS3, JavaScript  
-- **Backend:** *(Add if any backend is used)*  
-- **Tools:** Git, GitHub
 
 ---
 
