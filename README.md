@@ -1,12 +1,31 @@
-# React + Vite
+# ICTOption – Company Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A **modern and responsive web portfolio** for **ICTOption**, showcasing the company’s IT expertise, services, and completed projects. The website provides a **user-friendly interface** for visitors and potential clients to explore offerings, view past work, and easily get in touch.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Key Features
 
-## Expanding the ESLint configuration
+- **Company Overview:** Highlights ICTOption’s mission, team, and expertise  
+- **Service Showcase:** Web development, app development, software solutions, and graphic design services  
+- **Portfolio Section:** Displays completed projects to demonstrate experience and capabilities  
+- **Contact & Inquiry Forms:** Allows clients to easily reach out for services  
+- **Responsive Design:** Optimized for desktop, tablet, and mobile devices  
+- **Modern Web Technologies:** Built using React.js, TailwindCSS, HTML, CSS, and JavaScript for speed and usability
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Technologies Used
+
+- **Frontend:** React.js, TailwindCSS, HTML5, CSS3, JavaScript  
+- **Backend:** *(Add if any backend is used)*  
+- **Tools:** Git, GitHub
+
+---
+
+## Purpose
+
+This website serves as a **professional representation of ICTOption**, allowing clients to explore services, understand expertise, and connect with the company for business opportunities.
+
+---
+
