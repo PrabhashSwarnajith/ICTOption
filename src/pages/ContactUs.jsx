@@ -191,6 +191,11 @@ const ContactUs = () => {
                       value={formData.name}
                       onChange={handleChange}
                       onBlur={handleBlur}
+                      required
+                      aria-invalid={!!(touched.name && errors.name)}
+                      aria-describedby={
+                        touched.name && errors.name ? 'name-error' : undefined
+                      }
                       className={`w-full px-4 py-3 border rounded-lg bg-neutral-800 text-neutral-300 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-secondary font-body transition-all duration-300 ${
                         touched.name && errors.name
                           ? 'border-red-500 ring-2 ring-red-500/20'
@@ -200,6 +205,8 @@ const ContactUs = () => {
                     />
                     {touched.name && errors.name && (
                       <motion.p
+                        id="name-error"
+                        role="alert"
                         className="text-red-500 text-sm mt-1"
                         initial={{ opacity: 0, y: -5 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -222,6 +229,13 @@ const ContactUs = () => {
                       value={formData.email}
                       onChange={handleChange}
                       onBlur={handleBlur}
+                      required
+                      aria-invalid={!!(touched.email && errors.email)}
+                      aria-describedby={
+                        touched.email && errors.email
+                          ? 'email-error'
+                          : undefined
+                      }
                       className={`w-full px-4 py-3 border rounded-lg bg-neutral-800 text-neutral-300 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-secondary font-body transition-all duration-300 ${
                         touched.email && errors.email
                           ? 'border-red-500 ring-2 ring-red-500/20'
@@ -231,6 +245,8 @@ const ContactUs = () => {
                     />
                     {touched.email && errors.email && (
                       <motion.p
+                        id="email-error"
+                        role="alert"
                         className="text-red-500 text-sm mt-1"
                         initial={{ opacity: 0, y: -5 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -304,6 +320,13 @@ const ContactUs = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     onBlur={handleBlur}
+                    required
+                    aria-invalid={!!(touched.subject && errors.subject)}
+                    aria-describedby={
+                      touched.subject && errors.subject
+                        ? 'subject-error'
+                        : undefined
+                    }
                     className={`w-full px-4 py-3 border rounded-lg bg-neutral-800 text-neutral-300 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-secondary font-body transition-all duration-300 ${
                       touched.subject && errors.subject
                         ? 'border-red-500 ring-2 ring-red-500/20'
@@ -313,6 +336,8 @@ const ContactUs = () => {
                   />
                   {touched.subject && errors.subject && (
                     <motion.p
+                      id="subject-error"
+                      role="alert"
                       className="text-red-500 text-sm mt-1"
                       initial={{ opacity: 0, y: -5 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -339,6 +364,13 @@ const ContactUs = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     rows="6"
+                    required
+                    aria-invalid={!!(touched.message && errors.message)}
+                    aria-describedby={
+                      touched.message && errors.message
+                        ? 'message-error'
+                        : undefined
+                    }
                     className={`w-full px-4 py-3 border rounded-lg bg-neutral-800 text-neutral-300 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-secondary font-body transition-all duration-300 resize-none ${
                       touched.message && errors.message
                         ? 'border-red-500 ring-2 ring-red-500/20'
@@ -348,6 +380,8 @@ const ContactUs = () => {
                   ></textarea>
                   {touched.message && errors.message && (
                     <motion.p
+                      id="message-error"
+                      role="alert"
                       className="text-red-500 text-sm mt-1"
                       initial={{ opacity: 0, y: -5 }}
                       animate={{ opacity: 1, y: 0 }}

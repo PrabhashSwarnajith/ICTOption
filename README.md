@@ -6,18 +6,18 @@ A **modern and responsive web portfolio** for **ICTOption**, showcasing the comp
 
 ## Key Features
 
-- **Company Overview:** Highlights ICTOption’s mission, team, and expertise  
-- **Service Showcase:** Web development, app development, software solutions, and graphic design services  
-- **Portfolio Section:** Displays completed projects to demonstrate experience and capabilities  
-- **Contact & Inquiry Forms:** Allows clients to easily reach out for services  
-- **Responsive Design:** Optimized for desktop, tablet, and mobile devices  
+- **Company Overview:** Highlights ICTOption’s mission, team, and expertise
+- **Service Showcase:** Web development, app development, software solutions, and graphic design services
+- **Portfolio Section:** Displays completed projects to demonstrate experience and capabilities
+- **Contact & Inquiry Forms:** Allows clients to easily reach out for services
+- **Responsive Design:** Optimized for desktop, tablet, and mobile devices
 - **Modern Web Technologies:** Built using React.js, TailwindCSS, HTML, CSS, and JavaScript for speed and usability
 
 ---
 
 ## Technologies Used
 
-- **Frontend:** React.js, TailwindCSS, HTML5, CSS3, JavaScript  
+- **Frontend:** React.js, TailwindCSS, HTML5, CSS3, JavaScript
 
 ---
 
@@ -26,4 +26,3 @@ A **modern and responsive web portfolio** for **ICTOption**, showcasing the comp
 This website serves as a **professional representation of ICTOption**, allowing clients to explore services, understand expertise, and connect with the company for business opportunities.
 
 ---
-
