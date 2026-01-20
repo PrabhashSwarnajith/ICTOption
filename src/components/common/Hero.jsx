@@ -13,15 +13,27 @@ const Hero = ({
   return (
     <section
       className={`relative ${height} flex items-center justify-center overflow-hidden font-body`}
-      style={{
-        background: backgroundImage
-          ? `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${backgroundImage})`
-          : `linear-gradient(135deg, var(--tw-gradient-stops))`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'scroll',
-      }}
+      style={
+        !backgroundImage
+          ? {
+              background: `linear-gradient(135deg, var(--tw-gradient-stops))`,
+            }
+          : {}
+      }
     >
+      {backgroundImage && (
+        <>
+          <img
+            src={backgroundImage}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+            fetchPriority="high"
+          />
+          {/* Dark overlay to replicate linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)) */}
+          <div className="absolute inset-0 bg-black/60"></div>
+        </>
+      )}
+
       {/* Gradient Overlay */}
       <div
         className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-50`}
