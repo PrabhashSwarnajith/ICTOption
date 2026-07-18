@@ -12,24 +12,6 @@ export default defineConfig({
           'vendor-animation': ['framer-motion', 'aos'],
           'vendor-icons': ['lucide-react'],
           'vendor-vercel': ['@vercel/speed-insights'],
-
-          // Page chunks for faster initial load
-          'page-services': [
-            './src/pages/services/WebDevelopment',
-            './src/pages/services/MobileAppDevelopment',
-            './src/pages/services/DigitalMarketing',
-          ],
-          'page-services-2': [
-            './src/pages/services/ITConsulting',
-            './src/pages/services/Cybersecurity',
-            './src/pages/services/AIMachineLearning',
-          ],
-          'page-main': [
-            './src/pages/Products',
-            './src/pages/Blog',
-            './src/pages/AboutUs',
-            './src/pages/ContactUs',
-          ],
         },
       },
     },
