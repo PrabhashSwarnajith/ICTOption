@@ -11,7 +11,6 @@ export default defineConfig({
           'vendor-react': ['react', 'react-dom', 'react-router-dom'],
           'vendor-animation': ['framer-motion', 'aos'],
           'vendor-icons': ['lucide-react'],
-          'vendor-vercel': ['@vercel/speed-insights'],
         },
       },
     },
@@ -29,7 +28,6 @@ export default defineConfig({
       'framer-motion',
       'aos',
       'lucide-react',
-      '@vercel/speed-insights',
     ],
   },
 });

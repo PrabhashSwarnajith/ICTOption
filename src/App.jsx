@@ -1,5 +1,4 @@
 import React, { Suspense, useEffect } from 'react';
-import { SpeedInsights } from '@vercel/speed-insights/react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -108,7 +107,6 @@ function App() {
         {/* Back to Top Button */}
         <BackToTop />
       </div>
-      <SpeedInsights />
     </Router>
   );
 }
