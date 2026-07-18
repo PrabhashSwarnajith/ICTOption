@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import {
   BrowserRouter as Router,
@@ -11,6 +11,7 @@ import AOS from 'aos';
 import { Header, Footer, BackToTop } from './components';
 import PageLoadingSkeletons from './components/PageLoadingSkeletons';
 import PageTransition from './components/PageTransition';
+import ScrollProgress from './components/ScrollProgress';
 import { prefetchPages } from './utils/preloadUtils';
 
 // Lazy load pages with preloading capability
@@ -44,25 +45,6 @@ const Cybersecurity = lazyLoadPage(
 const AIMachineLearning = lazyLoadPage(
   () => import('./pages/services/AIMachineLearning')
 );
-
-function ScrollProgress() {
-  const [width, setWidth] = useState(0);
-  useEffect(() => {
-    const update = () => {
-      const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-      setWidth((scrollTop / (scrollHeight - clientHeight)) * 100);
-    };
-    window.addEventListener('scroll', update, { passive: true });
-    return () => window.removeEventListener('scroll', update);
-  }, []);
-  return (
-    <div
-      className="scroll-progress"
-      style={{ width: `${width}%` }}
-      aria-hidden="true"
-    />
-  );
-}
 
 function AppRoutes() {
   const location = useLocation();
@@ -99,10 +81,13 @@ function App() {
   return (
     <Router>
       <div className="font-body min-h-screen bg-primary relative overflow-hidden">
-        {/* Background Branding Text */}
-        <h1 className="absolute text-[22vw] font-extrabold text-gray-200 opacity-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 select-none pointer-events-none">
+        {/* Background Branding Text (decorative only) */}
+        <div
+          aria-hidden="true"
+          className="absolute text-[22vw] font-extrabold text-gray-200 opacity-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 select-none pointer-events-none"
+        >
           ICT
-        </h1>
+        </div>
 
         {/* Scroll progress bar */}
         <ScrollProgress />

@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 /* ─── Base ─────────────────────────────────────────────── */
+:root {
+  /* Mirrors tailwind.config.js theme.colors.secondary — keep in sync */
+  --color-secondary: #FF0000;
+  --color-secondary-light: #FF3333;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -22,13 +28,13 @@
 
   /* Text selection */
   ::selection {
-    background-color: rgba(255, 0, 0, 0.25);
+    background-color: color-mix(in srgb, var(--color-secondary) 25%, transparent);
     color: #ffffff;
   }
 
   /* Focus visible — keyboard nav only */
   :focus-visible {
-    outline: 2px solid #FF0000;
+    outline: 2px solid var(--color-secondary);
     outline-offset: 3px;
     border-radius: 4px;
   }
@@ -42,17 +48,17 @@
     background: #111111;
   }
   ::-webkit-scrollbar-thumb {
-    background: #FF0000;
+    background: var(--color-secondary);
     border-radius: 999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #FF3333;
+    background: var(--color-secondary-light);
   }
 
   /* Firefox scrollbar */
   * {
     scrollbar-width: thin;
-    scrollbar-color: #FF0000 #111111;
+    scrollbar-color: var(--color-secondary) #111111;
   }
 }
 
@@ -63,7 +69,7 @@
     top: 0;
     left: 0;
     height: 2px;
-    background: linear-gradient(90deg, #FF0000, #FF3333);
+    background: linear-gradient(90deg, var(--color-secondary), var(--color-secondary-light));
     z-index: 9999;
     transform-origin: left;
     will-change: transform;

@@ -1,16 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import useScrollPosition from '../hooks/useScrollPosition';
 
 const BackToTop = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  const toggleVisibility = () => {
-    if (window.pageYOffset > 300) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
-  };
+  const scrollY = useScrollPosition();
+  const isVisible = scrollY > 300;
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -18,13 +12,6 @@ const BackToTop = () => {
       behavior: 'smooth',
     });
   };
-
-  useEffect(() => {
-    window.addEventListener('scroll', toggleVisibility);
-    return () => {
-      window.removeEventListener('scroll', toggleVisibility);
-    };
-  }, []);
 
   return (
     <AnimatePresence>

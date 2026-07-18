@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Hero } from '../../components';
 import { motion } from 'framer-motion';
+import { setPageMeta } from '../../utils/seoUtils';
 
 import {
   heroData,
@@ -14,6 +15,15 @@ import {
 } from '../../data/cybersecurityData';
 
 const Cybersecurity = () => {
+  useEffect(() => {
+    setPageMeta(
+      'Cybersecurity Services',
+      'Comprehensive cybersecurity solutions to protect your data, systems, and infrastructure from evolving digital threats.',
+      'cybersecurity, data security, network security, threat protection, security consulting, risk assessment',
+      '/services/cybersecurity'
+    );
+  }, []);
+
   return (
     <div className="min-h-screen bg-primary text-white font-body">
       {/* Hero Section */}
@@ -480,7 +490,7 @@ const Cybersecurity = () => {
                 Request a Security Consultation
               </Link>
               <Link
-                to="/portfolio"
+                to="/blog"
                 className="border-2 border-accent text-accent px-10 py-4 rounded-full font-semibold text-lg hover:bg-accent hover:text-primary transition-all duration-300" // Adjusted border color and hover for consistency
                 data-aos="zoom-in"
                 data-aos-delay="300"

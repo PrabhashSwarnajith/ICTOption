@@ -1,14 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Hero } from '../components';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projectsData } from '../data/servicesData';
+import { setPageMeta } from '../utils/seoUtils';
+
+const categories = ['All', ...new Set(projectsData.map(p => p.category))];
 
 const CaseStudies = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('All');
 
-  const categories = ['All', ...new Set(projectsData.map(p => p.category))];
+  useEffect(() => {
+    setPageMeta(
+      'Case Studies',
+      'Explore real-world case studies showcasing how ICT Option has delivered web, mobile, AI, and cybersecurity solutions for clients across industries.',
+      'case studies, portfolio, client projects, web development projects, success stories',
+      '/blog'
+    );
+  }, []);
 
   const filteredProjects =
     selectedCategory === 'All'

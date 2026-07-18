@@ -1,20 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import useScrollPosition from '../../hooks/useScrollPosition';
 import logo from '../../assets/logo.svg';
 
 const Header = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const scrollY = useScrollPosition();
+  const scrolled = scrollY > 50;
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+    setIsMobileServicesOpen(false);
+  };
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -220,10 +221,7 @@ const Header = () => {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
               className="fixed inset-0 bg-black/60 z-40 lg:hidden"
-              onClick={() => {
-                setIsMobileMenuOpen(false);
-                setIsMobileServicesOpen(false);
-              }}
+              onClick={closeMobileMenu}
             />
             {/* Slide-in panel */}
             <motion.div
@@ -241,10 +239,7 @@ const Header = () => {
                 </span>
                 <button
                   className="text-accent p-2 rounded-lg hover:bg-secondary/10 transition-colors duration-300"
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    setIsMobileServicesOpen(false);
-                  }}
+                  onClick={closeMobileMenu}
                   aria-label="Close menu"
                 >
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -289,10 +284,7 @@ const Header = () => {
                                 key={i}
                                 to={dropdownItem.path}
                                 className="block py-2 px-4 text-sm text-accent hover:text-secondary hover:bg-secondary/10 rounded-lg transition-all duration-300"
-                                onClick={() => {
-                                  setIsMobileMenuOpen(false);
-                                  setIsMobileServicesOpen(false);
-                                }}
+                                onClick={closeMobileMenu}
                               >
                                 {dropdownItem.name}
                               </Link>
@@ -323,10 +315,7 @@ const Header = () => {
                 <Link
                   to="/contact"
                   className="block bg-secondary text-primary text-center py-3 px-6 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    setIsMobileServicesOpen(false);
-                  }}
+                  onClick={closeMobileMenu}
                 >
                   Contact Us
                 </Link>

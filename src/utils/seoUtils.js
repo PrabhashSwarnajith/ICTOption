@@ -31,7 +31,7 @@ export const setPageMeta = (title, description, keywords, canonical) => {
       canonicalLink.rel = 'canonical';
       document.head.appendChild(canonicalLink);
     }
-    canonicalLink.href = `https://ictoption.com${canonical}`;
+    canonicalLink.href = `https://www.ictoption.com${canonical}`;
   }
 
   // Open Graph meta tags for social sharing

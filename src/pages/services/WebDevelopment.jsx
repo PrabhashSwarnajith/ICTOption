@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Hero } from '../../components';
 import { motion } from 'framer-motion';
+import { setPageMeta } from '../../utils/seoUtils';
 
 import {
   heroData,
@@ -14,6 +15,15 @@ import {
 } from '../../data/webDevelopmentData';
 
 const WebDevelopment = () => {
+  useEffect(() => {
+    setPageMeta(
+      'Web Development Services',
+      'Custom websites and web applications built with modern technologies for high performance, scalability, and seamless user experiences.',
+      'web development, custom websites, web applications, React, responsive design, e-commerce, CMS',
+      '/services/web-development'
+    );
+  }, []);
+
   return (
     <div className="min-h-screen bg-primary text-white font-body">
       {/* Hero Section */}

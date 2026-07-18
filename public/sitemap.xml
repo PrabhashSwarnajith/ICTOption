@@ -9,6 +9,30 @@
     <priority>0.8</priority>
   </url>
   <url>
+  <loc>https://www.ictoption.com/services/web-development</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+  <loc>https://www.ictoption.com/services/mobile-app-development</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+  <loc>https://www.ictoption.com/services/digital-marketing</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+  <loc>https://www.ictoption.com/services/it-consulting</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+  <loc>https://www.ictoption.com/services/cybersecurity</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+  <loc>https://www.ictoption.com/services/ai-machine-learning</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
   <loc>https://www.ictoption.com/products</loc>
     <priority>0.8</priority>
   </url>

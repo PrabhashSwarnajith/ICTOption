@@ -97,7 +97,7 @@ export const contactInfo = [
 export const services = [
   'Web Development',
   'Mobile App Development',
-  'Cloud Solutions',
+  'AI & Machine Learning',
   'Digital Marketing',
   'IT Consulting',
   'Cybersecurity',

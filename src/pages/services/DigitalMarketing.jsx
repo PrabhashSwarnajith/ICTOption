@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Hero } from '../../components';
 import { motion } from 'framer-motion';
+import { setPageMeta } from '../../utils/seoUtils';
 
 import {
   heroData,
@@ -13,6 +14,15 @@ import {
 } from '../../data/digitalMarketingData';
 
 const DigitalMarketing = () => {
+  useEffect(() => {
+    setPageMeta(
+      'Digital Marketing Services',
+      'Strategic digital marketing campaigns to boost your online presence, reach your target audience, and drive measurable business growth.',
+      'digital marketing, SEO, social media marketing, paid advertising, content marketing, online presence',
+      '/services/digital-marketing'
+    );
+  }, []);
+
   return (
     <div className="min-h-screen bg-primary text-white font-body">
       {/* Hero Section */}
@@ -420,7 +430,7 @@ const DigitalMarketing = () => {
                 Launch Your Campaign
               </Link>
               <Link
-                to="/portfolio"
+                to="/blog"
                 className="border-2 border-accent text-accent px-10 py-4 rounded-full font-semibold text-lg hover:bg-accent hover:text-primary transition-all duration-300"
                 data-aos="zoom-in"
                 data-aos-delay="300"

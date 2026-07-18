@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Hero } from '../../components';
 import { motion } from 'framer-motion';
+import { setPageMeta } from '../../utils/seoUtils';
 
 import {
   heroData,
@@ -13,6 +14,15 @@ import {
 } from '../../data/mobileAppDevelopmentData';
 
 const MobileAppDevelopment = () => {
+  useEffect(() => {
+    setPageMeta(
+      'Mobile App Development Services',
+      'iOS and Android app development designed for seamless user experiences, performance, and business growth.',
+      'mobile app development, iOS apps, Android apps, cross-platform apps, app design, React Native',
+      '/services/mobile-app-development'
+    );
+  }, []);
+
   return (
     <div className="min-h-screen bg-primary text-white font-body">
       {/* Hero Section */}

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Hero } from '../../components';
 import { motion } from 'framer-motion';
+import { setPageMeta } from '../../utils/seoUtils';
 
 import {
   heroData,
@@ -14,6 +15,15 @@ import {
 } from '../../data/itConsultingData';
 
 const ITConsulting = () => {
+  useEffect(() => {
+    setPageMeta(
+      'IT Consulting Services',
+      'Expert guidance on technology strategy and digital transformation to help your business make confident, informed IT decisions.',
+      'IT consulting, technology strategy, digital transformation, IT advisory, business technology',
+      '/services/it-consulting'
+    );
+  }, []);
+
   return (
     <div className="min-h-screen bg-primary text-white font-body">
       {/* Hero Section */}

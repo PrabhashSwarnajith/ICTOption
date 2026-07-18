@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Hero } from '../../components';
 import { motion } from 'framer-motion';
+import { setPageMeta } from '../../utils/seoUtils';
 
 import {
   heroData,
@@ -14,6 +15,15 @@ import {
 } from '../../data/aiMachineLearningData';
 
 const AIMachineLearning = () => {
+  useEffect(() => {
+    setPageMeta(
+      'AI & Machine Learning Services',
+      'Intelligent AI and machine learning solutions using cutting-edge algorithms to power smart automation and data-driven decisions.',
+      'AI, machine learning, artificial intelligence, automation, predictive analytics, data science',
+      '/services/ai-machine-learning'
+    );
+  }, []);
+
   return (
     <div className="min-h-screen bg-primary text-white font-body">
       {/* Hero Section */}
@@ -495,7 +505,7 @@ const AIMachineLearning = () => {
                 Get a Free AI Consultation
               </Link>
               <Link
-                to="/case-studies"
+                to="/blog"
                 className="border-2 border-accent text-accent px-10 py-4 rounded-full font-semibold text-lg hover:bg-accent hover:text-primary transition-all duration-300"
                 data-aos="zoom-in"
                 data-aos-delay="300"
