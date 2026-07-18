@@ -26,7 +26,6 @@ import {
 
 const Products = () => {
   useEffect(() => {
-    AOS.init({ once: true, duration: 900, offset: 80 });
     setPageMeta(
       'Products | Innovative Solutions for Modern Businesses',
       "Discover ICT Option's innovative products designed to accelerate business growth and streamline operations with cutting-edge technology solutions.",
@@ -97,7 +96,7 @@ const Products = () => {
               </h2>
               <p className="text-sm sm:text-base text-neutral-300 mb-6 sm:mb-8 font-body leading-relaxed">
                 We are a boutique digital transformation consultancy and
-                development company. Since 2017, our team has delivered
+                development company. Since 2021, our team has delivered
                 enterprise-grade projects for global brands, providing
                 cutting-edge engineering solutions tailored to your needs.
               </p>
@@ -341,9 +340,9 @@ const Products = () => {
                       {t.role || t.title}
                     </div>
                   </div>
-                  <span className="ml-auto text-accent text-2xl sm:text-3xl font-bold font-heading">
-                    ""
-                  </span>
+                  <svg className="ml-auto w-8 h-8 text-secondary opacity-60 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                  </svg>
                 </div>
               </motion.div>
             ))}
@@ -383,7 +382,7 @@ const Products = () => {
 
       {/* Call to Action Section */}
       <section
-        className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-primary via-neutral-900 to-accent text-center relative overflow-hidden"
+        className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-neutral-900 via-primary to-neutral-900 text-center relative overflow-hidden pattern-radial"
         data-aos="fade-up"
         data-aos-delay="400"
       >
@@ -415,7 +414,7 @@ const Products = () => {
               Request a Demo
             </Link>
             <Link
-              to="/pricing"
+              to="/contact"
               className="border-2 border-accent text-accent px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-base font-body hover:bg-accent hover:text-primary hover:scale-105 transition-all duration-300 transform-gpu text-center"
               data-aos="zoom-in"
               data-aos-delay="600"

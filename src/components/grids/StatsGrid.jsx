@@ -6,7 +6,7 @@ const StatsGrid = ({ stats }) => (
     {stats.map((stat, index) => (
       <motion.div
         key={index}
-        className="p-6 bg-neutral-800 rounded-xl shadow-lg border border-neutral-700 hover:shadow-xl transition-all duration-300"
+        className="p-6 bg-neutral-800 rounded-2xl shadow-lg border border-neutral-700 hover:border-secondary/60 hover:shadow-xl transition-all duration-300 text-center"
         whileHover={{ scale: 1.05 }}
         transition={{ duration: 0.3 }}
       >

@@ -25,7 +25,7 @@ const PartnersGrid = ({ partners }) => (
         <img
           src={partner.image}
           alt={partner.name}
-          className="w-30 h-28 object-contain rounded-lg shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:brightness-125"
+          className="w-full h-16 object-contain rounded-lg shadow-lg transition-all duration-300 group-hover:shadow-2xl group-hover:brightness-125 p-2"
           style={{ background: 'black' }}
         />
       </motion.div>

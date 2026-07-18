@@ -1,148 +1,74 @@
-// Framer Motion animation variants for consistent animations across the app
+const ease = [0.25, 0.46, 0.45, 0.94];
 
 export const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
+    transition: { staggerChildren: 0.08, delayChildren: 0.1 },
   },
 };
 
 export const itemVariants = {
-  hidden: {
-    opacity: 0,
-    y: 20,
-  },
+  hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.6,
-      ease: 'easeOut',
-    },
+    transition: { duration: 0.45, ease },
   },
 };
 
 export const fadeInVariants = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { duration: 0.6 },
-  },
+  visible: { opacity: 1, transition: { duration: 0.4 } },
 };
 
 export const slideInLeftVariants = {
-  hidden: {
-    opacity: 0,
-    x: -50,
-  },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.8,
-      ease: 'easeOut',
-    },
-  },
+  hidden: { opacity: 0, x: -40 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.55, ease } },
 };
 
 export const slideInRightVariants = {
-  hidden: {
-    opacity: 0,
-    x: 50,
-  },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.8,
-      ease: 'easeOut',
-    },
-  },
+  hidden: { opacity: 0, x: 40 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.55, ease } },
 };
 
 export const slideInUpVariants = {
-  hidden: {
-    opacity: 0,
-    y: 30,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.8,
-      ease: 'easeOut',
-    },
-  },
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease } },
 };
 
 export const scaleInVariants = {
-  hidden: {
-    opacity: 0,
-    scale: 0.95,
-  },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.6,
-      ease: 'easeOut',
-    },
-  },
+  hidden: { opacity: 0, scale: 0.96 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.4, ease } },
 };
 
 export const bounceInVariants = {
-  hidden: {
-    opacity: 0,
-    scale: 0.3,
-  },
+  hidden: { opacity: 0, scale: 0.5 },
   visible: {
     opacity: 1,
     scale: 1,
-    transition: {
-      duration: 0.8,
-      ease: 'easeOut',
-    },
+    transition: { duration: 0.5, ease: [0.34, 1.56, 0.64, 1] },
   },
 };
 
 export const hoverScaleVariants = {
   rest: { scale: 1 },
-  hover: { scale: 1.05, transition: { duration: 0.3 } },
+  hover: { scale: 1.04, transition: { duration: 0.2 } },
 };
 
 export const hoverGlowVariants = {
   rest: { boxShadow: '0 0 0px rgba(255, 0, 0, 0)' },
-  hover: {
-    boxShadow: '0 0 20px rgba(255, 0, 0, 0.6)',
-    transition: { duration: 0.3 },
-  },
+  hover: { boxShadow: '0 0 20px rgba(255, 0, 0, 0.5)', transition: { duration: 0.25 } },
 };
 
 export const rotateVariants = {
   initial: { rotate: 0 },
-  animate: {
-    rotate: 360,
-    transition: {
-      duration: 20,
-      ease: 'linear',
-      repeat: Infinity,
-    },
-  },
+  animate: { rotate: 360, transition: { duration: 20, ease: 'linear', repeat: Infinity } },
 };
 
 export const pulseVariants = {
   initial: { opacity: 1 },
-  animate: {
-    opacity: [1, 0.7, 1],
-    transition: {
-      duration: 2,
-      repeat: Infinity,
-    },
-  },
+  animate: { opacity: [1, 0.7, 1], transition: { duration: 2, repeat: Infinity } },
 };
 
 export const textRevealVariants = {
@@ -150,67 +76,37 @@ export const textRevealVariants = {
   visible: i => ({
     opacity: 1,
     y: 0,
-    transition: {
-      delay: i * 0.05,
-      duration: 0.5,
-      ease: 'easeOut',
-    },
+    transition: { delay: i * 0.04, duration: 0.4, ease },
   }),
 };
 
-// Viewport settings for animations (trigger when in view)
 export const viewportSettings = {
   once: true,
-  amount: 0.3,
-  margin: '-100px',
+  amount: 0.2,
+  margin: '-80px',
 };
 
-// Extended viewport settings for more aggressive triggering
 export const aggressiveViewportSettings = {
   once: true,
   amount: 0.1,
-  margin: '-50px',
+  margin: '-40px',
 };
 
-// Stagger container for lists
 export const staggerContainerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.1,
-    },
+    transition: { staggerChildren: 0.1, delayChildren: 0.05 },
   },
 };
 
-// Individual stagger item
 export const staggerItemVariants = {
-  hidden: {
-    opacity: 0,
-    y: 20,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: 'easeOut',
-    },
-  },
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease } },
 };
 
-// Tab animation
 export const tabVariants = {
-  hidden: { opacity: 0, x: 20 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.4 },
-  },
-  exit: {
-    opacity: 0,
-    x: -20,
-    transition: { duration: 0.4 },
-  },
+  hidden: { opacity: 0, x: 16 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.3 } },
+  exit: { opacity: 0, x: -16, transition: { duration: 0.25 } },
 };

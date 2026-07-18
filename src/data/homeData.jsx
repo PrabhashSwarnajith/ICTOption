@@ -71,7 +71,7 @@ export const featuredServices = [
     image: web2,
     number: 1,
     link: '/services/web-development',
-    bgColor: 'bg-gradient-to-br from-primary to-neutral-800',
+    bgColor: 'bg-primary pattern-grid-fine',
     reverse: false,
   },
   {
@@ -89,7 +89,7 @@ export const featuredServices = [
     image: mobile3,
     number: 2,
     link: '/services/mobile-app-development',
-    bgColor: 'bg-gradient-to-br from-primary to-secondary',
+    bgColor: 'bg-neutral-900 pattern-dots-small',
     reverse: true,
   },
   {
@@ -125,7 +125,7 @@ export const featuredServices = [
     image: ml1,
     number: 4,
     link: '/services/ai-machine-learning',
-    bgColor: 'bg-gradient-to-br from-primary to-secondary',
+    bgColor: 'bg-neutral-900 pattern-dots-small',
     reverse: true,
   },
   {
@@ -161,7 +161,7 @@ export const featuredServices = [
     image: cyber1,
     number: 6,
     link: '/services/cybersecurity',
-    bgColor: 'bg-gradient-to-br from-primary to-secondary',
+    bgColor: 'bg-neutral-900 pattern-dots-small',
     reverse: true,
   },
 ];

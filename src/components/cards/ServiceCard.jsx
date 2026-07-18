@@ -5,19 +5,17 @@ import { hoverScaleVariants } from '../../utils/animationVariants';
 
 const MotionLink = motion.create(Link);
 
-const ServiceCard = ({ service, aosDelay }) => (
+const ServiceCard = ({ service }) => (
   <MotionLink
     to={service.path}
-    className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-primary to-neutral-800 shadow-xl border border-neutral-700 hover:border-accent flex flex-col group hover:shadow-glow-md transition-all duration-300 h-[360px]
+    className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-primary to-neutral-800 shadow-xl border border-neutral-700 hover:border-secondary/60 flex flex-col group hover:shadow-glow-md transition-all duration-300
       before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-br before:from-transparent before:via-secondary/10 before:to-transparent before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:duration-500"
-    data-aos="zoom-in"
-    data-aos-delay={aosDelay}
     variants={hoverScaleVariants}
     initial="rest"
     whileHover="hover"
   >
     {/* Image with overlay */}
-    <div className="relative w-full h-36 overflow-hidden">
+    <div className="relative w-full aspect-video overflow-hidden">
       <motion.img
         src={service.image}
         alt={service.name}

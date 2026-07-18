@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import logo from '../../assets/logo.svg';
@@ -6,7 +6,15 @@ import logo from '../../assets/logo.svg';
 const Header = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -29,11 +37,12 @@ const Header = () => {
         { name: 'Cybersecurity', path: '/services/cybersecurity' },
       ],
     },
+    { name: 'Case Studies', path: '/blog' },
     { name: 'About', path: '/about' },
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 px-2 py-2 bg-primary/50 backdrop-blur-xl shadow-lg transition-all duration-300 font-body">
+    <header className={`fixed top-0 left-0 w-full z-50 px-2 py-2 backdrop-blur-xl transition-all duration-500 font-body ${scrolled ? 'bg-primary/95 shadow-lg shadow-black/40 py-1 border-b border-neutral-800/80' : 'bg-primary/30 py-2 border-b border-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-3 group">
@@ -200,42 +209,59 @@ const Header = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu — Full-screen slide-in from right */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
-            id="mobile-menu"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden overflow-hidden"
-          >
-            <nav className="max-w-7xl mx-auto px-4 sm:px-6 space-y-2 bg-primary border-t border-neutral-700 rounded-b-lg shadow-inner py-4">
-              <motion.div
-                initial="hidden"
-                animate="visible"
-                variants={{
-                  visible: {
-                    transition: { staggerChildren: 0.05 },
-                  },
-                }}
-              >
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 bg-black/60 z-40 lg:hidden"
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                setIsMobileServicesOpen(false);
+              }}
+            />
+            {/* Slide-in panel */}
+            <motion.div
+              id="mobile-menu"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              className="fixed top-0 right-0 h-full w-4/5 max-w-sm bg-primary z-50 lg:hidden flex flex-col shadow-2xl"
+            >
+              {/* Panel header */}
+              <div className="flex items-center justify-between px-6 py-5 border-b border-neutral-700">
+                <span className="text-xl font-extrabold text-accent font-heading">
+                  ICT <span className="text-secondary">OPTION</span>
+                </span>
+                <button
+                  className="text-accent p-2 rounded-lg hover:bg-secondary/10 transition-colors duration-300"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    setIsMobileServicesOpen(false);
+                  }}
+                  aria-label="Close menu"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Nav links */}
+              <nav className="flex-1 overflow-y-auto px-4 py-6 space-y-2">
                 {navLinks.map((link, index) =>
                   link.dropdown ? (
-                    <motion.div
-                      key={index}
-                      variants={{
-                        hidden: { opacity: 0, y: 10 },
-                        visible: { opacity: 1, y: 0 },
-                      }}
-                      className="py-2"
-                    >
-                      <div
-                        className="flex justify-between items-center px-4 py-2 text-base font-semibold text-secondary bg-neutral-800 rounded-lg cursor-pointer hover:bg-neutral-700 transition-colors duration-300"
-                        onClick={() => setIsServicesOpen(!isServicesOpen)}
-                        aria-haspopup="true"
-                        aria-expanded={isServicesOpen}
+                    <div key={index}>
+                      <button
+                        className="w-full flex justify-between items-center px-4 py-3 text-base font-semibold text-secondary bg-neutral-800 rounded-lg hover:bg-neutral-700 transition-colors duration-300"
+                        onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                        aria-expanded={isMobileServicesOpen}
                       >
                         <span>{link.name}</span>
                         <motion.svg
@@ -243,97 +269,70 @@ const Header = () => {
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
-                          animate={{ rotate: isServicesOpen ? 180 : 0 }}
+                          animate={{ rotate: isMobileServicesOpen ? 180 : 0 }}
                           transition={{ duration: 0.3 }}
                         >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M19 9l-7 7-7-7"
-                          />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                         </motion.svg>
-                      </div>
+                      </button>
                       <AnimatePresence>
-                        {isServicesOpen && (
+                        {isMobileServicesOpen && (
                           <motion.div
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.2 }}
-                            className="overflow-hidden mt-2"
+                            className="overflow-hidden mt-1 pl-4 space-y-1"
                           >
-                            <motion.div
-                              className="pl-6 space-y-2"
-                              initial="hidden"
-                              animate="visible"
-                              variants={{
-                                visible: {
-                                  transition: { staggerChildren: 0.05 },
-                                },
-                              }}
-                            >
-                              {link.dropdown.map((dropdownItem, i) => (
-                                <motion.div
-                                  key={i}
-                                  variants={{
-                                    hidden: { opacity: 0, x: -10 },
-                                    visible: { opacity: 1, x: 0 },
-                                  }}
-                                >
-                                  <Link
-                                    to={dropdownItem.path}
-                                    className="block py-2 px-4 text-sm text-accent hover:text-secondary hover:bg-secondary/10 rounded-lg transition-all duration-300"
-                                    onClick={() => {
-                                      setIsMobileMenuOpen(false);
-                                      setIsServicesOpen(false);
-                                    }}
-                                  >
-                                    {dropdownItem.name}
-                                  </Link>
-                                </motion.div>
-                              ))}
-                            </motion.div>
+                            {link.dropdown.map((dropdownItem, i) => (
+                              <Link
+                                key={i}
+                                to={dropdownItem.path}
+                                className="block py-2 px-4 text-sm text-accent hover:text-secondary hover:bg-secondary/10 rounded-lg transition-all duration-300"
+                                onClick={() => {
+                                  setIsMobileMenuOpen(false);
+                                  setIsMobileServicesOpen(false);
+                                }}
+                              >
+                                {dropdownItem.name}
+                              </Link>
+                            ))}
                           </motion.div>
                         )}
                       </AnimatePresence>
-                    </motion.div>
+                    </div>
                   ) : (
-                    <motion.div
+                    <Link
                       key={index}
-                      variants={{
-                        hidden: { opacity: 0, y: 10 },
-                        visible: { opacity: 1, y: 0 },
-                      }}
+                      to={link.path}
+                      className={`block py-3 px-4 rounded-lg font-medium transition-all duration-300 ${
+                        location.pathname === link.path
+                          ? 'text-secondary bg-secondary/10'
+                          : 'text-accent hover:text-secondary hover:bg-secondary/10'
+                      }`}
+                      onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      <Link
-                        to={link.path}
-                        className="block py-3 px-4 text-accent hover:text-secondary hover:bg-secondary/10 rounded-lg transition-all duration-300 font-medium"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        {link.name}
-                      </Link>
-                    </motion.div>
+                      {link.name}
+                    </Link>
                   )
                 )}
-                <motion.div
-                  variants={{
-                    hidden: { opacity: 0, y: 10 },
-                    visible: { opacity: 1, y: 0 },
+              </nav>
+
+              {/* Contact button at bottom */}
+              <div className="px-6 py-6 border-t border-neutral-700">
+                <Link
+                  to="/contact"
+                  className="block bg-secondary text-primary text-center py-3 px-6 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    setIsMobileServicesOpen(false);
                   }}
-                  className="mt-4"
                 >
-                  <Link
-                    to="/contact"
-                    className="block bg-secondary text-primary text-center py-3 px-6 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Contact Us
-                  </Link>
-                </motion.div>
-              </motion.div>
-            </nav>
-          </motion.div>
+                  Contact Us
+                </Link>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>

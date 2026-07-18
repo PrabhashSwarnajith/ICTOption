@@ -4,7 +4,7 @@ import { hoverScaleVariants } from '../../utils/animationVariants';
 
 const ProjectCard = ({ project, onLearnMore }) => (
   <motion.div
-    className="bg-neutral-800 rounded-2xl shadow-lg border border-neutral-700 hover:border-accent flex flex-col overflow-hidden relative group hover:shadow-2xl transition-all duration-300 h-[400px]"
+    className="bg-neutral-800 rounded-2xl shadow-lg border border-neutral-700 hover:border-secondary/60 flex flex-col overflow-hidden relative group hover:shadow-2xl transition-all duration-300"
     variants={hoverScaleVariants}
     initial="rest"
     whileHover="hover"
@@ -13,7 +13,7 @@ const ProjectCard = ({ project, onLearnMore }) => (
     <motion.img
       src={project.image}
       alt={project.title}
-      className="w-full h-48 object-cover"
+      className="w-full aspect-video object-cover"
       loading="lazy"
       whileHover={{ scale: 1.1 }}
     />

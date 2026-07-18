@@ -6,16 +6,16 @@ const ClientReviewsGrid = ({ reviews }) => (
     {reviews.map((review, index) => (
       <motion.div
         key={index}
-        className="bg-neutral-800 rounded-xl p-6 sm:p-8 shadow-lg flex flex-col border-t-4 border-secondary hover:shadow-2xl hover:border-accent transition-all duration-300 transform hover:scale-[1.02] min-h-[320px]"
+        className="bg-neutral-800 rounded-2xl p-6 sm:p-8 shadow-lg flex flex-col border border-neutral-700 hover:border-secondary/60 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]"
         role="article"
         aria-label={`Client review from ${review.name}`}
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: index * 0.15 }}
-        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
+        viewport={{ once: true, amount: 0.2 }}
       >
         <p className="text-neutral-200 text-sm sm:text-base mb-6 sm:mb-8 font-body leading-relaxed flex-grow">
-          "{review.quote}"
+          {review.quote}
         </p>
         <div className="flex items-center gap-4 mt-auto pt-4 border-t border-neutral-700">
           <div className="flex-1">
@@ -26,9 +26,9 @@ const ClientReviewsGrid = ({ reviews }) => (
               {review.title}
             </div>
           </div>
-          <span className="text-secondary text-2xl sm:text-3xl font-bold flex-shrink-0">
-            ""
-          </span>
+          <svg className="w-8 h-8 text-secondary opacity-60 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+          </svg>
         </div>
       </motion.div>
     ))}

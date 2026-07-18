@@ -9,7 +9,7 @@ const FAQCard = props => {
   if (!question || !answer) return null;
   return (
     <motion.div
-      className="relative overflow-hidden bg-gradient-to-br from-neutral-900 via-primary/40 to-neutral-800 rounded-2xl p-5 sm:p-6 border border-neutral-700 hover:border-accent transition-all duration-300 shadow-lg hover:shadow-2xl min-h-[220px] flex flex-col"
+      className="relative overflow-hidden bg-gradient-to-br from-neutral-900 via-primary/40 to-neutral-800 rounded-2xl p-5 sm:p-6 border border-neutral-700 hover:border-secondary/60 transition-all duration-300 shadow-lg hover:shadow-2xl flex flex-col"
       variants={hoverScaleVariants}
       initial="rest"
       whileHover="hover"

@@ -13,12 +13,12 @@ const WhyChooseUsProgress = ({ points }) => (
             {item.value}%
           </span>
         </div>
-        <div className="w-full h-3 bg-neutral-800 rounded-full overflow-hidden shadow-inner">
+        <div className="w-full h-2 bg-neutral-700 rounded-full overflow-hidden">
           <motion.div
-            className="h-full bg-secondary rounded-full"
+            className="h-full bg-gradient-to-r from-secondary to-red-400 rounded-full"
             initial={{ width: 0 }}
             whileInView={{ width: `${item.value}%` }}
-            transition={{ duration: 1.5, ease: 'easeOut' }}
+            transition={{ duration: 1.2, ease: 'easeOut' }}
             viewport={{ once: true }}
           ></motion.div>
         </div>

@@ -1,14 +1,10 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import { setPageMeta } from '../utils/seoUtils';
 import {
   containerVariants,
   itemVariants,
-  slideInLeftVariants,
-  slideInRightVariants,
 } from '../utils/animationVariants';
 import {
   ServiceDetailCard,
@@ -36,7 +32,6 @@ import {
 const Home = () => {
   // Initialize AOS on component mount
   useEffect(() => {
-    AOS.init({ once: true, duration: 900, offset: 80 });
     setPageMeta(
       'Home | Digital Solutions & Web Development Services',
       'ICT Option provides cutting-edge digital solutions, web development, mobile apps, AI/ML, digital marketing, and IT consulting services to transform your business.',
@@ -109,12 +104,12 @@ const Home = () => {
             transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <span className="text-secondary font-bold uppercase tracking-wider text-xs sm:text-sm font-body">
+            <span className="text-secondary font-bold uppercase tracking-widest text-xs font-body">
               About Us
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-accent mt-2 mb-4 font-heading leading-tight">
               Best Tech Solutions & Digital Services Since{' '}
-              <span className="text-secondary">2023</span>
+              <span className="text-secondary">2021</span>
             </h2>
             <p className="text-sm sm:text-base text-neutral-300 opacity-90 mb-6 sm:mb-8 max-w-xl font-body">
               We deliver innovative, reliable, and scalable technology solutions
@@ -144,7 +139,7 @@ const Home = () => {
             viewport={{ once: true, amount: 0.3 }}
           >
             <div className="mb-4 sm:mb-6">
-              <span className="text-secondary font-bold uppercase tracking-wider text-xs sm:text-sm font-body">
+              <span className="text-secondary font-bold uppercase tracking-widest text-xs font-body">
                 Why Choose Us
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-accent mt-2 mb-4 font-heading leading-tight">
@@ -181,34 +176,37 @@ const Home = () => {
       </section>
       {/* Partners and Statistics Section */}
 
-      <section className="py-20 bg-neutral-900 relative overflow-hidden pattern-diagonal">
+      <section className="py-20 bg-neutral-900 relative overflow-hidden pattern-cross">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             className="text-center mb-14"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4 font-heading">
+            <span className="text-secondary font-bold uppercase tracking-widest text-xs sm:text-sm font-body">
+              Partners & Stats
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mt-2 mb-3 font-heading">
               Our Trusted <span className="text-secondary">Partners</span>
             </h2>
-            <div className="w-24 h-1 bg-secondary mx-auto mb-4"></div>
-            <p className="text-sm sm:text-lg text-neutral-300 font-body max-w-2xl mx-auto">
-              Collaborating with industry leaders to bring you the best
-              solutions.
+            <div className="w-16 sm:w-20 h-0.5 bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto mb-4"></div>
+            <p className="text-sm sm:text-lg text-neutral-400 font-body max-w-2xl mx-auto">
+              Collaborating with industry leaders to bring you the best solutions.
             </p>
           </motion.div>
 
           <PartnersGrid partners={partnersData} />
 
           <motion.div
-            className="mt-20 text-center"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
+            className="mt-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
           >
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-neutral-700 to-transparent mb-14"></div>
             <StatsGrid stats={statsData} />
           </motion.div>
         </div>
@@ -229,41 +227,29 @@ const Home = () => {
       ))}
       {/* Client Reviews Section */}
 
-      <section
-        className="py-12 sm:py-16 md:py-20 lg:py-24 bg-primary relative overflow-hidden"
-        data-aos="fade-up"
-        data-aos-delay="700"
-      >
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80"
-            alt="Testimonials Background"
-            loading="lazy"
-            className="w-full h-full object-cover opacity-10"
-          />
-          <div className="absolute inset-0 bg-neutral-900/80" />
-        </div>
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-primary pattern-grid-fine relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-10 sm:mb-12 md:mb-14">
-            <span className="text-secondary font-bold uppercase tracking-wider text-xs sm:text-sm font-body">
+            <span className="text-secondary font-bold uppercase tracking-widest text-xs sm:text-sm font-body">
               Testimonials
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-accent mb-2 font-heading tracking-wide uppercase">
-              Our Clients Reviews
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-accent mt-2 mb-3 font-heading">
+              What Our <span className="text-secondary">Clients</span> Say
             </h2>
-            <div className="w-16 sm:w-24 h-1 bg-secondary mx-auto mb-4 sm:mb-6 rounded-full"></div>
-            <p className="text-sm sm:text-base text-neutral-300 opacity-90 max-w-2xl mx-auto font-body">
-              See what our clients say about working with us and how we helped
-              them achieve their goals.
+            <div className="w-16 sm:w-20 h-0.5 bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto mb-4 sm:mb-6"></div>
+            <p className="text-sm sm:text-base text-neutral-400 max-w-2xl mx-auto font-body">
+              Real results from real clients — see how we helped them achieve their goals.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {clientReviews.map((t, idx) => (
               <motion.div
                 key={t.name}
-                className="bg-neutral-800 rounded-xl p-6 sm:p-8 shadow-xl flex flex-col items-start border border-neutral-700 relative max-w-[370px] mx-auto hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 pattern-dots-small"
-                data-aos="zoom-in"
-                data-aos-delay={idx * 100}
+                className="bg-neutral-800 rounded-2xl p-6 sm:p-8 shadow-xl flex flex-col items-start border border-neutral-700 hover:border-secondary/60 relative hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                viewport={{ once: true, amount: 0.2 }}
               >
                 <p className="text-neutral-300 text-sm sm:text-base mb-6 sm:mb-8 font-medium font-body leading-relaxed">
                   {t.text || t.quote}
@@ -277,9 +263,9 @@ const Home = () => {
                       {t.role || t.title}
                     </div>
                   </div>
-                  <span className="ml-auto text-accent text-2xl sm:text-3xl font-bold font-heading">
-                    ""
-                  </span>
+                  <svg className="ml-auto w-8 h-8 text-secondary opacity-60 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                  </svg>
                 </div>
               </motion.div>
             ))}
@@ -288,29 +274,29 @@ const Home = () => {
       </section>
       {/* FAQ Section */}
 
-      <section
-        className="py-20 bg-neutral-900 relative overflow-hidden pattern-minimal"
-        data-aos="fade-up"
-        data-aos-delay="700"
-      >
+      <section className="py-20 bg-neutral-900 relative overflow-hidden pattern-dots-small">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4 font-heading tracking-wide uppercase">
-              Frequently Asked Questions
+            <span className="text-secondary font-bold uppercase tracking-widest text-xs sm:text-sm font-body">
+              FAQ
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mt-2 mb-3 font-heading">
+              Frequently <span className="text-secondary">Asked</span> Questions
             </h2>
-            <div className="w-24 h-1 bg-accent mx-auto mb-4 rounded-full"></div>
-            <p className="text-neutral-300 font-body max-w-2xl mx-auto">
-              Find quick answers to common questions about our services and
-              approach.
+            <div className="w-16 sm:w-20 h-0.5 bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto mb-4 rounded-full"></div>
+            <p className="text-neutral-400 font-body max-w-2xl mx-auto">
+              Find quick answers to common questions about our services and approach.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {faqs.map((faq, idx) => (
               <motion.div
                 key={faq.question}
-                className="bg-neutral-800 p-6 sm:p-8 rounded-2xl shadow-xl border border-accent text-neutral-300 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 pattern-minimal"
-                data-aos="zoom-in"
-                data-aos-delay={idx * 100}
+                className="bg-neutral-800 p-6 sm:p-8 rounded-2xl shadow-xl border border-neutral-700 hover:border-secondary/60 text-neutral-300 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                viewport={{ once: true, amount: 0.2 }}
               >
                 <h3 className="font-bold text-secondary text-lg sm:text-xl mb-2 font-heading">
                   {faq.question}
@@ -322,36 +308,38 @@ const Home = () => {
         </div>
       </section>
       {/* Call to Action Section */}
-      <section
-        className="py-20 bg-gradient-to-br from-primary via-neutral-900 to-accent text-center relative overflow-hidden"
-        data-aos="fade-up"
-        data-aos-delay="900"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <section className="py-24 bg-neutral-900 pattern-dots-small text-center relative overflow-hidden">
+        {/* Red radial glow */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-secondary/10 rounded-full blur-3xl"></div>
+        </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
+            className="space-y-6"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-6 font-heading">
-              Ready to Transform Your{' '}
-              <span className="text-secondary">Business</span>?
+            <span className="text-secondary font-bold uppercase tracking-widest text-xs sm:text-sm font-body">
+              Let's Work Together
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-accent font-heading leading-tight">
+              Ready to Transform Your <span className="text-secondary">Business</span>?
             </h2>
-            <p className="text-sm sm:text-base md:text-lg text-neutral-300 mb-8 sm:mb-10 max-w-2xl mx-auto font-body opacity-90">
-              Let's collaborate to bring your vision to life with cutting-edge
-              technology solutions that drive growth and innovation.
+            <p className="text-sm sm:text-base md:text-lg text-neutral-400 max-w-2xl mx-auto font-body">
+              Let's collaborate to bring your vision to life with cutting-edge technology solutions that drive growth and innovation.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center pt-2">
               <Link
                 to="/contact"
-                className="bg-secondary text-primary px-6 sm:px-10 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-lg shadow-glow-md hover:scale-105 transition-all duration-300 font-body hover:bg-secondary-light"
+                className="bg-secondary text-primary px-8 sm:px-10 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-base shadow-glow-md hover:scale-105 transition-all duration-300 font-body hover:bg-secondary-light"
               >
                 Start Your Project
               </Link>
               <Link
                 to="/services"
-                className="border-2 border-accent text-accent px-6 sm:px-10 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-lg hover:bg-accent hover:text-primary hover:scale-105 transition-all duration-300 font-body"
+                className="border border-neutral-600 text-neutral-300 px-8 sm:px-10 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-base hover:border-secondary/60 hover:text-white hover:scale-105 transition-all duration-300 font-body"
               >
                 View All Services
               </Link>

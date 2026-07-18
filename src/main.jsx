@@ -8,8 +8,9 @@ import App from './App.jsx';
 // Initialize AOS (Animate On Scroll)
 AOS.init({
   duration: 600,
-  easing: 'ease-in-out',
+  easing: 'ease-out-cubic',
   once: true,
+  offset: 60,
   mirror: false,
 });
 

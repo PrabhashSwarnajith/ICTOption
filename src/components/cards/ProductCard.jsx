@@ -4,9 +4,7 @@ import { hoverScaleVariants } from '../../utils/animationVariants';
 
 const ProductCard = ({ product, aosDelay }) => (
   <motion.div
-    className="bg-neutral-800 rounded-2xl p-5 sm:p-6 flex flex-col md:flex-row items-center shadow-xl border border-neutral-700 hover:border-accent hover:shadow-2xl transition-all duration-300 min-h-[360px]"
-    data-aos="zoom-in-up"
-    data-aos-delay={aosDelay}
+    className="bg-neutral-800 rounded-2xl p-5 sm:p-6 flex flex-col md:flex-row items-center shadow-xl border border-neutral-700 hover:border-secondary/60 hover:shadow-2xl transition-all duration-300"
     variants={hoverScaleVariants}
     initial="rest"
     whileHover="hover"
@@ -14,17 +12,11 @@ const ProductCard = ({ product, aosDelay }) => (
     <img
       src={product.image}
       alt={product.name}
-      className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-xl object-cover border-2 border-secondary mr-0 md:mr-8 mb-6 md:mb-0 hover:border-accent transition-all duration-300 shadow-lg"
+      className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-xl object-cover border-2 border-secondary mr-0 md:mr-8 mb-6 md:mb-0 hover:border-secondary-light transition-all duration-300 shadow-lg flex-shrink-0"
       style={{ aspectRatio: '1/1' }}
       loading="lazy"
-      data-aos="fade-right"
-      data-aos-delay={aosDelay + 100}
     />
-    <div
-      className="flex-1 flex flex-col justify-center w-full"
-      data-aos="fade-left"
-      data-aos-delay={aosDelay + 200}
-    >
+    <div className="flex-1 flex flex-col justify-center w-full">
       <h3 className="text-xl sm:text-2xl font-extrabold text-accent font-heading mb-2 uppercase tracking-wide">
         {product.name}
       </h3>

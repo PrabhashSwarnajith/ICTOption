@@ -2,85 +2,136 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Pattern backgrounds - User Friendly & Professional */
+/* ─── Base ─────────────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-primary text-accent antialiased;
+    font-family: 'Inter', 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* Text selection */
+  ::selection {
+    background-color: rgba(255, 0, 0, 0.25);
+    color: #ffffff;
+  }
+
+  /* Focus visible — keyboard nav only */
+  :focus-visible {
+    outline: 2px solid #FF0000;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Custom scrollbar — webkit */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #111111;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #FF0000;
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #FF3333;
+  }
+
+  /* Firefox scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #FF0000 #111111;
+  }
+}
+
+/* ─── Scroll Progress Bar ───────────────────────────────── */
 @layer utilities {
-  /* Subtle grid pattern - good for dark backgrounds */
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #FF0000, #FF3333);
+    z-index: 9999;
+    transform-origin: left;
+    will-change: transform;
+  }
+}
+
+/* ─── Pattern Backgrounds ───────────────────────────────── */
+@layer utilities {
   .pattern-grid-soft {
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
     background-size: 50px 50px;
   }
 
-  /* Fine grid pattern - subtle and elegant */
   .pattern-grid-fine {
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
     background-size: 30px 30px;
   }
 
-  /* Dots pattern - playful and modern */
   .pattern-dots {
-    background-image: radial-gradient(
-      circle,
-      rgba(255, 255, 255, 0.05) 1px,
-      transparent 1px
-    );
+    background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
     background-size: 20px 20px;
   }
 
-  /* Smaller dots pattern - more refined */
   .pattern-dots-small {
-    background-image: radial-gradient(
-      circle,
-      rgba(255, 255, 255, 0.04) 1px,
-      transparent 1px
-    );
+    background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
     background-size: 15px 15px;
   }
 
-  /* Diagonal lines pattern - dynamic */
   .pattern-diagonal {
     background-image: repeating-linear-gradient(
       45deg,
       transparent,
       transparent 10px,
-      rgba(255, 255, 255, 0.02) 10px,
-      rgba(255, 255, 255, 0.02) 20px
+      rgba(255,255,255,0.02) 10px,
+      rgba(255,255,255,0.02) 20px
     );
   }
 
-  /* Cross pattern - geometric */
-  .pattern-cross {
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.03) 1.5px, transparent 1.5px),
-      linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0.03) 1.5px,
-        transparent 1.5px
-      ),
-      linear-gradient(45deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-      linear-gradient(-45deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-    background-size:
-      40px 40px,
-      40px 40px,
-      60px 60px,
-      60px 60px;
-  }
-
-  /* Subtle wave pattern - smooth */
-  .pattern-wave {
-    background-image: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="wave" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M0,50 Q25,25 50,50 T100,50" stroke="rgba(255,255,255,0.03)" fill="none" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="none"/><rect width="100" height="100" fill="url(%23wave)"/></svg>');
-    background-size: 100px 100px;
-  }
-
-  /* Clean minimal pattern */
   .pattern-minimal {
     background-image: none;
   }
 
+  .pattern-radial {
+    background-image: radial-gradient(ellipse at center, rgba(255,0,0,0.04) 0%, transparent 70%);
+  }
+
+  .pattern-cross {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  }
+}
+
+/* ─── Animations ────────────────────────────────────────── */
+@layer utilities {
   .animate-spin-slow {
     animation: spin 20s linear infinite;
+  }
+
+  /* GPU-accelerated hint for animated elements */
+  .will-animate {
+    will-change: transform, opacity;
   }
 }

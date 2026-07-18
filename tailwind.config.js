@@ -59,18 +59,22 @@ export default {
       },
       fontFamily: {
         heading: ['Poppins', 'sans-serif'],
-        body: ['Roboto', 'Open Sans', 'sans-serif'],
+        body: ['Inter', 'Roboto', 'sans-serif'],
       },
       boxShadow: {
-        // Adjusted glow color to complement the red/black theme better, or maintain neutral
-        glow: '0 0 12px rgba(255, 0, 0, 0.4)', // A subtle red glow
-        'glow-lg': '0 0 24px rgba(255, 0, 0, 0.6)', // More intense red glow
-        // You could also keep a neutral gray glow if the red is too aggressive
+        glow: '0 0 12px rgba(255, 0, 0, 0.4)',
+        'glow-md': '0 0 16px rgba(255, 0, 0, 0.5)',
+        'glow-lg': '0 0 24px rgba(255, 0, 0, 0.6)',
         'neutral-glow': '0 0 12px #9CA3AF',
         'neutral-glow-lg': '0 0 24px #9CA3AF',
       },
+      transitionTimingFunction: {
+        smooth: 'cubic-bezier(0.4, 0, 0.2, 1)',
+        bounce: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
+        snappy: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+      },
       animation: {
-        float: 'float 6s ease-in-out infinite',
+        float: 'float 5s ease-in-out infinite',
         pulseSlow: 'pulse 3s ease-in-out infinite',
         glowPulse: 'glowPulse 2s ease-in-out infinite',
         fadeInUp: 'fadeInUp 1s ease-out',
@@ -87,7 +91,7 @@ export default {
       keyframes: {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-20px)' },
+          '50%': { transform: 'translateY(-8px)' },
         },
         glowPulse: {
           '0%, 100%': { boxShadow: '0 0 12px #FF0000' },

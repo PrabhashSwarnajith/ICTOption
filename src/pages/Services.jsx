@@ -58,8 +58,8 @@ const Services = () => {
             {' '}
             {/* Changed text-gray-200 to text-neutral-300 */}
             Discover our comprehensive range of technology solutions designed to
-            **drive innovation, enhance efficiency, and accelerate your business
-            growth** in the dynamic digital landscape.
+            drive innovation, enhance efficiency, and accelerate your business
+            growth in the dynamic digital landscape.
           </span>
         }
         backgroundImage={service}
@@ -262,9 +262,9 @@ const Services = () => {
                       {t.role || t.title}
                     </div>
                   </div>
-                  <span className="ml-auto text-accent text-2xl sm:text-3xl font-bold font-heading">
-                    ""
-                  </span>
+                  <svg className="ml-auto w-8 h-8 text-secondary opacity-60 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                  </svg>
                 </div>
               </motion.div>
             ))}
@@ -309,7 +309,7 @@ const Services = () => {
 
       {/* CTA Section (modern style) */}
       <section
-        className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-primary via-neutral-900 to-accent text-center relative overflow-hidden\"
+        className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-neutral-900 via-primary to-neutral-900 text-center relative overflow-hidden pattern-radial"
         data-aos="fade-up"
         data-aos-delay="900"
       >

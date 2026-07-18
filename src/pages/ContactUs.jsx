@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 import { Hero, ContactInfoCard, FAQCard } from '../components';
 import { setPageMeta } from '../utils/seoUtils';
 import AOS from 'aos';
@@ -26,9 +27,10 @@ const ContactUs = () => {
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const formRef = useRef(null);
 
   useEffect(() => {
-    AOS.init({ once: true, duration: 900, offset: 80 });
     setPageMeta(
       'Contact Us | Get in Touch with ICT Option',
       'Contact ICT Option for digital solutions, web development, and technology services. Reach out to our expert team today to discuss your project.',
@@ -100,20 +102,25 @@ const ContactUs = () => {
 
     if (Object.keys(newErrors).length === 0) {
       setIsSubmitting(true);
-      // Simulate submission
-      setTimeout(() => {
-        setIsSubmitting(false);
-        setFormData({
-          name: '',
-          email: '',
-          company: '',
-          service: '',
-          subject: '',
-          message: '',
+      emailjs
+        .sendForm(
+          import.meta.env.VITE_EMAILJS_SERVICE_ID,
+          import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+          formRef.current,
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        )
+        .then(() => {
+          setIsSubmitting(false);
+          setIsSuccess(true);
+          setFormData({ name: '', email: '', company: '', service: '', subject: '', message: '' });
+          setTouched({});
+          setErrors({});
+          setTimeout(() => setIsSuccess(false), 6000);
+        })
+        .catch(() => {
+          setIsSubmitting(false);
+          setErrors(prev => ({ ...prev, submit: 'Failed to send message. Please try again.' }));
         });
-        setTouched({});
-        alert('Message sent successfully!');
-      }, 1000);
     }
   };
 
@@ -170,7 +177,25 @@ const ContactUs = () => {
               <h2 className="text-2xl md:text-4xl font-bold text-accent mb-6 font-heading uppercase tracking-wide">
                 Send Us a Message
               </h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              {isSuccess && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-6 p-4 bg-green-500/10 border border-green-500 rounded-lg text-green-400 font-body text-sm"
+                >
+                  Message sent! We'll reply within 24 hours.
+                </motion.div>
+              )}
+              {errors.submit && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-6 p-4 bg-red-500/10 border border-red-500 rounded-lg text-red-400 font-body text-sm"
+                >
+                  {errors.submit}
+                </motion.div>
+              )}
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                 <motion.div
                   className="grid md:grid-cols-2 gap-6"
                   initial={{ opacity: 0, y: 10 }}
@@ -392,7 +417,7 @@ const ContactUs = () => {
                 </motion.div>
                 <motion.button
                   type="submit"
-                  disabled={isSubmitting || Object.keys(errors).length > 0}
+                  disabled={isSubmitting || Object.values(errors).some(e => e !== '')}
                   className={`w-full py-3 px-6 rounded-full font-semibold text-base uppercase tracking-wider shadow-lg transition-all duration-300 ${
                     isSubmitting
                       ? 'bg-neutral-600 text-neutral-400 cursor-not-allowed'

@@ -4,11 +4,10 @@ import { hoverScaleVariants } from '../../utils/animationVariants';
 
 const HowWeWorkStep = ({ step }) => (
   <motion.div
-    className="bg-neutral-800 p-5 sm:p-6 rounded-2xl shadow-lg border border-accent hover:border-secondary hover:shadow-2xl transition-all duration-300 min-h-[240px] flex flex-col justify-center"
+    className="bg-neutral-800 p-6 sm:p-8 rounded-2xl shadow-lg border border-neutral-700 hover:border-secondary/60 hover:shadow-2xl transition-all duration-300 flex flex-col justify-center"
     variants={hoverScaleVariants}
     initial="rest"
     whileHover="hover"
-    data-aos="zoom-in"
   >
     <h3 className="font-bold text-secondary text-base sm:text-lg mb-3 font-heading line-clamp-2">
       {step.step}
